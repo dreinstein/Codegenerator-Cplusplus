@@ -5,7 +5,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-	// test it with merge   sdd
+	// jetzt wirds wild
     ui->setupUi(this);
 	
 	// nun wir werde sehen
