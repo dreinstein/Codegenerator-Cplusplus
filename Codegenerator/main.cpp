@@ -8,6 +8,7 @@ int main(int argc, char *argv[])
 	//
 	
     w.show();
+	// master
 
     return a.exec();
 }
