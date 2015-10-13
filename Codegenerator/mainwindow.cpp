@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 // test it with merge
     ui->setupUi(this);
+	
+	// nun wir werde sehen
 }
 
 MainWindow::~MainWindow()
