@@ -1,13 +1,13 @@
 #include "mainwindow.h"
 #include <QApplication>
 
+// ob das nun g eht
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
 	
-<<<<<<< HEAD
-	// jetzt wollen wir etwas einfügen
+// jetzt wollen wir etwas einfügen
 	
 
 	// master
