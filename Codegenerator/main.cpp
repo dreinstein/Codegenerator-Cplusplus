@@ -6,7 +6,6 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
 	
-<<<<<<< HEAD
 	// jetzt wollen wir etwas einfügen
 	
 
@@ -14,14 +13,16 @@ int main(int argc, char *argv[])
 	// branch1
 	// branch2
 
-=======
     w.show();
 	// branch1
 	// branch2
 
 	// master
 
->>>>>>> branch1
+  branch1
+  
+  // nun zum rebasen
+  
 
     return a.exec();
 }
