@@ -5,10 +5,14 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-	//
 	
-    w.show();
+	// jetzt wollen wir etwas einfügen
+	
+
 	// master
+	// branch1
+	// branch2
+
 
     return a.exec();
 }
