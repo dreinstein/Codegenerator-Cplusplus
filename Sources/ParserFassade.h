@@ -19,7 +19,7 @@ class ParserFassade
 {
 
 public:	
-    ParserFassade(int lang);
+    ParserFassade(General::Languages::Parserlanguage lang);
     ~ParserFassade();
 	void ParseKeyword();
     void ParseRules();
@@ -31,7 +31,7 @@ public:
 
 private:
     Parser *parser;
-    General::Languages language;
+    General::Languages::Parserlanguage language;
 
     ParserFassade(const ParserFassade& f);
     ParserFassade& operator = (const ParserFassade& src);

@@ -5,14 +5,14 @@
 //  Original author: udo_2
 ///////////////////////////////////////////////////////////
 
-using namespace General;
+
 #include "ParserFassade.h"
 #include "Utilities.h"
 
+using namespace General;
 
 
-
-ParserFassade::ParserFassade(int lang){
+ParserFassade::ParserFassade(General::Languages::Parserlanguage lang){
     language = lang;
 }
 
@@ -27,7 +27,7 @@ void ParserFassade::ParseKeyword(){
 }
 
 
-void ParserFassade::ParseRules(Language prm1){
+void ParserFassade::ParseRules(){
 
 }
 
@@ -44,19 +44,22 @@ int ParserFassade::ReadRules(){
 }
 
 
-hash_map ParserFassade::GetKeywords(){
+std::vector<std::string> ParserFassade::GetKeywords(){
 
-	return  NULL;
+    std::vector<std::string> strv;
+    return  strv;
 }
 
 
-hash_map ParserFassade::GetRules(){
+std::vector<std::string> ParserFassade::GetRules(){
 
-	return  NULL;
+    std::vector<std::string> strv;
+    return  strv;
 }
 
 
-hash_map ParserFassade::ReadScript(){
+std::vector<std::string> ParserFassade::ReadScript(){
 
-	return  NULL;
+    std::vector<std::string> strv;
+    return  strv;
 }

@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
  //   MainWindow w;
 	
     ParserFassade *pFassade;// = new ParserFassade(12);
-    pFassade = new ParserFassade(12);
+    pFassade = new ParserFassade(General::Languages::Parserlanguage::CPLUSPLUS);
 
   //  pFassade->ParseKeyword();
  //   w.show();
