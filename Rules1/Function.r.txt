@@ -1,3 +1,0 @@
-const [m]value [m]class:m[m]$function(const ref value $attribut, const ref value attribute)
-{
-}
