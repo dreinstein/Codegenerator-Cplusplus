@@ -1,0 +1,13 @@
+create namesspace first script
+create class firstClass
+Begin
+private Constructor;
+private Destructor;
+private AssignmentOperator;
+private DelegationConstructor;
+public function int myfirstFunction
+private function double secondFunction(const int counter)
+private attribute const int myfistAttribute
+private pointer secondClass;
+private pointer thirdClass;
+end

@@ -1,0 +1,7 @@
+[Class]
+%visiblity class %classname%:optional (repeat(2)((%visiblity%class)))
+{
+};
+
+[Classfunction]
+%visiblity %functionname(repeat(n)(%optional(const) %type|%pointer|%reference |%class %attribute))
