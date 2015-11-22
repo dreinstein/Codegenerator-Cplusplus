@@ -18,5 +18,4 @@ MainWindow::~MainWindow()
 	
 	// this is delete
 	
-	
 }

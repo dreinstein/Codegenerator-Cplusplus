@@ -19,20 +19,3 @@ Parser::~Parser(){
 }
 
 
-
-
-
-bool Parser::Parse(){
-
-	return false;
-}
-
-
-void Parser::Read(){
-
-}
-
-
-void Parser::Write(){
-
-}

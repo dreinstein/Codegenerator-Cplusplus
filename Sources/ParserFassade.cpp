@@ -5,9 +5,12 @@
 //  Original author: udo_2
 ///////////////////////////////////////////////////////////
 
+#include <memory>
 
 #include "ParserFassade.h"
 #include "Utilities.h"
+#include "Parser.h"
+#include "Keywordscplusplus.h"
 
 using namespace General;
 
@@ -22,41 +25,21 @@ ParserFassade::~ParserFassade(){
 }
 
 
-void ParserFassade::ParseKeyword(){
+ std::vector<std::string> ParserFassade::ParseKeyword(){
+     std::vector<std::string> strv;
+     Parser* keyParser = new KeywordsCPlusPlus;
+     strv = keyParser->Parse();
+     delete keyParser;
+     return  strv;
+}
 
+
+ std::vector<std::string> ParserFassade::ParseRules(){
 
 }
 
 
-void ParserFassade::ParseRules(){
 
-}
-
-
-int ParserFassade::ReadKeywords(){
-
-	return 0;
-}
-
-
-int ParserFassade::ReadRules(){
-
-	return 0;
-}
-
-
-std::vector<std::string> ParserFassade::GetKeywords(){
-
-    std::vector<std::string> strv;
-    return  strv;
-}
-
-
-std::vector<std::string> ParserFassade::GetRules(){
-
-    std::vector<std::string> strv;
-    return  strv;
-}
 
 
 std::vector<std::string> ParserFassade::ReadScript(){

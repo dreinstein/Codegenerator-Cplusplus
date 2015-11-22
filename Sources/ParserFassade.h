@@ -22,12 +22,8 @@ class ParserFassade
 public:	
     ParserFassade(General::Languages::Parserlanguage lang);
     ~ParserFassade();
-	void ParseKeyword();
-    void ParseRules();
-	int ReadKeywords();
-	int ReadRules();
-    std::vector<std::string> GetKeywords();
-    std::vector<std::string> GetRules();
+    std::vector<std::string> ParseKeyword();
+    std::vector<std::string> ParseRules();
     std::vector<std::string> ReadScript();
 
 private:

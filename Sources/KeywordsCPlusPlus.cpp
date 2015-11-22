@@ -9,17 +9,13 @@
 
 
 
-bool KeywordsCPlusPlus::Parse(){
-
-	return  NULL;
-}
-
-std::vector<std::string> KeywordsCPlusPlus::Read(){
+std::vector<std::string>  KeywordsCPlusPlus::Parse(){
 
     std::vector<std::string>values;
     return values;
 
 }
+
 
 
 void KeywordsCPlusPlus::Write(){

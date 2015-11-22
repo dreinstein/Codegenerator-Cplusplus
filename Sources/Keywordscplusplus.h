@@ -5,10 +5,10 @@
 #include <string>
 
 
-class KeywordsCPlusPlus:Parser{
+class KeywordsCPlusPlus:public Parser{
 public:
-    bool Parse();
-    std::vector<std::string> Read();
+    std::vector<std::string> Parse();
+   // std::vector<std::string> Read();
     void Write();
 };
 
