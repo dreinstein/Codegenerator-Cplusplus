@@ -5,47 +5,26 @@
 //  Original author: udo_2
 ///////////////////////////////////////////////////////////
 
-#include "KeywordsCPlusPlus.java"
+#include "KeywordsCPlusPlus.h"
 
-
-KeywordsCPlusPlus::KeywordsCPlusPlus(){
-
-}
-
-
-
-KeywordsCPlusPlus::~KeywordsCPlusPlus(){
-
-}
-
-
-
-
-
-hash_map KeywordsCPlusPlus::Get(){
-
-	return  NULL;
-}
-
-
-vector<string> KeywordsCPlusPlus::GetKeywords(){
-
-	return Keywords;
-}
 
 
 bool KeywordsCPlusPlus::Parse(){
 
-	return false;
+	return  NULL;
+}
+
+std::vector<std::string> KeywordsCPlusPlus::Read(){
+
+    std::vector<std::string>values;
+    return values;
+
 }
 
 
-hash_map KeywordsCPlusPlus::Read(){
+void KeywordsCPlusPlus::Write(){
+
 
 }
 
 
-void KeywordsCPlusPlus::SetKeywords(vector<string> newVal){
-
-	Keywords = newVal;
-}

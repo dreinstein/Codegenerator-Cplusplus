@@ -11,6 +11,7 @@
 
 #include "Utilities.h"
 #include <Vector>
+#include<string>
 
 class Parser;
 

@@ -6,6 +6,8 @@
 
 QT       += core gui
 
+CONFIG   += c++11
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Codegenerator
@@ -14,10 +16,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp\
-		ParserFassade.cpp
+		ParserFassade.cpp \
+    KeywordsCPlusPlus.cpp \
+    Parser.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
-	ParserFassade.h
+	ParserFassade.h \
+    Keywordscplusplus.h \
+    Parser.h
 
 FORMS    += mainwindow.ui

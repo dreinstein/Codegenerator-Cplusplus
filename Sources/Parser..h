@@ -9,7 +9,6 @@
 #define EA_EF42C148_FFCC_4c8d_94ED_9EECBFBB51DA__INCLUDED_
 
 #include "ParserFassade.h"
-#include "ParserExecuter.h"
 
 class Parser
 {
@@ -17,12 +16,11 @@ class Parser
 public:
 	Parser();
 	virtual ~Parser();
-	ParserFassade *m_ParserFassade;
-	ParserExecuter *m_ParserExecuter;
+    ParserFassade *m_ParserFassade = nullptr;
 
-	bool Parse();
-	void Read();
-	void Write();
+    virtual bool Parse()=0;
+    virtual void Read()=0;
+    virtual void Write()=0;
 
 };
 #endif // !defined(EA_EF42C148_FFCC_4c8d_94ED_9EECBFBB51DA__INCLUDED_)

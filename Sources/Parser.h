@@ -16,8 +16,6 @@ class Parser
 public:
 	Parser();
 	virtual ~Parser();
-	ParserExecuter *m_ParserExecuter;
-
 	bool Parse();
 	void Read();
 	void Write();
