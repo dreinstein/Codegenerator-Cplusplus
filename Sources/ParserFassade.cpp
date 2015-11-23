@@ -29,8 +29,10 @@ ParserFassade::~ParserFassade(){
  std::vector<std::string> ParserFassade::ParseKeyword(){
      std::vector<std::string> strv;
      Parser* keyParser = new KeywordsCPlusPlus();
-     //keyParser->Parse();
- //    delete keyParser;
+     keyParser->Parse();
+    // keyParser->
+   //  keyParser->
+     delete keyParser;
      return  strv;
 }
 

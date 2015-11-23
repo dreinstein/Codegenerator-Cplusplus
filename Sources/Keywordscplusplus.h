@@ -2,6 +2,8 @@
 #define KEYWORDCPLUSPLUS
 
 #include "Parser.h"
+#include "ParsingVectordata.h"
+#include "Utilities.h"
 #include <string>
 #include <vector>
 
@@ -11,10 +13,10 @@
 
 class KeywordsCPlusPlus:public Parser{
 public:
-    virtual ~KeywordsCPlusPlus(){};
+    virtual ~KeywordsCPlusPlus(){;}
     void Parse();
-    void GetType();
-    void GetDatas();
+    std::vector<std::string> getData();
+    General::Types::DataTypes getDataType() {return General::Types::DataTypes::Vector;}
 
 private:
     std::vector<std::string> values;

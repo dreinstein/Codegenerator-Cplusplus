@@ -23,8 +23,6 @@ HEADERS  += mainwindow.h \
     Utilities.h\
 	ParserFassade.h \
     Keywordscplusplus.h \
-    Parser.h \
-    datas.h \
-    vectordata.h
+    Parser.h
 
 FORMS    += mainwindow.ui

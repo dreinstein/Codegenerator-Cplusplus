@@ -7,8 +7,10 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "KeywordsCPlusPlus.h"
 #include "Utilities.h"
+
 
 using namespace std;
 
@@ -23,14 +25,13 @@ void KeywordsCPlusPlus::Parse(){
     fin.close();
 }
 
-void KeywordsCPlusPlus::GetType()
-{
-   // return General::Types::DataTypes::Vector;
+
+std::vector<std::string> KeywordsCPlusPlus::getData(){
+    return values;
 }
 
-void KeywordsCPlusPlus::GetDatas()
-{
-}
+
+
 
 
 

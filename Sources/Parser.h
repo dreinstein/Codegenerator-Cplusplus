@@ -13,8 +13,9 @@
 class Parser
 {
 public:
+    virtual ~Parser(){;};
     virtual void Parse()=0;
-    virtual void GetType()=0;
-    virtual void GetDatas()=0;
+  //  virtual void GetType()=0;
+  //  virtual void GetDatas()=0;
 };
 #endif // !defined(EA_FCF5E9F8_027D_4ecf_95D2_B9170D58FE49__INCLUDED_)
