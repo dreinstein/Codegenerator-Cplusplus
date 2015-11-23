@@ -16,5 +16,15 @@ public:
 
 };
 
+class Types
+{
+public:
+    enum DataTypes
+    {
+        Map,
+        Vector
+    };
+};
+
 }
 #endif // UTILITIES_H

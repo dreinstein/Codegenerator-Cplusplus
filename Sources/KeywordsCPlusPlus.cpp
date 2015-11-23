@@ -5,22 +5,35 @@
 //  Original author: udo_2
 ///////////////////////////////////////////////////////////
 
+#include <iostream>
+#include <fstream>
 #include "KeywordsCPlusPlus.h"
+#include "Utilities.h"
+
+using namespace std;
 
 
+void KeywordsCPlusPlus::Parse(){
+    ifstream  fin(KEYPATH);
+    string row;
+    while(getline(fin,row))
+    {
+        values.push_back(row);
+    }
+    fin.close();
+}
 
-std::vector<std::string>  KeywordsCPlusPlus::Parse(){
+void KeywordsCPlusPlus::GetType()
+{
+   // return General::Types::DataTypes::Vector;
+}
 
-    std::vector<std::string>values;
-    return values;
-
+void KeywordsCPlusPlus::GetDatas()
+{
 }
 
 
 
-void KeywordsCPlusPlus::Write(){
 
-
-}
 
 

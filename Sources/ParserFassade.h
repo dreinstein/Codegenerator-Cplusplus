@@ -23,8 +23,6 @@ public:
     ParserFassade(General::Languages::Parserlanguage lang);
     ~ParserFassade();
     std::vector<std::string> ParseKeyword();
-    std::vector<std::string> ParseRules();
-    std::vector<std::string> ReadScript();
 
 private:
     Parser *parser;

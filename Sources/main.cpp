@@ -7,12 +7,9 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
- //   MainWindow w;
-	
+ //   MainWindow w;	
     ParserFassade *pFassade = new ParserFassade(General::Languages::CPLUSPLUS);
-
      pFassade->ParseKeyword();
  //   w.show();
-
-    return a.exec();
+     return a.exec();
 }

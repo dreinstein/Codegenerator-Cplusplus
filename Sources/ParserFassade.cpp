@@ -9,8 +9,9 @@
 
 #include "ParserFassade.h"
 #include "Utilities.h"
+#include "KeywordsCPlusPlus.h"
 #include "Parser.h"
-#include "Keywordscplusplus.h"
+
 
 using namespace General;
 
@@ -27,23 +28,10 @@ ParserFassade::~ParserFassade(){
 
  std::vector<std::string> ParserFassade::ParseKeyword(){
      std::vector<std::string> strv;
-     Parser* keyParser = new KeywordsCPlusPlus;
-     strv = keyParser->Parse();
-     delete keyParser;
+     Parser* keyParser = new KeywordsCPlusPlus();
+     //keyParser->Parse();
+ //    delete keyParser;
      return  strv;
 }
 
 
- std::vector<std::string> ParserFassade::ParseRules(){
-
-}
-
-
-
-
-
-std::vector<std::string> ParserFassade::ReadScript(){
-
-    std::vector<std::string> strv;
-    return  strv;
-}

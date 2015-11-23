@@ -12,13 +12,9 @@
 
 class Parser
 {
-
 public:
-	Parser();
-	virtual ~Parser();
-    virtual std::vector<std::string>  Parse()=0;
-    //void Read();
-    //void Write();
-
+    virtual void Parse()=0;
+    virtual void GetType()=0;
+    virtual void GetDatas()=0;
 };
 #endif // !defined(EA_FCF5E9F8_027D_4ecf_95D2_B9170D58FE49__INCLUDED_)
