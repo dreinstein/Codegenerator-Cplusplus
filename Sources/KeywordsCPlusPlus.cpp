@@ -10,12 +10,13 @@
 #include <string>
 #include "KeywordsCPlusPlus.h"
 #include "Utilities.h"
+#include "GeneratorCPlusPlus.h"
 
 
 using namespace std;
 
 
-void  KeywordsCPlusPlus::registerObservers(ParserFassade *observer)
+void  KeywordsCPlusPlus::registerObservers(BaseGenerator *observer)
 {
     id = General::ParserId::Id::Keyword;
     parserObservers.push_back(&*observer);
@@ -30,7 +31,7 @@ void KeywordsCPlusPlus::Parse(){
     }
     fin.close();
     for(int i=0; i < parserObservers.size(); i++){
-    parserObservers[i]->notify(id);
+        parserObservers[i]->notify(id);
     }
 }
 

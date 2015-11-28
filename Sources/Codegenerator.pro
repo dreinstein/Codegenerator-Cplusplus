@@ -18,13 +18,14 @@ SOURCES += main.cpp\
         mainwindow.cpp\
 		ParserFassade.cpp \
     KeywordsCPlusPlus.cpp \
-    Generator.cpp
+    GeneratorCPusPlus.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
 	ParserFassade.h \
     Keywordscplusplus.h \
     Parser.h \
+    GeneratorCPlusPlus.h \
     Generator.h
 
 FORMS    += mainwindow.ui
