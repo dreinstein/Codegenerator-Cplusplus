@@ -26,5 +26,16 @@ public:
     };
 };
 
+class ParserId
+{
+public:
+    enum Id
+    {
+        Keyword = 1,
+        Rules   = 2
+    };
+};
+
+
 }
 #endif // UTILITIES_H

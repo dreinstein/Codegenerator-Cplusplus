@@ -17,12 +17,14 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp\
 		ParserFassade.cpp \
-    KeywordsCPlusPlus.cpp
+    KeywordsCPlusPlus.cpp \
+    Generator.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
 	ParserFassade.h \
     Keywordscplusplus.h \
-    Parser.h
+    Parser.h \
+    Generator.h
 
 FORMS    += mainwindow.ui

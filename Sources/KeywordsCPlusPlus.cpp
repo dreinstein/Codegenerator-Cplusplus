@@ -15,6 +15,12 @@
 using namespace std;
 
 
+void  KeywordsCPlusPlus::registerObservers(ParserFassade *observer)
+{
+    id = General::ParserId::Id::Keyword;
+    parserObservers.push_back(&*observer);
+}
+
 void KeywordsCPlusPlus::Parse(){
     ifstream  fin(KEYPATH);
     string row;
@@ -23,11 +29,16 @@ void KeywordsCPlusPlus::Parse(){
         values.push_back(row);
     }
     fin.close();
+    for(int i=0; i < parserObservers.size(); i++){
+    parserObservers[i]->notify(id);
+    }
 }
 
 
-std::vector<std::string> KeywordsCPlusPlus::getData(){
-    return values;
+void KeywordsCPlusPlus::giveData(){
+    for(int i=0; i < parserObservers.size(); i++){
+       parserObservers[i]->receiveData(values,id);
+    }
 }
 
 

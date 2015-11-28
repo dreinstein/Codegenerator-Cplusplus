@@ -1,15 +1,17 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include "../Sources/ParserFassade.h"
+#include "../Sources/Generator.h"
 #include "../Sources/Utilities.h"
 
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    Generator* myGenerator = new Generator();
+    myGenerator->generate();
  //   MainWindow w;	
-    ParserFassade *pFassade = new ParserFassade(General::Languages::CPLUSPLUS);
-     pFassade->ParseKeyword();
+
  //   w.show();
-     return a.exec();
+    delete myGenerator;
+    return a.exec();
 }

@@ -12,6 +12,7 @@
 #include "Utilities.h"
 #include <Vector>
 #include<string>
+#include <cstddef>
 
 class Parser;
 
@@ -22,10 +23,13 @@ class ParserFassade
 public:	
     ParserFassade(General::Languages::Parserlanguage lang);
     ~ParserFassade();
-    std::vector<std::string> ParseKeyword();
+    void ParseKeyword();
+    void receiveData(std::vector<std::string> strv,int parserId);
+    void notify(int id);
+    void giveData();
 
 private:
-    Parser *parser;
+    Parser *keyParser;
     General::Languages::Parserlanguage language;
 
     ParserFassade(const ParserFassade& f);
