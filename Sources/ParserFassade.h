@@ -15,18 +15,19 @@
 #include <cstddef>
 
 class Parser;
+class BaseGenerator;
 
 
 class ParserFassade
 {
 
 public:	
-    ParserFassade(General::Languages::Parserlanguage lang);
+    ParserFassade(BaseGenerator* generator,General::Languages::Parserlanguage lang);
     ~ParserFassade();
     void ParseKeyword();
-    void receiveData(std::vector<std::string> strv,int parserId);
-    void notify(int id);
-    void giveData();
+//    void receiveData(std::vector<std::string> strv,int parserId);
+//    void notify(int id);
+    void giveKeywordData();
 
 private:
     Parser *keyParser;

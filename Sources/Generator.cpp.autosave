@@ -1,0 +1,51 @@
+
+#include <QtGlobal>
+
+#include "GeneratorCPlusPlusCPlusPlusCPlusPlus.h"
+#include "ParserFassade.h"
+#include "Utilities.h"
+
+
+GeneratorCPlusPlus::GeneratorCPlusPlus()
+{
+    pFassade = new ParserFassade(this,General::Languages::CPLUSPLUS);
+}
+
+GeneratorCPlusPluss::~GeneratorCPlusPlus()
+{
+    if(pFassade)
+    {
+        delete pFassade;
+    }
+}
+CPlusPlusCPlusPlus::generate()
+{
+    Q_ASSERT(pFassade);
+    pFassade->ParseKeyword();
+}
+
+void GeneratorCPlusPlus::notify(int id)
+{
+    // lock data
+    mtx.lock();
+    switch(id)
+    {
+    case keywordId:
+        keywordIdNotificated = true;
+        break;
+    }
+    mtx.unlock();
+}
+
+void GeneratorCPlusPlusCPlusPlusCPlusPlus::receiveData(std::vector<std::string> strv,int parserId)
+{
+  /*  switch(parserId)
+    {
+        case ParserId::Id::Keyword:
+            keywordRules = strv;
+            // signal to the logic interface
+            break;
+    }*/
+}
+
+

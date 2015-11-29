@@ -6,27 +6,27 @@
 ///////////////////////////////////////////////////////////
 
 #include <memory>
-#include <thread>
-#include <mutex>
+
 #include <QtGlobal>
 
 #include "ParserFassade.h"
 #include "Utilities.h"
 #include "KeywordsCPlusPlus.h"
+#include "GeneratorCPlusPlus.h"
 #include "Parser.h"
 
 
 using namespace General;
 
-std::mutex mtx;
 
 
 
 
-ParserFassade::ParserFassade(General::Languages::Parserlanguage lang){
+
+ParserFassade::ParserFassade(BaseGenerator* generator,General::Languages::Parserlanguage lang){
     language = lang;
     keyParser = new KeywordsCPlusPlus();
-    keyParser->registerObservers(this);
+    keyParser->registerObservers(generator);
 }
 
 
@@ -35,26 +35,19 @@ ParserFassade::~ParserFassade(){
 }
 
 
- void ParserFassade::ParseKeyword(){
+void ParserFassade::ParseKeyword(){
      Q_ASSERT(keyParser);
      keyParser->Parse();
- /*    while(1)
-     {
-        Sleep(100);
-        mtx.lock();
-        if(keywordIdNofificated)
-        {
-            keyParser->GiveData();
-            break;
+}
 
-        }
-         mtx.unlock();
-     }*/
+void ParserFassade::giveKeywordData(){
+     Q_ASSERT(keyParser);
+     keyParser->giveData();
 }
 
 
- void ParserFassade::notify(int id)
- {
+// void ParserFassade::notify(int id)
+ //{
      // lock data
    /*  mtx.lock();
      switch(id)
@@ -65,10 +58,10 @@ ParserFassade::~ParserFassade(){
 
      }
      mtx.unlock();*/
- }
+// }
 
 
-void ParserFassade::receiveData(std::vector<std::string> strv,int parserId)
+/*void ParserFassade::receiveData(std::vector<std::string> strv,int parserId)
 {
   /*  switch(parserId)
     {
@@ -77,7 +70,7 @@ void ParserFassade::receiveData(std::vector<std::string> strv,int parserId)
             // signal to the logic interface
             break;
     }*/
-}
+//}*/
 
 
 

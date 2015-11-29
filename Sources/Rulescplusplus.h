@@ -1,20 +1,22 @@
-#ifndef KEYWORDCPLUSPLUS
-#define KEYWORDCPLUSPLUS
+#ifndef RULESCPLUSPLUS_H
+#define RULESCPLUSPLUS_H
 
-#include "Parser.h"
-#include "Parser.h"
-#include "Utilities.h"
+
 #include <string>
 #include <vector>
 
-#define KEYWORDSFILE "Keywords"
-#define KEAWORDSPATH "..\\Keywords\\Keywords.txt"
+#include "Parser.h"
+#include "Utilities.h"
+
+
+#define RULESFILE "Rules"
+#define RULESPATH "..\\Rules\\Rules.txt"
 
 class BaseGenerator;
 
-class KeywordsCPlusPlus:public Parser{
+class RulesCPlusPlus:public Parser{
 public:
-    virtual ~KeywordsCPlusPlus(){;}
+    virtual ~RulesCPlusPlus(){;}
     void Parse();
     void giveData();
     General::Types::DataTypes getDataType() {return General::Types::DataTypes::Vector;}
@@ -23,6 +25,7 @@ public:
 private:
     std::vector<std::string> values;
     int id;
-};
+ };
 
-#endif // KEYWORDCPLUSPLUS
+
+#endif // RULESCPLUSPLUS_H
