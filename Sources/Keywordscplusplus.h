@@ -7,8 +7,7 @@
 #include <string>
 #include <vector>
 
-#define KEYWORDSFILE "Keywords"
-#define KEAWORDSPATH "..\\Keywords\\Keywords.txt"
+
 
 class BaseGenerator;
 
@@ -19,10 +18,8 @@ public:
     void giveData();
     General::Types::DataTypes getDataType() {return General::Types::DataTypes::Vector;}
     void registerObservers(BaseGenerator* observer);
-
 private:
-    std::vector<std::string> values;
-    int id;
+     std::string KEYWORDSPATH = "..\\Keywords\\Keywords.txt";
 };
 
 #endif // KEYWORDCPLUSPLUS

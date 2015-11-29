@@ -32,7 +32,8 @@ public:
     enum Id
     {
         Keyword = 1,
-        Rules   = 2
+        Rules   = 2,
+        Script  = 3
     };
 };
 

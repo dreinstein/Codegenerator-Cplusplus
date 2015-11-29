@@ -9,8 +9,6 @@
 #include "Utilities.h"
 
 
-#define RULESFILE "Rules"
-#define RULESPATH "..\\Rules\\Rules.txt"
 
 class BaseGenerator;
 
@@ -21,11 +19,11 @@ public:
     void giveData();
     General::Types::DataTypes getDataType() {return General::Types::DataTypes::Vector;}
     void registerObservers(BaseGenerator* observer);
-
 private:
-    std::vector<std::string> values;
-    int id;
- };
+    std::string RULESPATH = "..\\Rules\\RulesC++.txt";
+
+
+};
 
 
 #endif // RULESCPLUSPLUS_H

@@ -24,8 +24,8 @@ void  KeywordsCPlusPlus::registerObservers(BaseGenerator *observer)
 
 void KeywordsCPlusPlus::Parse(){
     ParserImpl* parser = new ParserImpl();
-    values = parser->doParse(KEAWORDSPATH);
-    for(int i=0; i < parserObservers.size(); i++){
+    values = parser->doParse(KEYWORDSPATH);
+    for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notify(id);
     }
     delete parser;
@@ -33,7 +33,7 @@ void KeywordsCPlusPlus::Parse(){
 
 
 void KeywordsCPlusPlus::giveData(){
-   for(int i=0; i < parserObservers.size(); i++)
+   for(unsigned int i=0; i < parserObservers.size(); i++)
    {
        parserObservers[i]->receiveData(values,id);
    }

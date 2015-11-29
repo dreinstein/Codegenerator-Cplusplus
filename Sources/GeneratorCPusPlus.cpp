@@ -27,6 +27,8 @@ void GeneratorCPlusPlus::generate()
 {
     Q_ASSERT(pFassade);
     pFassade->ParseKeyword();
+    pFassade->ParseRules();
+    pFassade->ParseScript();
 }
 
 void GeneratorCPlusPlus::notify(int parserId)

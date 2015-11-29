@@ -25,12 +25,19 @@ public:
     ParserFassade(BaseGenerator* generator,General::Languages::Parserlanguage lang);
     ~ParserFassade();
     void ParseKeyword();
+    void ParseRules();
+    void ParseScript();
+
 //    void receiveData(std::vector<std::string> strv,int parserId);
 //    void notify(int id);
     void giveKeywordData();
+    void giveScriptData();
+    void giveRulesData();
 
 private:
     Parser *keyParser;
+    Parser *scriptParser;
+    Parser *rulesParser;
     General::Languages::Parserlanguage language;
 
     ParserFassade(const ParserFassade& f);

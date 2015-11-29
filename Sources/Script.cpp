@@ -1,34 +1,33 @@
-///////////////////////////////////////////////////////////
-//  Script.cpp
-//  Implementation of the Class Script
-//  Created on:      10-Nov-2015 20:47:49
-//  Original author: udo_2
-///////////////////////////////////////////////////////////
-
 #include "Script.h"
 
+#include <string>
+#include "RulesCPlusPlus.h"
+#include "Utilities.h"
+#include "GeneratorCPlusPlus.h"
+#include "Parserimplementation.h"
 
-Script::Script(){
+using namespace std;
 
+
+void  Script::registerObservers(BaseGenerator *observer)
+{
+    id = General::ParserId::Id::Script;
+    parserObservers.push_back(&*observer);
+}
+
+void Script::Parse(){
+    ParserImpl* parser = new ParserImpl();
+    values = parser->doParse(SCRIPTPATH);
+    for(int i=0; i < parserObservers.size(); i++){
+        parserObservers[i]->notify(id);
+    }
+    delete parser;
 }
 
 
-
-Script::~Script(){
-
-}
-
-
-
-
-
-bool Script::Parse(){
-
-	return false;
-}
-
-
-hash_map Script::Read(){
-
-	return  NULL;
+void Script::giveData(){
+    for(int i=0; i < parserObservers.size(); i++)
+    {
+        parserObservers[i]->receiveData(values,id);
+    }
 }

@@ -50,7 +50,8 @@ SOURCES       = ..\Sources\main.cpp \
 		..\Sources\GeneratorCPusPlus.cpp \
 		..\Sources\Rulescplusplus.cpp \
 		..\Sources\Parser.cpp \
-		..\Sources\parserimplementation.cpp release\moc_mainwindow.cpp
+		..\Sources\parserimplementation.cpp \
+		..\Sources\Script.cpp release\moc_mainwindow.cpp
 OBJECTS       = release/main.o \
 		release/mainwindow.o \
 		release/ParserFassade.o \
@@ -59,6 +60,7 @@ OBJECTS       = release/main.o \
 		release/Rulescplusplus.o \
 		release/Parser.o \
 		release/parserimplementation.o \
+		release/Script.o \
 		release/moc_mainwindow.o
 
 DIST          =  ..\Sources\mainwindow.h \
@@ -69,14 +71,16 @@ DIST          =  ..\Sources\mainwindow.h \
 		..\Sources\GeneratorCPlusPlus.h \
 		..\Sources\BaseGenerator.h \
 		..\Sources\Rulescplusplus.h \
-		..\Sources\Parserimplementation.h ..\Sources\main.cpp \
+		..\Sources\Parserimplementation.h \
+		..\Sources\Script.h ..\Sources\main.cpp \
 		..\Sources\mainwindow.cpp \
 		..\Sources\ParserFassade.cpp \
 		..\Sources\KeywordsCPlusPlus.cpp \
 		..\Sources\GeneratorCPusPlus.cpp \
 		..\Sources\Rulescplusplus.cpp \
 		..\Sources\Parser.cpp \
-		..\Sources\parserimplementation.cpp
+		..\Sources\parserimplementation.cpp \
+		..\Sources\Script.cpp
 QMAKE_TARGET  = Codegenerator
 DESTDIR        = release\ #avoid trailing-slash linebreak
 TARGET         = Codegenerator.exe
@@ -104,7 +108,7 @@ first: all
 all: Makefile.Release  $(DESTDIR_TARGET)
 
 $(DESTDIR_TARGET): ui_mainwindow.h $(OBJECTS) 
-	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) $(OBJECTS)  $(LIBS)
+	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) object_script.Codegenerator.Release  $(LIBS)
 
 qmake: FORCE
 	@$(QMAKE) -spec win32-g++ CONFIG+=debug -o Makefile.Release ..\Sources\Codegenerator.pro
@@ -115,7 +119,7 @@ dist:
 	$(ZIP) Codegenerator.zip $(SOURCES) $(DIST) ..\Sources\Codegenerator.pro ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\spec_pre.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\qdevice.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\device_config.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\common\shell-win32.conf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\qconfig.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_axbase.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_axbase_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_axcontainer.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_axserver.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_axserver_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_bluetooth.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_clucene_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_concurrent.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_core.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_core_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_dbus.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_dbus_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_declarative.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_declarative_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_designer.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_designer_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_enginio.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_enginio_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_gui.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_gui_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_help.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_help_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_location.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_location_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_multimedia.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_network.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_network_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_nfc.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_nfc_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_opengl.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_opengl_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_openglextensions.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_platformsupport_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_positioning.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_positioning_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_printsupport.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_qml.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_qml_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_qmltest.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_quick.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_quick_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_script.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_script_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_scripttools.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_scripttools_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_sensors.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_sensors_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_serialport.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_serialport_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_sql.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_sql_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_svg.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_svg_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_testlib.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_testlib_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_uitools.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_uitools_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_webchannel.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_webkit.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_webkit_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_webkitwidgets.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_webkitwidgets_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_websockets.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_websockets_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_webview.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_webview_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_widgets.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_widgets_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_winextras.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_winextras_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_xml.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_xml_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\qt_functions.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\qt_config.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\win32\qt_config.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\win32-g++\qmake.conf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\spec_post.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\exclusive_builds.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\default_pre.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\win32\default_pre.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\resolve_config.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\exclusive_builds_post.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\default_post.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\build_pass.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\c++11.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\win32\rtti.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\precompile_header.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\warn_on.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\qt.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\resources.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\moc.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\win32\opengl.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\uic.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\win32\windows.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\testcase_targets.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\exceptions.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\yacc.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\lex.prf ..\Sources\Codegenerator.pro C:/Qtmingw/5.4/mingw491_32/lib/qtmain.prl C:/Qtmingw/5.4/mingw491_32/lib/Qt5Core.prl C:/Qtmingw/5.4/mingw491_32/lib/Qt5Widgets.prl C:/Qtmingw/5.4/mingw491_32/lib/Qt5Gui.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\main.o release\mainwindow.o release\ParserFassade.o release\KeywordsCPlusPlus.o release\GeneratorCPusPlus.o release\Rulescplusplus.o release\Parser.o release\parserimplementation.o release\moc_mainwindow.o
+	-$(DEL_FILE) release\main.o release\mainwindow.o release\ParserFassade.o release\KeywordsCPlusPlus.o release\GeneratorCPusPlus.o release\Rulescplusplus.o release\Parser.o release\parserimplementation.o release\Script.o release\moc_mainwindow.o
 
 distclean: clean 
 	-$(DEL_FILE) $(DESTDIR_TARGET)
@@ -560,6 +564,8 @@ release/ParserFassade.o: ../Sources/ParserFassade.cpp ../../Qtmingw/5.4/mingw491
 		../Sources/Utilities.h \
 		../Sources/KeywordsCPlusPlus.h \
 		../Sources/Parser.h \
+		../Sources/Rulescplusplus.h \
+		../Sources/Script.h \
 		../Sources/GeneratorCPlusPlus.h \
 		../Sources/BaseGenerator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\ParserFassade.o ..\Sources\ParserFassade.cpp
@@ -614,7 +620,8 @@ release/Rulescplusplus.o: ../Sources/Rulescplusplus.cpp ../Sources/Rulescplusplu
 		../Sources/Utilities.h \
 		../Sources/RulesCPlusPlus.h \
 		../Sources/GeneratorCPlusPlus.h \
-		../Sources/BaseGenerator.h
+		../Sources/BaseGenerator.h \
+		../Sources/Parserimplementation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Rulescplusplus.o ..\Sources\Rulescplusplus.cpp
 
 release/Parser.o: ../Sources/Parser.cpp ../Sources/Parser.h \
@@ -624,6 +631,16 @@ release/Parser.o: ../Sources/Parser.cpp ../Sources/Parser.h \
 
 release/parserimplementation.o: ../Sources/parserimplementation.cpp ../Sources/Parserimplementation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\parserimplementation.o ..\Sources\parserimplementation.cpp
+
+release/Script.o: ../Sources/Script.cpp ../Sources/Script.h \
+		../Sources/Parser.h \
+		../Sources/ParserFassade.h \
+		../Sources/Utilities.h \
+		../Sources/RulesCPlusPlus.h \
+		../Sources/GeneratorCPlusPlus.h \
+		../Sources/BaseGenerator.h \
+		../Sources/Parserimplementation.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Script.o ..\Sources\Script.cpp
 
 release/moc_mainwindow.o: release/moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_mainwindow.o release\moc_mainwindow.cpp

@@ -12,6 +12,8 @@
 #include "ParserFassade.h"
 #include "Utilities.h"
 #include "KeywordsCPlusPlus.h"
+#include "Rulescplusplus.h"
+#include "Script.h"
 #include "GeneratorCPlusPlus.h"
 #include "Parser.h"
 
@@ -19,58 +21,63 @@
 using namespace General;
 
 
-
-
-
-
-ParserFassade::ParserFassade(BaseGenerator* generator,General::Languages::Parserlanguage lang){
+ParserFassade::ParserFassade(BaseGenerator* generator,General::Languages::Parserlanguage lang)
+{
     language = lang;
     keyParser = new KeywordsCPlusPlus();
     keyParser->registerObservers(generator);
+    rulesParser = new RulesCPlusPlus();
+    rulesParser->registerObservers(generator);
+    scriptParser = new Script();
+    scriptParser->registerObservers(generator);
 }
 
 
-ParserFassade::~ParserFassade(){
-
+ParserFassade::~ParserFassade()
+{
+    delete keyParser;
+    delete rulesParser;
+    delete scriptParser;
 }
 
 
-void ParserFassade::ParseKeyword(){
+void ParserFassade::ParseKeyword()
+{
      Q_ASSERT(keyParser);
      keyParser->Parse();
 }
 
-void ParserFassade::giveKeywordData(){
+void ParserFassade::ParseRules()
+{
+     Q_ASSERT(rulesParser);
+     rulesParser->Parse();
+}
+
+void ParserFassade::ParseScript()
+{
+     Q_ASSERT(scriptParser);
+     scriptParser->Parse();
+}
+
+
+void ParserFassade::giveKeywordData()
+{
      Q_ASSERT(keyParser);
      keyParser->giveData();
 }
 
-
-// void ParserFassade::notify(int id)
- //{
-     // lock data
-   /*  mtx.lock();
-     switch(id)
-     {
-     case keywordId:
-         keywordIdNotificated = true;
-         break;
-
-     }
-     mtx.unlock();*/
-// }
-
-
-/*void ParserFassade::receiveData(std::vector<std::string> strv,int parserId)
+void ParserFassade::giveRulesData()
 {
-  /*  switch(parserId)
-    {
-        case ParserId::Id::Keyword:
-            keywordRules = strv;
-            // signal to the logic interface
-            break;
-    }*/
-//}*/
+     Q_ASSERT(rulesParser);
+     rulesParser->giveData();
+}
+
+void ParserFassade::giveScriptData()
+{
+     Q_ASSERT(scriptParser);
+     rulesParser->giveData();
+}
+
 
 
 
