@@ -5,12 +5,12 @@
 //  Original author: udo_2
 ///////////////////////////////////////////////////////////
 
-#include <iostream>
-#include <fstream>
+
 #include <string>
 #include "KeywordsCPlusPlus.h"
 #include "Utilities.h"
 #include "GeneratorCPlusPlus.h"
+#include "Parserimplementation.h"
 
 
 using namespace std;
@@ -23,23 +23,20 @@ void  KeywordsCPlusPlus::registerObservers(BaseGenerator *observer)
 }
 
 void KeywordsCPlusPlus::Parse(){
-    ifstream  fin(KEYPATH);
-    string row;
-    while(getline(fin,row))
-    {
-        values.push_back(row);
-    }
-    fin.close();
+    ParserImpl* parser = new ParserImpl();
+    values = parser->doParse(KEAWORDSPATH);
     for(int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notify(id);
     }
+    delete parser;
 }
 
 
 void KeywordsCPlusPlus::giveData(){
-    for(int i=0; i < parserObservers.size(); i++){
+   for(int i=0; i < parserObservers.size(); i++)
+   {
        parserObservers[i]->receiveData(values,id);
-    }
+   }
 }
 
 

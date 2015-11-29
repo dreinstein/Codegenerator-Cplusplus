@@ -5,7 +5,7 @@
 #include <vector>
 #include <string>
 
-#include "Generator.h"
+#include "BaseGenerator.h"
 
 class ParserFassade;
 
@@ -20,7 +20,6 @@ public:
     void notify(int id);
 private:
     ParserFassade *pFassade=nullptr;
-    bool isNotificated=false;
 };
 
 #endif // GeneratorCPlusPlus

@@ -17,7 +17,7 @@ class Parser
 {
 public:
     virtual ~Parser(){;};
-    virtual void Parse()=0;
+    virtual void Parse();
     virtual void giveData()=0;
     virtual void registerObservers(BaseGenerator *observer)=0;
 protected:

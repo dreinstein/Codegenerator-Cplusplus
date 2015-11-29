@@ -18,7 +18,10 @@ SOURCES += main.cpp\
         mainwindow.cpp\
 		ParserFassade.cpp \
     KeywordsCPlusPlus.cpp \
-    GeneratorCPusPlus.cpp
+    GeneratorCPusPlus.cpp \
+    Rulescplusplus.cpp \
+    Parser.cpp \
+    parserimplementation.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
@@ -26,6 +29,8 @@ HEADERS  += mainwindow.h \
     Keywordscplusplus.h \
     Parser.h \
     GeneratorCPlusPlus.h \
-    Generator.h
+    BaseGenerator.h \
+    Rulescplusplus.h \
+    Parserimplementation.h
 
 FORMS    += mainwindow.ui

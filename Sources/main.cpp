@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include <QApplication>
 #include "../Sources/GeneratorCPlusPlus.h"
-#include "../Sources/Generator.h"
+#include "../Sources/BaseGenerator.h"
 #include "../Sources/Utilities.h"
 
 

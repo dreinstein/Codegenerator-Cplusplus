@@ -12,7 +12,6 @@ std::mutex mtx;
 GeneratorCPlusPlus::GeneratorCPlusPlus()
 {
     pFassade = new ParserFassade(this,General::Languages::CPLUSPLUS);
-    isNotificated=false;
 }
 
 
@@ -46,7 +45,7 @@ void GeneratorCPlusPlus::receiveData(std::vector<std::string> strv,int parserId)
     switch(parserId)
     {
         case General::ParserId::Id::Keyword:
-          //  keywordRules = strv;
+            keywords = strv;
             // signal to the logic interface
             break;
     }
