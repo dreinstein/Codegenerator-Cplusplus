@@ -1,0 +1,12 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\ParserFassade.o
+./release\KeywordsCPlusPlus.o
+./release\GeneratorCPusPlus.o
+./release\Rulescplusplus.o
+./release\Parser.o
+./release\parserimplementation.o
+./release\Script.o
+./release\moc_mainwindow.o
+);

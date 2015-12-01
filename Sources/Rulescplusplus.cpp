@@ -1,4 +1,5 @@
-#include "Script.h"
+#include "Rulescplusplus.h"
+
 
 #include <string>
 #include "RulesCPlusPlus.h"
@@ -12,15 +13,15 @@ namespace Parser
 using namespace std;
 
 
-void  Script::registerObservers(BaseGenerator *observer)
+void  RulesCPlusPlus::registerObservers(BaseGenerator *observer)
 {
-    id = General::ParserId::Id::Script;
+    id = General::ParserId::Id::Rules;
     parserObservers.push_back(&*observer);
 }
 
-void Script::Parse(){
+void RulesCPlusPlus::Parse(){
     ParserImpl* parser = new ParserImpl();
-    values = parser->doParse(SCRIPTPATH);
+    values = parser->doParse(RULESPATH);
     for(int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notify(id);
     }
@@ -28,10 +29,11 @@ void Script::Parse(){
 }
 
 
-void Script::giveData(){
+void RulesCPlusPlus::giveData(){
     for(int i=0; i < parserObservers.size(); i++)
     {
         parserObservers[i]->receiveData(values,id);
     }
 }
+
 }

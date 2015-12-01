@@ -8,43 +8,41 @@
 ///////////////////////////////////////////////////////////
 
 
-
-#include <iostream>
-#include <fstream>
 #include <string>
 #include "KeywordsCPlusPlus.h"
 #include "Utilities.h"
+#include "GeneratorCPlusPlus.h"
+#include "Parserimplementation.h"
+
 
 
 using namespace std;
+using namespace Logic;
 
 namespace Parser
 {
 
-void  KeywordsCPlusPlus::registerObservers(ParserFassade *observer)
+void  KeywordsCPlusPlus::registerObservers(BaseGenerator *observer)
 {
     id = General::ParserId::Id::Keyword;
     parserObservers.push_back(&*observer);
 }
 
 void KeywordsCPlusPlus::Parse(){
-    ifstream  fin(KEYPATH);
-    string row;
-    while(getline(fin,row))
-    {
-        values.push_back(row);
+    ParserImpl* parser = new ParserImpl();
+    values = parser->doParse(KEYWORDSPATH);
+    for(unsigned int i=0; i < parserObservers.size(); i++){
+        parserObservers[i]->notify(id);
     }
-    fin.close();
-    for(int i=0; i < parserObservers.size(); i++){
-    parserObservers[i]->notify(id);
-    }
+    delete parser;
 }
 
 
 void KeywordsCPlusPlus::giveData(){
-    for(int i=0; i < parserObservers.size(); i++){
+   for(unsigned int i=0; i < parserObservers.size(); i++)
+   {
        parserObservers[i]->receiveData(values,id);
-    }
+   }
 }
 
 }

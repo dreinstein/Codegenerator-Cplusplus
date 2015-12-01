@@ -1,33 +1,31 @@
+#ifndef RULESCPLUSPLUS_H
+#define RULESCPLUSPLUS_H
 
 
-#ifndef KEYWORDCPLUSPLUS
-#define KEYWORDCPLUSPLUS
-
-
-#include "Parser.h"
-#include "Utilities.h"
 #include <string>
 #include <vector>
 
+#include "Parser.h"
+#include "Utilities.h"
 
 namespace Parser
 {
 
 class BaseGenerator;
 
-class KeywordsCPlusPlus:public Parser{
+class RulesCPlusPlus:public Parser{
 public:
-    virtual ~KeywordsCPlusPlus(){;}
+    virtual ~RulesCPlusPlus(){;}
     void Parse();
     void giveData();
     General::Types::DataTypes getDataType() {return General::Types::DataTypes::Vector;}
     void registerObservers(BaseGenerator* observer);
 private:
-     std::string KEYWORDSPATH = "..\\Keywords\\Keywords.txt";
+    std::string RULESPATH = "..\\Rules\\RulesC++.txt";
+
+
 };
 
 }
 
-#endif // KEYWORDCPLUSPLUS
-
-
+#endif // RULESCPLUSPLUS_H

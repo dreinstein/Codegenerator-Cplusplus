@@ -14,27 +14,39 @@
 #include <Vector>
 #include<string>
 #include <cstddef>
+#include <BaseGenerator.h>
 
 namespace Parser
 {
 
+using namespace Logic;
+using namespace General;
 class Parser;
+
 
 
 class ParserFassade
 {
 
 public:	
-    ParserFassade(General::Languages::Parserlanguage lang);
-    ~ParserFassade();
+     ~ParserFassade();
+    ParserFassade(BaseGenerator* generator,Languages::Parserlanguage lang);
+
     void ParseKeyword();
-    void receiveData(std::vector<std::string> strv,int parserId);
-    void notify(int id);
-    void giveData();
+    void ParseRules();
+    void ParseScript();
+
+//    void receiveData(std::vector<std::string> strv,int parserId);
+//    void notify(int id);
+    void giveKeywordData();
+    void giveScriptData();
+    void giveRulesData();
 
 private:
     Parser *keyParser;
-    General::Languages::Parserlanguage language;
+    Parser *scriptParser;
+    Parser *rulesParser;
+    Languages::Parserlanguage language;
 
     ParserFassade(const ParserFassade& f);
     ParserFassade& operator = (const ParserFassade& src);

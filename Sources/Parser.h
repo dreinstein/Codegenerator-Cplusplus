@@ -12,18 +12,26 @@
 #include <vector>
 #include "ParserFassade.h"
 
+
+
 namespace Parser
 {
+
+class BaseGenerator;
 
 class Parser
 {
 public:
-    virtual ~Parser(){};
+
+    Parser() {};
+    virtual ~Parser(){;};
     virtual void Parse()=0;
     virtual void giveData()=0;
-    virtual void registerObservers(ParserFassade *observer)=0;
+    virtual void registerObservers(BaseGenerator *observer)=0;
 protected:
-    std::vector<ParserFassade*> parserObservers;
+    std::vector<BaseGenerator*> parserObservers;
+    std::vector<std::string> values;
+    int id;
 };
 
 }

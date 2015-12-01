@@ -47,24 +47,37 @@ SOURCES       = ..\Sources\main.cpp \
 		..\Sources\mainwindow.cpp \
 		..\Sources\ParserFassade.cpp \
 		..\Sources\KeywordsCPlusPlus.cpp \
-		..\Sources\Generator.cpp debug\moc_mainwindow.cpp
+		..\Sources\GeneratorCPusPlus.cpp \
+		..\Sources\Rulescplusplus.cpp \
+		..\Sources\parserimplementation.cpp \
+		..\Sources\Script.cpp debug\moc_mainwindow.cpp
 OBJECTS       = debug/main.o \
 		debug/mainwindow.o \
 		debug/ParserFassade.o \
 		debug/KeywordsCPlusPlus.o \
-		debug/Generator.o \
+		debug/GeneratorCPusPlus.o \
+		debug/Rulescplusplus.o \
+		debug/parserimplementation.o \
+		debug/Script.o \
 		debug/moc_mainwindow.o
 
 DIST          =  ..\Sources\mainwindow.h \
 		..\Sources\Utilities.h \
 		..\Sources\ParserFassade.h \
 		..\Sources\Keywordscplusplus.h \
-		..\Sources\Parser.h \
-		..\Sources\Generator.h ..\Sources\main.cpp \
+		..\Sources\GeneratorCPlusPlus.h \
+		..\Sources\BaseGenerator.h \
+		..\Sources\Rulescplusplus.h \
+		..\Sources\Parserimplementation.h \
+		..\Sources\Script.h \
+		..\Sources\Parser.h ..\Sources\main.cpp \
 		..\Sources\mainwindow.cpp \
 		..\Sources\ParserFassade.cpp \
 		..\Sources\KeywordsCPlusPlus.cpp \
-		..\Sources\Generator.cpp
+		..\Sources\GeneratorCPusPlus.cpp \
+		..\Sources\Rulescplusplus.cpp \
+		..\Sources\parserimplementation.cpp \
+		..\Sources\Script.cpp
 QMAKE_TARGET  = Codegenerator
 DESTDIR        = debug\ #avoid trailing-slash linebreak
 TARGET         = Codegenerator.exe
@@ -103,7 +116,7 @@ dist:
 	$(ZIP) Codegenerator.zip $(SOURCES) $(DIST) ..\Sources\Codegenerator.pro ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\spec_pre.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\qdevice.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\device_config.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\common\shell-win32.conf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\qconfig.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_axbase.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_axbase_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_axcontainer.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_axserver.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_axserver_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_bluetooth.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_clucene_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_concurrent.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_core.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_core_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_dbus.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_dbus_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_declarative.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_declarative_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_designer.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_designer_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_enginio.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_enginio_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_gui.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_gui_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_help.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_help_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_location.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_location_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_multimedia.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_network.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_network_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_nfc.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_nfc_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_opengl.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_opengl_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_openglextensions.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_platformsupport_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_positioning.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_positioning_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_printsupport.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_qml.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_qml_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_qmltest.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_quick.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_quick_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_script.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_script_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_scripttools.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_scripttools_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_sensors.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_sensors_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_serialport.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_serialport_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_sql.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_sql_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_svg.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_svg_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_testlib.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_testlib_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_uitools.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_uitools_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_webchannel.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_webkit.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_webkit_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_webkitwidgets.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_webkitwidgets_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_websockets.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_websockets_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_webview.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_webview_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_widgets.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_widgets_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_winextras.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_winextras_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_xml.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_xml_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\qt_functions.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\qt_config.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\win32\qt_config.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\win32-g++\qmake.conf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\spec_post.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\exclusive_builds.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\default_pre.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\win32\default_pre.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\resolve_config.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\exclusive_builds_post.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\default_post.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\build_pass.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\c++11.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\win32\rtti.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\precompile_header.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\warn_on.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\qt.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\resources.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\moc.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\win32\opengl.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\uic.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\win32\windows.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\testcase_targets.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\exceptions.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\yacc.prf ..\..\QtInstallation\5.4\mingw491_32\mkspecs\features\lex.prf ..\Sources\Codegenerator.pro C:/QtInstallation/5.4/mingw491_32/lib/qtmaind.prl C:/QtInstallation/5.4/mingw491_32/lib/Qt5Cored.prl C:/QtInstallation/5.4/mingw491_32/lib/Qt5Widgetsd.prl C:/QtInstallation/5.4/mingw491_32/lib/Qt5Guid.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\main.o debug\mainwindow.o debug\ParserFassade.o debug\KeywordsCPlusPlus.o debug\Generator.o debug\moc_mainwindow.o
+	-$(DEL_FILE) debug\main.o debug\mainwindow.o debug\ParserFassade.o debug\KeywordsCPlusPlus.o debug\GeneratorCPusPlus.o debug\Rulescplusplus.o debug\parserimplementation.o debug\Script.o debug\moc_mainwindow.o
 
 distclean: clean 
 	-$(DEL_FILE) $(DESTDIR_TARGET)
@@ -363,7 +376,8 @@ debug/main.o: ../Sources/main.cpp ../Sources/mainwindow.h \
 		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qdesktopwidget.h \
 		../../QtInstallation/5.4/mingw491_32/include/QtGui/qguiapplication.h \
 		../../QtInstallation/5.4/mingw491_32/include/QtGui/qinputmethod.h \
-		../Sources/Generator.h \
+		../Sources/GeneratorCPlusPlus.h \
+		../Sources/BaseGenerator.h \
 		../Sources/Utilities.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\Sources\main.cpp
 
@@ -547,20 +561,78 @@ debug/ParserFassade.o: ../Sources/ParserFassade.cpp ../../QtInstallation/5.4/min
 		../Sources/Utilities.h \
 		../Sources/KeywordsCPlusPlus.h \
 		../Sources/Parser.h \
-		../Sources/ParsingVectordata.h
+		../Sources/Rulescplusplus.h \
+		../Sources/Script.h \
+		../Sources/GeneratorCPlusPlus.h \
+		../Sources/BaseGenerator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\ParserFassade.o ..\Sources\ParserFassade.cpp
 
 debug/KeywordsCPlusPlus.o: ../Sources/KeywordsCPlusPlus.cpp ../Sources/KeywordsCPlusPlus.h \
 		../Sources/Parser.h \
 		../Sources/ParserFassade.h \
 		../Sources/Utilities.h \
-		../Sources/ParsingVectordata.h
+		../Sources/GeneratorCPlusPlus.h \
+		../Sources/BaseGenerator.h \
+		../Sources/Parserimplementation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\KeywordsCPlusPlus.o ..\Sources\KeywordsCPlusPlus.cpp
 
-debug/Generator.o: ../Sources/Generator.cpp ../Sources/Generator.h \
+debug/GeneratorCPusPlus.o: ../Sources/GeneratorCPusPlus.cpp ../../QtInstallation/5.4/mingw491_32/include/QtCore/QtGlobal \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qglobal.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qconfig.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qfeatures.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qsystemdetection.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qprocessordetection.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qcompilerdetection.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qtypeinfo.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qtypetraits.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qsysinfo.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qlogging.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qflags.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qatomic.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qbasicatomic.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qatomic_bootstrap.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qgenericatomic.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qatomic_msvc.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qatomic_armv7.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qatomic_armv6.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qatomic_armv5.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qatomic_ia64.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qatomic_mips.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qatomic_x86.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qatomic_cxx11.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qatomic_gcc.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qatomic_unix.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qglobalstatic.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qmutex.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qnumeric.h \
+		../Sources/GeneratorCPlusPlus.h \
+		../Sources/BaseGenerator.h \
 		../Sources/ParserFassade.h \
 		../Sources/Utilities.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Generator.o ..\Sources\Generator.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\GeneratorCPusPlus.o ..\Sources\GeneratorCPusPlus.cpp
+
+debug/Rulescplusplus.o: ../Sources/Rulescplusplus.cpp ../Sources/Rulescplusplus.h \
+		../Sources/Parser.h \
+		../Sources/ParserFassade.h \
+		../Sources/Utilities.h \
+		../Sources/RulesCPlusPlus.h \
+		../Sources/GeneratorCPlusPlus.h \
+		../Sources/BaseGenerator.h \
+		../Sources/Parserimplementation.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Rulescplusplus.o ..\Sources\Rulescplusplus.cpp
+
+debug/parserimplementation.o: ../Sources/parserimplementation.cpp ../Sources/Parserimplementation.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\parserimplementation.o ..\Sources\parserimplementation.cpp
+
+debug/Script.o: ../Sources/Script.cpp ../Sources/Script.h \
+		../Sources/Parser.h \
+		../Sources/ParserFassade.h \
+		../Sources/Utilities.h \
+		../Sources/RulesCPlusPlus.h \
+		../Sources/GeneratorCPlusPlus.h \
+		../Sources/BaseGenerator.h \
+		../Sources/Parserimplementation.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Script.o ..\Sources\Script.cpp
 
 debug/moc_mainwindow.o: debug/moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_mainwindow.o debug\moc_mainwindow.cpp

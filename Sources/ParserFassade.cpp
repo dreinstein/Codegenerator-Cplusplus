@@ -8,82 +8,84 @@
 
 
 #include <memory>
-#include <thread>
-#include <mutex>
+
 #include <QtGlobal>
 
 #include "ParserFassade.h"
 #include "Utilities.h"
 #include "KeywordsCPlusPlus.h"
+#include "Rulescplusplus.h"
+#include "Script.h"
+#include "GeneratorCPlusPlus.h"
 #include "Parser.h"
 
 namespace Parser
 {
 
 using namespace General;
-
-std::mutex mtx;
-
+using namespace Logic;
 
 
-
-ParserFassade::ParserFassade(General::Languages::Parserlanguage lang){
+ParserFassade::ParserFassade(BaseGenerator* generator,Languages::Parserlanguage lang)
+{
     language = lang;
     keyParser = new KeywordsCPlusPlus();
-    keyParser->registerObservers(this);
+    keyParser->registerObservers(generator);
+    rulesParser = new RulesCPlusPlus();
+    rulesParser->registerObservers(generator);
+    scriptParser = new Script();
+    scriptParser->registerObservers(generator);
 }
 
 
-ParserFassade::~ParserFassade(){
-
+ParserFassade::~ParserFassade()
+{
+    delete keyParser;
+    delete rulesParser;
+    delete scriptParser;
 }
 
 
- void ParserFassade::ParseKeyword(){
+void ParserFassade::ParseKeyword()
+{
      Q_ASSERT(keyParser);
      keyParser->Parse();
- /*    while(1)
-     {
-        Sleep(100);
-        mtx.lock();
-        if(keywordIdNofificated)
-        {
-            keyParser->GiveData();
-            break;
-
-        }
-         mtx.unlock();
-     }*/
 }
 
-
- void ParserFassade::notify(int id)
- {
-     // lock data
-   /*  mtx.lock();
-     switch(id)
-     {
-     case keywordId:
-         keywordIdNotificated = true;
-         break;
-
-     }
-     mtx.unlock();*/
- }
-
-
-void ParserFassade::receiveData(std::vector<std::string> strv,int parserId)
+void ParserFassade::ParseRules()
 {
-  /*  switch(parserId)
-    {
-        case ParserId::Id::Keyword:
-            keywordRules = strv;
-            // signal to the logic interface
-            break;
-    }*/
+     Q_ASSERT(rulesParser);
+     rulesParser->Parse();
 }
 
+void ParserFassade::ParseScript()
+{
+     Q_ASSERT(scriptParser);
+     scriptParser->Parse();
 }
+
+
+void ParserFassade::giveKeywordData()
+{
+     Q_ASSERT(keyParser);
+     keyParser->giveData();
+}
+
+void ParserFassade::giveRulesData()
+{
+     Q_ASSERT(rulesParser);
+     rulesParser->giveData();
+}
+
+
+void ParserFassade::giveScriptData()
+{
+     Q_ASSERT(scriptParser);
+     rulesParser->giveData();
+}
+
+
+} // end namespace
 
 
 
