@@ -27,10 +27,10 @@ class Parser;
 
 class ParserFassade
 {
-
 public:	
-     ~ParserFassade();
+
     ParserFassade(BaseGenerator* generator,Languages::Parserlanguage lang);
+    ~ParserFassade();
 
     void ParseKeyword();
     void ParseRules();

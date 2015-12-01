@@ -24,6 +24,7 @@ public:
 private:
     ParserFassade *pFassade=nullptr;
 };
+
 } // end namespace
 
 #endif // GeneratorCPlusPlus

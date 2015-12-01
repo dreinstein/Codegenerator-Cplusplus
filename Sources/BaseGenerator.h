@@ -20,6 +20,6 @@ protected:
     std::vector<std::string> rules;
 };
 
-}
+} // end namespace
 #endif // GENERATOR
 

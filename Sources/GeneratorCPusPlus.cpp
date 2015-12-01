@@ -16,7 +16,7 @@ std::mutex mtx;
 
 GeneratorCPlusPlus::GeneratorCPlusPlus()
 {
-    pFassade = new ParserFassade(this,General::Languages::CPLUSPLUS);
+    pFassade = new Parser::ParserFassade(this,General::Languages::CPLUSPLUS);
 }
 
 

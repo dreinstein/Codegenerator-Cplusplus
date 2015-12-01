@@ -559,20 +559,20 @@ debug/ParserFassade.o: ../Sources/ParserFassade.cpp ../../QtInstallation/5.4/min
 		../../QtInstallation/5.4/mingw491_32/include/QtCore/qnumeric.h \
 		../Sources/ParserFassade.h \
 		../Sources/Utilities.h \
+		../Sources/BaseGenerator.h \
 		../Sources/KeywordsCPlusPlus.h \
 		../Sources/Parser.h \
 		../Sources/Rulescplusplus.h \
 		../Sources/Script.h \
-		../Sources/GeneratorCPlusPlus.h \
-		../Sources/BaseGenerator.h
+		../Sources/GeneratorCPlusPlus.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\ParserFassade.o ..\Sources\ParserFassade.cpp
 
 debug/KeywordsCPlusPlus.o: ../Sources/KeywordsCPlusPlus.cpp ../Sources/KeywordsCPlusPlus.h \
 		../Sources/Parser.h \
 		../Sources/ParserFassade.h \
 		../Sources/Utilities.h \
-		../Sources/GeneratorCPlusPlus.h \
 		../Sources/BaseGenerator.h \
+		../Sources/GeneratorCPlusPlus.h \
 		../Sources/Parserimplementation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\KeywordsCPlusPlus.o ..\Sources\KeywordsCPlusPlus.cpp
 
@@ -615,9 +615,9 @@ debug/Rulescplusplus.o: ../Sources/Rulescplusplus.cpp ../Sources/Rulescplusplus.
 		../Sources/Parser.h \
 		../Sources/ParserFassade.h \
 		../Sources/Utilities.h \
+		../Sources/BaseGenerator.h \
 		../Sources/RulesCPlusPlus.h \
 		../Sources/GeneratorCPlusPlus.h \
-		../Sources/BaseGenerator.h \
 		../Sources/Parserimplementation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Rulescplusplus.o ..\Sources\Rulescplusplus.cpp
 
@@ -628,9 +628,9 @@ debug/Script.o: ../Sources/Script.cpp ../Sources/Script.h \
 		../Sources/Parser.h \
 		../Sources/ParserFassade.h \
 		../Sources/Utilities.h \
+		../Sources/BaseGenerator.h \
 		../Sources/RulesCPlusPlus.h \
 		../Sources/GeneratorCPlusPlus.h \
-		../Sources/BaseGenerator.h \
 		../Sources/Parserimplementation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Script.o ..\Sources\Script.cpp
 
