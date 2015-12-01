@@ -5,20 +5,28 @@
 //  Original author: udo_2
 ///////////////////////////////////////////////////////////
 
+
 #if !defined(EA_FCF5E9F8_027D_4ecf_95D2_B9170D58FE49__INCLUDED_)
 #define EA_FCF5E9F8_027D_4ecf_95D2_B9170D58FE49__INCLUDED_
 
 #include <vector>
 #include "ParserFassade.h"
 
+namespace Parser
+{
+
 class Parser
 {
 public:
-    virtual ~Parser(){;};
+    virtual ~Parser(){};
     virtual void Parse()=0;
     virtual void giveData()=0;
     virtual void registerObservers(ParserFassade *observer)=0;
 protected:
     std::vector<ParserFassade*> parserObservers;
 };
+
+}
 #endif // !defined(EA_FCF5E9F8_027D_4ecf_95D2_B9170D58FE49__INCLUDED_)
+
+

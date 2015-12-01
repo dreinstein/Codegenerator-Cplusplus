@@ -1,9 +1,13 @@
+
+
 ///////////////////////////////////////////////////////////
 //  KeywordsCPlusPlus.cpp
 //  Implementation of the Class KeywordsCPlusPlus
 //  Created on:      10-Nov-2015 20:34:05
 //  Original author: udo_2
 ///////////////////////////////////////////////////////////
+
+
 
 #include <iostream>
 #include <fstream>
@@ -14,6 +18,8 @@
 
 using namespace std;
 
+namespace Parser
+{
 
 void  KeywordsCPlusPlus::registerObservers(ParserFassade *observer)
 {
@@ -41,6 +47,7 @@ void KeywordsCPlusPlus::giveData(){
     }
 }
 
+}
 
 
 

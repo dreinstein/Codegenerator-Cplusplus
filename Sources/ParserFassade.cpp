@@ -5,6 +5,8 @@
 //  Original author: udo_2
 ///////////////////////////////////////////////////////////
 
+
+
 #include <memory>
 #include <thread>
 #include <mutex>
@@ -15,6 +17,8 @@
 #include "KeywordsCPlusPlus.h"
 #include "Parser.h"
 
+namespace Parser
+{
 
 using namespace General;
 
@@ -79,8 +83,7 @@ void ParserFassade::receiveData(std::vector<std::string> strv,int parserId)
     }*/
 }
 
-
-
+}
 
 
 

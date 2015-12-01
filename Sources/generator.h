@@ -1,5 +1,10 @@
+
+
 #ifndef GENERATOR
 #define GENERATOR
+
+namespace Logic
+{
 
 
 class Generator
@@ -7,6 +12,8 @@ class Generator
 public:
     void generate();
 };
+
+}
 
 #endif // GENERATOR
 

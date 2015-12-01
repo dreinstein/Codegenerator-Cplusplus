@@ -1,8 +1,9 @@
+
+
 #ifndef KEYWORDCPLUSPLUS
 #define KEYWORDCPLUSPLUS
 
 #include "Parser.h"
-#include "ParsingVectordata.h"
 #include "Utilities.h"
 #include <string>
 #include <vector>
@@ -10,6 +11,8 @@
 #define KEYFILE "Keywords"
 #define KEYPATH "..\\Keywords\\Keywords.txt"
 
+namespace Parser
+{
 
 class KeywordsCPlusPlus:public Parser{
 public:
@@ -26,4 +29,8 @@ private:
     const std::string keypath = "..\\Keywords\\Keywords";
 };
 
+}
+
 #endif // KEYWORDCPLUSPLUS
+
+

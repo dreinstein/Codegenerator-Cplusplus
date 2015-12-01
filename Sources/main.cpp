@@ -3,6 +3,7 @@
 #include "../Sources/Generator.h"
 #include "../Sources/Utilities.h"
 
+using namespace Logic;
 
 int main(int argc, char *argv[])
 {

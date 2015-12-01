@@ -4,6 +4,10 @@
 #include "ParserFassade.h"
 #include "Utilities.h"
 
+namespace Logic
+{
+
+using namespace Parser;
 
 void Generator::generate()
 {
@@ -11,3 +15,5 @@ void Generator::generate()
     pFassade->ParseKeyword();
 
 }
+
+}  // end namespace

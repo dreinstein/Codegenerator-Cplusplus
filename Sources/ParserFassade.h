@@ -5,14 +5,18 @@
 //  Original author: udo_2
 ///////////////////////////////////////////////////////////
 
+
+
 #if !defined(EA_BF356F96_D102_426f_A476_1891C7E56F5F__INCLUDED_)
 #define EA_BF356F96_D102_426f_A476_1891C7E56F5F__INCLUDED_
-
 
 #include "Utilities.h"
 #include <Vector>
 #include<string>
 #include <cstddef>
+
+namespace Parser
+{
 
 class Parser;
 
@@ -36,4 +40,6 @@ private:
     ParserFassade& operator = (const ParserFassade& src);
 
 };
+
+}  // end Namespace
 #endif // !defined(EA_BF356F96_D102_426f_A476_1891C7E56F5F__INCLUDED_)
