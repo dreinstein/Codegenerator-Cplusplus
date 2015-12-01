@@ -6,6 +6,11 @@
 #include "ParserFassade.h"
 #include "Utilities.h"
 
+
+namespace Logic
+{
+
+
 std::mutex mtx;
 
 
@@ -51,6 +56,8 @@ void GeneratorCPlusPlus::receiveData(std::vector<std::string> strv,int parserId)
             // signal to the logic interface
             break;
     }
+}
+
 }
 
 

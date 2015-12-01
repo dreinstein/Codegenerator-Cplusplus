@@ -7,6 +7,7 @@
 #include "Parserimplementation.h"
 
 using namespace std;
+using namespace Logic;
 
 
 void  Script::registerObservers(BaseGenerator *observer)

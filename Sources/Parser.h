@@ -10,8 +10,11 @@
 
 #include <vector>
 #include "ParserFassade.h"
+#include "BaseGenerator.h"
 
-class BaseGenerator;
+
+
+using namespace Logic;
 
 class Parser
 {

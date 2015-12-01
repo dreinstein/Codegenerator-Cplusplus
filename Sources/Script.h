@@ -6,8 +6,9 @@
 
 #include "Parser.h"
 #include "Utilities.h"
+#include "BaseGenerator.h"
 
-
+using namespace Logic;
 
 class Script:public Parser
 {

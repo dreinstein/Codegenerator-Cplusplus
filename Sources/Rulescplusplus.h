@@ -7,10 +7,11 @@
 
 #include "Parser.h"
 #include "Utilities.h"
+#include "BaseGenerator.h"
 
 
 
-class BaseGenerator;
+using namespace Logic;
 
 class RulesCPlusPlus:public Parser{
 public:

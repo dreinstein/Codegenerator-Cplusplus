@@ -9,6 +9,8 @@
 
 class ParserFassade;
 
+namespace Logic
+{
 
 class GeneratorCPlusPlus:public BaseGenerator
 {
@@ -21,6 +23,8 @@ public:
 private:
     ParserFassade *pFassade=nullptr;
 };
+
+}
 
 #endif // GeneratorCPlusPlus
 

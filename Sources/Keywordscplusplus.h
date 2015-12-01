@@ -2,14 +2,14 @@
 #define KEYWORDCPLUSPLUS
 
 #include "Parser.h"
-#include "Parser.h"
+#include "BaseGenerator.h"
 #include "Utilities.h"
 #include <string>
 #include <vector>
 
 
 
-class BaseGenerator;
+using namespace Logic;
 
 class KeywordsCPlusPlus:public Parser{
 public:

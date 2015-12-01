@@ -11,9 +11,11 @@
 #include "Utilities.h"
 #include "GeneratorCPlusPlus.h"
 #include "Parserimplementation.h"
+#include "BaseGenerator.h"
 
 
 using namespace std;
+using namespace Logic;
 
 
 void  KeywordsCPlusPlus::registerObservers(BaseGenerator *observer)

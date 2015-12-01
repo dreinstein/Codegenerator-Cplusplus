@@ -9,13 +9,19 @@
 #define EA_BF356F96_D102_426f_A476_1891C7E56F5F__INCLUDED_
 
 
-#include "Utilities.h"
+
 #include <Vector>
 #include<string>
 #include <cstddef>
 
+#include "BaseGenerator.h"
+#include "Utilities.h"
+
 class Parser;
-class BaseGenerator;
+
+using namespace Logic;
+
+
 
 
 class ParserFassade

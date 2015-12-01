@@ -5,6 +5,9 @@
 #include <vector>
 #include <string>
 
+namespace Logic
+{
+
 class BaseGenerator
 {
 public:
@@ -16,6 +19,7 @@ protected:
     std::vector<std::string> keywords;
     std::vector<std::string> rules;
 };
+}
 
 #endif // GENERATOR
 
