@@ -1,12 +1,13 @@
 #ifndef GENERATOR
 #define GENERATOR
 
+
 #include <string>
 #include <vector>
 #include <string>
-
-namespace Logic
-{
+class ParserFassade;
+//namespace NParser
+//{
 
 class BaseGenerator
 {
@@ -18,8 +19,9 @@ public:
 protected:
     std::vector<std::string> keywords;
     std::vector<std::string> rules;
+    ParserFassade *pFassade=nullptr;
 };
-}
+//}
 
 #endif // GENERATOR
 

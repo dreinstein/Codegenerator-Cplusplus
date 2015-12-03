@@ -20,9 +20,9 @@ SOURCES += main.cpp\
     KeywordsCPlusPlus.cpp \
     GeneratorCPusPlus.cpp \
     Rulescplusplus.cpp \
-    Parser.cpp \
     parserimplementation.cpp \
-    Script.cpp
+    Script.cpp \
+    Parser.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\

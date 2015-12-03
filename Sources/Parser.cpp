@@ -1,8 +1,19 @@
 #include "Parser.h"
 
-void Parser::Parse()
+Parser::Parser()
 {
 }
+
+Parser::~Parser()
+{
+
+}
+
+void Parser::Parse()
+{
+
+}
+
 
 
 

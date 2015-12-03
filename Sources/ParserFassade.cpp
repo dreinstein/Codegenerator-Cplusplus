@@ -9,16 +9,21 @@
 
 #include <QtGlobal>
 
-#include "ParserFassade.h"
+
 #include "Utilities.h"
 #include "KeywordsCPlusPlus.h"
 #include "Rulescplusplus.h"
 #include "Script.h"
 #include "GeneratorCPlusPlus.h"
 #include "Parser.h"
+#include "ParserFassade.h"
 
+
+//namespace NParser
+//{
 
 using namespace General;
+
 
 
 ParserFassade::ParserFassade(BaseGenerator* generator,General::Languages::Parserlanguage lang)
@@ -77,6 +82,8 @@ void ParserFassade::giveScriptData()
      Q_ASSERT(scriptParser);
      rulesParser->giveData();
 }
+
+//}
 
 
 

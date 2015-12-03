@@ -9,17 +9,17 @@
 #define EA_FCF5E9F8_027D_4ecf_95D2_B9170D58FE49__INCLUDED_
 
 #include <vector>
-#include "ParserFassade.h"
-#include "BaseGenerator.h"
+#include <string>
 
-
-
-using namespace Logic;
+class BaseGenerator;
+//namespace NParser
+//{
 
 class Parser
 {
 public:
-    virtual ~Parser(){;};
+    Parser();
+    virtual ~Parser();
     virtual void Parse();
     virtual void giveData()=0;
     virtual void registerObservers(BaseGenerator *observer)=0;
@@ -28,4 +28,6 @@ protected:
     std::vector<std::string> values;
     int id;
 };
+
+//}
 #endif // !defined(EA_FCF5E9F8_027D_4ecf_95D2_B9170D58FE49__INCLUDED_)

@@ -9,9 +9,9 @@
 #include "Utilities.h"
 #include "BaseGenerator.h"
 
+//namespace NParser
+//{
 
-
-using namespace Logic;
 
 class RulesCPlusPlus:public Parser{
 public:
@@ -25,6 +25,8 @@ private:
 
 
 };
+
+//}
 
 
 #endif // RULESCPLUSPLUS_H

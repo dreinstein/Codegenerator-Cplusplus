@@ -1,10 +1,9 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include "../Sources/GeneratorCPlusPlus.h"
 #include "../Sources/BaseGenerator.h"
+#include "../Sources/GeneratorCPlusPlus.h"
 #include "../Sources/Utilities.h"
 
-using namespace Logic;
 
 int main(int argc, char *argv[])
 {

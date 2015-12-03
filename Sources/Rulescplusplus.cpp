@@ -7,9 +7,10 @@
 #include "GeneratorCPlusPlus.h"
 #include "Parserimplementation.h"
 
+//namespace NParser
+//{
 
 using namespace std;
-using namespace Logic;
 
 
 void  RulesCPlusPlus::registerObservers(BaseGenerator *observer)
@@ -34,5 +35,7 @@ void RulesCPlusPlus::giveData(){
         parserObservers[i]->receiveData(values,id);
     }
 }
+
+//}
 
 

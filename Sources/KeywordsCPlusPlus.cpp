@@ -13,9 +13,10 @@
 #include "Parserimplementation.h"
 #include "BaseGenerator.h"
 
+//namespace NParser
+//{
 
 using namespace std;
-using namespace Logic;
 
 
 void  KeywordsCPlusPlus::registerObservers(BaseGenerator *observer)
@@ -40,6 +41,8 @@ void KeywordsCPlusPlus::giveData(){
        parserObservers[i]->receiveData(values,id);
    }
 }
+
+//}
 
 
 
