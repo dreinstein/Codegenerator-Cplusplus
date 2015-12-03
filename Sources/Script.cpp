@@ -9,6 +9,7 @@
 //namespace NParser
 //{
 
+
 using namespace std;
 
 
@@ -36,3 +37,4 @@ void Script::giveData(){
 }
 
 //}
+

@@ -9,6 +9,7 @@
 #include "Utilities.h"
 #include "BaseGenerator.h"
 
+
 //namespace NParser
 //{
 
@@ -27,6 +28,5 @@ private:
 };
 
 //}
-
 
 #endif // RULESCPLUSPLUS_H

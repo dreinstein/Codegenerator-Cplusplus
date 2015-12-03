@@ -5,18 +5,24 @@
 //  Original author: udo_2
 ///////////////////////////////////////////////////////////
 
+
+
 #if !defined(EA_BF356F96_D102_426f_A476_1891C7E56F5F__INCLUDED_)
 #define EA_BF356F96_D102_426f_A476_1891C7E56F5F__INCLUDED_
 
 
-
+#include "Utilities.h"
 #include <Vector>
 #include <string>
 #include <cstddef>
+
 #include "Utilities.h"
 
+
+using namespace General;
 class Parser;
-class BaseGenerator;
+class Basegenerator;
+
 
 
 //namespace NParser
@@ -24,8 +30,10 @@ class BaseGenerator;
 class ParserFassade
 {
 public:	
-    ParserFassade(BaseGenerator* generator,General::Languages::Parserlanguage lang);
+
+    ParserFassade(BaseGenerator* generator,Languages::Parserlanguage lang);
     ~ParserFassade();
+
     void ParseKeyword();
     void ParseRules();
     void ParseScript();
@@ -37,11 +45,15 @@ private:
     Parser *keyParser;
     Parser *scriptParser;
     Parser *rulesParser;
-    General::Languages::Parserlanguage language;
+    Languages::Parserlanguage language;
 
     ParserFassade(const ParserFassade& f);
     ParserFassade& operator = (const ParserFassade& src);
 
 };
-//}
+
+
+
+//}  // end Namespace
+
 #endif // !defined(EA_BF356F96_D102_426f_A476_1891C7E56F5F__INCLUDED_)

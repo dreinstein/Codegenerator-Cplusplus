@@ -28,11 +28,11 @@ HEADERS  += mainwindow.h \
     Utilities.h\
 	ParserFassade.h \
     Keywordscplusplus.h \
-    Parser.h \
     GeneratorCPlusPlus.h \
     BaseGenerator.h \
     Rulescplusplus.h \
     Parserimplementation.h \
-    Script.h
+    Script.h \
+    Parser.h
 
 FORMS    += mainwindow.ui

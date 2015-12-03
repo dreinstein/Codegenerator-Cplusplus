@@ -7,7 +7,7 @@
 
 #include "BaseGenerator.h"
 
-class ParserFassade;
+
 
 //namespace NParser
 //{
@@ -22,6 +22,7 @@ public:
 };
 
 //}
+
 
 #endif // GeneratorCPlusPlus
 

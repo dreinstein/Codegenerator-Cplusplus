@@ -5,11 +5,14 @@
 //  Original author: udo_2
 ///////////////////////////////////////////////////////////
 
+
 #if !defined(EA_FCF5E9F8_027D_4ecf_95D2_B9170D58FE49__INCLUDED_)
 #define EA_FCF5E9F8_027D_4ecf_95D2_B9170D58FE49__INCLUDED_
 
 #include <vector>
 #include <string>
+
+
 
 class BaseGenerator;
 //namespace NParser
@@ -28,6 +31,7 @@ protected:
     std::vector<std::string> values;
     int id;
 };
-
 //}
 #endif // !defined(EA_FCF5E9F8_027D_4ecf_95D2_B9170D58FE49__INCLUDED_)
+
+

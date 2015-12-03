@@ -67,12 +67,12 @@ DIST          =  ..\Sources\mainwindow.h \
 		..\Sources\Utilities.h \
 		..\Sources\ParserFassade.h \
 		..\Sources\Keywordscplusplus.h \
-		..\Sources\Parser.h \
 		..\Sources\GeneratorCPlusPlus.h \
 		..\Sources\BaseGenerator.h \
 		..\Sources\Rulescplusplus.h \
 		..\Sources\Parserimplementation.h \
-		..\Sources\Script.h ..\Sources\main.cpp \
+		..\Sources\Script.h \
+		..\Sources\Parser.h ..\Sources\main.cpp \
 		..\Sources\mainwindow.cpp \
 		..\Sources\ParserFassade.cpp \
 		..\Sources\KeywordsCPlusPlus.cpp \
@@ -562,8 +562,8 @@ debug/ParserFassade.o: ../Sources/ParserFassade.cpp ../../Qtmingw/5.4/mingw491_3
 		../../Qtmingw/5.4/mingw491_32/include/QtCore/qnumeric.h \
 		../Sources/Utilities.h \
 		../Sources/KeywordsCPlusPlus.h \
-		../Sources/BaseGenerator.h \
 		../Sources/Parser.h \
+		../Sources/BaseGenerator.h \
 		../Sources/Rulescplusplus.h \
 		../Sources/Script.h \
 		../Sources/GeneratorCPlusPlus.h \
@@ -571,9 +571,9 @@ debug/ParserFassade.o: ../Sources/ParserFassade.cpp ../../Qtmingw/5.4/mingw491_3
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\ParserFassade.o ..\Sources\ParserFassade.cpp
 
 debug/KeywordsCPlusPlus.o: ../Sources/KeywordsCPlusPlus.cpp ../Sources/KeywordsCPlusPlus.h \
+		../Sources/Parser.h \
 		../Sources/Utilities.h \
 		../Sources/BaseGenerator.h \
-		../Sources/Parser.h \
 		../Sources/GeneratorCPlusPlus.h \
 		../Sources/Parserimplementation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\KeywordsCPlusPlus.o ..\Sources\KeywordsCPlusPlus.cpp

@@ -7,6 +7,7 @@
 #include "GeneratorCPlusPlus.h"
 #include "Parserimplementation.h"
 
+
 //namespace NParser
 //{
 
@@ -35,6 +36,7 @@ void RulesCPlusPlus::giveData(){
         parserObservers[i]->receiveData(values,id);
     }
 }
+
 
 //}
 

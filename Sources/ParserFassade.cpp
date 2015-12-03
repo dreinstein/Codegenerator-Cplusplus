@@ -5,6 +5,8 @@
 //  Original author: udo_2
 ///////////////////////////////////////////////////////////
 
+
+
 #include <memory>
 
 #include <QtGlobal>
@@ -23,6 +25,8 @@
 //{
 
 using namespace General;
+
+
 
 
 
@@ -77,6 +81,7 @@ void ParserFassade::giveRulesData()
      rulesParser->giveData();
 }
 
+
 void ParserFassade::giveScriptData()
 {
      Q_ASSERT(scriptParser);
@@ -84,7 +89,6 @@ void ParserFassade::giveScriptData()
 }
 
 //}
-
 
 
 

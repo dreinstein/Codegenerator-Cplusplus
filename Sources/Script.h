@@ -23,6 +23,6 @@ private:
     std::string SCRIPTPATH = "..\\Scripts\\Script.txt";
 };
 
-//}
 
+//}
 #endif // SCRIPT_H

@@ -8,6 +8,8 @@
 #include "Utilities.h"
 
 
+
+
 //namespace NParser
 //{
 
@@ -60,6 +62,8 @@ void GeneratorCPlusPlus::receiveData(std::vector<std::string> strv,int parserId)
     }
 }
 
+
 //}
+
 
 

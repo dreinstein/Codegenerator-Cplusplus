@@ -1,3 +1,5 @@
+
+
 ///////////////////////////////////////////////////////////
 //  KeywordsCPlusPlus.cpp
 //  Implementation of the Class KeywordsCPlusPlus
@@ -16,8 +18,12 @@
 //namespace NParser
 //{
 
+
 using namespace std;
 
+
+//namespace Parser
+//{
 
 void  KeywordsCPlusPlus::registerObservers(BaseGenerator *observer)
 {
@@ -41,6 +47,7 @@ void KeywordsCPlusPlus::giveData(){
        parserObservers[i]->receiveData(values,id);
    }
 }
+
 
 //}
 

@@ -9,6 +9,7 @@ class ParserFassade;
 //namespace NParser
 //{
 
+
 class BaseGenerator
 {
 public:

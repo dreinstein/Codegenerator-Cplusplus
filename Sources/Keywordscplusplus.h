@@ -1,6 +1,7 @@
+
+
 #ifndef KEYWORDCPLUSPLUS
 #define KEYWORDCPLUSPLUS
-
 
 #include "Utilities.h"
 #include <string>
@@ -9,10 +10,13 @@
 #include "Parser.h"
 
 
+
 //namespace NParser
 //{
-class KeywordsCPlusPlus:public Parser
-{
+
+class BaseGenerator;
+
+class KeywordsCPlusPlus:public Parser{
 public:
     virtual ~KeywordsCPlusPlus(){;}
     void Parse();
@@ -25,3 +29,5 @@ private:
 //}
 
 #endif // KEYWORDCPLUSPLUS
+
+
