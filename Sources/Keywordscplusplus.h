@@ -9,12 +9,12 @@
 #include "BaseGenerator.h"
 #include "Parser.h"
 
+using namespace NGenerator;
+
+namespace NParser
+{
 
 
-//namespace NParser
-//{
-
-class BaseGenerator;
 
 class KeywordsCPlusPlus:public Parser{
 public:
@@ -26,7 +26,7 @@ public:
 private:
      std::string KEYWORDSPATH = "..\\Keywords\\Keywords.txt";
 };
-//}
+}
 
 #endif // KEYWORDCPLUSPLUS
 

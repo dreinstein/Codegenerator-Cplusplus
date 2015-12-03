@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    BaseGenerator* myGenerator = new GeneratorCPlusPlus();
+    NGenerator::BaseGenerator* myGenerator = new NGenerator::GeneratorCPlusPlus();
     myGenerator->generate();
  //   MainWindow w;	
 

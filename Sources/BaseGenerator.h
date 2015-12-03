@@ -6,8 +6,8 @@
 #include <vector>
 #include <string>
 class ParserFassade;
-//namespace NParser
-//{
+namespace NGenerator
+{
 
 
 class BaseGenerator
@@ -22,7 +22,7 @@ protected:
     std::vector<std::string> rules;
     ParserFassade *pFassade=nullptr;
 };
-//}
+}
 
 #endif // GENERATOR
 

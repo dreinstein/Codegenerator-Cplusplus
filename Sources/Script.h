@@ -8,8 +8,10 @@
 #include "Utilities.h"
 #include "BaseGenerator.h"
 
-//namespace NParser
-//{
+using namespace NGenerator;
+
+namespace NParser
+{
 
 class Script:public Parser
 {
@@ -22,7 +24,5 @@ public:
 private:
     std::string SCRIPTPATH = "..\\Scripts\\Script.txt";
 };
-
-
-//}
+}
 #endif // SCRIPT_H

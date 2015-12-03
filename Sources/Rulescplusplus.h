@@ -10,8 +10,10 @@
 #include "BaseGenerator.h"
 
 
-//namespace NParser
-//{
+namespace NParser
+{
+
+using namespace NGenerator;
 
 
 class RulesCPlusPlus:public Parser{
@@ -27,6 +29,6 @@ private:
 
 };
 
-//}
+}
 
 #endif // RULESCPLUSPLUS_H

@@ -6,8 +6,8 @@
 #include "GeneratorCPlusPlus.h"
 #include "Parserimplementation.h"
 
-//namespace NParser
-//{
+namespace NParser
+{
 
 
 using namespace std;
@@ -36,5 +36,5 @@ void Script::giveData(){
     }
 }
 
-//}
+}
 

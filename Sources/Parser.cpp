@@ -1,5 +1,7 @@
 #include "Parser.h"
 
+namespace NParser
+{
 Parser::Parser()
 {
 }
@@ -13,7 +15,7 @@ void Parser::Parse()
 {
 
 }
-
+}
 
 
 

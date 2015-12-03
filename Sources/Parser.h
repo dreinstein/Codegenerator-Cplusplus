@@ -11,12 +11,13 @@
 
 #include <vector>
 #include <string>
+#include "BaseGenerator.h"
 
+using namespace NGenerator;
 
-
-class BaseGenerator;
-//namespace NParser
-//{
+//class BaseGenerator;
+namespace NParser
+{
 
 class Parser
 {
@@ -31,7 +32,7 @@ protected:
     std::vector<std::string> values;
     int id;
 };
-//}
+}
 #endif // !defined(EA_FCF5E9F8_027D_4ecf_95D2_B9170D58FE49__INCLUDED_)
 
 

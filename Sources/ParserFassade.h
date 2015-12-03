@@ -15,14 +15,15 @@
 #include <Vector>
 #include <string>
 #include <cstddef>
+#include "BaseGenerator.h"
+#include "Parser.h"
 
 #include "Utilities.h"
 
 
 using namespace General;
-class Parser;
-class Basegenerator;
-
+using namespace NGenerator;
+using namespace NParser;
 
 
 //namespace NParser

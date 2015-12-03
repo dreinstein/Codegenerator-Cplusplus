@@ -2,16 +2,18 @@
 #include <QtGlobal>
 #include <mutex>
 
+#include "Parser.h"
 #include "BaseGenerator.h"
 #include "GeneratorCPlusPlus.h"
 #include "ParserFassade.h"
 #include "Utilities.h"
 
 
+using namespace NParser;
 
 
-//namespace NParser
-//{
+namespace NGenerator
+{
 
 
 std::mutex mtx;
@@ -62,8 +64,7 @@ void GeneratorCPlusPlus::receiveData(std::vector<std::string> strv,int parserId)
     }
 }
 
-
-//}
+}
 
 
 

@@ -8,8 +8,8 @@
 #include "Parserimplementation.h"
 
 
-//namespace NParser
-//{
+namespace NParser
+{
 
 using namespace std;
 
@@ -38,6 +38,6 @@ void RulesCPlusPlus::giveData(){
 }
 
 
-//}
+}
 
 

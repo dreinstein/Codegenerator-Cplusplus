@@ -15,17 +15,15 @@
 #include "Parserimplementation.h"
 #include "BaseGenerator.h"
 
-//namespace NParser
-//{
+namespace NParser
+{
 
 
 using namespace std;
+using namespace NGenerator;
 
 
-//namespace Parser
-//{
-
-void  KeywordsCPlusPlus::registerObservers(BaseGenerator *observer)
+void  KeywordsCPlusPlus::registerObservers(NGenerator::BaseGenerator *observer)
 {
     id = General::ParserId::Id::Keyword;
     parserObservers.push_back(&*observer);
@@ -48,8 +46,7 @@ void KeywordsCPlusPlus::giveData(){
    }
 }
 
-
-//}
+}
 
 
 

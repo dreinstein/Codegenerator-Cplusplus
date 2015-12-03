@@ -9,8 +9,9 @@
 
 
 
-//namespace NParser
-//{
+namespace NGenerator
+{
+
 class GeneratorCPlusPlus:public BaseGenerator
 {
 public:
@@ -21,7 +22,7 @@ public:
     void notify(int id);
 };
 
-//}
+}
 
 
 #endif // GeneratorCPlusPlus
