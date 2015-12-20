@@ -7,11 +7,10 @@
 
 #include "BaseGenerator.h"
 
-namespace Logic
+
+
+namespace NGenerator
 {
-
-class ParserFassade;
-
 
 class GeneratorCPlusPlus:public BaseGenerator
 {
@@ -21,11 +20,10 @@ public:
     void generate();
     void receiveData(std::vector<std::string> strv,int parserId);
     void notify(int id);
-private:
-    ParserFassade *pFassade=nullptr;
 };
 
-} // end namespace
+}
+
 
 #endif // GeneratorCPlusPlus
 

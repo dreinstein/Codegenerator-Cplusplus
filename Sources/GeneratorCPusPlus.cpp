@@ -2,21 +2,27 @@
 #include <QtGlobal>
 #include <mutex>
 
+#include "Parser.h"
+#include "BaseGenerator.h"
 #include "GeneratorCPlusPlus.h"
 #include "ParserFassade.h"
 #include "Utilities.h"
 
 
+using namespace NParser;
 
-using namespace Logic
+
+namespace NGenerator
 {
+
 
 std::mutex mtx;
 
 
+
 GeneratorCPlusPlus::GeneratorCPlusPlus()
 {
-    pFassade = new Parser::ParserFassade(this,General::Languages::CPLUSPLUS);
+    pFassade = new ParserFassade(this,General::Languages::CPLUSPLUS);
 }
 
 
@@ -59,5 +65,6 @@ void GeneratorCPlusPlus::receiveData(std::vector<std::string> strv,int parserId)
 }
 
 }
+
 
 

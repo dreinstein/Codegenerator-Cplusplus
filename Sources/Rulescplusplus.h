@@ -7,11 +7,14 @@
 
 #include "Parser.h"
 #include "Utilities.h"
+#include "BaseGenerator.h"
 
-namespace Parser
+
+namespace NParser
 {
 
-class BaseGenerator;
+using namespace NGenerator;
+
 
 class RulesCPlusPlus:public Parser{
 public:

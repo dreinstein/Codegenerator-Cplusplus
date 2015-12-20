@@ -10,21 +10,24 @@
 #if !defined(EA_BF356F96_D102_426f_A476_1891C7E56F5F__INCLUDED_)
 #define EA_BF356F96_D102_426f_A476_1891C7E56F5F__INCLUDED_
 
+
 #include "Utilities.h"
 #include <Vector>
-#include<string>
+#include <string>
 #include <cstddef>
-#include <BaseGenerator.h>
+#include "BaseGenerator.h"
+#include "Parser.h"
 
-namespace Parser
-{
+#include "Utilities.h"
 
-using namespace Logic;
+
 using namespace General;
-class Parser;
+using namespace NGenerator;
+using namespace NParser;
 
 
-
+//namespace NParser
+//{
 class ParserFassade
 {
 public:	
@@ -35,9 +38,6 @@ public:
     void ParseKeyword();
     void ParseRules();
     void ParseScript();
-
-//    void receiveData(std::vector<std::string> strv,int parserId);
-//    void notify(int id);
     void giveKeywordData();
     void giveScriptData();
     void giveRulesData();
@@ -53,5 +53,8 @@ private:
 
 };
 
-}  // end Namespace
+
+
+//}  // end Namespace
+
 #endif // !defined(EA_BF356F96_D102_426f_A476_1891C7E56F5F__INCLUDED_)

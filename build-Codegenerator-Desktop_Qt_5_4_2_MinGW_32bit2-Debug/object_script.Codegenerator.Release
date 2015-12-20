@@ -5,8 +5,8 @@ INPUT(
 ./release\KeywordsCPlusPlus.o
 ./release\GeneratorCPusPlus.o
 ./release\Rulescplusplus.o
-./release\Parser.o
 ./release\parserimplementation.o
 ./release\Script.o
+./release\Parser.o
 ./release\moc_mainwindow.o
 );

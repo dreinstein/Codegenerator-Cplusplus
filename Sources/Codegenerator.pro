@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     GeneratorCPusPlus.cpp \
     Rulescplusplus.cpp \
     parserimplementation.cpp \
-    Script.cpp
+    Script.cpp \
+    Parser.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\

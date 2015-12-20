@@ -1,14 +1,21 @@
 #ifndef GENERATOR
 #define GENERATOR
 
+
 #include <string>
 #include <vector>
 #include <string>
+<<<<<<< HEAD
 
 #include "../gtest/gtest.h"
 
 namespace Logic
+=======
+class ParserFassade;
+namespace NGenerator
+>>>>>>> 1ddde97818ee07684ef9aecd16aa4573f14be042
 {
+
 
 class BaseGenerator
 {
@@ -20,8 +27,9 @@ public:
 protected:
     std::vector<std::string> keywords;
     std::vector<std::string> rules;
+    ParserFassade *pFassade=nullptr;
 };
+}
 
-} // end namespace
 #endif // GENERATOR
 

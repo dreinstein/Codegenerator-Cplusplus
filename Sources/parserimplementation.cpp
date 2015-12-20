@@ -5,8 +5,10 @@
 
 #include "Parserimplementation.h"
 
-namespace Parser
-{
+
+//namespace NParser
+//{
+
 
 ParserImpl::ParserImpl()
 {
@@ -25,5 +27,5 @@ std::vector<std::string> ParserImpl::doParse(std::string path)
     fin.close();
     return values;
 }
+//}
 
-}

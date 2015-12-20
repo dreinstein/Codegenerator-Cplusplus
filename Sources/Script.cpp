@@ -6,8 +6,9 @@
 #include "GeneratorCPlusPlus.h"
 #include "Parserimplementation.h"
 
-namespace Parser
+namespace NParser
 {
+
 
 using namespace std;
 
@@ -21,7 +22,7 @@ void  Script::registerObservers(BaseGenerator *observer)
 void Script::Parse(){
     ParserImpl* parser = new ParserImpl();
     values = parser->doParse(SCRIPTPATH);
-    for(int i=0; i < parserObservers.size(); i++){
+    for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notify(id);
     }
     delete parser;
@@ -29,9 +30,11 @@ void Script::Parse(){
 
 
 void Script::giveData(){
-    for(int i=0; i < parserObservers.size(); i++)
+    for(unsigned int i=0; i < parserObservers.size(); i++)
     {
         parserObservers[i]->receiveData(values,id);
     }
 }
+
 }
+

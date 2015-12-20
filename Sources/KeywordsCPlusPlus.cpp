@@ -13,16 +13,17 @@
 #include "Utilities.h"
 #include "GeneratorCPlusPlus.h"
 #include "Parserimplementation.h"
+#include "BaseGenerator.h"
 
+namespace NParser
+{
 
 
 using namespace std;
-using namespace Logic;
+using namespace NGenerator;
 
-namespace Parser
-{
 
-void  KeywordsCPlusPlus::registerObservers(BaseGenerator *observer)
+void  KeywordsCPlusPlus::registerObservers(NGenerator::BaseGenerator *observer)
 {
     id = General::ParserId::Id::Keyword;
     parserObservers.push_back(&*observer);
@@ -46,6 +47,7 @@ void KeywordsCPlusPlus::giveData(){
 }
 
 }
+
 
 
 

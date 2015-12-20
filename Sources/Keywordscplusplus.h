@@ -3,17 +3,18 @@
 #ifndef KEYWORDCPLUSPLUS
 #define KEYWORDCPLUSPLUS
 
-
-#include "Parser.h"
 #include "Utilities.h"
 #include <string>
 #include <vector>
+#include "BaseGenerator.h"
+#include "Parser.h"
 
+using namespace NGenerator;
 
-namespace Parser
+namespace NParser
 {
 
-class BaseGenerator;
+
 
 class KeywordsCPlusPlus:public Parser{
 public:
@@ -25,7 +26,6 @@ public:
 private:
      std::string KEYWORDSPATH = "..\\Keywords\\Keywords.txt";
 };
-
 }
 
 #endif // KEYWORDCPLUSPLUS

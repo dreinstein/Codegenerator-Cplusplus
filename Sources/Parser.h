@@ -10,22 +10,21 @@
 #define EA_FCF5E9F8_027D_4ecf_95D2_B9170D58FE49__INCLUDED_
 
 #include <vector>
-#include "ParserFassade.h"
+#include <string>
+#include "BaseGenerator.h"
 
+using namespace NGenerator;
 
-
-namespace Parser
+//class BaseGenerator;
+namespace NParser
 {
-
-class BaseGenerator;
 
 class Parser
 {
 public:
-
-    Parser() {};
-    virtual ~Parser(){;};
-    virtual void Parse()=0;
+    Parser();
+    virtual ~Parser();
+    virtual void Parse();
     virtual void giveData()=0;
     virtual void registerObservers(BaseGenerator *observer)=0;
 protected:
@@ -33,7 +32,6 @@ protected:
     std::vector<std::string> values;
     int id;
 };
-
 }
 #endif // !defined(EA_FCF5E9F8_027D_4ecf_95D2_B9170D58FE49__INCLUDED_)
 
