@@ -29,6 +29,7 @@ void  KeywordsCPlusPlus::registerObservers(NGenerator::BaseGenerator *observer)
     parserObservers.push_back(&*observer);
 }
 
+
 void KeywordsCPlusPlus::Parse(){
     ParserImpl* parser = new ParserImpl();
     values = parser->doParse(KEYWORDSPATH);

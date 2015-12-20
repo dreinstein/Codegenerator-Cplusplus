@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <string>
+
 class ParserFassade;
 namespace NGenerator
 {

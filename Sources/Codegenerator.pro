@@ -35,4 +35,7 @@ HEADERS  += mainwindow.h \
     Script.h \
     Parser.h
 
+
+
 FORMS    += mainwindow.ui
+	
