@@ -5,15 +5,9 @@
 #include <string>
 #include <vector>
 #include <string>
-<<<<<<< HEAD
 
-#include "../gtest/gtest.h"
-
-namespace Logic
-=======
 class ParserFassade;
 namespace NGenerator
->>>>>>> 1ddde97818ee07684ef9aecd16aa4573f14be042
 {
 
 
