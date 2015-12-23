@@ -9,4 +9,5 @@ INPUT(
 ./debug\Parser.o
 ./debug\Script.o
 ./debug\Rulescplusplus.o
+./debug\Evaluator.o
 );

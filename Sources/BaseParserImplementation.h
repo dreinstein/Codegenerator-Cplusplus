@@ -1,5 +1,6 @@
 #ifndef PARSERIMPLEMENTATIONBASE
 #define PARSERIMPLEMENTATIONBASE
+
 class BaseParserImpl
 {
 public:

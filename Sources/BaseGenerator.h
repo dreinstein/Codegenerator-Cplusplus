@@ -6,6 +6,9 @@
 #include <vector>
 #include <string>
 
+
+#include "BaseEvaluator.h"
+
 class ParserFassade;
 namespace NGenerator
 {
@@ -27,6 +30,10 @@ protected:
     std::vector<std::string> rules;
     std::vector<std::string> script;
     ParserFassade *pFassade=nullptr;
+    BaseEvaluator *pEvaluator=nullptr;
+    virtual bool areAllDatasReceived()=0;
+    virtual void allDatasReceived()=0;
+
 };
 }
 

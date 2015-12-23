@@ -22,7 +22,9 @@ SOURCES += main.cpp\
     Rulescplusplus.cpp \
     parserimplementation.cpp \
     Script.cpp \
-    Parser.cpp
+    Parser.cpp \
+    Keywordchecker.cpp \
+    Evaluator.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
@@ -34,7 +36,11 @@ HEADERS  += mainwindow.h \
     Parserimplementation.h \
     Script.h \
     Parser.h \
-    BaseParserImplementation.h
+    BaseParserImplementation.h \
+    BaseKeywordChecker.h \
+    Keywordchecker.h \
+    Evaluator.h \
+    BaseEvaluator.h
 
 
 

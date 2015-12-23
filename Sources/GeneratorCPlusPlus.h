@@ -4,16 +4,18 @@
 
 #include <vector>
 #include <string>
-
 #include "BaseGenerator.h"
 
 
+
+#include <QObject>
 
 namespace NGenerator
 {
 
 class GeneratorCPlusPlus:public BaseGenerator
 {
+
 public:
     GeneratorCPlusPlus();
     virtual ~GeneratorCPlusPlus();
@@ -23,6 +25,14 @@ public:
     std::vector<std::string> getKeywords(){return keywords;}
     std::vector<std::string> getRules() {return rules;}
     std::vector<std::string> getScripts() {return script;}
+protected:
+    void allDatasReceived();
+    bool areAllDatasReceived();
+private:
+
+    bool keywordsReceived = false;
+    bool rulesReceived = false;
+    bool scriptReceived = false;
 };
 
 }

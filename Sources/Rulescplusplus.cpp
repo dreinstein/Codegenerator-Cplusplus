@@ -6,6 +6,7 @@
 #include "Utilities.h"
 #include "GeneratorCPlusPlus.h"
 #include "Parserimplementation.h"
+#include "BaseParserImplementation.h"
 
 
 namespace NParser
@@ -21,7 +22,7 @@ void  RulesCPlusPlus::registerObservers(BaseGenerator *observer)
 }
 
 void RulesCPlusPlus::Parse(){
-    ParserImpl* parser = new ParserImpl();
+    BaseParserImpl* parser = new ParserImpl();
     values = parser->doParse(RULESPATH);
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notify(id);

@@ -1,12 +1,13 @@
-namesspace first script
-class firstClass
-private Constructor
-private Destructor
-private AssignmentOperator
-private DelegationConstructor
-public  function int myfirstFunction
-private function double secondFunction(const int counter)
-private attribute const int myfistAttribute
-private pointer secondClass
-private pointer thirdClass
-end
+@Class firstClass
+@Private @Constructor
+@Private @Destructor
+@Public  @Function 
+	 @Name myFunction
+	 @Value int 
+	 @Parameter
+	 @Name myParameter
+	 @Value strings 
+@Private @Attribute
+	 @Name myAttribute
+	 @Const true 
+	 @Value int

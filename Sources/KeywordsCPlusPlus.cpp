@@ -14,6 +14,7 @@
 #include "GeneratorCPlusPlus.h"
 #include "Parserimplementation.h"
 #include "BaseGenerator.h"
+#include "BaseParserImplementation.h"
 
 namespace NParser
 {
@@ -31,7 +32,7 @@ void  KeywordsCPlusPlus::registerObservers(NGenerator::BaseGenerator *observer)
 
 
 void KeywordsCPlusPlus::Parse(){
-    ParserImpl* parser = new ParserImpl();
+    BaseParserImpl* parser = new ParserImpl();
     values = parser->doParse(KEYWORDSPATH);
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notify(id);

@@ -5,6 +5,7 @@
 #include "Utilities.h"
 #include "GeneratorCPlusPlus.h"
 #include "Parserimplementation.h"
+#include "BaseParserImplementation.h"
 
 namespace NParser
 {
@@ -20,7 +21,7 @@ void  Script::registerObservers(BaseGenerator *observer)
 }
 
 void Script::Parse(){
-    ParserImpl* parser = new ParserImpl();
+    BaseParserImpl* parser = new ParserImpl();
     values = parser->doParse(SCRIPTPATH);
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notify(id);

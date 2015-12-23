@@ -9,4 +9,5 @@ INPUT(
 ./release\Parser.o
 ./release\Script.o
 ./release\Rulescplusplus.o
+./release\Evaluator.o
 );

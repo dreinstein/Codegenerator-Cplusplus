@@ -24,7 +24,8 @@ SOURCES += main.cpp \
     ../../Sources/KeywordsCPlusPlus.cpp \
     ../../Sources/Parser.cpp \
     ../../Sources/Script.cpp \
-    ../../Sources/Rulescplusplus.cpp
+    ../../Sources/Rulescplusplus.cpp \
+    ../../Sources/Evaluator.cpp
 
 HEADERS += \
     parsertest.h \
@@ -37,5 +38,7 @@ HEADERS += \
     ../../Sources/Parser.h \
     ../../Sources/Script.h \
     ../../Sources/Rulescplusplus.h \
-    mockparser.h
+    mockparser.h \
+    ../../Sources/Evaluator.h \
+    ../../Sources/BaseEvaluator.h
 

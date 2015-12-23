@@ -51,7 +51,9 @@ SOURCES       = ..\Sources\main.cpp \
 		..\Sources\Rulescplusplus.cpp \
 		..\Sources\parserimplementation.cpp \
 		..\Sources\Script.cpp \
-		..\Sources\Parser.cpp debug\moc_mainwindow.cpp
+		..\Sources\Parser.cpp \
+		..\Sources\Keywordchecker.cpp \
+		..\Sources\Evaluator.cpp debug\moc_mainwindow.cpp
 OBJECTS       = debug/main.o \
 		debug/mainwindow.o \
 		debug/ParserFassade.o \
@@ -61,6 +63,8 @@ OBJECTS       = debug/main.o \
 		debug/parserimplementation.o \
 		debug/Script.o \
 		debug/Parser.o \
+		debug/Keywordchecker.o \
+		debug/Evaluator.o \
 		debug/moc_mainwindow.o
 
 DIST          =  ..\Sources\mainwindow.h \
@@ -73,7 +77,11 @@ DIST          =  ..\Sources\mainwindow.h \
 		..\Sources\Parserimplementation.h \
 		..\Sources\Script.h \
 		..\Sources\Parser.h \
-		..\Sources\BaseParserImplementation.h ..\Sources\main.cpp \
+		..\Sources\BaseParserImplementation.h \
+		..\Sources\BaseKeywordChecker.h \
+		..\Sources\Keywordchecker.h \
+		..\Sources\Evaluator.h \
+		..\Sources\BaseEvaluator.h ..\Sources\main.cpp \
 		..\Sources\mainwindow.cpp \
 		..\Sources\ParserFassade.cpp \
 		..\Sources\KeywordsCPlusPlus.cpp \
@@ -81,7 +89,9 @@ DIST          =  ..\Sources\mainwindow.h \
 		..\Sources\Rulescplusplus.cpp \
 		..\Sources\parserimplementation.cpp \
 		..\Sources\Script.cpp \
-		..\Sources\Parser.cpp
+		..\Sources\Parser.cpp \
+		..\Sources\Keywordchecker.cpp \
+		..\Sources\Evaluator.cpp
 QMAKE_TARGET  = Codegenerator
 DESTDIR        = debug\ #avoid trailing-slash linebreak
 TARGET         = Codegenerator.exe
@@ -120,7 +130,7 @@ dist:
 	$(ZIP) Codegenerator.zip $(SOURCES) $(DIST) ..\Sources\Codegenerator.pro ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\spec_pre.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\qdevice.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\device_config.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\common\shell-win32.conf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\qconfig.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_axbase.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_axbase_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_axcontainer.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_axserver.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_axserver_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_bluetooth.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_clucene_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_concurrent.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_core.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_core_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_dbus.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_dbus_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_declarative.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_declarative_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_designer.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_designer_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_enginio.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_enginio_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_gui.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_gui_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_help.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_help_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_location.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_location_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_multimedia.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_network.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_network_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_nfc.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_nfc_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_opengl.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_opengl_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_openglextensions.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_platformsupport_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_positioning.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_positioning_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_printsupport.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_qml.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_qml_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_qmltest.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_quick.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_quick_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_script.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_script_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_scripttools.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_scripttools_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_sensors.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_sensors_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_serialport.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_serialport_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_sql.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_sql_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_svg.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_svg_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_testlib.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_testlib_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_uitools.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_uitools_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_webchannel.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_webkit.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_webkit_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_webkitwidgets.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_webkitwidgets_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_websockets.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_websockets_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_webview.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_webview_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_widgets.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_widgets_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_winextras.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_winextras_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_xml.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_xml_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\qt_functions.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\qt_config.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\win32\qt_config.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\win32-g++\qmake.conf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\spec_post.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\exclusive_builds.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\default_pre.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\win32\default_pre.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\resolve_config.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\exclusive_builds_post.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\default_post.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\build_pass.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\c++11.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\win32\rtti.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\precompile_header.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\warn_on.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\qt.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\resources.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\moc.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\win32\opengl.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\uic.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\win32\windows.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\testcase_targets.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\exceptions.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\yacc.prf ..\..\Qtmingw\5.4\mingw491_32\mkspecs\features\lex.prf ..\Sources\Codegenerator.pro C:/Qtmingw/5.4/mingw491_32/lib/qtmaind.prl C:/Qtmingw/5.4/mingw491_32/lib/Qt5Cored.prl C:/Qtmingw/5.4/mingw491_32/lib/Qt5Widgetsd.prl C:/Qtmingw/5.4/mingw491_32/lib/Qt5Guid.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\main.o debug\mainwindow.o debug\ParserFassade.o debug\KeywordsCPlusPlus.o debug\GeneratorCPusPlus.o debug\Rulescplusplus.o debug\parserimplementation.o debug\Script.o debug\Parser.o debug\moc_mainwindow.o
+	-$(DEL_FILE) debug\main.o debug\mainwindow.o debug\ParserFassade.o debug\KeywordsCPlusPlus.o debug\GeneratorCPusPlus.o debug\Rulescplusplus.o debug\parserimplementation.o debug\Script.o debug\Parser.o debug\Keywordchecker.o debug\Evaluator.o debug\moc_mainwindow.o
 
 distclean: clean 
 	-$(DEL_FILE) $(DESTDIR_TARGET)
@@ -382,6 +392,7 @@ debug/main.o: ../Sources/main.cpp ../Sources/mainwindow.h \
 		../../Qtmingw/5.4/mingw491_32/include/QtGui/qinputmethod.h \
 		../Sources/BaseGenerator.h \
 		../Sources/GeneratorCPlusPlus.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/QObject \
 		../Sources/Utilities.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\Sources\main.cpp
 
@@ -568,6 +579,28 @@ debug/ParserFassade.o: ../Sources/ParserFassade.cpp ../../Qtmingw/5.4/mingw491_3
 		../Sources/Rulescplusplus.h \
 		../Sources/Script.h \
 		../Sources/GeneratorCPlusPlus.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/QObject \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobject.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobjectdefs.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qnamespace.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobjectdefs_impl.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qstring.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qchar.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qbytearray.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qrefcount.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qarraydata.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qstringbuilder.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qlist.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qalgorithms.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qiterator.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qbytearraylist.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qcoreevent.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qscopedpointer.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qmetatype.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qvarlengtharray.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qcontainerfwd.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qisenum.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobject_impl.h \
 		../Sources/ParserFassade.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\ParserFassade.o ..\Sources\ParserFassade.cpp
 
@@ -576,6 +609,56 @@ debug/KeywordsCPlusPlus.o: ../Sources/KeywordsCPlusPlus.cpp ../Sources/KeywordsC
 		../Sources/BaseGenerator.h \
 		../Sources/Parser.h \
 		../Sources/GeneratorCPlusPlus.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/QObject \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobject.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobjectdefs.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qnamespace.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qglobal.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qconfig.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qfeatures.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qsystemdetection.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qprocessordetection.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qcompilerdetection.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qtypeinfo.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qtypetraits.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qsysinfo.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qlogging.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qflags.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qbasicatomic.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_bootstrap.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qgenericatomic.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_msvc.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_armv7.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_armv6.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_armv5.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_ia64.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_mips.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_x86.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_cxx11.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_gcc.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_unix.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qglobalstatic.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qmutex.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qnumeric.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobjectdefs_impl.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qstring.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qchar.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qbytearray.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qrefcount.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qarraydata.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qstringbuilder.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qlist.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qalgorithms.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qiterator.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qbytearraylist.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qcoreevent.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qscopedpointer.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qmetatype.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qvarlengtharray.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qcontainerfwd.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qisenum.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobject_impl.h \
 		../Sources/Parserimplementation.h \
 		../Sources/BaseParserImplementation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\KeywordsCPlusPlus.o ..\Sources\KeywordsCPlusPlus.cpp
@@ -612,8 +695,33 @@ debug/GeneratorCPusPlus.o: ../Sources/GeneratorCPusPlus.cpp ../../Qtmingw/5.4/mi
 		../Sources/Parser.h \
 		../Sources/BaseGenerator.h \
 		../Sources/GeneratorCPlusPlus.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/QObject \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobject.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobjectdefs.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qnamespace.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobjectdefs_impl.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qstring.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qchar.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qbytearray.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qrefcount.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qarraydata.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qstringbuilder.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qlist.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qalgorithms.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qiterator.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qbytearraylist.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qcoreevent.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qscopedpointer.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qmetatype.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qvarlengtharray.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qcontainerfwd.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qisenum.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobject_impl.h \
 		../Sources/ParserFassade.h \
-		../Sources/Utilities.h
+		../Sources/Utilities.h \
+		../Sources/BaseEvaluator.h \
+		../Sources/Evaluator.h \
+		../Sources/baseevaluator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\GeneratorCPusPlus.o ..\Sources\GeneratorCPusPlus.cpp
 
 debug/Rulescplusplus.o: ../Sources/Rulescplusplus.cpp ../Sources/Rulescplusplus.h \
@@ -622,6 +730,56 @@ debug/Rulescplusplus.o: ../Sources/Rulescplusplus.cpp ../Sources/Rulescplusplus.
 		../Sources/Utilities.h \
 		../Sources/RulesCPlusPlus.h \
 		../Sources/GeneratorCPlusPlus.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/QObject \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobject.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobjectdefs.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qnamespace.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qglobal.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qconfig.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qfeatures.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qsystemdetection.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qprocessordetection.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qcompilerdetection.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qtypeinfo.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qtypetraits.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qsysinfo.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qlogging.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qflags.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qbasicatomic.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_bootstrap.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qgenericatomic.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_msvc.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_armv7.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_armv6.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_armv5.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_ia64.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_mips.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_x86.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_cxx11.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_gcc.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_unix.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qglobalstatic.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qmutex.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qnumeric.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobjectdefs_impl.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qstring.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qchar.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qbytearray.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qrefcount.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qarraydata.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qstringbuilder.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qlist.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qalgorithms.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qiterator.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qbytearraylist.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qcoreevent.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qscopedpointer.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qmetatype.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qvarlengtharray.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qcontainerfwd.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qisenum.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobject_impl.h \
 		../Sources/Parserimplementation.h \
 		../Sources/BaseParserImplementation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Rulescplusplus.o ..\Sources\Rulescplusplus.cpp
@@ -636,6 +794,56 @@ debug/Script.o: ../Sources/Script.cpp ../Sources/Script.h \
 		../Sources/Utilities.h \
 		../Sources/RulesCPlusPlus.h \
 		../Sources/GeneratorCPlusPlus.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/QObject \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobject.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobjectdefs.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qnamespace.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qglobal.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qconfig.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qfeatures.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qsystemdetection.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qprocessordetection.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qcompilerdetection.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qtypeinfo.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qtypetraits.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qsysinfo.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qlogging.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qflags.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qbasicatomic.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_bootstrap.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qgenericatomic.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_msvc.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_armv7.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_armv6.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_armv5.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_ia64.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_mips.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_x86.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_cxx11.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_gcc.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qatomic_unix.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qglobalstatic.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qmutex.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qnumeric.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobjectdefs_impl.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qstring.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qchar.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qbytearray.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qrefcount.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qarraydata.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qstringbuilder.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qlist.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qalgorithms.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qiterator.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qbytearraylist.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qcoreevent.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qscopedpointer.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qmetatype.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qvarlengtharray.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qcontainerfwd.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qisenum.h \
+		../../Qtmingw/5.4/mingw491_32/include/QtCore/qobject_impl.h \
 		../Sources/Parserimplementation.h \
 		../Sources/BaseParserImplementation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Script.o ..\Sources\Script.cpp
@@ -643,6 +851,14 @@ debug/Script.o: ../Sources/Script.cpp ../Sources/Script.h \
 debug/Parser.o: ../Sources/Parser.cpp ../Sources/Parser.h \
 		../Sources/BaseGenerator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Parser.o ..\Sources\Parser.cpp
+
+debug/Keywordchecker.o: ../Sources/Keywordchecker.cpp ../Sources/Keywordchecker.h \
+		../Sources/baseKeywordChecker.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Keywordchecker.o ..\Sources\Keywordchecker.cpp
+
+debug/Evaluator.o: ../Sources/Evaluator.cpp ../Sources/Evaluator.h \
+		../Sources/baseevaluator.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Evaluator.o ..\Sources\Evaluator.cpp
 
 debug/moc_mainwindow.o: debug/moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_mainwindow.o debug\moc_mainwindow.cpp
