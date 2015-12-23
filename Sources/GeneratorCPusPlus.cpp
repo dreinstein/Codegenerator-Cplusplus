@@ -59,8 +59,15 @@ void GeneratorCPlusPlus::receiveData(std::vector<std::string> strv,int parserId)
     {
         case General::ParserId::Id::Keyword:
             keywords = strv;
-            // signal to the logic interface
             break;
+        case General::ParserId::Id::Rules:
+            rules = strv;
+            break;
+        case General::ParserId::Id::Script:
+            script = strv;
+            break;
+        default:
+            Q_ASSERT(false);
     }
 }
 

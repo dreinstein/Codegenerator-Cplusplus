@@ -17,9 +17,25 @@ LIBS +=  ../../gmock/staticlib/lgmock.lib
 
 SOURCES += main.cpp \
     parsertest.cpp \
-    ../../Sources/parserimplementation.cpp
+    ../../Sources/parserimplementation.cpp \
+    generatortest.cpp \
+    ../../Sources/GeneratorCPusPlus.cpp \
+    ../../Sources/ParserFassade.cpp \
+    ../../Sources/KeywordsCPlusPlus.cpp \
+    ../../Sources/Parser.cpp \
+    ../../Sources/Script.cpp \
+    ../../Sources/Rulescplusplus.cpp
 
 HEADERS += \
     parsertest.h \
-    ../../Sources/Parserimplementation.h
+    ../../Sources/Parserimplementation.h \
+    generatortest.h \
+    ../../Sources/GeneratorCPlusPlus.h \
+    ../../Sources/BaseGenerator.h \
+    ../../Sources/ParserFassade.h \
+    ../../Sources/Keywordscplusplus.h \
+    ../../Sources/Parser.h \
+    ../../Sources/Script.h \
+    ../../Sources/Rulescplusplus.h \
+    mockparser.h
 
