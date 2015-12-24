@@ -1,13 +1,17 @@
 @Class firstClass
-@Private @Constructor
-@Private @Destructor
-@Public  @Function 
-	 @Name myFunction
-	 @Value int 
+@Private 
+@Constructor
+@Private 
+@Destructor
+@Public  
+@Function 
+	 @Name::myFunction
+	 @Value::int 
 	 @Parameter
-	 @Name myParameter
-	 @Value strings 
-@Private @Attribute
-	 @Name myAttribute
-	 @Const true 
-	 @Value int
+	 @Name::myParameter
+	 @Value::string 
+@Private 
+@Attribute
+	 @Name::myAttribute
+	 @Const::true 
+	 @Value::int
