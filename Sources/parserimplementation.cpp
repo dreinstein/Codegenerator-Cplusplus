@@ -6,8 +6,8 @@
 #include "Parserimplementation.h"
 
 
-//namespace NParser
-//{
+namespace NParser
+{
 
 
 ParserImpl::ParserImpl()
@@ -31,6 +31,8 @@ std::vector<std::string> ParserImpl::doParse(std::string path)
     }
     fin.close();
     return values;
+}
+
 }
 
 

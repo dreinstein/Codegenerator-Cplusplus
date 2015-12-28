@@ -18,7 +18,7 @@ ScriptEvaluator::~ScriptEvaluator()
 
 bool ScriptEvaluator::evaluate(std::vector<std::string> vkeywords, std::vector<std::string> vscript)
 {
-    auto scriptentry = "noVal";
+    std::string scriptentry = "noVal";
     bool found = false;
     for (auto itscript = vscript.begin(); itscript != vscript.end(); ++itscript)
     {

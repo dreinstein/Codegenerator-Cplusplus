@@ -15,7 +15,7 @@
 #include <Vector>
 #include <string>
 #include <cstddef>
-#include "BaseGenerator.h"
+#include "Base/BaseGenerator.h"
 #include "Parser.h"
 
 #include "Utilities.h"

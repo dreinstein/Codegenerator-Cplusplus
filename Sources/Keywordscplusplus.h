@@ -6,7 +6,7 @@
 #include "Utilities.h"
 #include <string>
 #include <vector>
-#include "BaseGenerator.h"
+#include "Base/BaseGenerator.h"
 #include "Parser.h"
 
 using namespace NGenerator;

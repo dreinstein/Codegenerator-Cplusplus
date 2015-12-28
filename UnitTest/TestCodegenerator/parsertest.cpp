@@ -5,6 +5,8 @@
 #include <vector>
 #include <string>
 
+using namespace NParser;
+
 ParserTest::ParserTest()
 {
 }

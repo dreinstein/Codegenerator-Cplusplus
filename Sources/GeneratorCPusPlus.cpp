@@ -2,9 +2,9 @@
 #include <QtGlobal>
 
 #include "Parser.h"
-#include "BaseEvaluator.h"
+#include "Base/BaseEvaluator.h"
 #include "Evaluator.h"
-#include "BaseGenerator.h"
+#include "Base/BaseGenerator.h"
 #include "GeneratorCPlusPlus.h"
 #include "ParserFassade.h"
 #include "Utilities.h"
@@ -62,7 +62,15 @@ void GeneratorCPlusPlus::notify(int parserId)
 
 void GeneratorCPlusPlus::allDatasReceived()
 {
-    pEvaluator->evaluate(keywords,script);
+    bool evaluationOk = pEvaluator->evaluate(keywords,script);
+    if(evaluationOk)
+    {
+
+    }
+    else
+    {
+        // showing evaluation was not ok!!
+    }
 }
 
 bool GeneratorCPlusPlus::areAllDatasReceived()

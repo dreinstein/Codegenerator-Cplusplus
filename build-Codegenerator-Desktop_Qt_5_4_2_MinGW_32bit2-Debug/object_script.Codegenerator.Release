@@ -10,5 +10,6 @@ INPUT(
 ./release\Parser.o
 ./release\Keywordchecker.o
 ./release\Evaluator.o
+./release\generator.o
 ./release\moc_mainwindow.o
 );

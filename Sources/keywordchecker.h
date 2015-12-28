@@ -1,7 +1,7 @@
 #ifndef KEYWORDCHECKER_H
 #define KEYWORDCHECKER_H
 
-#include "baseKeywordChecker.h"
+#include "Base/baseKeywordChecker.h"
 
 namespace NGenerator
 {

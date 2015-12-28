@@ -70,7 +70,6 @@ DIST          =  ..\TestCodegenerator\parsertest.h \
 		..\..\Sources\Parserimplementation.h \
 		..\TestCodegenerator\generatortest.h \
 		..\..\Sources\GeneratorCPlusPlus.h \
-		..\..\Sources\BaseGenerator.h \
 		..\..\Sources\ParserFassade.h \
 		..\..\Sources\Keywordscplusplus.h \
 		..\..\Sources\Parser.h \
@@ -78,7 +77,8 @@ DIST          =  ..\TestCodegenerator\parsertest.h \
 		..\..\Sources\Rulescplusplus.h \
 		..\TestCodegenerator\mockparser.h \
 		..\..\Sources\Evaluator.h \
-		..\..\Sources\BaseEvaluator.h ..\TestCodegenerator\main.cpp \
+		..\..\Sources\BaseEvaluator.h \
+		..\..\Sources\Base\BaseGenerator.h ..\TestCodegenerator\main.cpp \
 		..\TestCodegenerator\parsertest.cpp \
 		..\..\Sources\parserimplementation.cpp \
 		..\TestCodegenerator\generatortest.cpp \
@@ -280,11 +280,11 @@ debug/parsertest.o: ../TestCodegenerator/parsertest.cpp ../TestCodegenerator/par
 		../../gtest/gtest-typed-test.h \
 		../../gtest/gtest_pred_impl.h \
 		../../Sources/Parserimplementation.h \
-		../../Sources/parserimplementationbase.h
+		../../Sources/Base/BaseParserImplementation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\parsertest.o ..\TestCodegenerator\parsertest.cpp
 
 debug/parserimplementation.o: ../../Sources/parserimplementation.cpp ../../Sources/Parserimplementation.h \
-		../../Sources/parserimplementationbase.h
+		../../Sources/Base/BaseParserImplementation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\parserimplementation.o ..\..\Sources\parserimplementation.cpp
 
 debug/generatortest.o: ../TestCodegenerator/generatortest.cpp ../TestCodegenerator/generatortest.h \
@@ -311,9 +311,9 @@ debug/generatortest.o: ../TestCodegenerator/generatortest.cpp ../TestCodegenerat
 		../../gtest/gtest-typed-test.h \
 		../../gtest/gtest_pred_impl.h \
 		../../Sources/evaluator.h \
-		../TestCodegenerator/BaseEvaluator.h \
+		../../Sources/Base/BaseEvaluator.h \
 		../../Sources/GeneratorCPlusPlus.h \
-		../../Sources/BaseGenerator.h \
+		../../Sources/Base/BaseGenerator.h \
 		../../../QtInstallation/5.5/mingw492_32/include/QtCore/QObject \
 		../../../QtInstallation/5.5/mingw492_32/include/QtCore/qobject.h \
 		../../../QtInstallation/5.5/mingw492_32/include/QtCore/qobjectdefs.h \
@@ -385,9 +385,8 @@ debug/generatortest.o: ../TestCodegenerator/generatortest.cpp ../TestCodegenerat
 		../../gmock/gmock-generated-matchers.h \
 		../../gmock/gmock-more-actions.h \
 		../../gmock/gmock-more-matchers.h \
-		../../Sources/BaseParserImplementation.h \
+		../../Sources/Base/BaseParserImplementation.h \
 		../../Sources/Parserimplementation.h \
-		../../Sources/parserimplementationbase.h \
 		../../Sources/Utilities.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\generatortest.o ..\TestCodegenerator\generatortest.cpp
 
@@ -421,8 +420,8 @@ debug/GeneratorCPusPlus.o: ../../Sources/GeneratorCPusPlus.cpp ../../../QtInstal
 		../../../QtInstallation/5.5/mingw492_32/include/QtCore/qmutex.h \
 		../../../QtInstallation/5.5/mingw492_32/include/QtCore/qnumeric.h \
 		../../Sources/Parser.h \
-		../../Sources/BaseGenerator.h \
-		../TestCodegenerator/BaseEvaluator.h \
+		../../Sources/Base/BaseGenerator.h \
+		../../Sources/Base/BaseEvaluator.h \
 		../../Sources/Evaluator.h \
 		../../Sources/GeneratorCPlusPlus.h \
 		../../../QtInstallation/5.5/mingw492_32/include/QtCore/QObject \
@@ -485,8 +484,8 @@ debug/ParserFassade.o: ../../Sources/ParserFassade.cpp ../../../QtInstallation/5
 		../../../QtInstallation/5.5/mingw492_32/include/QtCore/qnumeric.h \
 		../../Sources/Utilities.h \
 		../../Sources/KeywordsCPlusPlus.h \
-		../../Sources/BaseGenerator.h \
-		../TestCodegenerator/BaseEvaluator.h \
+		../../Sources/Base/BaseGenerator.h \
+		../../Sources/Base/BaseEvaluator.h \
 		../../Sources/Parser.h \
 		../../Sources/Rulescplusplus.h \
 		../../Sources/Script.h \
@@ -521,8 +520,8 @@ debug/ParserFassade.o: ../../Sources/ParserFassade.cpp ../../../QtInstallation/5
 
 debug/KeywordsCPlusPlus.o: ../../Sources/KeywordsCPlusPlus.cpp ../../Sources/KeywordsCPlusPlus.h \
 		../../Sources/Utilities.h \
-		../../Sources/BaseGenerator.h \
-		../TestCodegenerator/BaseEvaluator.h \
+		../../Sources/Base/BaseGenerator.h \
+		../../Sources/Base/BaseEvaluator.h \
 		../../Sources/Parser.h \
 		../../Sources/GeneratorCPlusPlus.h \
 		../../../QtInstallation/5.5/mingw492_32/include/QtCore/QObject \
@@ -579,19 +578,18 @@ debug/KeywordsCPlusPlus.o: ../../Sources/KeywordsCPlusPlus.cpp ../../Sources/Key
 		../../../QtInstallation/5.5/mingw492_32/include/QtCore/qisenum.h \
 		../../../QtInstallation/5.5/mingw492_32/include/QtCore/qobject_impl.h \
 		../../Sources/Parserimplementation.h \
-		../../Sources/parserimplementationbase.h \
-		../../Sources/BaseParserImplementation.h
+		../../Sources/Base/BaseParserImplementation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\KeywordsCPlusPlus.o ..\..\Sources\KeywordsCPlusPlus.cpp
 
 debug/Parser.o: ../../Sources/Parser.cpp ../../Sources/Parser.h \
-		../../Sources/BaseGenerator.h \
-		../TestCodegenerator/BaseEvaluator.h
+		../../Sources/Base/BaseGenerator.h \
+		../../Sources/Base/BaseEvaluator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Parser.o ..\..\Sources\Parser.cpp
 
 debug/Script.o: ../../Sources/Script.cpp ../../Sources/Script.h \
 		../../Sources/Parser.h \
-		../../Sources/BaseGenerator.h \
-		../TestCodegenerator/BaseEvaluator.h \
+		../../Sources/Base/BaseGenerator.h \
+		../../Sources/Base/BaseEvaluator.h \
 		../../Sources/Utilities.h \
 		../../Sources/RulesCPlusPlus.h \
 		../../Sources/GeneratorCPlusPlus.h \
@@ -649,14 +647,13 @@ debug/Script.o: ../../Sources/Script.cpp ../../Sources/Script.h \
 		../../../QtInstallation/5.5/mingw492_32/include/QtCore/qisenum.h \
 		../../../QtInstallation/5.5/mingw492_32/include/QtCore/qobject_impl.h \
 		../../Sources/Parserimplementation.h \
-		../../Sources/parserimplementationbase.h \
-		../../Sources/BaseParserImplementation.h
+		../../Sources/Base/BaseParserImplementation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Script.o ..\..\Sources\Script.cpp
 
 debug/Rulescplusplus.o: ../../Sources/Rulescplusplus.cpp ../../Sources/Rulescplusplus.h \
 		../../Sources/Parser.h \
-		../../Sources/BaseGenerator.h \
-		../TestCodegenerator/BaseEvaluator.h \
+		../../Sources/Base/BaseGenerator.h \
+		../../Sources/Base/BaseEvaluator.h \
 		../../Sources/Utilities.h \
 		../../Sources/RulesCPlusPlus.h \
 		../../Sources/GeneratorCPlusPlus.h \
@@ -714,12 +711,11 @@ debug/Rulescplusplus.o: ../../Sources/Rulescplusplus.cpp ../../Sources/Rulescplu
 		../../../QtInstallation/5.5/mingw492_32/include/QtCore/qisenum.h \
 		../../../QtInstallation/5.5/mingw492_32/include/QtCore/qobject_impl.h \
 		../../Sources/Parserimplementation.h \
-		../../Sources/parserimplementationbase.h \
-		../../Sources/BaseParserImplementation.h
+		../../Sources/Base/BaseParserImplementation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Rulescplusplus.o ..\..\Sources\Rulescplusplus.cpp
 
 debug/Evaluator.o: ../../Sources/Evaluator.cpp ../../Sources/Evaluator.h \
-		../TestCodegenerator/BaseEvaluator.h
+		../../Sources/Base/BaseEvaluator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Evaluator.o ..\..\Sources\Evaluator.cpp
 
 ####### Install
