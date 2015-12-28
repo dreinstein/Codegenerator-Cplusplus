@@ -6,7 +6,7 @@
 
 #include "Parser.h"
 #include "Utilities.h"
-#include "BaseGenerator.h"
+#include "Base/BaseGenerator.h"
 
 using namespace NGenerator;
 

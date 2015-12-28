@@ -1,7 +1,7 @@
 #ifndef EVALUATOR_H
 #define EVALUATOR_H
 
-#include "BaseEvaluator.h"
+#include "Base/BaseEvaluator.h"
 #include <string>
 
 namespace NGenerator

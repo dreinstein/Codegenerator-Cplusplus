@@ -32,7 +32,6 @@ HEADERS += \
     ../../Sources/Parserimplementation.h \
     generatortest.h \
     ../../Sources/GeneratorCPlusPlus.h \
-    ../../Sources/BaseGenerator.h \
     ../../Sources/ParserFassade.h \
     ../../Sources/Keywordscplusplus.h \
     ../../Sources/Parser.h \
@@ -40,5 +39,6 @@ HEADERS += \
     ../../Sources/Rulescplusplus.h \
     mockparser.h \
     ../../Sources/Evaluator.h \
-    ../../Sources/BaseEvaluator.h
+    ../../Sources/BaseEvaluator.h \
+    ../../Sources/Base/BaseGenerator.h
 

@@ -2,10 +2,10 @@
 #include "../../gtest/gtest.h"
 //#include "../../gmock/gmock.h"
 #include "evaluator.h"
-#include "BaseEvaluator.h"
+#include "Base/BaseEvaluator.h"
 #include "GeneratorCPlusPlus.h"
 #include "mockparser.h"
-#include "BaseGenerator.h"
+#include "Base/BaseGenerator.h"
 #include "Parserimplementation.h"
 #include "Utilities.h"
 

@@ -5,7 +5,7 @@
 #include "Utilities.h"
 #include "GeneratorCPlusPlus.h"
 #include "Parserimplementation.h"
-#include "BaseParserImplementation.h"
+#include "Base/BaseParserImplementation.h"
 
 namespace NParser
 {
