@@ -15,6 +15,11 @@ ParserImpl::ParserImpl()
 
 }
 
+ParserImpl::~ParserImpl()
+{
+
+}
+
 std::vector<std::string> ParserImpl::doParse(std::string path)
 {
     std::ifstream  fin(path);

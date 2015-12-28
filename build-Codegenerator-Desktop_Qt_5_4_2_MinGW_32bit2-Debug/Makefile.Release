@@ -72,7 +72,8 @@ DIST          =  ..\Sources\mainwindow.h \
 		..\Sources\Rulescplusplus.h \
 		..\Sources\Parserimplementation.h \
 		..\Sources\Script.h \
-		..\Sources\Parser.h ..\Sources\main.cpp \
+		..\Sources\Parser.h \
+		..\Sources\parserimplementationbase.h ..\Sources\main.cpp \
 		..\Sources\mainwindow.cpp \
 		..\Sources\ParserFassade.cpp \
 		..\Sources\KeywordsCPlusPlus.cpp \
@@ -490,7 +491,45 @@ release/mainwindow.o: ../Sources/mainwindow.cpp ../Sources/mainwindow.h \
 		../../QtInstallation/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
 		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qtabwidget.h \
 		../../QtInstallation/5.4/mingw491_32/include/QtGui/qicon.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/QVariant \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/QAction \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qaction.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/QApplication \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qapplication.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qcoreapplication.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qeventloop.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qdesktopwidget.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtGui/qguiapplication.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtGui/qinputmethod.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/QButtonGroup \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qbuttongroup.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/QHeaderView \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qheaderview.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qabstractitemview.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qabstractscrollarea.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qframe.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qabstractitemmodel.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qitemselectionmodel.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qabstractitemdelegate.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qstyleoption.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qabstractspinbox.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtGui/qvalidator.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtCore/qregularexpression.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qslider.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qabstractslider.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qstyle.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qtabbar.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qrubberband.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/QMenuBar \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qmenubar.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qmenu.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/QStatusBar \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qstatusbar.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/QToolBar \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/qtoolbar.h \
+		../../QtInstallation/5.4/mingw491_32/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\Sources\mainwindow.cpp
 
 release/ParserFassade.o: ../Sources/ParserFassade.cpp ../../QtInstallation/5.4/mingw491_32/include/QtCore/QtGlobal \
@@ -537,7 +576,8 @@ release/KeywordsCPlusPlus.o: ../Sources/KeywordsCPlusPlus.cpp ../Sources/Keyword
 		../Sources/BaseGenerator.h \
 		../Sources/Parser.h \
 		../Sources/GeneratorCPlusPlus.h \
-		../Sources/Parserimplementation.h
+		../Sources/Parserimplementation.h \
+		../Sources/parserimplementationbase.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\KeywordsCPlusPlus.o ..\Sources\KeywordsCPlusPlus.cpp
 
 release/GeneratorCPusPlus.o: ../Sources/GeneratorCPusPlus.cpp ../../QtInstallation/5.4/mingw491_32/include/QtCore/QtGlobal \
@@ -582,10 +622,12 @@ release/Rulescplusplus.o: ../Sources/Rulescplusplus.cpp ../Sources/Rulescplusplu
 		../Sources/Utilities.h \
 		../Sources/RulesCPlusPlus.h \
 		../Sources/GeneratorCPlusPlus.h \
-		../Sources/Parserimplementation.h
+		../Sources/Parserimplementation.h \
+		../Sources/parserimplementationbase.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Rulescplusplus.o ..\Sources\Rulescplusplus.cpp
 
-release/parserimplementation.o: ../Sources/parserimplementation.cpp ../Sources/Parserimplementation.h
+release/parserimplementation.o: ../Sources/parserimplementation.cpp ../Sources/Parserimplementation.h \
+		../Sources/parserimplementationbase.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\parserimplementation.o ..\Sources\parserimplementation.cpp
 
 release/Script.o: ../Sources/Script.cpp ../Sources/Script.h \
@@ -594,7 +636,8 @@ release/Script.o: ../Sources/Script.cpp ../Sources/Script.h \
 		../Sources/Utilities.h \
 		../Sources/RulesCPlusPlus.h \
 		../Sources/GeneratorCPlusPlus.h \
-		../Sources/Parserimplementation.h
+		../Sources/Parserimplementation.h \
+		../Sources/parserimplementationbase.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Script.o ..\Sources\Script.cpp
 
 release/Parser.o: ../Sources/Parser.cpp ../Sources/Parser.h \

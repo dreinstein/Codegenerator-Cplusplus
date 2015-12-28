@@ -33,7 +33,8 @@ HEADERS  += mainwindow.h \
     Rulescplusplus.h \
     Parserimplementation.h \
     Script.h \
-    Parser.h
+    Parser.h \
+    parserimplementationbase.h
 
 
 

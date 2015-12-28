@@ -3,13 +3,16 @@
 
 #include <vector>
 #include <string>
+
+#include "parserimplementationbase.h"
 //namespace NParser
 //{
 
-class ParserImpl
+class ParserImpl:ParserImplementationBase
 {
 public:
     ParserImpl();
+    virtual ~ParserImpl();
     std::vector<std::string> doParse(std::string);
 };
 
