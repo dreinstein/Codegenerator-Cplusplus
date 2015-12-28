@@ -15,18 +15,20 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp\
-		ParserFassade.cpp \
+    mainwindow.cpp\
+    ParserFassade.cpp \
     KeywordsCPlusPlus.cpp \
     GeneratorCPusPlus.cpp \
     Rulescplusplus.cpp \
     parserimplementation.cpp \
     Script.cpp \
-    Parser.cpp
+    Parser.cpp \
+    Keywordchecker.cpp \
+    Evaluator.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
-	ParserFassade.h \
+    ParserFassade.h \
     Keywordscplusplus.h \
     GeneratorCPlusPlus.h \
     BaseGenerator.h \
@@ -34,9 +36,12 @@ HEADERS  += mainwindow.h \
     Parserimplementation.h \
     Script.h \
     Parser.h \
-    parserimplementationbase.h
-
-
+    parserimplementationbase.h\
+    BaseParserImplementation.h \
+    BaseKeywordChecker.h \
+    Keywordchecker.h \
+    Evaluator.h \
+    BaseEvaluator.h
 
 FORMS    += mainwindow.ui
 	

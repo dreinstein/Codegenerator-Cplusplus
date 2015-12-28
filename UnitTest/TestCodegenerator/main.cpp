@@ -7,9 +7,10 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
     ::testing::InitGoogleTest(&argc, argv);
-    ParserTest* parser = new ParserTest();
+    ::testing::InitGoogleMock(&argc, argv);
+   // ParserTest* parser = new ParserTest();
     return RUN_ALL_TESTS();
-    delete parser;
+  //  delete parser;
     return a.exec();
 }
 

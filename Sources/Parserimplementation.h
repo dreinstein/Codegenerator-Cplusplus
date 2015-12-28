@@ -5,10 +5,12 @@
 #include <string>
 
 #include "parserimplementationbase.h"
-//namespace NParser
-//{
 
-class ParserImpl:ParserImplementationBase
+
+namespace NParser
+{
+
+class ParserImpl:public BaseParserImpl
 {
 public:
     ParserImpl();
@@ -16,5 +18,5 @@ public:
     std::vector<std::string> doParse(std::string);
 };
 
-//}
+}
 #endif // PARSERIMPLEMENTATION_H

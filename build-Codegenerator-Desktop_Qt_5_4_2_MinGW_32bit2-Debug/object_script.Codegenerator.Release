@@ -8,5 +8,7 @@ INPUT(
 ./release\parserimplementation.o
 ./release\Script.o
 ./release\Parser.o
+./release\Keywordchecker.o
+./release\Evaluator.o
 ./release\moc_mainwindow.o
 );

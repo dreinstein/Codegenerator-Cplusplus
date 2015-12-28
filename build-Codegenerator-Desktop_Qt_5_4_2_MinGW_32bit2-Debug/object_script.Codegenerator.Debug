@@ -8,5 +8,7 @@ INPUT(
 ./debug\parserimplementation.o
 ./debug\Script.o
 ./debug\Parser.o
+./debug\Keywordchecker.o
+./debug\Evaluator.o
 ./debug\moc_mainwindow.o
 );

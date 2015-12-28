@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\parsertest.o
+./release\parserimplementation.o
+./release\generatortest.o
+./release\GeneratorCPusPlus.o
+./release\ParserFassade.o
+./release\KeywordsCPlusPlus.o
+./release\Parser.o
+./release\Script.o
+./release\Rulescplusplus.o
+./release\Evaluator.o
+);
