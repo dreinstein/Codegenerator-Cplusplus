@@ -2,17 +2,23 @@
 #include <QtGlobal>
 
 #include "Parser.h"
+#include "Base/BaseGenerator.h"
 #include "Base/BaseEvaluator.h"
 #include "Evaluator.h"
-#include "Base/BaseGenerator.h"
 #include "GeneratorCPlusPlus.h"
+#include "Codegen/CPluspluscodegenerator.h"
 #include "ParserFassade.h"
+#include "Codegeneratorfassade.h"
 #include "Utilities.h"
 
 
 
 
+
+
 using namespace NParser;
+using namespace Codegenerator;
+using namespace General;
 
 namespace NGenerator
 {
@@ -20,7 +26,9 @@ namespace NGenerator
 
 GeneratorCPlusPlus::GeneratorCPlusPlus()
 {
-    pFassade = new ParserFassade(this,General::Languages::CPLUSPLUS);
+    pCodegeneratorFassade = new CodegeneratorFassade(this,Languages::CPLUSPLUS);
+    pParserFassade = new ParserFassade(this,Languages::CPLUSPLUS);
+
   //  Evaluator eval;
     pEvaluator = new ScriptEvaluator();
 }
@@ -32,21 +40,25 @@ GeneratorCPlusPlus::~GeneratorCPlusPlus()
     {
          delete pEvaluator;
     }
-    if(pFassade)
+    if(pParserFassade)
     {
-        delete pFassade;
+        delete pParserFassade;
+    }
+    if(pCodegeneratorFassade)
+    {
+        delete pCodegeneratorFassade;
     }
 }
 
 void GeneratorCPlusPlus::generate()
 {
-    Q_ASSERT(pFassade);
+    Q_ASSERT(pParserFassade);
     keywordsReceived = false;
     rulesReceived = false;
     rulesReceived = false;
-    pFassade->ParseKeyword();
-    pFassade->ParseRules();
-    pFassade->ParseScript();
+    pParserFassade->ParseKeyword();
+    pParserFassade->ParseRules();
+    pParserFassade->ParseScript();
 }
 
 void GeneratorCPlusPlus::notify(int parserId)
@@ -55,17 +67,32 @@ void GeneratorCPlusPlus::notify(int parserId)
     switch(parserId)
     {
         case General::ParserId::Keyword:
-            pFassade->giveKeywordData();
+            pParserFassade->giveKeywordData();
         break;
+        case General::ParserId::Rules:
+            pParserFassade->giveRulesData();
+            break;
+        case General::ParserId::Script:
+            pParserFassade->giveScriptData();
+            break;
+        default:
+            Q_ASSERT(false);
     }
+}
+
+void GeneratorCPlusPlus::notifyCodeGenerated()
+{
+    int i=1;
 }
 
 void GeneratorCPlusPlus::allDatasReceived()
 {
     bool evaluationOk = pEvaluator->evaluate(keywords,script);
-    if(evaluationOk)
+
+   if(true)
     {
 
+        pCodegeneratorFassade->generate();
     }
     else
     {

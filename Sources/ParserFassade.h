@@ -46,8 +46,7 @@ private:
     Parser *keyParser;
     Parser *scriptParser;
     Parser *rulesParser;
-    Languages::Parserlanguage language;
-
+    void buildForCPlusPlus(BaseGenerator* generator);
     ParserFassade(const ParserFassade& f);
     ParserFassade& operator = (const ParserFassade& src);
 

@@ -22,10 +22,11 @@ SOURCES += main.cpp \
     ../../Sources/GeneratorCPusPlus.cpp \
     ../../Sources/ParserFassade.cpp \
     ../../Sources/KeywordsCPlusPlus.cpp \
-    ../../Sources/Parser.cpp \
     ../../Sources/Script.cpp \
     ../../Sources/Rulescplusplus.cpp \
-    ../../Sources/Evaluator.cpp
+    ../../Sources/Evaluator.cpp \
+    ../../Sources/Codegen/CPluspluscodegenerator.cpp \
+    ../../Sources/Codegeneratorfassade.cpp
 
 HEADERS += \
     parsertest.h \
@@ -40,5 +41,11 @@ HEADERS += \
     mockparser.h \
     ../../Sources/Evaluator.h \
     ../../Sources/BaseEvaluator.h \
-    ../../Sources/Base/BaseGenerator.h
+    ../../Sources/Base/BaseGenerator.h \
+    ../../Sources/Codegen/CPluspluscodegenerator.h \
+    ../../Sources/Codegen/Basecodegenerator.h \
+    ../../Sources/Base/BaseEvaluator.h \
+    ../../Sources/Base/baseKeywordChecker.h \
+    ../../Sources/Base/BaseParserImplementation.h \
+    ../../Sources/Codegeneratorfassade.h
 

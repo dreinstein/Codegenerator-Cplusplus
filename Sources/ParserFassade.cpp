@@ -6,9 +6,6 @@
 ///////////////////////////////////////////////////////////
 
 
-
-#include <memory>
-
 #include <QtGlobal>
 
 
@@ -19,25 +16,22 @@
 #include "GeneratorCPlusPlus.h"
 #include "Parser.h"
 #include "ParserFassade.h"
+#include "Utilities.h"
 
-//namespace NParser
-//{
 
 using namespace General;
-//using namespace NParser;
-
-
 
 
 ParserFassade::ParserFassade(BaseGenerator* generator,General::Languages::Parserlanguage lang)
 {
-    language = lang;
-    keyParser = new KeywordsCPlusPlus();
-    keyParser->registerObservers(generator);
-    rulesParser = new RulesCPlusPlus();
-    rulesParser->registerObservers(generator);
-    scriptParser = new Script();
-    scriptParser->registerObservers(generator);
+    switch (lang)
+    {
+        case Languages::CPLUSPLUS:
+            buildForCPlusPlus(generator);
+        break;
+        default:
+            Q_ASSERT(true);
+    }
 }
 
 
@@ -84,10 +78,22 @@ void ParserFassade::giveRulesData()
 void ParserFassade::giveScriptData()
 {
      Q_ASSERT(scriptParser);
-     rulesParser->giveData();
+     scriptParser->giveData();
 }
 
-//}
+
+void ParserFassade::buildForCPlusPlus(BaseGenerator* generator)
+{
+     keyParser = new KeywordsCPlusPlus();
+     keyParser->registerObservers(generator);
+     rulesParser = new RulesCPlusPlus();
+     rulesParser->registerObservers(generator);
+     scriptParser = new Script();
+     scriptParser->registerObservers(generator);
+}
+
+
+
 
 
 
