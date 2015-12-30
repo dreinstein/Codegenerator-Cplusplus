@@ -10,6 +10,7 @@
 #include "BaseEvaluator.h"
 class CodegeneratorFassade;
 //class CodegeneratorFassade;
+#include <string>
 class ParserFassade;
 
 namespace NGenerator
@@ -35,6 +36,8 @@ protected:
     ParserFassade *pParserFassade=nullptr;
     CodegeneratorFassade *pCodegeneratorFassade = nullptr;
     BaseEvaluator *pEvaluator=nullptr;
+    std::string pathScript;
+
     virtual bool areAllDatasReceived()=0;
     virtual void allDatasReceived()=0;
 

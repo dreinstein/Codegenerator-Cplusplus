@@ -19,14 +19,10 @@ using namespace NGenerator;
 class RulesCPlusPlus:public Parser{
 public:
     virtual ~RulesCPlusPlus(){;}
-    void Parse();
+    void Parse(const std::string str);
     void giveData();
     General::Types::DataTypes getDataType() {return General::Types::DataTypes::Vector;}
     void registerObservers(BaseGenerator* observer);
-private:
-    std::string RULESPATH = "..\\Rules\\RulesC++.txt";
-
-
 };
 
 }

@@ -26,7 +26,8 @@ SOURCES += main.cpp \
     ../../Sources/Rulescplusplus.cpp \
     ../../Sources/Evaluator.cpp \
     ../../Sources/Codegen/CPluspluscodegenerator.cpp \
-    ../../Sources/Codegeneratorfassade.cpp
+    ../../Sources/Codegeneratorfassade.cpp \
+    ../../Sources/utilities.cpp
 
 HEADERS += \
     parsertest.h \

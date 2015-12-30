@@ -17,12 +17,10 @@ class Script:public Parser
 {
 public:
     virtual ~Script(){;}
-    void Parse();
+    void Parse(const std::string str);
     void giveData();
     General::Types::DataTypes getDataType() {return General::Types::DataTypes::Vector;}
     void registerObservers(BaseGenerator* observer);
-private:
-    std::string SCRIPTPATH = "..\\Scripts\\Script.txt";
 };
 }
 #endif // SCRIPT_H

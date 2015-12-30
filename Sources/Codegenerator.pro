@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     Keywordchecker.cpp \
     Evaluator.cpp \
     Codegeneratorfassade.cpp \
-    Codegen/CPluspluscodegenerator.cpp   
+    Codegen/CPluspluscodegenerator.cpp \    
+    Utilities.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\

@@ -21,9 +21,10 @@ void  RulesCPlusPlus::registerObservers(BaseGenerator *observer)
     parserObservers.push_back(&*observer);
 }
 
-void RulesCPlusPlus::Parse(){
+void RulesCPlusPlus::Parse(const std::string str)
+{
     BaseParserImpl* parser = new ParserImpl();
-    values = parser->doParse(RULESPATH);
+    values = parser->doParse(str);
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notify(id);
     }
