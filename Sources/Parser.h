@@ -24,7 +24,7 @@ class Parser
 public:
     Parser(){;};
     virtual ~Parser(){;};
-    virtual void Parse()=0;
+    virtual void Parse(const std::string)=0;
     virtual void giveData()=0;
     virtual void registerObservers(BaseGenerator *observer)=0;
 protected:

@@ -31,11 +31,12 @@ CodegeneratorFassade::~CodegeneratorFassade()
 }
 
 
-void CodegeneratorFassade::generate()
+void CodegeneratorFassade:: generate(std::vector<std::string> strVecScript)
 {
     Q_ASSERT(pCodeGenerator);
-    pCodeGenerator->generate();
+    pCodeGenerator->generate(strVecScript);
 }
+
 
 void CodegeneratorFassade::buildForCPlusPlus(BaseGenerator* generator)
 {

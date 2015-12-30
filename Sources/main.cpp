@@ -5,6 +5,7 @@
 #include "../Sources/Utilities.h"
 //#include "../gtest/gtest.h"
 //#include "../gmock/gmock.h"
+#include <string>
 
 /*double squareroot (const double x)
 {
@@ -17,9 +18,11 @@ int main(int argc, char *argv[])
 
     //  ::testing::InitGoogleTest(&argc, argv);
     //  return RUN_ALL_TESTS();
-
+    std::string scriptTogenerate = "c:\\Codegenerator\\Scripts\\myFirstScript.txt";
+   // std::string cPulsPlusRules = "c:\\Codegenerator\\Keywords\\myFirstKeywords.txt";
+//    std::string scriptTogenerate = "c:\\Codegenerator\\Scripts\\myFirstScript.txt";
     QApplication a(argc, argv);
-    NGenerator::BaseGenerator* myGenerator = new NGenerator::GeneratorCPlusPlus();
+    NGenerator::BaseGenerator* myGenerator = new NGenerator::GeneratorCPlusPlus(scriptTogenerate);
     myGenerator->generate();
  //   MainWindow w;	
 

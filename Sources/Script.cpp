@@ -20,9 +20,10 @@ void  Script::registerObservers(BaseGenerator *observer)
     parserObservers.push_back(&*observer);
 }
 
-void Script::Parse(){
+void Script::Parse(const std::string str)
+{
     BaseParserImpl* parser = new ParserImpl();
-    values = parser->doParse(SCRIPTPATH);
+    values = parser->doParse(str);
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notify(id);
     }

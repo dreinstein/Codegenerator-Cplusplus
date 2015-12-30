@@ -31,9 +31,10 @@ void  KeywordsCPlusPlus::registerObservers(NGenerator::BaseGenerator *observer)
 }
 
 
-void KeywordsCPlusPlus::Parse(){
+void KeywordsCPlusPlus::Parse(const std::string str)
+{
     BaseParserImpl* parser = new ParserImpl();
-    values = parser->doParse(KEYWORDSPATH);
+    values = parser->doParse(str);
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notify(id);
     }

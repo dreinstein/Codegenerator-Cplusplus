@@ -35,9 +35,9 @@ public:
     ParserFassade(BaseGenerator* generator,Languages::Parserlanguage lang);
     ~ParserFassade();
 
-    void ParseKeyword();
-    void ParseRules();
-    void ParseScript();
+    void ParseKeyword(std::string str);
+    void ParseRules(std::string str);
+    void ParseScript(std::string str);
     void giveKeywordData();
     void giveScriptData();
     void giveRulesData();

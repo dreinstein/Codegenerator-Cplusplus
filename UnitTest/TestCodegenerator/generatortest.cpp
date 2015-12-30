@@ -26,7 +26,7 @@ TEST(GeneratorTest, ReceiveDataKeyWords) {
 
     std::vector<std::string> value;
     value.push_back("Parser Test successfully done");
-    BaseGenerator *generator = new GeneratorCPlusPlus();
+    BaseGenerator *generator = new GeneratorCPlusPlus("");
     generator->receiveData(value,General::ParserId::Id::Keyword);
     std::vector<std::string> keywordstrings = generator->getKeywords();
     EXPECT_EQ(parserstring, keywordstrings[0]);
@@ -36,7 +36,7 @@ TEST(GeneratorTest, ReceiveDataKeyWords) {
 TEST(GeneratorTest, ReceiveDataRules) {
     std::vector<std::string> value;
     value.push_back("Parser Test successfully done");
-    BaseGenerator *generator = new GeneratorCPlusPlus();
+    BaseGenerator *generator = new GeneratorCPlusPlus("");
     generator->receiveData(value,General::ParserId::Id::Rules);
     std::vector<std::string> rulesstrings = generator->getRules();
     EXPECT_EQ(parserstring, rulesstrings[0]);
@@ -46,7 +46,7 @@ TEST(GeneratorTest, ReceiveDataRules) {
 TEST(GeneratorTest, ReceiveDataScript) {
     std::vector<std::string> value;
     value.push_back("Parser Test successfully done");
-    BaseGenerator *generator = new GeneratorCPlusPlus();
+    BaseGenerator *generator = new GeneratorCPlusPlus("");
     generator->receiveData(value,General::ParserId::Id::Script);
     std::vector<std::string> scriptstrings = generator->getScripts();
     EXPECT_EQ(parserstring, scriptstrings[0]);

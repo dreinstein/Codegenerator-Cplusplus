@@ -1,6 +1,7 @@
 
 #include <QtGlobal>
-
+#include <string>
+#include "Utilities.h"
 #include "Parser.h"
 #include "Base/BaseGenerator.h"
 #include "Base/BaseEvaluator.h"
@@ -9,10 +10,6 @@
 #include "Codegen/CPluspluscodegenerator.h"
 #include "ParserFassade.h"
 #include "Codegeneratorfassade.h"
-#include "Utilities.h"
-
-
-
 
 
 
@@ -20,17 +17,21 @@ using namespace NParser;
 using namespace Codegenerator;
 using namespace General;
 
+
 namespace NGenerator
 {
 
 
-GeneratorCPlusPlus::GeneratorCPlusPlus()
+GeneratorCPlusPlus::GeneratorCPlusPlus(std::string str)
 {
+
+  //  pathScript = strString;
     pCodegeneratorFassade = new CodegeneratorFassade(this,Languages::CPLUSPLUS);
     pParserFassade = new ParserFassade(this,Languages::CPLUSPLUS);
 
   //  Evaluator eval;
     pEvaluator = new ScriptEvaluator();
+    pathScript = str;
 }
 
 
@@ -56,9 +57,10 @@ void GeneratorCPlusPlus::generate()
     keywordsReceived = false;
     rulesReceived = false;
     rulesReceived = false;
-    pParserFassade->ParseKeyword();
-    pParserFassade->ParseRules();
-    pParserFassade->ParseScript();
+    std::string pathKeywords = General::FilePath::KeywordsCPlusPlus;
+    pParserFassade->ParseKeyword(pathKeywords);
+ //   pParserFassade->ParseRules(strRules);
+    pParserFassade->ParseScript(pathScript);
 }
 
 void GeneratorCPlusPlus::notify(int parserId)
@@ -83,16 +85,19 @@ void GeneratorCPlusPlus::notify(int parserId)
 void GeneratorCPlusPlus::notifyCodeGenerated()
 {
     int i=1;
+    i=i+1;
 }
 
 void GeneratorCPlusPlus::allDatasReceived()
 {
-    bool evaluationOk = pEvaluator->evaluate(keywords,script);
+    // evaluate script first (Script keywords regarding defined keywords)
+   bool evaluationOk = pEvaluator->evaluate(keywords,script);
 
-   if(true)
+   if(evaluationOk)
     {
-
-        pCodegeneratorFassade->generate();
+       // get correct rule
+       // parameter script and rule
+        pCodegeneratorFassade->generate(script);
     }
     else
     {
@@ -100,13 +105,15 @@ void GeneratorCPlusPlus::allDatasReceived()
     }
 }
 
+// expect keywords and script
+// rules are needed later
 bool GeneratorCPlusPlus::areAllDatasReceived()
 {
-    if(keywordsReceived && rulesReceived && scriptReceived )
+    if(keywordsReceived && scriptReceived )
     {
         keywordsReceived = false;
         rulesReceived = false;
-        scriptReceived = false;
+      //  scriptReceived = false;
         return true;
     }
     return false;

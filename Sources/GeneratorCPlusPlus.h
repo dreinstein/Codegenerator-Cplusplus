@@ -13,11 +13,12 @@
 namespace NGenerator
 {
 
+
 class GeneratorCPlusPlus:public BaseGenerator
 {
 
 public:
-    GeneratorCPlusPlus();
+    GeneratorCPlusPlus(std::string str);
     virtual ~GeneratorCPlusPlus();
     void generate();
     void receiveData(std::vector<std::string> strv,int parserId);
@@ -30,7 +31,7 @@ protected:
     void allDatasReceived();
     bool areAllDatasReceived();
 private:
-
+    GeneratorCPlusPlus();
     bool keywordsReceived = false;
     bool rulesReceived = false;
     bool scriptReceived = false;

@@ -1,6 +1,8 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
+#include <string>
+
 namespace General
 {
 
@@ -37,6 +39,13 @@ public:
     };
 };
 
+
+class FilePath
+{
+public:
+    static std::string RulesCPlusPlus;
+    static std::string KeywordsCPlusPlus;
+};
 
 
 

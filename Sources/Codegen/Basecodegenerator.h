@@ -3,6 +3,7 @@
 
 
 #include <vector>
+#include <string>
 #include "Base/BaseGenerator.h"
 
 using namespace NGenerator;
@@ -15,7 +16,7 @@ class BaseCodegenerator
 public:
   //  BaseCodegenerator();
     virtual ~BaseCodegenerator(){;};
-    virtual void generate() = 0;
+    virtual void generate(std::vector<std::string> strVecScript) = 0;
     virtual void registerObservers(BaseGenerator *observer)=0;
 protected:
     std::vector<BaseGenerator*> codegeratorObservers;
