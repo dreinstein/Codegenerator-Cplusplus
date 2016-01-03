@@ -31,7 +31,7 @@ CodegeneratorFassade::~CodegeneratorFassade()
 }
 
 
-void CodegeneratorFassade:: generate(std::vector<std::string> strVecScript)
+void CodegeneratorFassade:: generate(std::vector<QString> strVecScript)
 {
     Q_ASSERT(pCodeGenerator);
     pCodeGenerator->generate(strVecScript);

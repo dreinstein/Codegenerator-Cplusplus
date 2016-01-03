@@ -10,7 +10,7 @@
 #define EA_FCF5E9F8_027D_4ecf_95D2_B9170D58FE49__INCLUDED_
 
 #include <vector>
-#include <string>
+#include <QString>
 #include "Base/BaseGenerator.h"
 
 using namespace NGenerator;
@@ -24,12 +24,12 @@ class Parser
 public:
     Parser(){;};
     virtual ~Parser(){;};
-    virtual void Parse(const std::string)=0;
+    virtual void Parse(const QString)=0;
     virtual void giveData()=0;
     virtual void registerObservers(BaseGenerator *observer)=0;
 protected:
     std::vector<BaseGenerator*> parserObservers;
-    std::vector<std::string> values;
+    std::vector<QString> values;
     int id;
 };
 }

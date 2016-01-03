@@ -1,7 +1,7 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
-#include <string>
+#include <QString>
 
 namespace General
 {
@@ -43,8 +43,8 @@ public:
 class FilePath
 {
 public:
-    static std::string RulesCPlusPlus;
-    static std::string KeywordsCPlusPlus;
+    static QString RulesCPlusPlus;
+    static QString KeywordsCPlusPlus;
 };
 
 

@@ -1,6 +1,6 @@
 
 #include <QtGlobal>
-#include <string>
+#include <QString>
 #include "Utilities.h"
 #include "Parser.h"
 #include "Base/BaseGenerator.h"
@@ -22,7 +22,7 @@ namespace NGenerator
 {
 
 
-GeneratorCPlusPlus::GeneratorCPlusPlus(std::string str)
+GeneratorCPlusPlus::GeneratorCPlusPlus(QString str)
 {
 
   //  pathScript = strString;
@@ -57,7 +57,7 @@ void GeneratorCPlusPlus::generate()
     keywordsReceived = false;
     rulesReceived = false;
     rulesReceived = false;
-    std::string pathKeywords = General::FilePath::KeywordsCPlusPlus;
+    QString pathKeywords = General::FilePath::KeywordsCPlusPlus;
     pParserFassade->ParseKeyword(pathKeywords);
  //   pParserFassade->ParseRules(strRules);
     pParserFassade->ParseScript(pathScript);
@@ -122,7 +122,7 @@ bool GeneratorCPlusPlus::areAllDatasReceived()
 
 
 
-void GeneratorCPlusPlus::receiveData(std::vector<std::string> strv,int parserId)
+void GeneratorCPlusPlus::receiveData(std::vector<QString> strv,int parserId)
 {
     switch(parserId)
     {

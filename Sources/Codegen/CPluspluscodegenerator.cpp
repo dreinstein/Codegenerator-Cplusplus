@@ -20,7 +20,7 @@ void CPlusPlusCodegenerator::registerObservers(BaseGenerator *observer)
 }
 
 
-void CPlusPlusCodegenerator::generate(std::vector<std::string> strVecScript)
+void CPlusPlusCodegenerator::generate(std::vector<QString> strVecScript)
 {
 
     for(auto i=0;i<strVecScript.size();++i)

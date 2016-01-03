@@ -10,7 +10,7 @@ KeywordChecker::KeywordChecker()
 }
 
 
-bool KeywordChecker::checkKeywords(std::string &additionaInfo)
+bool KeywordChecker::checkKeywords(QString &additionaInfo)
 {
   return true;
 }

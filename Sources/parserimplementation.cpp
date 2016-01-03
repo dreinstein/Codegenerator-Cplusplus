@@ -1,7 +1,13 @@
 
-#include <iostream>
-#include <fstream>
+//#include <iostream>
+//#include <fstream>
+#include <QString>
+#include <QTextStream>
+#include <QFile>
+#include <windows.h>
 #include <string>
+#include <unistd.h>
+
 
 #include "Parserimplementation.h"
 
@@ -20,19 +26,58 @@ ParserImpl::~ParserImpl()
 
 }
 
-std::vector<std::string> ParserImpl::doParse(std::string path)
+std::vector<QString> ParserImpl::doParseForVec(QString path)
 {
-    std::ifstream  fin(path);
-    std::string row;
-    std::vector<std::string> values;
-    while(getline(fin,row))
+
+    QFile fin(path);
+    QString row;
+    std::vector<QString> values;
+    if (fin.open(QIODevice::ReadOnly))
     {
-        values.push_back(row);
+       QTextStream in(&fin);
+       while (!in.atEnd())
+       {
+          row = in.readLine();
+          values.push_back(row);
+       }
+       fin.close();
     }
-    fin.close();
     return values;
+
 }
 
+// get hash fileName(Keyword,path)
+std::map<QString, QString> ParserImpl::doParseForMap(QString str)
+{
+    HANDLE fHandle;
+    WIN32_FIND_DATA wfd;
+    std::map<QString, QString> map;
+    str += "\\";
+    QString wcharp= str;
+    wcharp += "*";
+    std::wstring wstr = wcharp.toStdWString();
+    std::wstring fileWString;
+  //  str.remove(str.lastIndexOf('*'),str.length());
+    QString valueString = str;
+
+    fHandle=FindFirstFile(wstr.c_str(),&wfd);
+    do
+    {
+        fileWString = wfd.cFileName;
+        std::string fileString( fileWString.begin(), fileWString.end() );
+        if((fileString != ".") && (fileString != ".."))
+        {
+            valueString = str;
+            valueString.append(fileString.c_str());
+            fileString.erase(fileString.end()-4,fileString.end());
+            QString mapString(fileString.c_str());
+            map.insert(std::pair<QString,QString>(mapString,valueString));
+        }
+    }
+    while (FindNextFile(fHandle,&wfd));
+    FindClose(fHandle);
+    return map;
+}
 }
 
 

@@ -2,8 +2,11 @@
 #define PARSERIMPLEMENTATION_H
 
 #include <vector>
-#include <string>
+#include <QString>
+#include <map>
+
 #include "Base/BaseParserImplementation.h"
+
 namespace NParser
 {
 
@@ -12,7 +15,8 @@ class ParserImpl:public BaseParserImpl
 public:
     ParserImpl();
     virtual ~ParserImpl();
-    std::vector<std::string> doParse(std::string);
+    std::vector<QString> doParseForVec(QString);
+    std::map<QString,QString> doParseForMap(QString);
 };
 
 }

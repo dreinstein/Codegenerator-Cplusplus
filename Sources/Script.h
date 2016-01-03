@@ -1,7 +1,7 @@
 #ifndef SCRIPT_H
 #define SCRIPT_H
 
-#include <string>
+#include <QString>
 #include <vector>
 
 #include "Parser.h"
@@ -17,7 +17,7 @@ class Script:public Parser
 {
 public:
     virtual ~Script(){;}
-    void Parse(const std::string str);
+    void Parse(const QString str);
     void giveData();
     General::Types::DataTypes getDataType() {return General::Types::DataTypes::Vector;}
     void registerObservers(BaseGenerator* observer);

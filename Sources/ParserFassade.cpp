@@ -17,7 +17,7 @@
 #include "Parser.h"
 #include "ParserFassade.h"
 #include "Utilities.h"
-#include <string>
+#include <QString>
 
 
 using namespace General;
@@ -44,19 +44,19 @@ ParserFassade::~ParserFassade()
 }
 
 
-void ParserFassade::ParseKeyword(std::string strKeywords)
+void ParserFassade::ParseKeyword(QString strKeywords)
 {
      Q_ASSERT(keyParser);
      keyParser->Parse(strKeywords);
 }
 
-void ParserFassade::ParseRules(std::string strRules)
+void ParserFassade::ParseRules(QString strRules)
 {
      Q_ASSERT(rulesParser);
      rulesParser->Parse(strRules);
 }
 
-void ParserFassade::ParseScript(std::string strScript)
+void ParserFassade::ParseScript(QString strScript)
 {
      Q_ASSERT(scriptParser);
      scriptParser->Parse(strScript);

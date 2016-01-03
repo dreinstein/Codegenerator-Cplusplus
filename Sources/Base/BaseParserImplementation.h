@@ -1,11 +1,15 @@
 #ifndef PARSERIMPLEMENTATIONBASE
 #define PARSERIMPLEMENTATIONBASE
 
+#include <vector>
+#include <map>
+
 class BaseParserImpl
 {
 public:
     virtual ~BaseParserImpl(){;};
-    virtual std::vector<std::string> doParse(std::string) = 0;
+    virtual std::vector<QString> doParseForVec(QString) = 0;
+    virtual std::map<QString, QString> doParseForMap(QString)=0;
 };
 
 

@@ -16,9 +16,9 @@ ScriptEvaluator::~ScriptEvaluator()
 
 }
 
-bool ScriptEvaluator::evaluate(std::vector<std::string> vkeywords, std::vector<std::string> vscript)
+bool ScriptEvaluator::evaluate(std::vector<QString> vkeywords, std::vector<QString> vscript)
 {
-    std::string scriptentry = "noVal";
+    QString scriptentry = "noVal";
     bool found = false;
     for (auto itscript = vscript.begin(); itscript != vscript.end(); ++itscript)
     {
@@ -32,7 +32,7 @@ bool ScriptEvaluator::evaluate(std::vector<std::string> vkeywords, std::vector<s
     return true;
 }
 
-bool ScriptEvaluator::findScriptentryInKeyword(std::string entry,std::vector<std::string> vkeywords)
+bool ScriptEvaluator::findScriptentryInKeyword(QString entry,std::vector<QString> vkeywords)
 {
 
     bool found = false;
@@ -52,17 +52,17 @@ bool ScriptEvaluator::findScriptentryInKeyword(std::string entry,std::vector<std
 }
 
 
-std::string ScriptEvaluator::extractString(std::string ostring)
+QString ScriptEvaluator::extractString(QString ostring)
 {
     // get rid of @
-    ostring.erase (0,1);
+    ostring.remove(0,1);
     std::size_t foundSeperator =  UINT_MAX;
     // find seperator
-    foundSeperator = ostring.find(SEPERATOR);
+    foundSeperator = ostring.indexOf(SEPERATOR);
     // earse after seperator
     if (foundSeperator  < UINT_MAX)
     {
-        ostring.erase(foundSeperator,ostring.length());
+        ostring.remove(foundSeperator,ostring.length());
     }
     return ostring;
 }

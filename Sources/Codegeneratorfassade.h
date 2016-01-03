@@ -18,7 +18,7 @@ class CodegeneratorFassade
 public:
     CodegeneratorFassade(BaseGenerator* generator,Languages::Parserlanguage lang);
     ~CodegeneratorFassade();
-    void generate(std::vector<std::string> strVecScript);
+    void generate(std::vector<QString> strVecScript);
 private:
     void buildForCPlusPlus(BaseGenerator* generator);
     BaseCodegenerator* pCodeGenerator = nullptr;

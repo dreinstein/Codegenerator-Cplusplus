@@ -1,7 +1,7 @@
 #ifndef BASEKEYWORKCHECKER_H
 #define BASEKEYWORKCHECKER_H
 
-#include <string>
+#include <QString>
 
 namespace NGenerator
 {
@@ -10,7 +10,7 @@ class BaseKeywordChecker
 {
 public:
     virtual ~BaseKeywordChecker(){;};
-    virtual bool checkKeywords(std::string &additionaInfo)=0;
+    virtual bool checkKeywords(QString &additionaInfo)=0;
 };
 
 }

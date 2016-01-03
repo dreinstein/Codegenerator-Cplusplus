@@ -1,6 +1,6 @@
 #include "Script.h"
 
-#include <string>
+#include <QString>
 #include "RulesCPlusPlus.h"
 #include "Utilities.h"
 #include "GeneratorCPlusPlus.h"
@@ -20,10 +20,10 @@ void  Script::registerObservers(BaseGenerator *observer)
     parserObservers.push_back(&*observer);
 }
 
-void Script::Parse(const std::string str)
+void Script::Parse(const QString str)
 {
     BaseParserImpl* parser = new ParserImpl();
-    values = parser->doParse(str);
+    values = parser->doParseForVec(str);
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notify(id);
     }

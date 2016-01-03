@@ -13,7 +13,7 @@ class CPlusPlusCodegenerator : public BaseCodegenerator
 public:
     CPlusPlusCodegenerator();
     virtual ~CPlusPlusCodegenerator();
-    void generate(std::vector<std::string> strVecScript);
+    void generate(std::vector<QString> strVecScript);
     void registerObservers(BaseGenerator *observer);
 
 };

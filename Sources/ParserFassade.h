@@ -13,7 +13,7 @@
 
 #include "Utilities.h"
 #include <Vector>
-#include <string>
+#include <QString>
 #include <cstddef>
 #include "Base/BaseGenerator.h"
 #include "Parser.h"
@@ -35,9 +35,9 @@ public:
     ParserFassade(BaseGenerator* generator,Languages::Parserlanguage lang);
     ~ParserFassade();
 
-    void ParseKeyword(std::string str);
-    void ParseRules(std::string str);
-    void ParseScript(std::string str);
+    void ParseKeyword(QString str);
+    void ParseRules(QString str);
+    void ParseScript(QString str);
     void giveKeywordData();
     void giveScriptData();
     void giveRulesData();

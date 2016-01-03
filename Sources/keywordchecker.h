@@ -10,7 +10,7 @@ class KeywordChecker : public BaseKeywordChecker
 {
 public:
     KeywordChecker();
-    bool checkKeywords(std::string &additionaInfo);
+    bool checkKeywords(QString &additionaInfo);
 };
 
 }

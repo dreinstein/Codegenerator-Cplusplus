@@ -8,7 +8,7 @@
 ///////////////////////////////////////////////////////////
 
 
-#include <string>
+#include <QString>
 #include "KeywordsCPlusPlus.h"
 #include "Utilities.h"
 #include "GeneratorCPlusPlus.h"
@@ -31,10 +31,10 @@ void  KeywordsCPlusPlus::registerObservers(NGenerator::BaseGenerator *observer)
 }
 
 
-void KeywordsCPlusPlus::Parse(const std::string str)
+void KeywordsCPlusPlus::Parse(const QString str)
 {
     BaseParserImpl* parser = new ParserImpl();
-    values = parser->doParse(str);
+    values = parser->doParseForVec(str);
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notify(id);
     }

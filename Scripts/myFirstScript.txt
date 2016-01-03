@@ -1,1 +1,4 @@
+@File::myFirstFile
+@Directory::c:\\Codegenerator\\myFiles
 @Class::firstClass
+

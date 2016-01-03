@@ -2,13 +2,13 @@
 #define BASEEVALUATOR
 
 #include "vector"
-#include "string"
+#include <QString>"
 
 class BaseEvaluator
 {
 public:
     virtual ~BaseEvaluator(){;};
-    virtual bool evaluate(std::vector<std::string> vkeywords, std::vector<std::string> vscript)=0;
+    virtual bool evaluate(std::vector<QString> vkeywords, std::vector<QString> vscript)=0;
 };
 
 
