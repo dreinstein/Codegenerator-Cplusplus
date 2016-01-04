@@ -24,7 +24,7 @@ void  RulesCPlusPlus::registerObservers(BaseGenerator *observer)
 void RulesCPlusPlus::Parse(const QString str)
 {
     BaseParserImpl* parser = new ParserImpl();
-    values = parser->doParseForVec(str);
+    mapValues = parser->doParseForMap(str);
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notify(id);
     }
@@ -35,7 +35,7 @@ void RulesCPlusPlus::Parse(const QString str)
 void RulesCPlusPlus::giveData(){
     for(unsigned int i=0; i < parserObservers.size(); i++)
     {
-        parserObservers[i]->receiveData(values,id);
+        parserObservers[i]->receiveData(mapValues,id);
     }
 }
 

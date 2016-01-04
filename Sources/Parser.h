@@ -10,6 +10,7 @@
 #define EA_FCF5E9F8_027D_4ecf_95D2_B9170D58FE49__INCLUDED_
 
 #include <vector>
+#include <map>
 #include <QString>
 #include "Base/BaseGenerator.h"
 
@@ -29,7 +30,8 @@ public:
     virtual void registerObservers(BaseGenerator *observer)=0;
 protected:
     std::vector<BaseGenerator*> parserObservers;
-    std::vector<QString> values;
+    std::vector<QString> vecValues;
+    std::map<QString,QString> mapValues;
     int id;
 };
 }

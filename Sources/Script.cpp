@@ -23,7 +23,7 @@ void  Script::registerObservers(BaseGenerator *observer)
 void Script::Parse(const QString str)
 {
     BaseParserImpl* parser = new ParserImpl();
-    values = parser->doParseForVec(str);
+    vecValues = parser->doParseForVec(str);
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notify(id);
     }
@@ -34,7 +34,7 @@ void Script::Parse(const QString str)
 void Script::giveData(){
     for(unsigned int i=0; i < parserObservers.size(); i++)
     {
-        parserObservers[i]->receiveData(values,id);
+        parserObservers[i]->receiveData(vecValues,id);
     }
 }
 

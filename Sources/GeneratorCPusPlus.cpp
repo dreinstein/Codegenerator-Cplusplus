@@ -58,8 +58,9 @@ void GeneratorCPlusPlus::generate()
     rulesReceived = false;
     rulesReceived = false;
     QString pathKeywords = General::FilePath::KeywordsCPlusPlus;
+    QString pathRules = General::FilePath::RulesCPlusPlus;
     pParserFassade->ParseKeyword(pathKeywords);
- //   pParserFassade->ParseRules(strRules);
+    pParserFassade->ParseRules(pathRules);
     pParserFassade->ParseScript(pathScript);
 }
 
@@ -155,6 +156,41 @@ void GeneratorCPlusPlus::receiveData(std::vector<QString> strv,int parserId)
             Q_ASSERT(false);
     }
 }
+
+void GeneratorCPlusPlus::receiveData(std::map<QString,QString> strv,int parserId)
+{
+    switch(parserId)
+    {
+        case General::ParserId::Id::Keyword:
+            keywords = strv;
+            keywordsReceived = true;
+            if(areAllDatasReceived())
+            {
+                allDatasReceived();
+            }
+            break;
+        case General::ParserId::Id::Rules:
+            rules = strv;
+            rulesReceived = true;
+            if(areAllDatasReceived())
+            {
+                allDatasReceived();
+            }
+            break;
+        case General::ParserId::Id::Script:
+            script = strv;
+            scriptReceived = true;
+            if(areAllDatasReceived())
+            {
+                allDatasReceived();
+            }
+            // this is the last, assume all is received
+            break;
+        default:
+            Q_ASSERT(false);
+    }
+}
+
 
 }
 

@@ -6,9 +6,6 @@
 #include <QFile>
 #include <windows.h>
 #include <string>
-#include <unistd.h>
-
-
 #include "Parserimplementation.h"
 
 
@@ -55,11 +52,9 @@ std::map<QString, QString> ParserImpl::doParseForMap(QString str)
     str += "\\";
     QString wcharp= str;
     wcharp += "*";
-    std::wstring wstr = wcharp.toStdWString();
+    auto wstr = wcharp.toStdWString();
     std::wstring fileWString;
-  //  str.remove(str.lastIndexOf('*'),str.length());
     QString valueString = str;
-
     fHandle=FindFirstFile(wstr.c_str(),&wfd);
     do
     {
@@ -71,7 +66,7 @@ std::map<QString, QString> ParserImpl::doParseForMap(QString str)
             valueString.append(fileString.c_str());
             fileString.erase(fileString.end()-4,fileString.end());
             QString mapString(fileString.c_str());
-            map.insert(std::pair<QString,QString>(mapString,valueString));
+            map[mapString] = valueString;
         }
     }
     while (FindNextFile(fHandle,&wfd));

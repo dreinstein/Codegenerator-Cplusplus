@@ -34,7 +34,7 @@ void  KeywordsCPlusPlus::registerObservers(NGenerator::BaseGenerator *observer)
 void KeywordsCPlusPlus::Parse(const QString str)
 {
     BaseParserImpl* parser = new ParserImpl();
-    values = parser->doParseForVec(str);
+    vecValues = parser->doParseForVec(str);
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notify(id);
     }
@@ -45,7 +45,7 @@ void KeywordsCPlusPlus::Parse(const QString str)
 void KeywordsCPlusPlus::giveData(){
    for(unsigned int i=0; i < parserObservers.size(); i++)
    {
-       parserObservers[i]->receiveData(values,id);
+       parserObservers[i]->receiveData(vecValues,id);
    }
 }
 

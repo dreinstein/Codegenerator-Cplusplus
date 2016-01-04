@@ -3,6 +3,7 @@
 
 
 #include <vector>
+#include <map>
 #include <QString>
 #include "Base/BaseGenerator.h"
 
@@ -22,6 +23,7 @@ public:
     virtual ~GeneratorCPlusPlus();
     void generate();
     void receiveData(std::vector<QString> strv,int parserId);
+    void receiveData(std::map<QString,QString> strv,int parserId);
     void notify(int id);
     void notifyCodeGenerated();
     std::vector<QString> getKeywords(){return keywords;}
