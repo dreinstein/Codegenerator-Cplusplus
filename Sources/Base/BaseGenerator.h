@@ -26,19 +26,18 @@ public:
     virtual void notify(int id)=0;
     virtual void notifyCodeGenerated()=0;
     virtual std::vector<QString> getKeywords()=0;
-    virtual std::vector<QString> getRules()=0;
+    virtual std::map<QString,QString> getRules()=0;
     virtual std::vector<QString> getScripts()=0;
+    virtual bool areAllDatasReceived()=0;
 
 protected:
     std::vector<QString> keywords;
-    std::vector<QString> rules;
+    std::map<QString,QString> rules;
     std::vector<QString> script;
     ParserFassade *pParserFassade=nullptr;
     CodegeneratorFassade *pCodegeneratorFassade = nullptr;
     BaseEvaluator *pEvaluator=nullptr;
     QString pathScript;
-
-    virtual bool areAllDatasReceived()=0;
     virtual void allDatasReceived()=0;
 
 };

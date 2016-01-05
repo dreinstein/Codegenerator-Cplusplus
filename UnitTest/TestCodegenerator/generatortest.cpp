@@ -22,6 +22,8 @@ GeneratorTest::GeneratorTest()
 {
 }
 
+
+// check funcktion "receive data" keywords in generator file
 TEST(GeneratorTest, ReceiveDataKeyWords) {
 
     std::vector<QString> value;
@@ -33,16 +35,20 @@ TEST(GeneratorTest, ReceiveDataKeyWords) {
     delete generator;
 }
 
+
+// check funcktion "receive data" rules in generator file
 TEST(GeneratorTest, ReceiveDataRules) {
-    std::vector<QString> value;
-    value.push_back("Parser Test successfully done");
+    std::map<QString,QString> value;
+    value["Test"] = "Parser Test successfully done";
     BaseGenerator *generator = new GeneratorCPlusPlus("");
     generator->receiveData(value,General::ParserId::Id::Rules);
-    std::vector<QString> rulesstrings = generator->getRules();
-    EXPECT_EQ(parserstring, rulesstrings[0]);
+    std::map<QString,QString> rulesstrings = generator->getRules();
+    EXPECT_EQ(parserstring, rulesstrings["Test"]);
     delete generator;
 }
 
+
+// check funcktion "receive data" script in generator file
 TEST(GeneratorTest, ReceiveDataScript) {
     std::vector<QString> value;
     value.push_back("Parser Test successfully done");
@@ -53,6 +59,7 @@ TEST(GeneratorTest, ReceiveDataScript) {
     delete generator;
 }
 
+// test function evaluate in class Evaluator
 TEST(GeneratorTest, EvaluatorTest) {
     std::vector<QString> keys;
     std::vector<QString> script;

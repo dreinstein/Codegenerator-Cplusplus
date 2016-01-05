@@ -1,48 +1,31 @@
-#ifndef GENERATORCPLUSPLUS
-#define GENERATORCPLUSPLUS
+#ifndef MOCKCPLUSPLUSCODEGENERATOR_H
+#define MOCKCPLUSPLUSCODEGENERATOR_H
 
 
-#include <vector>
-#include <map>
-#include <QString>
 #include "Base/BaseGenerator.h"
+using namespace NGenerator;
 
-
-
-#include <QObject>
-
-namespace NGenerator
+class MockCPlusPlusCodegenerator:public BaseGenerator
 {
-
-
-class GeneratorCPlusPlus:public BaseGenerator
-{
-
 public:
-    GeneratorCPlusPlus(QString str);
-    virtual ~GeneratorCPlusPlus();
+    MockCPlusPlusCodegenerator();
+    virtual ~MockCPlusPlusCodegenerator();
     void generate();
     void receiveData(std::vector<QString> strv,int parserId);
     void receiveData(std::map<QString,QString> strv,int parserId);
     void notify(int id);
-    void notifyCodeGenerated();
+   // void notifyCodeGenerated();
     std::vector<QString> getKeywords(){return keywords;}
     std::map<QString,QString> getRules() {return rules;}
     std::vector<QString> getScripts() {return script;}
+     bool areAllDatasReceived();
+     void notifyCodeGenerated(){;};
 protected:
     void allDatasReceived();
-    bool areAllDatasReceived();
 private:
-    GeneratorCPlusPlus();
     bool keywordsReceived = false;
     bool rulesReceived = false;
     bool scriptReceived = false;
 };
 
-}
-
-
-#endif // GeneratorCPlusPlus
-
-
-
+#endif // MOCKCPLUSPLUSCODEGENERATOR_H

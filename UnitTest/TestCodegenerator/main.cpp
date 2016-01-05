@@ -2,6 +2,8 @@
 #include "../../gtest/gtest.h"
 #include "../../gmock/gmock.h"
 #include "parsertest.h"
+#include "generatortest.h"
+#include "systemtest.h"
 
 int main(int argc, char *argv[])
 {

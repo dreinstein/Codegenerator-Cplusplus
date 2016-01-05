@@ -2,7 +2,7 @@
 #define BASEEVALUATOR
 
 #include "vector"
-#include <QString>"
+#include <QString>
 
 class BaseEvaluator
 {

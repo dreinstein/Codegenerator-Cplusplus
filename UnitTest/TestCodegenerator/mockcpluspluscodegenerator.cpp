@@ -1,5 +1,5 @@
-
-#include <QtGlobal>
+#include "mockcpluspluscodegenerator.h"
+#include "Codegeneratorfassade.h"
 #include <QString>
 #include "Utilities.h"
 #include "Parser.h"
@@ -11,36 +11,15 @@
 #include "ParserFassade.h"
 #include "Codegeneratorfassade.h"
 
-
-
-using namespace NParser;
-using namespace Codegenerator;
-using namespace General;
-
-
-namespace NGenerator
+MockCPlusPlusCodegenerator::MockCPlusPlusCodegenerator()
 {
-
-
-GeneratorCPlusPlus::GeneratorCPlusPlus(QString str)
-{
-
-  //  pathScript = strString;
     pCodegeneratorFassade = new CodegeneratorFassade(this,Languages::CPLUSPLUS);
     pParserFassade = new ParserFassade(this,Languages::CPLUSPLUS);
-
-  //  Evaluator eval;
-    pEvaluator = new ScriptEvaluator();
-    pathScript = str;
 }
 
 
-GeneratorCPlusPlus::~GeneratorCPlusPlus()
+MockCPlusPlusCodegenerator::~MockCPlusPlusCodegenerator()
 {
-    if(pEvaluator)
-    {
-         delete pEvaluator;
-    }
     if(pParserFassade)
     {
         delete pParserFassade;
@@ -51,20 +30,21 @@ GeneratorCPlusPlus::~GeneratorCPlusPlus()
     }
 }
 
-void GeneratorCPlusPlus::generate()
+void MockCPlusPlusCodegenerator::generate()
 {
     Q_ASSERT(pParserFassade);
     keywordsReceived = false;
     rulesReceived = false;
     rulesReceived = false;
-    QString pathKeywords = General::FilePath::KeywordsCPlusPlus;
-    QString pathRules = General::FilePath::RulesCPlusPlus;
+    pathScript = "..\\Files\\Scripts\\myFirstScript.txt";
+    QString pathKeywords = "..\\Files\\Keywords\\myFirstKeywords.txt";
+    QString pathRules = "..\\Files\\Rules\\";
     pParserFassade->ParseKeyword(pathKeywords);
     pParserFassade->ParseRules(pathRules);
     pParserFassade->ParseScript(pathScript);
 }
 
-void GeneratorCPlusPlus::notify(int parserId)
+void MockCPlusPlusCodegenerator::notify(int parserId)
 {
     // lock data
     switch(parserId)
@@ -83,48 +63,25 @@ void GeneratorCPlusPlus::notify(int parserId)
     }
 }
 
-void GeneratorCPlusPlus::notifyCodeGenerated()
+
+
+void MockCPlusPlusCodegenerator::allDatasReceived()
 {
-    int i=1;
-    i=i+1;
+    pCodegeneratorFassade->generate(script,keywords,rules);
 }
 
-void GeneratorCPlusPlus::allDatasReceived()
-{
-    // evaluate script first (Script keywords regarding defined keywords)
-    //@todo evaluate doesn't work
-    // @todo also evaluate rules against keywords
-  // bool evaluationOk = pEvaluator->evaluate(keywords,script);
-    bool evaluate = true;
 
-   if(evaluate)
-    {
-       // get correct rule
-       // parameter script and rule
-        pCodegeneratorFassade->generate(script,keywords,rules);
-    }
-    else
-    {
-        // showing evaluation was not ok!!
-    }
-}
-
-// expect keywords and script
-// rules are needed later
-bool GeneratorCPlusPlus::areAllDatasReceived()
+bool MockCPlusPlusCodegenerator::areAllDatasReceived()
 {
     if(keywordsReceived && scriptReceived && rulesReceived)
     {
-        keywordsReceived = false;
-        rulesReceived = false;
-        scriptReceived = false;
         return true;
     }
     return false;
 }
 
 
-void GeneratorCPlusPlus::receiveData(std::vector<QString> strv,int parserId)
+void MockCPlusPlusCodegenerator::receiveData(std::vector<QString> strv,int parserId)
 {
     switch(parserId)
     {
@@ -153,7 +110,7 @@ void GeneratorCPlusPlus::receiveData(std::vector<QString> strv,int parserId)
     }
 }
 
-void GeneratorCPlusPlus::receiveData(std::map<QString,QString> strv,int parserId)
+void MockCPlusPlusCodegenerator::receiveData(std::map<QString,QString> strv,int parserId)
 {
     switch(parserId)
     {
@@ -177,7 +134,8 @@ void GeneratorCPlusPlus::receiveData(std::map<QString,QString> strv,int parserId
 }
 
 
-}
+
+
 
 
 

@@ -27,7 +27,9 @@ SOURCES += main.cpp \
     ../../Sources/Evaluator.cpp \
     ../../Sources/Codegen/CPluspluscodegenerator.cpp \
     ../../Sources/Codegeneratorfassade.cpp \
-    ../../Sources/utilities.cpp
+    ../../Sources/utilities.cpp \
+    systemtest.cpp \
+    mockcpluspluscodegenerator.cpp
 
 HEADERS += \
     parsertest.h \
@@ -48,5 +50,7 @@ HEADERS += \
     ../../Sources/Base/BaseEvaluator.h \
     ../../Sources/Base/baseKeywordChecker.h \
     ../../Sources/Base/BaseParserImplementation.h \
-    ../../Sources/Codegeneratorfassade.h
+    ../../Sources/Codegeneratorfassade.h \
+    systemtest.h \
+    mockcpluspluscodegenerator.h
 

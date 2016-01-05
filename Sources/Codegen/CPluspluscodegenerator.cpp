@@ -20,10 +20,18 @@ void CPlusPlusCodegenerator::registerObservers(BaseGenerator *observer)
 }
 
 
-void CPlusPlusCodegenerator::generate(std::vector<QString> strVecScript)
+void CPlusPlusCodegenerator::generate(std::vector<QString> strVecScript, std::vector<QString> strVecKeywords, std::map<QString,QString> strMapRules)
 {
 
-    for(auto i=0;i<strVecScript.size();++i)
+    for(unsigned int i=0;i<strVecScript.size();++i)
+    {
+
+    }
+    for(unsigned int i=0;i<strVecKeywords.size();++i)
+    {
+
+    }
+    for(unsigned int i=0;i<strMapRules.size();++i)
     {
 
     }

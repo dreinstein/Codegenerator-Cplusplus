@@ -1,9 +1,0 @@
-#defintion Class
-Begin
-
-class [m,1]$sname(==classname): [m,2]public|protected|private $name(==basename)
-{
-	
-};
-End
-
