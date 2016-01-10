@@ -1,6 +1,7 @@
 #ifndef CPLUSPLUSCODEGENERATOR_H
 #define CPLUSPLUSCODEGENERATOR_H
 
+#include <QFile>
 #include "Codegen/Basecodegenerator.h"
 #include "Base/BaseGenerator.h"
 
@@ -13,8 +14,10 @@ class CPlusPlusCodegenerator : public BaseCodegenerator
 public:
     CPlusPlusCodegenerator();
     virtual ~CPlusPlusCodegenerator();
-    void generate(std::vector<QString> strVecScript, std::vector<QString> strVecKeywords, std::map<QString,QString> strMapRules);
+    void generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules);
     void registerObservers(BaseGenerator *observer);
+private:
+    void generateCodeFiles(QFile& hfile,QFile &cppFile);
 
 };
 

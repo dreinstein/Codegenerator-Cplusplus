@@ -1,3 +1,5 @@
+#include <QFile>
+#include <QTextStream>
 #include "generatortest.h"
 #include "../../gtest/gtest.h"
 //#include "../../gmock/gmock.h"
@@ -8,15 +10,19 @@
 #include "Base/BaseEvaluator.h"
 #include "mockparser.h"
 #include "Parserimplementation.h"
+#include "Codegen/Basecodegenerator.h"
+#include "Codegen/CPluspluscodegenerator.h"
+
 
 
 #include <vector>
 #include <QString>
 
 using namespace NGenerator;
+using namespace NParser;
 using ::testing::Return;
 
-const QString parserstring = "Parser Test successfully done";
+const QString parserstring = "Directory";
 
 GeneratorTest::GeneratorTest()
 {
@@ -27,7 +33,7 @@ GeneratorTest::GeneratorTest()
 TEST(GeneratorTest, ReceiveDataKeyWords) {
 
     std::vector<QString> value;
-    value.push_back("Parser Test successfully done");
+    value.push_back("Directory");
     BaseGenerator *generator = new GeneratorCPlusPlus("");
     generator->receiveData(value,General::ParserId::Id::Keyword);
     std::vector<QString> keywordstrings = generator->getKeywords();
@@ -39,11 +45,12 @@ TEST(GeneratorTest, ReceiveDataKeyWords) {
 // check funcktion "receive data" rules in generator file
 TEST(GeneratorTest, ReceiveDataRules) {
     std::map<QString,QString> value;
-    value["Test"] = "Parser Test successfully done";
+    value["Test"] = "Directory";
     BaseGenerator *generator = new GeneratorCPlusPlus("");
     generator->receiveData(value,General::ParserId::Id::Rules);
     std::map<QString,QString> rulesstrings = generator->getRules();
-    EXPECT_EQ(parserstring, rulesstrings["Test"]);
+    QString asstr = rulesstrings["Test"];
+    EXPECT_EQ(parserstring, asstr);
     delete generator;
 }
 
@@ -51,7 +58,7 @@ TEST(GeneratorTest, ReceiveDataRules) {
 // check funcktion "receive data" script in generator file
 TEST(GeneratorTest, ReceiveDataScript) {
     std::vector<QString> value;
-    value.push_back("Parser Test successfully done");
+    value.push_back("Directory");
     BaseGenerator *generator = new GeneratorCPlusPlus("");
     generator->receiveData(value,General::ParserId::Id::Script);
     std::vector<QString> scriptstrings = generator->getScripts();
@@ -77,6 +84,34 @@ TEST(GeneratorTest, EvaluatorTest) {
     BaseEvaluator *evaluator = new ScriptEvaluator();
     bool ok = evaluator->evaluate(keys,script);
     EXPECT_EQ(ok, true);
+}
+
+// test function evaluate in class Evaluator
+TEST(GeneratorTest, generateClassCode) {
+    QString path = "..\\Files\\Generated\\myFirstGeneratedFile.h";
+    QFile fin(path);
+    fin.remove();
+    Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
+    ParserImpl *parser = new ParserImpl();
+    std::vector<QString> keywords = parser->doParseForVec("..\\Files\\Keywords\\myFirstKeywords.txt");
+    std::vector<QString> script = parser->doParseForVec("..\\Files\\Scripts\\myFirstScript.txt");
+    std::map<QString,QString> rules = parser->doParseForMap("..\\Files\\Rules\\");
+    generator->generate(script,rules);
+    bool open = fin.open(QIODevice::ReadOnly);
+    EXPECT_EQ(true, open);
+    QTextStream in (&fin);
+    QString line;
+    bool expectedValue = false;
+    do
+    {
+        line = in.readLine();
+        if (line.contains("class firstClass", Qt::CaseSensitive))
+        {
+            expectedValue = true;
+        }
+    }while (!line.isNull());
+    fin.close();
+    EXPECT_EQ(expectedValue, true);
 }
 
 

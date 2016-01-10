@@ -29,7 +29,8 @@ SOURCES += main.cpp \
     ../../Sources/Codegeneratorfassade.cpp \
     ../../Sources/utilities.cpp \
     systemtest.cpp \
-    mockcpluspluscodegenerator.cpp
+    mockcpluspluscodegenerator.cpp \
+    ../../Sources/Errorhandling/openfileexception.cpp
 
 HEADERS += \
     parsertest.h \
@@ -43,7 +44,6 @@ HEADERS += \
     ../../Sources/Rulescplusplus.h \
     mockparser.h \
     ../../Sources/Evaluator.h \
-    ../../Sources/BaseEvaluator.h \
     ../../Sources/Base/BaseGenerator.h \
     ../../Sources/Codegen/CPluspluscodegenerator.h \
     ../../Sources/Codegen/Basecodegenerator.h \
@@ -52,5 +52,7 @@ HEADERS += \
     ../../Sources/Base/BaseParserImplementation.h \
     ../../Sources/Codegeneratorfassade.h \
     systemtest.h \
-    mockcpluspluscodegenerator.h
+    mockcpluspluscodegenerator.h \
+    ../../Sources/Errorhandling/Exceptionhandling.h \
+    ../../Sources/Errorhandling/OpenfileException.h
 

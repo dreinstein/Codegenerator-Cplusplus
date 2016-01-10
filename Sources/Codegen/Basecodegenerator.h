@@ -17,10 +17,11 @@ class BaseCodegenerator
 public:
   //  BaseCodegenerator();
     virtual ~BaseCodegenerator(){;};
-    virtual void generate(std::vector<QString> strVecScript, std::vector<QString> strVecKeywords, std::map<QString,QString> strMapRules) = 0;
+    virtual void generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules) = 0;
     virtual void registerObservers(BaseGenerator *observer)=0;
 protected:
     std::vector<BaseGenerator*> codegeratorObservers;
+    unsigned int scriptindex;
 };
 
 }

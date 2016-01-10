@@ -10,9 +10,9 @@ namespace NGenerator
 class ScriptEvaluator:public BaseEvaluator
 {
 private:
-    QString extractString(QString ostring);
+    //QString extractString(QString ostring);
     bool findScriptentryInKeyword(QString entry,std::vector<QString> vkeywords);
-    const QString SEPERATOR = "::";
+   // const QString SEPERATOR = "::";
 public:
     ScriptEvaluator();
     virtual ~ScriptEvaluator();

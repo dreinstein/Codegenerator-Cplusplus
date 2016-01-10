@@ -48,6 +48,16 @@ public:
 };
 
 
+class ExtractString
+{
+private:
+    static QString SEPERATOR;
+public:
+    static QString extractFirst(QString ostring);
+    static QString extractLast(QString ostring);
+};
+
+
 
 
 }

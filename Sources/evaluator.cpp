@@ -1,5 +1,7 @@
-#include "Evaluator.h"
 #include <vector>
+#include "Evaluator.h"
+#include "Utilities.h"
+
 
 using namespace std;
 
@@ -22,7 +24,7 @@ bool ScriptEvaluator::evaluate(std::vector<QString> vkeywords, std::vector<QStri
     bool found = false;
     for (auto itscript = vscript.begin(); itscript != vscript.end(); ++itscript)
     {
-        scriptentry = extractString(*itscript);
+        scriptentry = General::ExtractString::extractFirst(*itscript);
         found = findScriptentryInKeyword(scriptentry,vkeywords);
         if (found == false)
         {
@@ -52,7 +54,7 @@ bool ScriptEvaluator::findScriptentryInKeyword(QString entry,std::vector<QString
 }
 
 
-QString ScriptEvaluator::extractString(QString ostring)
+/*QString ScriptEvaluator::extractString(QString ostring)
 {
     // get rid of @
     ostring.remove(0,1);
@@ -65,7 +67,7 @@ QString ScriptEvaluator::extractString(QString ostring)
         ostring.remove(foundSeperator,ostring.length());
     }
     return ostring;
-}
+}*/
 
 }
 

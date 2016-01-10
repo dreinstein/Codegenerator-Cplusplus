@@ -1,61 +1,7 @@
-#defintion Class
-Begin
-class [m,1]$sname(==classname): [m,2]public|protected|private $name(==basename)
+class $Class
 {
-	[m,1]constructor
-	[m,1]destructor
-	[m,1]assingmentoperator
-	[m,1]copyconstructor
-	[o,n]fuction
-	[o,n]attribute
-	[o,n]enum
-	[o,n]operator
+	
 };
-End
 
-#defintion constructor
-Begin
-[m,1]public|protected|private classname()
-End
-
-#definition destructor
-Begin
-[m,1]public|protected|private ~classname()
-End
-
-#definition copyconstructor
-Begin
-[m,1]public|protected|private classname([o,1]const classname &member)
-End
-
-#definition assingmentoperator
-Begin
-classname& operator = ([m,1]const classname& src); 
-End
-
-#definition function
-Begin
-[m,1]public|protected|private var classname::$function(=functionname)([o,*]([o,1]const [o,1]ref $name(=parametername))) [o,1]const
-End
-
-#definition attribute
-Begin
-[m,1]pulic|protected|private [o,1]const [o,1]ref|pointer $name(=attributename)
-End
-
-#definition enum
-Begin
-enum $name(=enumname)
-{
-	[o,*]var $name = index;
-	[m,1]var $name = index
-};
-End
-
-
-#definition operator
-Begin
-classname operator $name(classname const& rhs) const
-End
 
 

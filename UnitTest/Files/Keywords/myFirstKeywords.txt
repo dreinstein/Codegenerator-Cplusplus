@@ -1,3 +1,4 @@
-Parser Test successfully done
-Directory
-Class
+directory
+class
+attribute
+path

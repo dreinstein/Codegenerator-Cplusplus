@@ -15,14 +15,15 @@ ParserTest::ParserTest()
 }
 
 
-
+// check function to parser vector values
 TEST(ParserTest, GetVecValuesFromParserImplementation) {
     ParserImpl *parser = new ParserImpl();
     std::vector<QString> value = parser->doParseForVec("..\\Files\\Keywords\\myFirstKeywords.txt");
-    EXPECT_EQ("Parser Test successfully done", value[0]);
+    EXPECT_EQ("directory", value[0]);
     delete parser;
 }
 
+// check function to parse map values
 TEST(ParserTest, GetHashValuesFromParserImplementation) {
     ParserImpl *parser = new ParserImpl();
     std::map<QString, QString> mapValues = parser->doParseForMap(("..\\Files\\Rules"));
