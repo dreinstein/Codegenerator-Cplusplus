@@ -17,6 +17,7 @@
 
 #include <vector>
 #include <QString>
+#include <QStringList>
 
 using namespace NGenerator;
 using namespace NParser;
@@ -85,6 +86,31 @@ TEST(GeneratorTest, EvaluatorTest) {
     bool ok = evaluator->evaluate(keys,script);
     EXPECT_EQ(ok, true);
 }
+
+TEST(GeneratorTest, extractStringFirst)
+{
+    QString testString = "@class::firstClass";
+    testString = General::ExtractString::extractFirst(testString);
+    EXPECT_EQ("class",testString);
+}
+
+TEST(GeneratorTest, extractStringLast)
+{
+    QString testString = "@class::firstClass";
+    testString = General::ExtractString::extractLast(testString);
+    EXPECT_EQ("firstClass",testString);
+}
+
+
+TEST(GeneratorTest, extractStringList)
+{
+    QString testString = "@modifier::private@typ::int@attribute::myfirstAttribute";
+    QStringList stringList = General::ExtractString::extractStringList(testString);
+    EXPECT_EQ("@modifier::private",stringList.at(0));
+    EXPECT_EQ("@typ::int",stringList.at(1));
+    EXPECT_EQ("@attribute::myfirstAttribute",stringList.at(2));
+}
+
 
 // test function evaluate in class Evaluator
 TEST(GeneratorTest, generateClassCode) {

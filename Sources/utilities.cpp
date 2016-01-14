@@ -5,7 +5,8 @@ using namespace General;
 
 QString General::FilePath::RulesCPlusPlus = "c:\\Codegenerator\\Rules";
 QString General::FilePath::KeywordsCPlusPlus = "c:\\Codegenerator\\Keywords\\myFirstKeywords.txt";
-QString General::ExtractString::SEPERATOR = "::";
+QString General::ExtractString::STRINGSEPERATOR = "@";
+QString General::ExtractString::SUBSTRINGSEPERATOR = "::";
 
 
 QString ExtractString::extractFirst(QString ostring)
@@ -14,7 +15,7 @@ QString ExtractString::extractFirst(QString ostring)
     ostring.remove(0,1);
     std::size_t foundSeperator =  UINT_MAX;
     // find seperator
-    foundSeperator = ostring.indexOf(SEPERATOR);
+    foundSeperator = ostring.indexOf(SUBSTRINGSEPERATOR);
     // earse after seperator
     if (foundSeperator  < UINT_MAX)
     {
@@ -23,11 +24,13 @@ QString ExtractString::extractFirst(QString ostring)
     return ostring;
 }
 
+
+
 QString ExtractString::extractLast(QString ostring)
 {
     std::size_t foundSeperator =  UINT_MAX;
     // find seperator
-    foundSeperator = ostring.indexOf(SEPERATOR);
+    foundSeperator = ostring.indexOf(SUBSTRINGSEPERATOR);
     // earse after seperator
     if (foundSeperator  < UINT_MAX)
     {
@@ -35,3 +38,23 @@ QString ExtractString::extractLast(QString ostring)
     }
     return ostring;
 }
+
+QStringList ExtractString::extractStringList(QString ostring)
+{
+    QStringList outStringList;
+    std::size_t foundSeperator =  UINT_MAX;
+    QString iString = ostring;
+    foundSeperator = ostring.indexOf(STRINGSEPERATOR,1);
+    while(foundSeperator < UINT_MAX)
+    {
+        iString = ostring;
+        iString.remove(foundSeperator,ostring.length());
+        outStringList << iString;
+        ostring.remove(0,foundSeperator);
+        foundSeperator =  UINT_MAX;
+        foundSeperator = ostring.indexOf(STRINGSEPERATOR,1);
+    };
+    outStringList << ostring;
+    return outStringList;
+}
+

@@ -2,6 +2,7 @@
 #define UTILITIES_H
 
 #include <QString>
+#include <QStringList>
 
 namespace General
 {
@@ -51,10 +52,12 @@ public:
 class ExtractString
 {
 private:
-    static QString SEPERATOR;
+    static QString STRINGSEPERATOR;
+    static QString SUBSTRINGSEPERATOR;
 public:
     static QString extractFirst(QString ostring);
     static QString extractLast(QString ostring);
+    static QStringList extractStringList(QString ostring);
 };
 
 

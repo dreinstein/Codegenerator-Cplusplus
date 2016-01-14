@@ -1,4 +1,7 @@
 directory
 class
+typ
+keyword
 attribute
 path
+modifier

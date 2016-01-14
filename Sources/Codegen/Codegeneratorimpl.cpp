@@ -36,11 +36,12 @@ void CodegeneratorImpl::generateCodeFiles()
     {
         throw OpenFileException();
     }
-   /* if(!sourceFile.open(QIODevice::ReadWrite | QIODevice::Text))
+    if(!sourceFile.open(QIODevice::ReadWrite | QIODevice::Text))
     {
         throw OpenFileException();
-    }*/
+    }
 }
+
 
 void CodegeneratorImpl::write()
 {
