@@ -88,14 +88,18 @@ TEST(GeneratorTest, EvaluatorTest) {
 
 // test function evaluate in class Evaluator
 TEST(GeneratorTest, generateClassCode) {
-    QString path = "..\\Files\\Generated\\myFirstGeneratedFile.h";
-    QFile fin(path);
-    fin.remove();
-    Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
     ParserImpl *parser = new ParserImpl();
     std::vector<QString> keywords = parser->doParseForVec("..\\Files\\Keywords\\myFirstKeywords.txt");
     std::vector<QString> script = parser->doParseForVec("..\\Files\\Scripts\\myFirstScript.txt");
     std::map<QString,QString> rules = parser->doParseForMap("..\\Files\\Rules\\");
+    QString path = script[0];
+    path = General::ExtractString::extractLast(path);
+    //QString path = "..\\Files\\Generated\\myFirstGeneratedFile.h";
+    path = path + ".h";
+    QFile fin(path);
+    if(fin.exists())
+        fin.remove();
+    Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
     generator->generate(script,rules);
     bool open = fin.open(QIODevice::ReadOnly);
     EXPECT_EQ(true, open);

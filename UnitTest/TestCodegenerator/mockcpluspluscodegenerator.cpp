@@ -67,7 +67,7 @@ void MockCPlusPlusCodegenerator::notify(int parserId)
 
 void MockCPlusPlusCodegenerator::allDatasReceived()
 {
-    pCodegeneratorFassade->generate(script,keywords,rules);
+    pCodegeneratorFassade->generate(script,rules);
 }
 
 

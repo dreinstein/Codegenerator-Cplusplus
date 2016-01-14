@@ -27,7 +27,10 @@ SOURCES += main.cpp\
     Codegeneratorfassade.cpp \
     Codegen/CPluspluscodegenerator.cpp \    
     Utilities.cpp \
-    Errorhandling/OpenfileException.cpp
+    Errorhandling/OpenfileException.cpp \
+    Codegen/Codegeneratorimpl.cpp \
+    Codegen/Basecodegenerator.cpp \
+    Codegen/Classgenerator.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
@@ -51,7 +54,9 @@ HEADERS  += mainwindow.h \
     Codegen/CPluspluscodegenerator.h \
     Execptionhandling/OpenfileException.h \
     Errorhandling/Exceptionhandling.h \
-    Errorhandling/OpenfileException.h
+    Errorhandling/OpenfileException.h \
+    Codegen/Codegeneratorimpl.h \
+    Codegen/Classgenerator.h
 
 FORMS    += mainwindow.ui
 	

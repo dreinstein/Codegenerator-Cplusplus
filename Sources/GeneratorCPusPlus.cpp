@@ -101,7 +101,7 @@ void GeneratorCPlusPlus::allDatasReceived()
     {
        // get correct rule
        // parameter script and rule
-        pCodegeneratorFassade->generate(script,keywords,rules);
+        pCodegeneratorFassade->generate(script,rules);
     }
     else
     {

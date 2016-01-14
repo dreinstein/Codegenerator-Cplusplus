@@ -1,10 +1,12 @@
 #include <QFile>
-#include <QTextStream>
 #include <iostream>
-#include "CPluspluscodegenerator.h"
+#include <qglobal.h>
 #include "Utilities.h"
-#include "../Errorhandling/OpenfileException.h"
+#include "Codegeneratorimpl.h"
+#include "CPluspluscodegenerator.h"
+#include "Basecodegenerator.h"
 #include "../Errorhandling/Exceptionhandling.h"
+
 
 using namespace Errorhandling;
 
@@ -14,7 +16,7 @@ namespace Codegenerator
 
 CPlusPlusCodegenerator::CPlusPlusCodegenerator()
 {
-    scriptindex=0;
+
 }
 
 
@@ -28,6 +30,11 @@ void CPlusPlusCodegenerator::registerObservers(BaseGenerator *observer)
     codegeratorObservers.push_back(&*observer);
 }
 
+void CPlusPlusCodegenerator::generate(CodegeneratorImpl* _impl)
+{
+    impl = _impl;
+}
+
 
 void CPlusPlusCodegenerator::generate(std::vector<QString> strVecScript,std::map<QString,QString> strMapRules)
 {
@@ -36,56 +43,19 @@ void CPlusPlusCodegenerator::generate(std::vector<QString> strVecScript,std::map
     QString scriptelementLast= " ";
     QString mapValue = " ";
 
-    // first element of vecSript is the complete filename;
-    QString filenamePath = strVecScript[scriptindex];
+    QString filenamePath = strVecScript[0];
     filenamePath = General::ExtractString::extractLast(filenamePath);
 
-    QFile heatherFile(filenamePath);
-    QFile sourceFile(filenamePath);
+    if(impl == nullptr)
+    {
+        impl = new CodegeneratorImpl(strVecScript,strMapRules,filenamePath);
+    }
+    Q_ASSERT(impl);
 
     try
     {
-        generateCodeFiles(heatherFile,sourceFile);
-        QTextStream outh(&heatherFile);
-        QTextStream outs(&sourceFile);
-
-
-        QString row;
-        for(scriptindex=1;scriptindex<strVecScript.size();++scriptindex)
-        {
-            scriptelement = strVecScript[scriptindex];
-            scriptelementFirst = General::ExtractString::extractFirst(scriptelement);
-            scriptelementLast = General::ExtractString::extractLast(scriptelement);
-
-            mapValue = strMapRules[scriptelementFirst];
-            if(mapValue!= "")
-            {
-                QFile ruleFile(mapValue);
-                if(ruleFile.open(QIODevice::ReadWrite | QIODevice::Text))
-                {
-                    QTextStream in(&ruleFile);
-                    while (!in.atEnd())
-                    {
-                        row = in.readLine();
-                        if (row.contains(scriptelementFirst))
-                        {
-                            outh << scriptelementFirst;
-                            if(scriptelementLast != "")
-                            {
-                                 outh << " ";
-                                 outh << scriptelementLast;
-                            }
-                            continue;
-                        }
-                        else
-                        {
-                            outh << row << "\n";
-                        }
-                    }
-                }// if
-            } //if
-        } // for
-        outh << '\n';
+        impl->generateCodeFiles();
+     //   impl->write();
      } // try
      catch(Excetionhandling& e)
      {
@@ -93,26 +63,14 @@ void CPlusPlusCodegenerator::generate(std::vector<QString> strVecScript,std::map
        std::cout << e.whatDescription();
      }
 
-     heatherFile.close();
-     sourceFile.close();
+    int index = impl->getIndex();
+    QString sClass = strVecScript[index];
+    sClass = General::ExtractString::extractFirst(sClass);
 
-    for(unsigned int i=0; i < codegeratorObservers.size(); i++)
-    {
-        codegeratorObservers[i]->notifyCodeGenerated();
-    }
-}
+    BaseCodegenerator *base = BaseCodegenerator::getClassForNextElement(sClass);
+    base->generate(impl);
 
-void CPlusPlusCodegenerator::generateCodeFiles(QFile& hfile,QFile &cppFile)
-{
-    throw OpenFileException();
-    if(!hfile.open(QIODevice::ReadWrite | QIODevice::Text))
-    {
-        throw OpenFileException();
-    }
-    if(!cppFile.open(QIODevice::ReadWrite | QIODevice::Text))
-    {
-        OpenFileException();
-    }
+    delete impl;
 }
 
 }

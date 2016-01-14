@@ -31,7 +31,7 @@ CodegeneratorFassade::~CodegeneratorFassade()
 }
 
 
-void CodegeneratorFassade:: generate(std::vector<QString> strVecScript, std::vector<QString> strVecKeywords, std::map<QString,QString> strMapRules)
+void CodegeneratorFassade:: generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules)
 {
     Q_ASSERT(pCodeGenerator);
     pCodeGenerator->generate(strVecScript,strMapRules);
