@@ -32,7 +32,6 @@ GeneratorTest::GeneratorTest()
 
 // check funcktion "receive data" keywords in generator file
 TEST(GeneratorTest, ReceiveDataKeyWords) {
-
     std::vector<QString> value;
     value.push_back("Directory");
     BaseGenerator *generator = new GeneratorCPlusPlus("");

@@ -1,4 +1,6 @@
 #include "Attribute.h"
+#include "QFile"
+#include <QTextStream>
 
 
 namespace Codegenerator
@@ -15,16 +17,17 @@ Attribute::~Attribute()
 
 }
 
-void Attribute::generate(CodegeneratorImpl* _impl)
+void Attribute::generate()
 {
-    // 1 Abfrage of innerhalb classe
-    // 2 Abfragen public private
-    // unter public private schreiben
-
-
+    QFile hFile(sourcefilename);
+    QFile sFile(heaterfilename);
+    QTextStream outh(&hFile);
+    QTextStream outs(&sFile);
+    hFile.close();
+    sFile.close();
 }
 
-void Attribute::generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules)
+void Attribute::generate(std::vector<QString>, std::map<QString,QString>)
 {
     Q_ASSERT(false);
 

@@ -13,8 +13,9 @@ class CPlusPlusCodegenerator : public BaseCodegenerator
 {
 public:
     CPlusPlusCodegenerator();
+    CPlusPlusCodegenerator(const BaseCodegenerator *r){BaseCodegenerator::clone(r);}
     virtual ~CPlusPlusCodegenerator();
-    void generate(CodegeneratorImpl* _impl);
+    void generate();
     void generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules);
     void registerObservers(BaseGenerator *observer);
 };

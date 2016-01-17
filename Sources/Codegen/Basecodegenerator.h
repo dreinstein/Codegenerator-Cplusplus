@@ -5,7 +5,7 @@
 #include <vector>
 #include <map>
 #include <QString>
-#include "Codegeneratorimpl.h"
+#include <QFile>
 #include "Base/BaseGenerator.h"
 
 
@@ -19,15 +19,27 @@ class BaseCodegenerator
 {
 public:
   //  BaseCodegenerator();
-    virtual ~BaseCodegenerator(){;};
+    virtual ~BaseCodegenerator(){;}
     virtual void generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules) = 0;
-    virtual void generate(CodegeneratorImpl* _impl) = 0;
-    virtual void registerObservers(BaseGenerator *){;};
+    virtual void generate()=0;
+    virtual void registerObservers(BaseGenerator *){;}
 protected:
+    std::vector<QString> script;
+    std::map<QString,QString> rules;
     std::vector<BaseGenerator*> codegeratorObservers;
-    CodegeneratorImpl* impl = nullptr;
+    void openFiles();
+    void generateDefault();
+    void clone(const BaseCodegenerator *toClone);
+    void nextElement();
+    void setFilenames();
+  //  QFile headerFile;
+  //  QFile sourceFile;
+    unsigned int index;
+    QString sourcefilename;
+    QString heaterfilename;
+private:
+    BaseCodegenerator *getClass(QString index);
 
-    BaseCodegenerator *getClassForNextElement(QString index);
 };
 
 }

@@ -49,6 +49,8 @@ public:
 };
 
 
+
+// Todo create seperate File for Class Extract String, perhaps give it other name
 class ExtractString
 {
 private:

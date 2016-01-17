@@ -1,4 +1,4 @@
-@path::..\\Files\\Generated\\myFirstGeneratedFile.h
+@path::..\\Files\\Generated\\myFirstGeneratedFile
 @class::firstClass
 @modifier::private@typ::int@attribute::myfirstAttribute
 

@@ -19,7 +19,7 @@ namespace NGenerator
 class BaseGenerator
 {
 public:
-    virtual ~BaseGenerator(){;};
+    virtual ~BaseGenerator(){;}
     virtual void generate()=0;
     virtual void receiveData(std::vector<QString> strv,int parserId)=0;
     virtual void receiveData(std::map<QString,QString> strv,int parserId)=0;

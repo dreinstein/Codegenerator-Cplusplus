@@ -7,7 +7,7 @@
 class BaseEvaluator
 {
 public:
-    virtual ~BaseEvaluator(){;};
+    virtual ~BaseEvaluator(){;}
     virtual bool evaluate(std::vector<QString> vkeywords, std::vector<QString> vscript)=0;
 };
 

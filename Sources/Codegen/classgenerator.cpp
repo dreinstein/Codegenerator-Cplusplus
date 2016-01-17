@@ -15,12 +15,13 @@ ClassGenerator::~ClassGenerator()
 
 }
 
-void ClassGenerator::generate(CodegeneratorImpl* _impl)
+void ClassGenerator::generate()
 {
-   _impl->write();
+   generateDefault();
+
 }
 
-void ClassGenerator::generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules)
+void ClassGenerator::generate(std::vector<QString>, std::map<QString,QString>)
 {
     Q_ASSERT(false);
 }

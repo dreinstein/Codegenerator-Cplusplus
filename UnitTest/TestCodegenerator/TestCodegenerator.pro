@@ -31,7 +31,6 @@ SOURCES += main.cpp \
     systemtest.cpp \
     mockcpluspluscodegenerator.cpp \
     ../../Sources/Errorhandling/openfileexception.cpp \
-    ../../Sources/Codegen/Codegeneratorimpl.cpp \
     ../../Sources/Codegen/Classgenerator.cpp \
     ../../Sources/Codegen/Basecodegenerator.cpp
 
@@ -58,6 +57,5 @@ HEADERS += \
     mockcpluspluscodegenerator.h \
     ../../Sources/Errorhandling/Exceptionhandling.h \
     ../../Sources/Errorhandling/OpenfileException.h \
-    ../../Sources/Codegen/Codegeneratorimpl.h \
     ../../Sources/Codegen/Classgenerator.h
 

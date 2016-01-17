@@ -9,7 +9,7 @@ namespace NGenerator
 class BaseKeywordChecker
 {
 public:
-    virtual ~BaseKeywordChecker(){;};
+    virtual ~BaseKeywordChecker(){;}
     virtual bool checkKeywords(QString &additionaInfo)=0;
 };
 

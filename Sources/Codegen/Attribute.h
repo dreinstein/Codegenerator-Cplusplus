@@ -10,8 +10,9 @@ class Attribute : public BaseCodegenerator
 {
 public:
     Attribute();
+    Attribute(const BaseCodegenerator *r){BaseCodegenerator::clone(r);}
     ~Attribute();
-    void generate(CodegeneratorImpl* _impl);
+    void generate();
     void generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules);
 };
 

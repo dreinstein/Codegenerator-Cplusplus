@@ -10,7 +10,7 @@ KeywordChecker::KeywordChecker()
 }
 
 
-bool KeywordChecker::checkKeywords(QString &additionaInfo)
+bool KeywordChecker::checkKeywords(QString &)
 {
   return true;
 }
