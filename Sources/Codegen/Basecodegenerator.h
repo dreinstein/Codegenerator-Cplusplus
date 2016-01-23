@@ -20,11 +20,12 @@ class BaseCodegenerator
 public:
   //  BaseCodegenerator();
     virtual ~BaseCodegenerator(){;}
-    virtual void generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules) = 0;
+    virtual void generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules,std::vector<QString> strVecKeys) = 0;
     virtual void generate()=0;
     virtual void registerObservers(BaseGenerator *){;}
 protected:
     std::vector<QString> script;
+    std::vector<QString> keys;
     std::map<QString,QString> rules;
     std::vector<BaseGenerator*> codegeratorObservers;
     void openFiles();

@@ -17,6 +17,7 @@ void BaseCodegenerator::clone(const BaseCodegenerator *toClone)
     heaterfilename = toClone->heaterfilename;
     script = toClone->script;
     rules = toClone->rules;
+    keys = toClone->keys;
     codegeratorObservers = toClone->codegeratorObservers;
 }
 
@@ -137,10 +138,22 @@ void BaseCodegenerator::nextElement()
     if(index < script.size())
     {
         QString umlElement = script[index];
-        umlElement = General::ExtractString::extractFirst(umlElement);
-        BaseCodegenerator *base = BaseCodegenerator::getClass(umlElement);
-        base->generate();
-        delete base;
+        QStringList umlList = General::ExtractString::extractStringList(umlElement);
+        QString foundStr = " ";
+        foreach(QString v, umlList)
+        {
+            for (QString s : keys)
+            {
+                if(v == s)
+                {
+                    foundStr = v;
+                    break;
+                }
+            }
+        }
+        BaseCodegenerator *next = BaseCodegenerator::getClass(foundStr);
+        next->generate();
+        delete next;
     }
 }
 

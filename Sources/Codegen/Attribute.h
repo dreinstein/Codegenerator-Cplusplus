@@ -13,7 +13,7 @@ public:
     Attribute(const BaseCodegenerator *r){BaseCodegenerator::clone(r);}
     ~Attribute();
     void generate();
-    void generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules);
+    void generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules,std::vector<QString> strVecKeys);
 };
 
 }

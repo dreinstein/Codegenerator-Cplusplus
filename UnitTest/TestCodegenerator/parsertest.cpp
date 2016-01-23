@@ -19,7 +19,7 @@ ParserTest::ParserTest()
 TEST(ParserTest, GetVecValuesFromParserImplementation) {
     ParserImpl *parser = new ParserImpl();
     std::vector<QString> value = parser->doParseForVec("..\\Files\\Keywords\\myFirstKeywords.txt");
-    EXPECT_EQ("directory", value[0]);
+    EXPECT_EQ("class", value[0]);
     delete parser;
 }
 

@@ -27,7 +27,7 @@ void Attribute::generate()
     sFile.close();
 }
 
-void Attribute::generate(std::vector<QString>, std::map<QString,QString>)
+void Attribute::generate(std::vector<QString>, std::map<QString,QString>,std::vector<QString> strVecKeys)
 {
     Q_ASSERT(false);
 

@@ -125,7 +125,7 @@ TEST(GeneratorTest, generateClassCode) {
     if(fin.exists())
         fin.remove();
     Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
-    generator->generate(script,rules);
+    generator->generate(script,rules,keywords);
     bool open = fin.open(QIODevice::ReadOnly);
     EXPECT_EQ(true, open);
     QTextStream in (&fin);

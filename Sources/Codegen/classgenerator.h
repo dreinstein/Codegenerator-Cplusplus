@@ -14,7 +14,7 @@ public:
     ClassGenerator(const BaseCodegenerator *r){BaseCodegenerator::clone(r);}
     virtual ~ClassGenerator();
     void generate();
-    void generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules);
+    void generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules,std::vector<QString> strVecKeys);
 };
 
 
