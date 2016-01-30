@@ -19,11 +19,11 @@ void ClassGenerator::generate()
 {
    generateDefault();
 //   ++index;
-//   nextElement();
+   nextElement();
 
 }
 
-void ClassGenerator::generate(std::vector<QString>, std::map<QString,QString>,std::vector<QString> strVecKeys)
+void ClassGenerator::generate(std::vector<QString>, std::map<QString,QString>,std::vector<QString>)
 {
     Q_ASSERT(false);
 }

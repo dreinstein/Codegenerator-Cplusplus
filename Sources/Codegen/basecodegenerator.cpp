@@ -1,5 +1,6 @@
 #include "Basecodegenerator.h"
 #include "classgenerator.h"
+#include "Attribute.h"
 #include "QTextStream"
 #include "Utilities.h"
 #include "../Errorhandling/OpenfileException.h"
@@ -8,10 +9,16 @@
 namespace Codegenerator
 {
 
+
+BaseCodegenerator::BaseCodegenerator()
+{
+    index = 0;
+    sourcefilename = " ";
+    heaterfilename = " ";
+}
+
 void BaseCodegenerator::clone(const BaseCodegenerator *toClone)
 {
-  //  headerFile = toClone->headerFile;
-  //  sourceFile = toClone->sourceFile;
     index = toClone->index;
     sourcefilename = toClone->sourcefilename;
     heaterfilename = toClone->heaterfilename;
@@ -24,11 +31,6 @@ void BaseCodegenerator::clone(const BaseCodegenerator *toClone)
 
 void BaseCodegenerator::generateDefault()
 {
-    QString scriptelement=" ";
-    QString scriptelementFirst= " ";
-    QString scriptelementLast= " ";
-    QString mapValue = " ";
-
     QFile hFile(heaterfilename);
     QFile sFile(sourcefilename);
 
@@ -44,11 +46,10 @@ void BaseCodegenerator::generateDefault()
     QTextStream outs(&sFile);
 
     QString row;
-    scriptelement = script[index];
-    scriptelementFirst = General::ExtractString::extractFirst(scriptelement);
-    scriptelementLast = General::ExtractString::extractLast(scriptelement);
-    mapValue = rules[scriptelementFirst];
-
+    QString scriptelement = script[index];
+    QString scriptelementFirst = General::ExtractString::extractFirst(scriptelement);
+    QString scriptelementLast = General::ExtractString::extractLast(scriptelement);
+    QString mapValue = rules[scriptelementFirst];
 
     // @todo refactor it
     if(mapValue!= "")
@@ -67,6 +68,7 @@ void BaseCodegenerator::generateDefault()
                     {
                         outh << " ";
                         outh << scriptelementLast;
+                        outh << "\n";
                     }
                     else
                     {
@@ -86,7 +88,6 @@ void BaseCodegenerator::generateDefault()
         }
    }
    outh << '\n';
-
    sFile.close();
    hFile.close();
 }
@@ -116,7 +117,7 @@ void BaseCodegenerator::openFiles()
      QString filenamePath = script[0];
      filenamePath = General::ExtractString::extractLast(filenamePath);
      heaterfilename = filenamePath + ".h";
-     sourcefilename = filenamePath + ".s";
+     sourcefilename = filenamePath + ".cpp";
  }
 
 
@@ -129,12 +130,18 @@ BaseCodegenerator* BaseCodegenerator::getClass(QString sindex)
         generator = new ClassGenerator(this);
         return generator;
     }
+    if("attribute" == sindex)
+    {
+        generator = new Attribute(this);
+        return generator;
+    }
     Q_ASSERT(false);
 }
 
 
 void BaseCodegenerator::nextElement()
 {
+    index = index +1;
     if(index < script.size())
     {
         QString umlElement = script[index];
@@ -142,6 +149,7 @@ void BaseCodegenerator::nextElement()
         QString foundStr = " ";
         foreach(QString v, umlList)
         {
+            v = General::ExtractString::extractFirst(v);
             for (QString s : keys)
             {
                 if(v == s)
@@ -151,9 +159,12 @@ void BaseCodegenerator::nextElement()
                 }
             }
         }
-        BaseCodegenerator *next = BaseCodegenerator::getClass(foundStr);
-        next->generate();
-        delete next;
+        if(foundStr != "")
+        {
+            BaseCodegenerator *next = BaseCodegenerator::getClass(foundStr);
+            next->generate();
+            delete next;
+        }
     }
 }
 

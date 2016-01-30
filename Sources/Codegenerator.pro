@@ -30,7 +30,10 @@ SOURCES += main.cpp\
     Errorhandling/OpenfileException.cpp \
     Codegen/Basecodegenerator.cpp \
     Codegen/Classgenerator.cpp \
-    Codegen/Attribute.cpp
+    Codegen/Attribute.cpp \
+    Errorhandling/Scriptexception.cpp \
+    Errorhandling/Attributescriptexception.cpp \
+    Errorhandling/FileNotvalidexception.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
@@ -56,7 +59,10 @@ HEADERS  += mainwindow.h \
     Errorhandling/Exceptionhandling.h \
     Errorhandling/OpenfileException.h \
     Codegen/Classgenerator.h \
-    Codegen/Attribute.h
+    Codegen/Attribute.h \
+    Errorhandling/Scriptexception.h \
+    Errorhandling/Attributescriptexception.h \
+    Errorhandling/FileNotvalidexception.h
 
 FORMS    += mainwindow.ui
 	

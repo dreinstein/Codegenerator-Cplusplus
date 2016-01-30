@@ -14,7 +14,6 @@ ParserTest::ParserTest()
 {
 }
 
-
 // check function to parser vector values
 TEST(ParserTest, GetVecValuesFromParserImplementation) {
     ParserImpl *parser = new ParserImpl();

@@ -18,7 +18,7 @@ namespace Codegenerator
 class BaseCodegenerator
 {
 public:
-  //  BaseCodegenerator();
+    BaseCodegenerator();
     virtual ~BaseCodegenerator(){;}
     virtual void generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules,std::vector<QString> strVecKeys) = 0;
     virtual void generate()=0;
@@ -33,14 +33,11 @@ protected:
     void clone(const BaseCodegenerator *toClone);
     void nextElement();
     void setFilenames();
-  //  QFile headerFile;
-  //  QFile sourceFile;
     unsigned int index;
     QString sourcefilename;
     QString heaterfilename;
 private:
     BaseCodegenerator *getClass(QString index);
-
 };
 
 }

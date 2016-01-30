@@ -2,6 +2,7 @@
 #define ATTRIBUTE_H
 
 #include "Basecodegenerator.h"
+#include "QString"
 
 namespace Codegenerator
 {
@@ -9,11 +10,12 @@ namespace Codegenerator
 class Attribute : public BaseCodegenerator
 {
 public:
-    Attribute();
+    Attribute(); 
     Attribute(const BaseCodegenerator *r){BaseCodegenerator::clone(r);}
-    ~Attribute();
+    virtual ~Attribute();
     void generate();
     void generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules,std::vector<QString> strVecKeys);
+    const QString MODIFIER = "modifier";
 };
 
 }

@@ -144,3 +144,38 @@ TEST(GeneratorTest, generateClassCode) {
 }
 
 
+// test function evaluate in class Evaluator
+/*TEST(GeneratorTest, generateAttribute) {
+    ParserImpl *parser = new ParserImpl();
+    std::vector<QString> keywords = parser->doParseForVec("..\\Files\\Keywords\\myFirstKeywords.txt");
+    std::vector<QString> script = parser->doParseForVec("..\\Files\\Scripts\\myFirstScript.txt");
+    std::map<QString,QString> rules = parser->doParseForMap("..\\Files\\Rules\\");
+    QString path = script[0];
+    path = General::ExtractSt
+            ring::extractLast(path);
+    //QString path = "..\\Files\\Generated\\myFirstGeneratedFile.h";
+    path = path + ".h";
+    QFile fin(path);
+    if(fin.exists())
+        fin.remove();
+    Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
+    generator->generate(script,rules,keywords);
+    bool open = fin.open(QIODevice::ReadOnly);
+    EXPECT_EQ(true, open);
+    QTextStream in (&fin);
+    QString line;
+    bool expectedValue = false;
+    do
+    {
+        line = in.readLine();
+        if (line.contains("class firstClass", Qt::CaseSensitive))
+        {
+            expectedValue = true;
+        }
+    }while (!line.isNull());
+    fin.close();
+    EXPECT_EQ(expectedValue, true);
+}*/
+
+
+
