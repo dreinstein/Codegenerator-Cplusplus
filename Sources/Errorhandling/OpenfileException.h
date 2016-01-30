@@ -8,7 +8,7 @@
 namespace Errorhandling
 {
 
-class OpenFileException: public Excetionhandling
+class OpenFileException: public Exceptionhandling
 {
 private:
 public:

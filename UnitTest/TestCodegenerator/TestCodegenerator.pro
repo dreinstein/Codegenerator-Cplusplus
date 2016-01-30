@@ -32,7 +32,11 @@ SOURCES += main.cpp \
     mockcpluspluscodegenerator.cpp \
     ../../Sources/Errorhandling/openfileexception.cpp \
     ../../Sources/Codegen/Classgenerator.cpp \
-    ../../Sources/Codegen/Basecodegenerator.cpp
+    ../../Sources/Codegen/Basecodegenerator.cpp \
+    ../../Sources/Codegen/Attribute.cpp \
+    ../../Sources/Errorhandling/Scriptexception.cpp \
+    ../../Sources/Errorhandling/Attributescriptexception.cpp \
+    ../../Sources/Errorhandling/FileNotvalidexception.cpp
 
 HEADERS += \
     parsertest.h \
@@ -57,5 +61,9 @@ HEADERS += \
     mockcpluspluscodegenerator.h \
     ../../Sources/Errorhandling/Exceptionhandling.h \
     ../../Sources/Errorhandling/OpenfileException.h \
-    ../../Sources/Codegen/Classgenerator.h
+    ../../Sources/Codegen/Classgenerator.h \
+    ../../Sources/Codegen/Attribute.h \
+    ../../Sources/Errorhandling/Scriptexception.h \
+    ../../Sources/Errorhandling/FileNotvalidexception.h \
+    ../../Sources/Errorhandling/Attributescriptexception.h
 

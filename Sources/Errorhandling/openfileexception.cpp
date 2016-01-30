@@ -15,7 +15,7 @@ OpenFileException::~OpenFileException()
 
 int OpenFileException::whatCode() const throw ()
 {
-    return ExcetionCode::OpenFileException;
+    return ExceptionCode::OpenFileException;
 }
 
 std::string OpenFileException::whatDescription() const throw ()

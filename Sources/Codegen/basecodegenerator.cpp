@@ -1,5 +1,6 @@
 #include "Basecodegenerator.h"
 #include "classgenerator.h"
+#include "Attribute.h"
 #include "QTextStream"
 #include "Utilities.h"
 #include "../Errorhandling/OpenfileException.h"
@@ -8,48 +9,36 @@
 namespace Codegenerator
 {
 
+
+BaseCodegenerator::BaseCodegenerator()
+{
+    index = 0;
+    sourcefilename = " ";
+    heaterfilename = " ";
+}
+
 void BaseCodegenerator::clone(const BaseCodegenerator *toClone)
 {
-  //  headerFile = toClone->headerFile;
-  //  sourceFile = toClone->sourceFile;
     index = toClone->index;
     sourcefilename = toClone->sourcefilename;
     heaterfilename = toClone->heaterfilename;
+    generatedCodeHeader = toClone->generatedCodeHeader;
+    generatedCodeSource = toClone->generatedCodeSource;
     script = toClone->script;
     rules = toClone->rules;
+    keys = toClone->keys;
     codegeratorObservers = toClone->codegeratorObservers;
 }
 
 
 void BaseCodegenerator::generateDefault()
 {
-    QString scriptelement=" ";
-    QString scriptelementFirst= " ";
-    QString scriptelementLast= " ";
-    QString mapValue = " ";
-
-    QFile hFile(heaterfilename);
-    QFile sFile(sourcefilename);
-
-    if(!hFile.open(QIODevice::ReadWrite | QIODevice::Text))
-    {
-        throw Errorhandling::OpenFileException();
-    }
-    if(!sFile.open(QIODevice::ReadWrite | QIODevice::Text))
-    {
-        throw Errorhandling::OpenFileException();
-    }
-    QTextStream outh(&hFile);
-    QTextStream outs(&sFile);
-
     QString row;
-    scriptelement = script[index];
-    scriptelementFirst = General::ExtractString::extractFirst(scriptelement);
-    scriptelementLast = General::ExtractString::extractLast(scriptelement);
-    mapValue = rules[scriptelementFirst];
+    QString scriptelement = script[index];
+    QString scriptelementFirst = General::ExtractString::extractFirst(scriptelement);
+    QString scriptelementLast = General::ExtractString::extractLast(scriptelement);
+    QString mapValue = rules[scriptelementFirst];
 
-
-    // @todo refactor it
     if(mapValue!= "")
     {
         QFile ruleFile(mapValue);
@@ -61,20 +50,21 @@ void BaseCodegenerator::generateDefault()
                 row = in.readLine();
                 if (row.contains(scriptelementFirst))
                 {
-                    outh << scriptelementFirst;
+                    generatedCodeHeader.push_back(scriptelementFirst);
                     if(scriptelementLast != "")
                     {
-                        outh << " ";
-                        outh << scriptelementLast;
+                        generatedCodeHeader.push_back(" ");
+                        generatedCodeHeader.push_back(scriptelementLast);
+                        generatedCodeHeader.push_back("\n");
                     }
                     else
                     {
-                        outh << row << "\n";
+                        generatedCodeHeader.push_back("\n");
                     }
                 }
                 else
                 {
-                    outh << row << "\n";
+                    generatedCodeHeader.push_back(row);
                 }
             }// while
 
@@ -84,10 +74,7 @@ void BaseCodegenerator::generateDefault()
             throw Errorhandling::OpenFileException();
         }
    }
-   outh << '\n';
-
-   sFile.close();
-   hFile.close();
+   generatedCodeHeader.push_back("\n");
 }
 
 
@@ -115,7 +102,7 @@ void BaseCodegenerator::openFiles()
      QString filenamePath = script[0];
      filenamePath = General::ExtractString::extractLast(filenamePath);
      heaterfilename = filenamePath + ".h";
-     sourcefilename = filenamePath + ".s";
+     sourcefilename = filenamePath + ".cpp";
  }
 
 
@@ -128,19 +115,41 @@ BaseCodegenerator* BaseCodegenerator::getClass(QString sindex)
         generator = new ClassGenerator(this);
         return generator;
     }
+    if("attribute" == sindex)
+    {
+        generator = new Attribute(this);
+        return generator;
+    }
     Q_ASSERT(false);
 }
 
 
 void BaseCodegenerator::nextElement()
 {
+    index = index +1;
     if(index < script.size())
     {
         QString umlElement = script[index];
-        umlElement = General::ExtractString::extractFirst(umlElement);
-        BaseCodegenerator *base = BaseCodegenerator::getClass(umlElement);
-        base->generate();
-        delete base;
+        QStringList umlList = General::ExtractString::extractStringList(umlElement);
+        QString foundStr = " ";
+        foreach(QString v, umlList)
+        {
+            v = General::ExtractString::extractFirst(v);
+            for (QString s : keys)
+            {
+                if(v == s)
+                {
+                    foundStr = v;
+                    break;
+                }
+            }
+        }
+        if(foundStr != "")
+        {
+            BaseCodegenerator *next = BaseCodegenerator::getClass(foundStr);
+            next->generate();
+            delete next;
+        }
     }
 }
 

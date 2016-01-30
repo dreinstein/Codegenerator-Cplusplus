@@ -34,23 +34,26 @@ void CPlusPlusCodegenerator::generate()
 }
 
 
-void CPlusPlusCodegenerator::generate(std::vector<QString> strVecScript,std::map<QString,QString> strMapRules)
+void CPlusPlusCodegenerator::generate(std::vector<QString> strVecScript,std::map<QString,QString> strMapRules,std::vector<QString> strVecKeys)
 {
     script = strVecScript;
     rules = strMapRules;
+    keys = strVecKeys;
 
-    setFilenames();
+    index = 0;
+
+   /* setFilenames();
 
     try
     {
         openFiles();
      } // try
-     catch(Excetionhandling& e)
+     catch(Exceptionhandling& e)
      {
        std::cout << e.whatCode();
        std::cout << e.whatDescription();
      }
-    index = 1;
+  //  index = 1;*/
     nextElement();
 }
 

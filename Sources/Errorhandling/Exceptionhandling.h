@@ -11,18 +11,20 @@ using namespace std;
 namespace Errorhandling
 {
 
-class Excetionhandling:public exception
+class Exceptionhandling:public exception
 {
 protected:
-    enum ExcetionCode
+    enum ExceptionCode
     {
-        OpenFileException = 1
+        OpenFileException       = 1,
+        ScriptException         = 2,
+        FileNotValidException   = 3
     };
 
 
 public:
    // Excetionhandling();
-    virtual ~Excetionhandling(){;};
+    virtual ~Exceptionhandling(){;};
     virtual int whatCode() const throw ()=0;
     virtual std::string whatDescription() const throw () = 0;
 };
