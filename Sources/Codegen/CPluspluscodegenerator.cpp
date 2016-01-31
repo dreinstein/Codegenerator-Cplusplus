@@ -42,7 +42,7 @@ void CPlusPlusCodegenerator::generate(std::vector<QString> strVecScript,std::map
 
     index = 0;
 
-    setFilenames();
+   /* setFilenames();
 
     try
     {
@@ -53,7 +53,7 @@ void CPlusPlusCodegenerator::generate(std::vector<QString> strVecScript,std::map
        std::cout << e.whatCode();
        std::cout << e.whatDescription();
      }
-  //  index = 1;
+  //  index = 1;*/
     nextElement();
 }
 

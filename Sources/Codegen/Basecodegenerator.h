@@ -3,6 +3,7 @@
 
 
 #include <vector>
+#include <list>
 #include <map>
 #include <QString>
 #include <QFile>
@@ -28,6 +29,8 @@ protected:
     std::vector<QString> keys;
     std::map<QString,QString> rules;
     std::vector<BaseGenerator*> codegeratorObservers;
+    std::list<QString> generatedCodeHeader;
+    std::vector<QString> generatedCodeSource;
     void openFiles();
     void generateDefault();
     void clone(const BaseCodegenerator *toClone);

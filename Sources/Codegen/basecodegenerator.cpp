@@ -22,6 +22,8 @@ void BaseCodegenerator::clone(const BaseCodegenerator *toClone)
     index = toClone->index;
     sourcefilename = toClone->sourcefilename;
     heaterfilename = toClone->heaterfilename;
+    generatedCodeHeader = toClone->generatedCodeHeader;
+    generatedCodeSource = toClone->generatedCodeSource;
     script = toClone->script;
     rules = toClone->rules;
     keys = toClone->keys;
@@ -31,27 +33,12 @@ void BaseCodegenerator::clone(const BaseCodegenerator *toClone)
 
 void BaseCodegenerator::generateDefault()
 {
-    QFile hFile(heaterfilename);
-    QFile sFile(sourcefilename);
-
-    if(!hFile.open(QIODevice::ReadWrite | QIODevice::Text))
-    {
-        throw Errorhandling::OpenFileException();
-    }
-    if(!sFile.open(QIODevice::ReadWrite | QIODevice::Text))
-    {
-        throw Errorhandling::OpenFileException();
-    }
-    QTextStream outh(&hFile);
-    QTextStream outs(&sFile);
-
     QString row;
     QString scriptelement = script[index];
     QString scriptelementFirst = General::ExtractString::extractFirst(scriptelement);
     QString scriptelementLast = General::ExtractString::extractLast(scriptelement);
     QString mapValue = rules[scriptelementFirst];
 
-    // @todo refactor it
     if(mapValue!= "")
     {
         QFile ruleFile(mapValue);
@@ -63,21 +50,21 @@ void BaseCodegenerator::generateDefault()
                 row = in.readLine();
                 if (row.contains(scriptelementFirst))
                 {
-                    outh << scriptelementFirst;
+                    generatedCodeHeader.push_back(scriptelementFirst);
                     if(scriptelementLast != "")
                     {
-                        outh << " ";
-                        outh << scriptelementLast;
-                        outh << "\n";
+                        generatedCodeHeader.push_back(" ");
+                        generatedCodeHeader.push_back(scriptelementLast);
+                        generatedCodeHeader.push_back("\n");
                     }
                     else
                     {
-                        outh << row << "\n";
+                        generatedCodeHeader.push_back("\n");
                     }
                 }
                 else
                 {
-                    outh << row << "\n";
+                    generatedCodeHeader.push_back(row);
                 }
             }// while
 
@@ -87,9 +74,7 @@ void BaseCodegenerator::generateDefault()
             throw Errorhandling::OpenFileException();
         }
    }
-   outh << '\n';
-   sFile.close();
-   hFile.close();
+   generatedCodeHeader.push_back("\n");
 }
 
 

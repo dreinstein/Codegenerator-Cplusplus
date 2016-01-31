@@ -1,6 +1,6 @@
+#include <algorithm>
 #include "Attribute.h"
 #include "QFile"
-#include <QTextStream>
 #include "QTextStream"
 #include "Utilities.h"
 #include "../Errorhandling/OpenfileException.h"
@@ -24,17 +24,6 @@ Attribute::~Attribute()
 
 void Attribute::generate()
 {
-    QFile hFile(heaterfilename);
-    //QFile sFile(heaterfilename);
-
-    // open Heaterfile
-    if(!hFile.open(QIODevice::ReadWrite | QIODevice::Text))
-    {
-        throw Errorhandling::OpenFileException();
-    }
-
-    QTextStream outh(&hFile);
-
     // 1. read modifier
     QString scriptelement = script[index];
     QStringList qlist = General::ExtractString::extractStringList(scriptelement);
@@ -53,37 +42,43 @@ void Attribute::generate()
     bool foundClass = false;
     bool foundBracket = false;
     bool foundModifier = false;
-    QString row;
-    while (!outh.atEnd())
+    QString element;
+    unsigned int index = 0;
+    for(list<QString>::iterator iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator,++index)
     {
-        row = outh.readLine();
-        if (row.contains("class"))
+        element = *iterator;
+        if (element.contains("class"))
         {
             foundClass = true;
         }
-        if(row.contains("{"))
+        if(element.contains("{"))
         {
             foundBracket = true;
         }
-        if(row.contains(modifier) && foundBracket && foundClass)
+        if(element.contains(modifier) && foundBracket && foundClass)
         {
             foundModifier = true;
-            row = outh.readLine();
         }
-        if((row.contains("}")) && foundBracket && foundClass)
+        if((element.contains("}")) && foundBracket && foundClass)
         {
+            list<QString> templist;
+            iterator = --iterator;
+            templist.splice(templist.begin(), generatedCodeHeader,iterator,generatedCodeHeader.end());
             if(!foundModifier)
             {
-                outh << modifier;
-                outh << ":";
-                outh << "\n";
+                // create modifier
+                generatedCodeHeader.push_back(modifier);
+                generatedCodeHeader.push_back(":");
+                generatedCodeHeader.push_back("\n");
             }
-            outh << typ;
-            outh << " ";
-            outh << attribute;
-            outh << ";";
-            outh << "\n";
-            outh << "};";
+            generatedCodeHeader.push_back(typ);
+            generatedCodeHeader.push_back(" ");
+            generatedCodeHeader.push_back(attribute);
+            generatedCodeHeader.push_back(";");
+            generatedCodeHeader.push_back("\n");
+            generatedCodeHeader.push_back("};");
+         //   std::copy(templist.begin(), templist.end(),generatedCodeHeader.end());
+            break;
         }
     }
     // if Class not found, then throw exeption
@@ -91,8 +86,6 @@ void Attribute::generate()
     {
         throw Errorhandling::FileNotValidException();
     }
-    hFile.close();
-  //  sFile.close();
 }
 
 void Attribute::generate(std::vector<QString>, std::map<QString,QString>,std::vector<QString>)
