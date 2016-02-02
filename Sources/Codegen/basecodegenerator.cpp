@@ -144,10 +144,12 @@ void BaseCodegenerator::nextElement()
                 }
             }
         }
-        if(foundStr != "")
+        if(foundStr != " ")
         {
             BaseCodegenerator *next = BaseCodegenerator::getClass(foundStr);
             next->generate();
+            generatedCodeHeader = next->getHeaderList();
+            generatedCodeSource = next->getSourceList();
             delete next;
         }
     }

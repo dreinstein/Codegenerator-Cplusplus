@@ -39,21 +39,7 @@ void CPlusPlusCodegenerator::generate(std::vector<QString> strVecScript,std::map
     script = strVecScript;
     rules = strMapRules;
     keys = strVecKeys;
-
     index = 0;
-
-   /* setFilenames();
-
-    try
-    {
-        openFiles();
-     } // try
-     catch(Exceptionhandling& e)
-     {
-       std::cout << e.whatCode();
-       std::cout << e.whatDescription();
-     }
-  //  index = 1;*/
     nextElement();
 }
 

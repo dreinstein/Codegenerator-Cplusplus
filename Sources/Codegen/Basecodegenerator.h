@@ -24,13 +24,15 @@ public:
     virtual void generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules,std::vector<QString> strVecKeys) = 0;
     virtual void generate()=0;
     virtual void registerObservers(BaseGenerator *){;}
+    virtual std::list<QString> getHeaderList() {return generatedCodeHeader;}
+    virtual std::list<QString> getSourceList() {return generatedCodeSource;}
 protected:
     std::vector<QString> script;
     std::vector<QString> keys;
     std::map<QString,QString> rules;
     std::vector<BaseGenerator*> codegeratorObservers;
     std::list<QString> generatedCodeHeader;
-    std::vector<QString> generatedCodeSource;
+    std::list<QString> generatedCodeSource;
     void openFiles();
     void generateDefault();
     void clone(const BaseCodegenerator *toClone);

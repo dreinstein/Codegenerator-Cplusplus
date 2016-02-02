@@ -18,6 +18,7 @@
 #include <vector>
 #include <QString>
 #include <QStringList>
+#include <algorithm>
 
 using namespace NGenerator;
 using namespace NParser;
@@ -115,67 +116,60 @@ TEST(GeneratorTest, extractStringList)
 TEST(GeneratorTest, generateClassCode) {
     ParserImpl *parser = new ParserImpl();
     std::vector<QString> keywords = parser->doParseForVec("..\\Files\\Keywords\\myFirstKeywords.txt");
-    std::vector<QString> script = parser->doParseForVec("..\\Files\\Scripts\\myFirstScript.txt");
+    std::vector<QString> script = parser->doParseForVec("..\\Files\\Scripts\\classTestScript.txt");
     std::map<QString,QString> rules = parser->doParseForMap("..\\Files\\Rules\\");
-    QString path = script[0];
-    path = General::ExtractString::extractLast(path);
-    //QString path = "..\\Files\\Generated\\myFirstGeneratedFile.h";
-    path = path + ".h";
-    QFile fin(path);
-    if(fin.exists())
-        fin.remove();
     Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
     generator->generate(script,rules,keywords);
-    bool open = fin.open(QIODevice::ReadOnly);
-    EXPECT_EQ(true, open);
-    QTextStream in (&fin);
-    QString line;
-    bool expectedValue = false;
-    do
+    std::list<QString> classHeaderList = generator->getHeaderList();
+    bool isClassAttributeIncluded = (std::find(classHeaderList.begin(), classHeaderList.end(), "class") != classHeaderList.end());
+    bool isBracketOpenIncluded = false;
+    bool isClassNameIncluded = false;
+    bool isAllIncluded = false;
+    if(isClassAttributeIncluded)
     {
-        line = in.readLine();
-        if (line.contains("class firstClass", Qt::CaseSensitive))
-        {
-            expectedValue = true;
-        }
-    }while (!line.isNull());
-    fin.close();
-    EXPECT_EQ(expectedValue, true);
+        isClassNameIncluded = (std::find(classHeaderList.begin(), classHeaderList.end(), "firstClass") != classHeaderList.end());
+    }
+    if(isClassAttributeIncluded && isClassNameIncluded )
+    {
+        isBracketOpenIncluded = (std::find(classHeaderList.begin(), classHeaderList.end(), "{") != classHeaderList.end());
+    }
+    if(isClassAttributeIncluded && isClassNameIncluded && isBracketOpenIncluded )
+    {
+        isAllIncluded = (std::find(classHeaderList.begin(), classHeaderList.end(), "};") != classHeaderList.end());
+    }
+    EXPECT_EQ(isAllIncluded, true);
 }
 
 
+
+
 // test function evaluate in class Evaluator
-/*TEST(GeneratorTest, generateAttribute) {
+TEST(GeneratorTest, generateAttribute) {
     ParserImpl *parser = new ParserImpl();
     std::vector<QString> keywords = parser->doParseForVec("..\\Files\\Keywords\\myFirstKeywords.txt");
-    std::vector<QString> script = parser->doParseForVec("..\\Files\\Scripts\\myFirstScript.txt");
+    std::vector<QString> script = parser->doParseForVec("..\\Files\\Scripts\\attributeTestScript.txt");
     std::map<QString,QString> rules = parser->doParseForMap("..\\Files\\Rules\\");
-    QString path = script[0];
-    path = General::ExtractSt
-            ring::extractLast(path);
-    //QString path = "..\\Files\\Generated\\myFirstGeneratedFile.h";
-    path = path + ".h";
-    QFile fin(path);
-    if(fin.exists())
-        fin.remove();
     Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
     generator->generate(script,rules,keywords);
-    bool open = fin.open(QIODevice::ReadOnly);
-    EXPECT_EQ(true, open);
-    QTextStream in (&fin);
-    QString line;
-    bool expectedValue = false;
-    do
-    {
-        line = in.readLine();
-        if (line.contains("class firstClass", Qt::CaseSensitive))
-        {
-            expectedValue = true;
-        }
-    }while (!line.isNull());
-    fin.close();
-    EXPECT_EQ(expectedValue, true);
-}*/
+    std::list<QString> classHeaderList = generator->getHeaderList();
+    std::list<QString>::iterator iter = classHeaderList.begin();
+    bool isIncluded = (*iter == "class");
+    std::advance(iter, 5);
+    isIncluded = (*iter == "public");
+    std::advance(iter, 3);
+    isIncluded = (*iter  == "std::string");
+    std::advance(iter, 2);
+    isIncluded = (*iter == "myStringAttribute");
+    std::advance(iter, 6);
+    isIncluded = (*iter == "const int");
+    std::advance(iter, 2);
+    isIncluded = (*iter  == "myConstIntAttribute");
+    std::advance(iter, 3);
+    isIncluded = (*iter  == "char");
+    std::advance(iter, 2);
+    isIncluded = (*iter  == "myCharAttribute");
+    EXPECT_EQ(isIncluded, true);
+}
 
 
 
