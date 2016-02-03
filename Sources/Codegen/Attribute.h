@@ -16,6 +16,8 @@ public:
     void generate();
     void generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules,std::vector<QString> strVecKeys);
     const QString MODIFIER = "modifier";
+private:
+    const QString tab = "   ";
 };
 
 }

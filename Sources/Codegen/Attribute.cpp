@@ -69,6 +69,7 @@ void Attribute::generate()
                 generatedCodeHeader.push_back(":");
                 generatedCodeHeader.push_back("\n");
             }
+            generatedCodeHeader.push_back(tab);
             generatedCodeHeader.push_back(typ);
             generatedCodeHeader.push_back(" ");
             generatedCodeHeader.push_back(attribute);

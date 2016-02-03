@@ -13,8 +13,8 @@ namespace Codegenerator
 BaseCodegenerator::BaseCodegenerator()
 {
     index = 0;
-    sourcefilename = " ";
-    heaterfilename = " ";
+    sourcefilename = General::FilePath::SourceFileName;
+    heaterfilename = General::FilePath::HeaderFileName;
 }
 
 void BaseCodegenerator::clone(const BaseCodegenerator *toClone)
@@ -65,6 +65,7 @@ void BaseCodegenerator::generateDefault()
                 else
                 {
                     generatedCodeHeader.push_back(row);
+                    generatedCodeHeader.push_back("\n");
                 }
             }// while
 

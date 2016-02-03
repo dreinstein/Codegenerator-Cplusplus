@@ -46,6 +46,8 @@ class FilePath
 public:
     static QString RulesCPlusPlus;
     static QString KeywordsCPlusPlus;
+    static QString SourceFileName;
+    static QString HeaderFileName;
 };
 
 
