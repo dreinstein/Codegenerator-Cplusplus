@@ -17,7 +17,7 @@ CodegeneratorFassade::CodegeneratorFassade(BaseGenerator* generator,Languages::P
 {
     switch (lang)
     {
-        case Languages::CPLUSPLUS:
+        case Languages::Parserlanguage::CPLUSPLUS:
             buildForCPlusPlus(generator);
         break;
         default:

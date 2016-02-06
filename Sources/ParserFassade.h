@@ -16,7 +16,7 @@
 #include <QString>
 #include <cstddef>
 #include "Base/BaseGenerator.h"
-#include "Parser.h"
+#include "Parsing/Parser.h"
 
 #include "Utilities.h"
 

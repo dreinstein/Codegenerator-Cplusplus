@@ -1,6 +1,6 @@
 #include "Basecodegenerator.h"
 #include "classgenerator.h"
-#include "Attribute.h"
+#include "Attributegenerator.h"
 #include "QTextStream"
 #include "Utilities.h"
 #include "../Errorhandling/OpenfileException.h"

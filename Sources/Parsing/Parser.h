@@ -13,6 +13,7 @@
 #include <map>
 #include <QString>
 #include "Base/BaseGenerator.h"
+#include "Utilities.h"
 
 using namespace NGenerator;
 
@@ -32,7 +33,7 @@ protected:
     std::vector<BaseGenerator*> parserObservers;
     std::vector<QString> vecValues;
     std::map<QString,QString> mapValues;
-    int id;
+    General::ParserId::Id id;
 };
 }
 #endif // !defined(EA_FCF5E9F8_027D_4ecf_95D2_B9170D58FE49__INCLUDED_)

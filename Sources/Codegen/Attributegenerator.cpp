@@ -1,5 +1,5 @@
 #include <algorithm>
-#include "Attribute.h"
+#include "Attributegenerator.h"
 #include "QFile"
 #include "QTextStream"
 #include "Utilities.h"
