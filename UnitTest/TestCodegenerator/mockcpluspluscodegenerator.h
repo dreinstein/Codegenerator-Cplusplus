@@ -12,17 +12,17 @@ public:
     MockCPlusPlusCodegenerator();
     virtual ~MockCPlusPlusCodegenerator();
     void generate();
-    void receiveData(std::vector<QString> strv,General::ParserId::Id parserId);
-    void receiveData(std::map<QString,QString> strv,General::ParserId::Id parserId);
-    void notify(General::ParserId::Id id);
+    void receiveData(const std::vector<QString> strv,const General::ParserId::Id parserId);
+    void receiveData(const std::map<QString,QString> strv,const General::ParserId::Id parserId);
+    void notify(const General::ParserId::Id id)const;
    // void notifyCodeGenerated();
     std::vector<QString> getKeywords(){return keywords;}
     std::map<QString,QString> getRules() {return rules;}
     std::vector<QString> getScripts() {return script;}
      bool areAllDatasReceived();
-     void notifyCodeGenerated(){;};
+     void notifyCodeGenerated() const {;}
 protected:
-    void allDatasReceived();
+    void allDatasReceived()const;
 private:
     bool keywordsReceived = false;
     bool rulesReceived = false;

@@ -22,9 +22,10 @@ bool ScriptEvaluator::evaluate(std::vector<QString> vkeywords, std::vector<QStri
 {
     QString scriptentry = "noVal";
     bool found = false;
-    for (auto itscript = vscript.begin(); itscript != vscript.end(); ++itscript)
+    for (auto itscript: vscript)
+  //  for (auto itscript = vscript.begin(); itscript != vscript.end(); ++itscript)
     {
-        scriptentry = General::ExtractString::extractFirst(*itscript);
+        scriptentry = General::ExtractString::extractFirst(itscript);
         found = findScriptentryInKeyword(scriptentry,vkeywords);
         if (found == false)
         {
@@ -38,9 +39,10 @@ bool ScriptEvaluator::findScriptentryInKeyword(QString entry,std::vector<QString
 {
 
     bool found = false;
-    for (auto itkeywords = vkeywords.begin(); itkeywords != vkeywords.end(); ++itkeywords)
+    for (auto itkeywords: vkeywords)
+   // for (auto itkeywords = vkeywords.begin(); itkeywords != vkeywords.end(); ++itkeywords)
     {
-        if(*itkeywords == entry)
+        if(itkeywords == entry)
         {
             found = true;
             break;

@@ -31,7 +31,7 @@ void Script::Parse(const QString str)
 }
 
 
-void Script::giveData(){
+void Script::giveData() const{
     for(unsigned int i=0; i < parserObservers.size(); i++)
     {
         parserObservers[i]->receiveData(vecValues,id);

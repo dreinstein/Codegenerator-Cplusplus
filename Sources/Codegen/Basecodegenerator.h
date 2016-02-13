@@ -7,7 +7,9 @@
 #include <map>
 #include <QString>
 #include <QFile>
+#include <functional>
 #include "Base/BaseGenerator.h"
+
 
 
 
@@ -21,11 +23,11 @@ class BaseCodegenerator
 public:
     BaseCodegenerator();
     virtual ~BaseCodegenerator(){;}
-    virtual void generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules,std::vector<QString> strVecKeys) = 0;
-    virtual void generate()=0;
-    virtual void registerObservers(BaseGenerator *){;}
-    virtual std::list<QString> getHeaderList() {return generatedCodeHeader;}
-    virtual std::list<QString> getSourceList() {return generatedCodeSource;}
+    virtual void generate(const std::vector<QString> strVecScript, const std::map<QString,QString> strMapRules,const std::vector<QString> strVecKeys) = 0;
+    virtual void generate() =0;
+    virtual void registerObservers(BaseGenerator*) {;}
+    virtual std::list<QString> getHeaderList() const final {return generatedCodeHeader;}
+    virtual std::list<QString> getSourceList() const final {return generatedCodeSource;}
 protected:
     std::vector<QString> script;
     std::vector<QString> keys;

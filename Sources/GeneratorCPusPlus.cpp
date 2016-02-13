@@ -64,7 +64,7 @@ void GeneratorCPlusPlus::generate()
     pParserFassade->ParseScript(pathScript);
 }
 
-void GeneratorCPlusPlus::notify(General::ParserId::Id parserId)
+void GeneratorCPlusPlus::notify(const General::ParserId::Id parserId)const
 {
     // lock data
     switch(parserId)
@@ -83,13 +83,13 @@ void GeneratorCPlusPlus::notify(General::ParserId::Id parserId)
     }
 }
 
-void GeneratorCPlusPlus::notifyCodeGenerated()
+void GeneratorCPlusPlus::notifyCodeGenerated()const
 {
     int i=1;
     i=i+1;
 }
 
-void GeneratorCPlusPlus::allDatasReceived()
+void GeneratorCPlusPlus::allDatasReceived() const
 {
     // evaluate script first (Script keywords regarding defined keywords)
     //@todo evaluate doesn't work
@@ -124,7 +124,7 @@ bool GeneratorCPlusPlus::areAllDatasReceived()
 }
 
 
-void GeneratorCPlusPlus::receiveData(std::vector<QString> strv,General::ParserId::Id parserId)
+void GeneratorCPlusPlus::receiveData(const std::vector<QString> strv,const General::ParserId::Id parserId)
 {
     switch(parserId)
     {
@@ -153,7 +153,7 @@ void GeneratorCPlusPlus::receiveData(std::vector<QString> strv,General::ParserId
     }
 }
 
-void GeneratorCPlusPlus::receiveData(std::map<QString,QString> strv,General::ParserId::Id parserId)
+void GeneratorCPlusPlus::receiveData(const std::map<QString,QString> strv,const General::ParserId::Id parserId)
 {
     switch(parserId)
     {

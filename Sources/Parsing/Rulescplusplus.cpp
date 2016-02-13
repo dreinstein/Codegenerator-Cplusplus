@@ -32,7 +32,7 @@ void RulesCPlusPlus::Parse(const QString str)
 }
 
 
-void RulesCPlusPlus::giveData(){
+void RulesCPlusPlus::giveData() const {
     for(unsigned int i=0; i < parserObservers.size(); i++)
     {
         parserObservers[i]->receiveData(mapValues,id);

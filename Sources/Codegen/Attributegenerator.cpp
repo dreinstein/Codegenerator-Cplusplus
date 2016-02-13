@@ -87,7 +87,7 @@ void Attribute::generate()
     nextElement();
 }
 
-void Attribute::generate(std::vector<QString>, std::map<QString,QString>,std::vector<QString>)
+void Attribute::generate(const std::vector<QString>, const std::map<QString,QString>,std::vector<QString>)
 {
     Q_ASSERT(false);
 }

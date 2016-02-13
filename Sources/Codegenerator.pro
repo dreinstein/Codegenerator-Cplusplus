@@ -18,7 +18,6 @@ SOURCES += main.cpp\
     mainwindow.cpp\
     Parsing/KeywordsCPlusPlus.cpp \
     GeneratorCPusPlus.cpp \
-    Keywordchecker.cpp \
     Evaluator.cpp \
     Codegeneratorfassade.cpp \
     Codegen/CPluspluscodegenerator.cpp \    
@@ -44,7 +43,6 @@ HEADERS  += mainwindow.h \
     Script.h \
     Parser.h \
     Base/BaseParserImplementation.h \
-    Keywordchecker.h \
     Evaluator.h \
     Base/BaseEvaluator.h \
     Base/BaseGenerator.h \
@@ -64,7 +62,6 @@ HEADERS  += mainwindow.h \
     Codegen/Attributegenerator.h \
     Parsing/Parser.h \
     Parsing/Parserimplementation.h \
-    Parsing/RulesC++.h \
     Parsing/Rulescplusplus.h \
     Parsing/Script.h \
     Parsing/Keywordscplusplus.h \

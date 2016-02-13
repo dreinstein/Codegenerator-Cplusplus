@@ -37,7 +37,7 @@ void CPlusPlusCodegenerator::generate()
 }
 
 
-void CPlusPlusCodegenerator::generate(std::vector<QString> strVecScript,std::map<QString,QString> strMapRules,std::vector<QString> strVecKeys)
+void CPlusPlusCodegenerator::generate(const std::vector<QString> strVecScript,const std::map<QString,QString> strMapRules,std::vector<QString> strVecKeys)
 {
     script = strVecScript;
     rules = strMapRules;
@@ -58,14 +58,13 @@ void CPlusPlusCodegenerator::createFiles()
 
     QTextStream heaterFileStream (&hfile);
     QTextStream sourceFileStream (&sfile);
-
-    for(list<QString>::iterator hiterator = generatedCodeHeader.begin();hiterator != generatedCodeHeader.end(); ++hiterator)
+    for (auto elementHeader: generatedCodeHeader)
     {
-        heaterFileStream << *hiterator;
+        heaterFileStream << elementHeader;
     }
-    for(list<QString>::iterator siterator = generatedCodeSource.begin();siterator != generatedCodeSource.end(); ++siterator)
+    for (auto elementSource: generatedCodeHeader)
     {
-        sourceFileStream << *siterator;
+        sourceFileStream << elementSource;
     }
     hfile.close();
     sfile.close();

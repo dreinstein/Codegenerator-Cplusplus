@@ -22,17 +22,17 @@ class GeneratorCPlusPlus:public BaseGenerator
 public:
     GeneratorCPlusPlus(QString str);
     virtual ~GeneratorCPlusPlus();
-    void generate();
-    void receiveData(std::vector<QString> strv,General::ParserId::Id parserId);
-    void receiveData(std::map<QString,QString> strv,General::ParserId::Id parserId);
-    void notify(General::ParserId::Id id);
-    void notifyCodeGenerated();
-    std::vector<QString> getKeywords(){return keywords;}
-    std::map<QString,QString> getRules() {return rules;}
-    std::vector<QString> getScripts() {return script;}
+    void generate() override final;
+    void receiveData(const std::vector<QString> strv,const General::ParserId::Id parserId) override final;
+    void receiveData(const std::map<QString,QString> strv,const General::ParserId::Id parserId) override final;
+    void notify(const General::ParserId::Id id)const override final;
+    void notifyCodeGenerated()const override final;
+    std::vector<QString> getKeywords()override final  {return keywords;}
+    std::map<QString,QString> getRules() override final {return rules;}
+    std::vector<QString> getScripts() override final {return script;}
+     bool areAllDatasReceived() override final;
 protected:
-    void allDatasReceived();
-    bool areAllDatasReceived();
+     virtual void allDatasReceived() const override final;
 private:
     GeneratorCPlusPlus();
     bool keywordsReceived = false;

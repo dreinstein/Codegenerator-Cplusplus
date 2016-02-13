@@ -44,7 +44,7 @@ void MockCPlusPlusCodegenerator::generate()
     pParserFassade->ParseScript(pathScript);
 }
 
-void MockCPlusPlusCodegenerator::notify(General::ParserId::Id parserId)
+void MockCPlusPlusCodegenerator::notify(const General::ParserId::Id parserId) const
 {
     // lock data
     switch(parserId)
@@ -65,7 +65,7 @@ void MockCPlusPlusCodegenerator::notify(General::ParserId::Id parserId)
 
 
 
-void MockCPlusPlusCodegenerator::allDatasReceived()
+void MockCPlusPlusCodegenerator::allDatasReceived() const
 {
     pCodegeneratorFassade->generate(script,rules,keywords);
 }
@@ -81,7 +81,7 @@ bool MockCPlusPlusCodegenerator::areAllDatasReceived()
 }
 
 
-void MockCPlusPlusCodegenerator::receiveData(std::vector<QString> strv,General::ParserId::Id parserId)
+void MockCPlusPlusCodegenerator::receiveData(const std::vector<QString> strv,const General::ParserId::Id parserId)
 {
     switch(parserId)
     {
@@ -110,7 +110,7 @@ void MockCPlusPlusCodegenerator::receiveData(std::vector<QString> strv,General::
     }
 }
 
-void MockCPlusPlusCodegenerator::receiveData(std::map<QString,QString> strv,General::ParserId::Id parserId)
+void MockCPlusPlusCodegenerator::receiveData(const std::map<QString,QString> strv,const General::ParserId::Id parserId)
 {
     switch(parserId)
     {

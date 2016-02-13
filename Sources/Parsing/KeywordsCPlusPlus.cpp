@@ -42,7 +42,8 @@ void KeywordsCPlusPlus::Parse(const QString str)
 }
 
 
-void KeywordsCPlusPlus::giveData(){
+void KeywordsCPlusPlus::giveData() const
+{
    for(unsigned int i=0; i < parserObservers.size(); i++)
    {
        parserObservers[i]->receiveData(vecValues,id);
