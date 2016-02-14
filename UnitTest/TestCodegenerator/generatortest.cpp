@@ -172,6 +172,19 @@ TEST(GeneratorTest, generateAttribute) {
     EXPECT_EQ(isIncluded, true);
 }
 
+
+TEST(GeneratorTest, generateFunction)
+{
+    ParserImpl *parser = new ParserImpl();
+    std::vector<QString> keywords = parser->doParseForVec("..\\Files\\Keywords\\myFirstKeywords.txt");
+    std::vector<QString> script = parser->doParseForVec("..\\Files\\Scripts\\functionTestScript.txt");
+    std::map<QString,QString> rules = parser->doParseForMap("..\\Files\\Rules\\");
+    Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
+    generator->generate(script,rules,keywords);
+    std::list<QString> classHeaderList = generator->getHeaderListData();
+    std::list<QString>::iterator iter = classHeaderList.begin();
+}
+
 // test function evaluate in class Evaluator
 TEST(GeneratorTest, testHeaderFile) {
     ParserImpl *parser = new ParserImpl();

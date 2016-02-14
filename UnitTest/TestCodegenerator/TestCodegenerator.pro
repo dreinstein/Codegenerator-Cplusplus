@@ -37,7 +37,9 @@ SOURCES += main.cpp \
     ../../Sources/Parsing/parserimplementation.cpp \
     ../../Sources/Parsing/Rulescplusplus.cpp \
     ../../Sources/Parsing/Script.cpp \
-    ../../Sources/Codegen/Attributeelements.cpp
+    ../../Sources/Codegen/Attributeelements.cpp \
+    ../../Sources/Codegen/Fuctioncodegenerator.cpp \
+    ../../Sources/Codegen/Functionelements.cpp
 
 HEADERS += \
     parsertest.h \
@@ -69,5 +71,7 @@ HEADERS += \
     ../../Sources/Parsing/RulesC++.h \
     ../../Sources/Parsing/Rulescplusplus.h \
     ../../Sources/Parsing/Script.h \
-    ../../Sources/Codegen/Attributeelements.h
+    ../../Sources/Codegen/Attributeelements.h \
+    ../../Sources/Codegen/Fuctioncodegenerator.h \
+    ../../Sources/Codegen/Functionelements.h
 

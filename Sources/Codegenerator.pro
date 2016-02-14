@@ -34,7 +34,8 @@ SOURCES += main.cpp\
     Parsing/Script.cpp \
     ParserFassade.cpp \
     Codegen/Fuctioncodegenerator.cpp \
-    Codegen/Attributeelements.cpp
+    Codegen/Attributeelements.cpp \
+    Codegen/Functionelements.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
@@ -68,7 +69,8 @@ HEADERS  += mainwindow.h \
     Parsing/Script.h \
     Parsing/Keywordscplusplus.h \
     Codegen/Fuctioncodegenerator.h \
-    Codegen/Attributeelements.h
+    Codegen/Attributeelements.h \
+    Codegen/Functionelements.h
 
 FORMS    += mainwindow.ui
 	
