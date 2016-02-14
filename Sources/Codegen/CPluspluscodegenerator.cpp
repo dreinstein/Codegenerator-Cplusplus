@@ -44,6 +44,10 @@ void CPlusPlusCodegenerator::generate(const std::vector<QString> strVecScript,co
     keys = strVecKeys;
     index = 0;
     nextElement();
+    for(unsigned int i=0; i < codegeratorObservers.size(); i++){
+        codegeratorObservers[i]->notifyCodeGenerated();
+    }
+    // TODO create files should be done in class Basegenerator
     createFiles();
 }
 

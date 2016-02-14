@@ -121,7 +121,7 @@ TEST(GeneratorTest, generateClassCode) {
     std::map<QString,QString> rules = parser->doParseForMap("..\\Files\\Rules\\");
     Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
     generator->generate(script,rules,keywords);
-    std::list<QString> classHeaderList = generator->getHeaderList();
+    std::list<QString> classHeaderList = generator->getHeaderListData();
     bool isClassAttributeIncluded = (std::find(classHeaderList.begin(), classHeaderList.end(), "class") != classHeaderList.end());
     bool isBracketOpenIncluded = false;
     bool isClassNameIncluded = false;
@@ -152,7 +152,7 @@ TEST(GeneratorTest, generateAttribute) {
     std::map<QString,QString> rules = parser->doParseForMap("..\\Files\\Rules\\");
     Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
     generator->generate(script,rules,keywords);
-    std::list<QString> classHeaderList = generator->getHeaderList();
+    std::list<QString> classHeaderList = generator->getHeaderListData();
     std::list<QString>::iterator iter = classHeaderList.begin();
     bool isIncluded = (*iter == "class");
     std::advance(iter, 6);
@@ -165,7 +165,7 @@ TEST(GeneratorTest, generateAttribute) {
     isIncluded = (*iter == "const int");
     std::advance(iter, 2);
     isIncluded = (*iter  == "myConstIntAttribute");
-    std::advance(iter, 4);
+    std::advance(iter, 7);
     isIncluded = (*iter  == "char");
     std::advance(iter, 2);
     isIncluded = (*iter  == "myCharAttribute");

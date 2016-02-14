@@ -8,6 +8,7 @@
 #include "../Errorhandling/FileNotvalidexception.h"
 
 
+
 namespace Codegenerator
 {
 
@@ -24,21 +25,25 @@ Attribute::~Attribute()
 
 void Attribute::generate()
 {
-    // 1. read modifier
-    QString scriptelement = script[this->index];
-    QStringList qlist = General::ExtractString::extractStringList(scriptelement);
-    QString modifierKeyword = General::ExtractString::extractFirst(qlist[0]);
-    QString modifier = General::ExtractString::extractLast(qlist[0]);
-    QString typ = General::ExtractString::extractLast(qlist[1]);
-    QString attribute = General::ExtractString::extractLast(qlist[2]);
+    AttributeElements *attributeElements = new AttributeElements();
+    attributeElements->setElements(script[this->index]);
     // we expect as first a modifier, if not throw Error
-    if(modifierKeyword != MODIFIER)
+    if(attributeElements->getModifierKeyword()!= MODIFIER)
     {
         throw Errorhandling::AttributeScriptException();
     }
+    generateHeaderList(attributeElements);
+    delete attributeElements;
+    nextElement();
+}
 
-    // find position in file
-    // find class, row it the position
+void Attribute::generate(const std::vector<QString>, const std::map<QString,QString>,std::vector<QString>)
+{
+    Q_ASSERT(false);
+}
+
+void Attribute::generateHeaderList(AttributeElements* attributElements)
+{
     bool foundClass = false;
     bool foundBracket = false;
     bool foundModifier = false;
@@ -54,7 +59,7 @@ void Attribute::generate()
         {
             foundBracket = true;
         }
-        if(element.contains(modifier) && foundBracket && foundClass)
+        if(element.contains(attributElements->getModifierKeyword()) && foundBracket && foundClass)
         {
             foundModifier = true;
         }
@@ -65,14 +70,14 @@ void Attribute::generate()
             if(!foundModifier)
             {
                 // create modifier
-                generatedCodeHeader.push_back(modifier);
+                generatedCodeHeader.push_back(attributElements->getModifier());
                 generatedCodeHeader.push_back(":");
                 generatedCodeHeader.push_back("\n");
             }
             generatedCodeHeader.push_back(tab);
-            generatedCodeHeader.push_back(typ);
+            generatedCodeHeader.push_back(attributElements->getTyp());
             generatedCodeHeader.push_back(" ");
-            generatedCodeHeader.push_back(attribute);
+            generatedCodeHeader.push_back(attributElements->getAttribute());
             generatedCodeHeader.push_back(";");
             generatedCodeHeader.push_back("\n");
             generatedCodeHeader.insert(generatedCodeHeader.end(), templist.begin(),templist.end());
@@ -84,14 +89,7 @@ void Attribute::generate()
     {
         throw Errorhandling::FileNotValidException();
     }
-    nextElement();
 }
-
-void Attribute::generate(const std::vector<QString>, const std::map<QString,QString>,std::vector<QString>)
-{
-    Q_ASSERT(false);
-}
-
 
 }
 

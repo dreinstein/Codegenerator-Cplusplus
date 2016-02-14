@@ -32,7 +32,9 @@ SOURCES += main.cpp\
     Parsing/parserimplementation.cpp \
     Parsing/Rulescplusplus.cpp \
     Parsing/Script.cpp \
-    ParserFassade.cpp
+    ParserFassade.cpp \
+    Codegen/Fuctioncodegenerator.cpp \
+    Codegen/Attributeelements.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
@@ -65,6 +67,8 @@ HEADERS  += mainwindow.h \
     Parsing/Rulescplusplus.h \
     Parsing/Script.h \
     Parsing/Keywordscplusplus.h \
+    Codegen/Fuctioncodegenerator.h \
+    Codegen/Attributeelements.h
 
 FORMS    += mainwindow.ui
 	

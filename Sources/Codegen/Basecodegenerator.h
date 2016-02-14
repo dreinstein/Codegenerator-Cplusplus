@@ -26,8 +26,8 @@ public:
     virtual void generate(const std::vector<QString> strVecScript, const std::map<QString,QString> strMapRules,const std::vector<QString> strVecKeys) = 0;
     virtual void generate() =0;
     virtual void registerObservers(BaseGenerator*) {;}
-    virtual std::list<QString> getHeaderList() const final {return generatedCodeHeader;}
-    virtual std::list<QString> getSourceList() const final {return generatedCodeSource;}
+    virtual std::list<QString> getHeaderListData() const final {return generatedCodeHeader;}
+    virtual std::list<QString> getSourceListData() const final {return generatedCodeSource;}
 protected:
     std::vector<QString> script;
     std::vector<QString> keys;

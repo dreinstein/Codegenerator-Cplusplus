@@ -25,15 +25,15 @@ public:
     virtual void generate() =0;
     virtual void receiveData(const std::vector<QString> strv,const General::ParserId::Id parserId)=0;
     virtual void receiveData(const std::map<QString,QString> strv,const General::ParserId::Id parserId)=0;
-    virtual void notify(const General::ParserId::Id id) const =0;
+    virtual void notifyDatasGenerated(const General::ParserId::Id id) const =0;
     virtual void notifyCodeGenerated() const =0;
-    virtual std::vector<QString> getKeywords()=0;
-    virtual std::map<QString,QString> getRules()=0;
-    virtual std::vector<QString> getScripts()=0;
+    virtual std::vector<QString> getKeywords() const =0;
+    virtual std::map<QString,QString> getRules() const =0;
+    virtual std::vector<QString> getScripts() const =0;
     virtual bool areAllDatasReceived()=0;
-
-
+    virtual void receiveCode(const std::list<QString> strHeader,const std::list<QString> strSources) = 0;
 protected:
+
     virtual void allDatasReceived() const =0;
     std::vector<QString> keywords;
     std::map<QString,QString> rules;
