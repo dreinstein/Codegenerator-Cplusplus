@@ -149,8 +149,8 @@ void BaseCodegenerator::nextElement()
         {
             BaseCodegenerator *next = BaseCodegenerator::getClass(foundStr);
             next->generate();
-            generatedCodeHeader = next->getHeaderList();
-            generatedCodeSource = next->getSourceList();
+            generatedCodeHeader = next->getHeaderListData();
+            generatedCodeSource = next->getSourceListData();
             delete next;
         }
     }

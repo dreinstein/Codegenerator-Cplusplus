@@ -3,6 +3,7 @@
 
 #include "Basecodegenerator.h"
 #include "QString"
+#include "Attributeelements.h"
 
 namespace Codegenerator
 {
@@ -17,6 +18,7 @@ public:
     void generate(const std::vector<QString> strVecScript, const std::map<QString,QString> strMapRules,const std::vector<QString> strVecKeys) override final;
     const QString MODIFIER = "modifier";
 private:
+    void generateHeaderList(AttributeElements* element);
     const QString tab = "   ";
 };
 

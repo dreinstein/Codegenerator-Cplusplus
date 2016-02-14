@@ -26,7 +26,7 @@ void RulesCPlusPlus::Parse(const QString str)
     BaseParserImpl* parser = new ParserImpl();
     mapValues = parser->doParseForMap(str);
     for(unsigned int i=0; i < parserObservers.size(); i++){
-        parserObservers[i]->notify(id);
+        parserObservers[i]->notifyDatasGenerated(id);
     }
     delete parser;
 }
