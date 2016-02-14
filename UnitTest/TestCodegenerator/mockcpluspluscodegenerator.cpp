@@ -2,7 +2,7 @@
 #include "Codegeneratorfassade.h"
 #include <QString>
 #include "Utilities.h"
-#include "Parser.h"
+#include "Parsing/Parser.h"
 #include "Base/BaseGenerator.h"
 #include "Base/BaseEvaluator.h"
 #include "Evaluator.h"
@@ -13,8 +13,8 @@
 
 MockCPlusPlusCodegenerator::MockCPlusPlusCodegenerator()
 {
-    pCodegeneratorFassade = new CodegeneratorFassade(this,Languages::CPLUSPLUS);
-    pParserFassade = new ParserFassade(this,Languages::CPLUSPLUS);
+    pCodegeneratorFassade = new CodegeneratorFassade(this,Languages::Parserlanguage::CPLUSPLUS);
+    pParserFassade = new ParserFassade(this,Languages::Parserlanguage::CPLUSPLUS);
 }
 
 
@@ -44,18 +44,18 @@ void MockCPlusPlusCodegenerator::generate()
     pParserFassade->ParseScript(pathScript);
 }
 
-void MockCPlusPlusCodegenerator::notify(int parserId)
+void MockCPlusPlusCodegenerator::notify(const General::ParserId::Id parserId) const
 {
     // lock data
     switch(parserId)
     {
-        case General::ParserId::Keyword:
+        case General::ParserId::Id::Keyword:
             pParserFassade->giveKeywordData();
         break;
-        case General::ParserId::Rules:
+        case General::ParserId::Id::Rules:
             pParserFassade->giveRulesData();
             break;
-        case General::ParserId::Script:
+        case General::ParserId::Id::Script:
             pParserFassade->giveScriptData();
             break;
         default:
@@ -65,7 +65,7 @@ void MockCPlusPlusCodegenerator::notify(int parserId)
 
 
 
-void MockCPlusPlusCodegenerator::allDatasReceived()
+void MockCPlusPlusCodegenerator::allDatasReceived() const
 {
     pCodegeneratorFassade->generate(script,rules,keywords);
 }
@@ -81,7 +81,7 @@ bool MockCPlusPlusCodegenerator::areAllDatasReceived()
 }
 
 
-void MockCPlusPlusCodegenerator::receiveData(std::vector<QString> strv,int parserId)
+void MockCPlusPlusCodegenerator::receiveData(const std::vector<QString> strv,const General::ParserId::Id parserId)
 {
     switch(parserId)
     {
@@ -110,7 +110,7 @@ void MockCPlusPlusCodegenerator::receiveData(std::vector<QString> strv,int parse
     }
 }
 
-void MockCPlusPlusCodegenerator::receiveData(std::map<QString,QString> strv,int parserId)
+void MockCPlusPlusCodegenerator::receiveData(const std::map<QString,QString> strv,const General::ParserId::Id parserId)
 {
     switch(parserId)
     {

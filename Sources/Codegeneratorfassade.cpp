@@ -17,7 +17,7 @@ CodegeneratorFassade::CodegeneratorFassade(BaseGenerator* generator,Languages::P
 {
     switch (lang)
     {
-        case Languages::CPLUSPLUS:
+        case Languages::Parserlanguage::CPLUSPLUS:
             buildForCPlusPlus(generator);
         break;
         default:
@@ -31,7 +31,7 @@ CodegeneratorFassade::~CodegeneratorFassade()
 }
 
 
-void CodegeneratorFassade:: generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules, std::vector<QString> strVecKeys)
+void CodegeneratorFassade:: generate(const std::vector<QString> strVecScript, const std::map<QString,QString> strMapRules, const std::vector<QString> strVecKeys)
 {
     Q_ASSERT(pCodeGenerator);
     pCodeGenerator->generate(strVecScript,strMapRules,strVecKeys);

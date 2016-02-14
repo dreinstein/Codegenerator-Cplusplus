@@ -1,6 +1,6 @@
 #include "Basecodegenerator.h"
 #include "classgenerator.h"
-#include "Attribute.h"
+#include "Attributegenerator.h"
 #include "QTextStream"
 #include "Utilities.h"
 #include "../Errorhandling/OpenfileException.h"
@@ -13,8 +13,8 @@ namespace Codegenerator
 BaseCodegenerator::BaseCodegenerator()
 {
     index = 0;
-    sourcefilename = " ";
-    heaterfilename = " ";
+    sourcefilename = General::FilePath::SourceFileName;
+    heaterfilename = General::FilePath::HeaderFileName;
 }
 
 void BaseCodegenerator::clone(const BaseCodegenerator *toClone)
@@ -65,6 +65,7 @@ void BaseCodegenerator::generateDefault()
                 else
                 {
                     generatedCodeHeader.push_back(row);
+                    generatedCodeHeader.push_back("\n");
                 }
             }// while
 
@@ -144,10 +145,12 @@ void BaseCodegenerator::nextElement()
                 }
             }
         }
-        if(foundStr != "")
+        if(foundStr != " ")
         {
             BaseCodegenerator *next = BaseCodegenerator::getClass(foundStr);
             next->generate();
+            generatedCodeHeader = next->getHeaderList();
+            generatedCodeSource = next->getSourceList();
             delete next;
         }
     }

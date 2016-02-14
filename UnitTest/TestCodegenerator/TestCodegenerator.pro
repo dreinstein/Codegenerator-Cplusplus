@@ -17,13 +17,9 @@ LIBS +=  ../../gmock/staticlib/lgmock.lib
 
 SOURCES += main.cpp \
     parsertest.cpp \
-    ../../Sources/parserimplementation.cpp \
     generatortest.cpp \
     ../../Sources/GeneratorCPusPlus.cpp \
     ../../Sources/ParserFassade.cpp \
-    ../../Sources/KeywordsCPlusPlus.cpp \
-    ../../Sources/Script.cpp \
-    ../../Sources/Rulescplusplus.cpp \
     ../../Sources/Evaluator.cpp \
     ../../Sources/Codegen/CPluspluscodegenerator.cpp \
     ../../Sources/Codegeneratorfassade.cpp \
@@ -33,21 +29,20 @@ SOURCES += main.cpp \
     ../../Sources/Errorhandling/openfileexception.cpp \
     ../../Sources/Codegen/Classgenerator.cpp \
     ../../Sources/Codegen/Basecodegenerator.cpp \
-    ../../Sources/Codegen/Attribute.cpp \
+    ../../Sources/Codegen/Attributegenerator.cpp \
     ../../Sources/Errorhandling/Scriptexception.cpp \
     ../../Sources/Errorhandling/Attributescriptexception.cpp \
-    ../../Sources/Errorhandling/FileNotvalidexception.cpp
+    ../../Sources/Errorhandling/FileNotvalidexception.cpp \
+    ../../Sources/Parsing/KeywordsCPlusPlus.cpp \
+    ../../Sources/Parsing/parserimplementation.cpp \
+    ../../Sources/Parsing/Rulescplusplus.cpp \
+    ../../Sources/Parsing/Script.cpp
 
 HEADERS += \
     parsertest.h \
-    ../../Sources/Parserimplementation.h \
     generatortest.h \
     ../../Sources/GeneratorCPlusPlus.h \
     ../../Sources/ParserFassade.h \
-    ../../Sources/Keywordscplusplus.h \
-    ../../Sources/Parser.h \
-    ../../Sources/Script.h \
-    ../../Sources/Rulescplusplus.h \
     mockparser.h \
     ../../Sources/Evaluator.h \
     ../../Sources/Base/BaseGenerator.h \
@@ -62,8 +57,15 @@ HEADERS += \
     ../../Sources/Errorhandling/Exceptionhandling.h \
     ../../Sources/Errorhandling/OpenfileException.h \
     ../../Sources/Codegen/Classgenerator.h \
-    ../../Sources/Codegen/Attribute.h \
+    ../../Sources/Codegen/Attributegenerator.h \
     ../../Sources/Errorhandling/Scriptexception.h \
     ../../Sources/Errorhandling/FileNotvalidexception.h \
-    ../../Sources/Errorhandling/Attributescriptexception.h
+    ../../Sources/Errorhandling/Attributescriptexception.h \
+    baseevaluator.h \
+    ../../Sources/Parsing/Keywordscplusplus.h \
+    ../../Sources/Parsing/Parser.h \
+    ../../Sources/Parsing/Parserimplementation.h \
+    ../../Sources/Parsing/RulesC++.h \
+    ../../Sources/Parsing/Rulescplusplus.h \
+    ../../Sources/Parsing/Script.h
 

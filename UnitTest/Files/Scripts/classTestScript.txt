@@ -1,0 +1,4 @@
+@path::..\\Files\\Generated\\ClassTestFile
+@class::firstClass
+
+

@@ -16,13 +16,8 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
     mainwindow.cpp\
-    ParserFassade.cpp \
-    KeywordsCPlusPlus.cpp \
+    Parsing/KeywordsCPlusPlus.cpp \
     GeneratorCPusPlus.cpp \
-    Rulescplusplus.cpp \
-    parserimplementation.cpp \
-    Script.cpp \
-    Keywordchecker.cpp \
     Evaluator.cpp \
     Codegeneratorfassade.cpp \
     Codegen/CPluspluscodegenerator.cpp \    
@@ -30,22 +25,24 @@ SOURCES += main.cpp\
     Errorhandling/OpenfileException.cpp \
     Codegen/Basecodegenerator.cpp \
     Codegen/Classgenerator.cpp \
-    Codegen/Attribute.cpp \
     Errorhandling/Scriptexception.cpp \
     Errorhandling/Attributescriptexception.cpp \
-    Errorhandling/FileNotvalidexception.cpp
+    Errorhandling/FileNotvalidexception.cpp \
+    Codegen/Attributegenerator.cpp \
+    Parsing/parserimplementation.cpp \
+    Parsing/Rulescplusplus.cpp \
+    Parsing/Script.cpp \
+    ParserFassade.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
     ParserFassade.h \
-    Keywordscplusplus.h \
     GeneratorCPlusPlus.h \
     Rulescplusplus.h \
     Parserimplementation.h \
     Script.h \
     Parser.h \
     Base/BaseParserImplementation.h \
-    Keywordchecker.h \
     Evaluator.h \
     Base/BaseEvaluator.h \
     Base/BaseGenerator.h \
@@ -59,10 +56,15 @@ HEADERS  += mainwindow.h \
     Errorhandling/Exceptionhandling.h \
     Errorhandling/OpenfileException.h \
     Codegen/Classgenerator.h \
-    Codegen/Attribute.h \
     Errorhandling/Scriptexception.h \
     Errorhandling/Attributescriptexception.h \
-    Errorhandling/FileNotvalidexception.h
+    Errorhandling/FileNotvalidexception.h \
+    Codegen/Attributegenerator.h \
+    Parsing/Parser.h \
+    Parsing/Parserimplementation.h \
+    Parsing/Rulescplusplus.h \
+    Parsing/Script.h \
+    Parsing/Keywordscplusplus.h \
 
 FORMS    += mainwindow.ui
 	

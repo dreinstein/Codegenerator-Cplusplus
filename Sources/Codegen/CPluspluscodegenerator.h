@@ -15,9 +15,11 @@ public:
     CPlusPlusCodegenerator();
     CPlusPlusCodegenerator(const BaseCodegenerator *r){BaseCodegenerator::clone(r);}
     virtual ~CPlusPlusCodegenerator();
-    void generate();
-    void generate(std::vector<QString> strVecScript, std::map<QString,QString> strMapRules,std::vector<QString> strVecKeys);
+    void generate() override final;
+    void generate(const std::vector<QString> strVecScript, const std::map<QString,QString> strMapRules,const std::vector<QString> strVecKeys)override final;
     void registerObservers(BaseGenerator *observer);
+private:
+    void createFiles();
 };
 
 }

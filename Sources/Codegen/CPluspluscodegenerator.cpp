@@ -1,6 +1,9 @@
 #include <QFile>
 #include <iostream>
 #include <qglobal.h>
+#include <QFile>
+#include <QTextStream>
+#include <string>
 #include "Utilities.h"
 #include "CPluspluscodegenerator.h"
 #include "Basecodegenerator.h"
@@ -34,27 +37,37 @@ void CPlusPlusCodegenerator::generate()
 }
 
 
-void CPlusPlusCodegenerator::generate(std::vector<QString> strVecScript,std::map<QString,QString> strMapRules,std::vector<QString> strVecKeys)
+void CPlusPlusCodegenerator::generate(const std::vector<QString> strVecScript,const std::map<QString,QString> strMapRules,std::vector<QString> strVecKeys)
 {
     script = strVecScript;
     rules = strMapRules;
     keys = strVecKeys;
-
     index = 0;
-
-   /* setFilenames();
-
-    try
-    {
-        openFiles();
-     } // try
-     catch(Exceptionhandling& e)
-     {
-       std::cout << e.whatCode();
-       std::cout << e.whatDescription();
-     }
-  //  index = 1;*/
     nextElement();
+    createFiles();
+}
+
+
+void CPlusPlusCodegenerator::createFiles()
+{
+    QFile hfile(heaterfilename);
+    QFile sfile(sourcefilename);
+
+    hfile.open(QIODevice::WriteOnly | QIODevice::Text);
+    sfile.open(QIODevice::WriteOnly | QIODevice::Text);
+
+    QTextStream heaterFileStream (&hfile);
+    QTextStream sourceFileStream (&sfile);
+    for (auto elementHeader: generatedCodeHeader)
+    {
+        heaterFileStream << elementHeader;
+    }
+    for (auto elementSource: generatedCodeHeader)
+    {
+        sourceFileStream << elementSource;
+    }
+    hfile.close();
+    sfile.close();
 }
 
 

@@ -5,8 +5,11 @@ using namespace General;
 
 QString General::FilePath::RulesCPlusPlus = "c:\\Codegenerator\\Rules";
 QString General::FilePath::KeywordsCPlusPlus = "c:\\Codegenerator\\Keywords\\myFirstKeywords.txt";
+QString General::FilePath::SourceFileName = "c:\\Codegenerator\\UnitTest\\Files\\Generated\\SourceFile.cpp";
+QString General::FilePath::HeaderFileName = "c:\\Codegenerator\\UnitTest\\Files\\Generated\\HeaderFile.cpp";
 QString General::ExtractString::STRINGSEPERATOR = "@";
 QString General::ExtractString::SUBSTRINGSEPERATOR = "::";
+
 
 
 QString ExtractString::extractFirst(QString ostring)

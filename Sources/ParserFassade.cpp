@@ -10,11 +10,11 @@
 
 
 #include "Utilities.h"
-#include "KeywordsCPlusPlus.h"
-#include "Rulescplusplus.h"
-#include "Script.h"
+#include "Parsing/KeywordsCPlusPlus.h"
+#include "Parsing/Rulescplusplus.h"
+#include "Parsing/Script.h"
 #include "GeneratorCPlusPlus.h"
-#include "Parser.h"
+#include "Parsing/Parser.h"
 #include "ParserFassade.h"
 #include "Utilities.h"
 #include <QString>
@@ -27,7 +27,7 @@ ParserFassade::ParserFassade(BaseGenerator* generator,General::Languages::Parser
 {
     switch (lang)
     {
-        case Languages::CPLUSPLUS:
+        case Languages::Parserlanguage::CPLUSPLUS:
             buildForCPlusPlus(generator);
         break;
         default:

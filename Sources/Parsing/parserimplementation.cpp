@@ -23,7 +23,7 @@ ParserImpl::~ParserImpl()
 
 }
 
-std::vector<QString> ParserImpl::doParseForVec(QString path)
+std::vector<QString> ParserImpl::doParseForVec(const QString path)const
 {
 
     QFile fin(path);
@@ -44,11 +44,12 @@ std::vector<QString> ParserImpl::doParseForVec(QString path)
 }
 
 // get hash fileName(Keyword,path)
-std::map<QString, QString> ParserImpl::doParseForMap(QString str)
+std::map<QString, QString> ParserImpl::doParseForMap(const QString val) const
 {
     HANDLE fHandle;
     WIN32_FIND_DATA wfd;
     std::map<QString, QString> map;
+    QString str = val;
     str += "\\";
     QString wcharp= str;
     wcharp += "*";

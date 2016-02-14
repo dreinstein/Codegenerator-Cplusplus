@@ -1,5 +1,5 @@
 #include <algorithm>
-#include "Attribute.h"
+#include "Attributegenerator.h"
 #include "QFile"
 #include "QTextStream"
 #include "Utilities.h"
@@ -25,7 +25,7 @@ Attribute::~Attribute()
 void Attribute::generate()
 {
     // 1. read modifier
-    QString scriptelement = script[index];
+    QString scriptelement = script[this->index];
     QStringList qlist = General::ExtractString::extractStringList(scriptelement);
     QString modifierKeyword = General::ExtractString::extractFirst(qlist[0]);
     QString modifier = General::ExtractString::extractLast(qlist[0]);
@@ -43,8 +43,7 @@ void Attribute::generate()
     bool foundBracket = false;
     bool foundModifier = false;
     QString element;
-    unsigned int index = 0;
-    for(list<QString>::iterator iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator,++index)
+    for(list<QString>::iterator iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator)
     {
         element = *iterator;
         if (element.contains("class"))
@@ -62,7 +61,6 @@ void Attribute::generate()
         if((element.contains("}")) && foundBracket && foundClass)
         {
             list<QString> templist;
-            iterator = --iterator;
             templist.splice(templist.begin(), generatedCodeHeader,iterator,generatedCodeHeader.end());
             if(!foundModifier)
             {
@@ -71,13 +69,13 @@ void Attribute::generate()
                 generatedCodeHeader.push_back(":");
                 generatedCodeHeader.push_back("\n");
             }
+            generatedCodeHeader.push_back(tab);
             generatedCodeHeader.push_back(typ);
             generatedCodeHeader.push_back(" ");
             generatedCodeHeader.push_back(attribute);
             generatedCodeHeader.push_back(";");
             generatedCodeHeader.push_back("\n");
-            generatedCodeHeader.push_back("};");
-         //   std::copy(templist.begin(), templist.end(),generatedCodeHeader.end());
+            generatedCodeHeader.insert(generatedCodeHeader.end(), templist.begin(),templist.end());
             break;
         }
     }
@@ -86,9 +84,10 @@ void Attribute::generate()
     {
         throw Errorhandling::FileNotValidException();
     }
+    nextElement();
 }
 
-void Attribute::generate(std::vector<QString>, std::map<QString,QString>,std::vector<QString>)
+void Attribute::generate(const std::vector<QString>, const std::map<QString,QString>,std::vector<QString>)
 {
     Q_ASSERT(false);
 }

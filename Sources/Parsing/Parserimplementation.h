@@ -15,8 +15,8 @@ class ParserImpl:public BaseParserImpl
 public:
     ParserImpl();
     virtual ~ParserImpl();
-    std::vector<QString> doParseForVec(QString);
-    std::map<QString,QString> doParseForMap(QString);
+    std::vector<QString> doParseForVec(const QString)const override final;
+    std::map<QString,QString> doParseForMap(const QString)const override final;
 };
 
 }

@@ -10,19 +10,18 @@ namespace General
 class Languages
 {
 public:
-    enum Parserlanguage
+    enum class Parserlanguage
     {
         CPLUSPLUS,
         Java,
         others
     };
-
 };
 
 class Types
 {
 public:
-    enum DataTypes
+    enum class DataTypes
     {
         Map,
         Vector
@@ -32,7 +31,7 @@ public:
 class ParserId
 {
 public:
-    enum Id
+    enum class Id
     {
         Keyword = 1,
         Rules   = 2,
@@ -46,6 +45,8 @@ class FilePath
 public:
     static QString RulesCPlusPlus;
     static QString KeywordsCPlusPlus;
+    static QString SourceFileName;
+    static QString HeaderFileName;
 };
 
 

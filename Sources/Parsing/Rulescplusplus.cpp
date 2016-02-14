@@ -1,4 +1,5 @@
-#include "Script.h"
+#include "Rulescplusplus.h"
+
 
 #include <QString>
 #include "RulesCPlusPlus.h"
@@ -7,23 +8,23 @@
 #include "Parserimplementation.h"
 #include "Base/BaseParserImplementation.h"
 
+
 namespace NParser
 {
-
 
 using namespace std;
 
 
-void  Script::registerObservers(BaseGenerator *observer)
+void  RulesCPlusPlus::registerObservers(BaseGenerator *observer)
 {
-    id = General::ParserId::Id::Script;
+    id = General::ParserId::Id::Rules;
     parserObservers.push_back(&*observer);
 }
 
-void Script::Parse(const QString str)
+void RulesCPlusPlus::Parse(const QString str)
 {
     BaseParserImpl* parser = new ParserImpl();
-    vecValues = parser->doParseForVec(str);
+    mapValues = parser->doParseForMap(str);
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notify(id);
     }
@@ -31,12 +32,14 @@ void Script::Parse(const QString str)
 }
 
 
-void Script::giveData(){
+void RulesCPlusPlus::giveData() const {
     for(unsigned int i=0; i < parserObservers.size(); i++)
     {
-        parserObservers[i]->receiveData(vecValues,id);
+        parserObservers[i]->receiveData(mapValues,id);
     }
 }
 
+
 }
+
 

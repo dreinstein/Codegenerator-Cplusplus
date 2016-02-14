@@ -2,7 +2,7 @@
 #include <QtGlobal>
 #include <QString>
 #include "Utilities.h"
-#include "Parser.h"
+#include "Parsing/Parser.h"
 #include "Base/BaseGenerator.h"
 #include "Base/BaseEvaluator.h"
 #include "Evaluator.h"
@@ -26,8 +26,8 @@ GeneratorCPlusPlus::GeneratorCPlusPlus(QString str)
 {
 
   //  pathScript = strString;
-    pCodegeneratorFassade = new CodegeneratorFassade(this,Languages::CPLUSPLUS);
-    pParserFassade = new ParserFassade(this,Languages::CPLUSPLUS);
+    pCodegeneratorFassade = new CodegeneratorFassade(this,General::Languages::Parserlanguage::CPLUSPLUS);
+    pParserFassade = new ParserFassade(this,General::Languages::Parserlanguage::CPLUSPLUS);
 
   //  Evaluator eval;
     pEvaluator = new ScriptEvaluator();
@@ -64,18 +64,18 @@ void GeneratorCPlusPlus::generate()
     pParserFassade->ParseScript(pathScript);
 }
 
-void GeneratorCPlusPlus::notify(int parserId)
+void GeneratorCPlusPlus::notify(const General::ParserId::Id parserId)const
 {
     // lock data
     switch(parserId)
     {
-        case General::ParserId::Keyword:
+        case General::ParserId::Id::Keyword:
             pParserFassade->giveKeywordData();
         break;
-        case General::ParserId::Rules:
+        case General::ParserId::Id::Rules:
             pParserFassade->giveRulesData();
             break;
-        case General::ParserId::Script:
+        case General::ParserId::Id::Script:
             pParserFassade->giveScriptData();
             break;
         default:
@@ -83,13 +83,13 @@ void GeneratorCPlusPlus::notify(int parserId)
     }
 }
 
-void GeneratorCPlusPlus::notifyCodeGenerated()
+void GeneratorCPlusPlus::notifyCodeGenerated()const
 {
     int i=1;
     i=i+1;
 }
 
-void GeneratorCPlusPlus::allDatasReceived()
+void GeneratorCPlusPlus::allDatasReceived() const
 {
     // evaluate script first (Script keywords regarding defined keywords)
     //@todo evaluate doesn't work
@@ -124,7 +124,7 @@ bool GeneratorCPlusPlus::areAllDatasReceived()
 }
 
 
-void GeneratorCPlusPlus::receiveData(std::vector<QString> strv,int parserId)
+void GeneratorCPlusPlus::receiveData(const std::vector<QString> strv,const General::ParserId::Id parserId)
 {
     switch(parserId)
     {
@@ -153,7 +153,7 @@ void GeneratorCPlusPlus::receiveData(std::vector<QString> strv,int parserId)
     }
 }
 
-void GeneratorCPlusPlus::receiveData(std::map<QString,QString> strv,int parserId)
+void GeneratorCPlusPlus::receiveData(const std::map<QString,QString> strv,const General::ParserId::Id parserId)
 {
     switch(parserId)
     {

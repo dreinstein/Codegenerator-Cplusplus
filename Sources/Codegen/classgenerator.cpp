@@ -23,7 +23,7 @@ void ClassGenerator::generate()
 
 }
 
-void ClassGenerator::generate(std::vector<QString>, std::map<QString,QString>,std::vector<QString>)
+void ClassGenerator::generate(const std::vector<QString>, const std::map<QString,QString>,std::vector<QString>)
 {
     Q_ASSERT(false);
 }
