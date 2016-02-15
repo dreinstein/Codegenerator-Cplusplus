@@ -1,6 +1,7 @@
 #include "Basecodegenerator.h"
 #include "classgenerator.h"
 #include "Attributegenerator.h"
+#include "Fuctioncodegenerator.h"
 #include "QTextStream"
 #include "Utilities.h"
 #include "../Errorhandling/OpenfileException.h"
@@ -119,6 +120,11 @@ BaseCodegenerator* BaseCodegenerator::getClass(QString sindex)
     if("attribute" == sindex)
     {
         generator = new Attribute(this);
+        return generator;
+    }
+    if("function" == sindex)
+    {
+        generator = new FuctionCodeGenerator(this);
         return generator;
     }
     Q_ASSERT(false);

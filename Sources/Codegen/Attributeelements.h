@@ -22,7 +22,6 @@ private:
     QString modifier;
     QString typ;
     QString attribute;
-
 };
 
 }

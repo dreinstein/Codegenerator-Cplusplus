@@ -28,6 +28,7 @@ public:
     virtual void registerObservers(BaseGenerator*) {;}
     virtual std::list<QString> getHeaderListData() const final {return generatedCodeHeader;}
     virtual std::list<QString> getSourceListData() const final {return generatedCodeSource;}
+    const QString MODIFIER = "modifier";
 protected:
     std::vector<QString> script;
     std::vector<QString> keys;
@@ -43,6 +44,7 @@ protected:
     unsigned int index;
     QString sourcefilename;
     QString heaterfilename;
+    const QString tab = "   ";
 private:
     BaseCodegenerator *getClass(QString index);
 };

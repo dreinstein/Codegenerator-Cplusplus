@@ -1,0 +1,9 @@
+@path::..\\Files\\Generated\\myFirstGeneratedFile
+@class::firstClass
+@modifier::public@typ::std::string@attribute::myStringAttribute
+@modifier::private@typ::const int@attribute::myConstIntAttribute
+@modifier::private@typ::char@attribute::myCharAttribute
+@modifier::public@typ::double@attribute::myDoubleAttribute
+@modifier::public@typ::int@function::functionwithNoParameter
+@modifier::public@typ::int@function::functionwithOneParameter@Parameter::@typ::int@attribute::myfirstParameter
+@modifier::private@typ::firstClass@function::functionwithTwoParameters@Parameter::@typ::int@attribute::myfirstParameter@Parameter::typ::double@attribute::mysecondParameter

@@ -3,7 +3,9 @@
 
 #include <vector>
 #include <map>
+#include "QString"
 #include "Basecodegenerator.h"
+#include "Functionelements.h"
 
 namespace Codegenerator
 {
@@ -17,6 +19,9 @@ public:
     virtual ~FuctionCodeGenerator();
     void generate() override final;
     void generate(const std::vector<QString> strVecScript, const std::map<QString,QString> strMapRules,const std::vector<QString> strVecKeys) override final;
+private:
+    void generateHeaderList(FunctionElements* elements);
+    void generateSourceList(FunctionElements* elements);
 };
 
 }
