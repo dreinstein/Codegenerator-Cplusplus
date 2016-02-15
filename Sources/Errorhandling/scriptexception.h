@@ -14,6 +14,8 @@ public:
     virtual ~ScriptException();
     int whatCode() const throw ();
     virtual std::string whatDescription() const throw ();
+private:
+    const std::string error = "script Error";
 };
 
 }

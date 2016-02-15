@@ -16,6 +16,8 @@ public:
     virtual ~OpenFileException();
     int whatCode() const throw ();
     std::string whatDescription() const throw ();
+private:
+    const std::string error = "Cannot generateFile";
 };
 
 }

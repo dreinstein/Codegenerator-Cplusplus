@@ -14,6 +14,8 @@ public:
     virtual ~FileNotValidException();
     int whatCode() const throw ();
     std::string whatDescription() const throw ();
+private:
+    const std::string error = "File is not valid";
 };
 
 }

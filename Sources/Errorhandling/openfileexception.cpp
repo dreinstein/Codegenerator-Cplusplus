@@ -20,7 +20,7 @@ int OpenFileException::whatCode() const throw ()
 
 std::string OpenFileException::whatDescription() const throw ()
 {
-    return "Cannot generateFile";
+    return error;
 }
 
 }

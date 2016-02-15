@@ -20,7 +20,7 @@ int FileNotValidException::whatCode() const throw ()
 
 std::string FileNotValidException::whatDescription() const throw ()
 {
-    return "File is not valid";
+    return error;
 }
 
 }

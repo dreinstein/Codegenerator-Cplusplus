@@ -1,4 +1,10 @@
 #include "Fuctioncodegenerator.h"
+#include "../Errorhandling/FunctionScriptException.h"
+
+
+
+
+
 
 
 namespace Codegenerator
@@ -20,12 +26,11 @@ void FuctionCodeGenerator::generate()
     Codegenerator::FunctionElements *elements = new Codegenerator::FunctionElements();
     elements->setElements(script[this->index]);
 
-   /*
     // we expect as first a modifier, if not throw Error
-    if(attributeElements->getModifierKeyword()!= MODIFIER)
+    if(elements->getModifierKeyword()!= MODIFIER)
     {
-        throw Errorhandling::AttributeScriptException();
-    }*/
+        throw Errorhandling::FunctionScriptException();
+    }
 
     generateHeaderList(elements);
     generateSourceList(elements);

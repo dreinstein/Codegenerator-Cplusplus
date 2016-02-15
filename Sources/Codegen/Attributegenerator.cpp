@@ -63,6 +63,24 @@ void Attribute::generateHeaderList(AttributeElements* attributElements)
         {
             foundModifier = true;
         }
+        // suche public modifier, pos merken
+        // suche private modifier, pos merken
+        // such bracket }, pos merken
+        // modifier ist public, public vorhanden, private vorhanden
+        //    gehe vor position private und schreibe attribute
+        // modifier ist public public nicht vorhanden, private vorhanden
+        //    gehe vor position private, schreibe public
+        //    schreibe attribute
+        // modifier ist public public nicht vorhanden, private nicht vorhanden
+        //    gehe eine position vor bracket } und schreibe public, schreibe attribute
+        // modifier ist private, public vorhanden, private vorhanden
+        //    gehe eine position vor bracket } und schreibe attribute
+        // modifier ist private, public nicht vorhanden, private vorhanden
+        //   gehe eine position vor bracket } und schreibe attribut
+        // modifier ist private, public nicht vorhanden, private nicht vorhanden
+        //   gehe eine position vor bracket } und schreibe attribute
+
+
         if((element.contains("}")) && foundBracket && foundClass)
         {
             list<QString> templist;

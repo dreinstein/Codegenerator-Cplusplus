@@ -21,7 +21,7 @@ int ScriptException::whatCode() const throw ()
 
 std::string ScriptException::whatDescription() const throw ()
 {
-    return "script Error";
+    return error;
 }
 
 }
