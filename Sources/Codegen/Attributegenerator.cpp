@@ -48,14 +48,16 @@ void Attribute::generateHeaderList(AttributeElements* attributElements)
     bool foundBracket = false;
     bool foundModifier = false;
     QString element;
-    for(list<QString>::iterator iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator)
+    int posClass = 0;
+    int pos = 0;
+    for(list<QString>::iterator iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator, ++pos)
     {
         element = *iterator;
-        if (element.contains("class"))
+        if (element.contains(classDefinition))
         {
             foundClass = true;
         }
-        if(element.contains("{"))
+        if(element.contains(bracketOpen))
         {
             foundBracket = true;
         }
@@ -81,7 +83,7 @@ void Attribute::generateHeaderList(AttributeElements* attributElements)
         //   gehe eine position vor bracket } und schreibe attribute
 
 
-        if((element.contains("}")) && foundBracket && foundClass)
+        if((element.contains(bracketClose)) && foundBracket && foundClass)
         {
             list<QString> templist;
             templist.splice(templist.begin(), generatedCodeHeader,iterator,generatedCodeHeader.end());
@@ -89,15 +91,15 @@ void Attribute::generateHeaderList(AttributeElements* attributElements)
             {
                 // create modifier
                 generatedCodeHeader.push_back(attributElements->getModifier());
-                generatedCodeHeader.push_back(":");
-                generatedCodeHeader.push_back("\n");
+                generatedCodeHeader.push_back(colon);
+                generatedCodeHeader.push_back(newLine);
             }
             generatedCodeHeader.push_back(tab);
             generatedCodeHeader.push_back(attributElements->getTyp());
-            generatedCodeHeader.push_back(" ");
+            generatedCodeHeader.push_back(tab);
             generatedCodeHeader.push_back(attributElements->getAttribute());
-            generatedCodeHeader.push_back(";");
-            generatedCodeHeader.push_back("\n");
+            generatedCodeHeader.push_back(semiColon);
+            generatedCodeHeader.push_back(newLine);
             generatedCodeHeader.insert(generatedCodeHeader.end(), templist.begin(),templist.end());
             break;
         }

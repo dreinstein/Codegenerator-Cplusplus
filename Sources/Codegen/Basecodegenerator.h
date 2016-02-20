@@ -48,8 +48,11 @@ protected:
     const QString bracketOpen = "{";
     const QString bracketClose = "{";
     const QString classDefinition = "class";
+    const QString newLine = "\n";
+    const QString colon = ":";
+    const QString semiColon = ";";
 private:
-    BaseCodegenerator *getClass(QString index);
+    BaseCodegenerator *getNextElement(QString index);
 };
 
 }

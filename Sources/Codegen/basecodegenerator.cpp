@@ -108,7 +108,7 @@ void BaseCodegenerator::openFiles()
  }
 
 
-BaseCodegenerator* BaseCodegenerator::getClass(QString sindex)
+BaseCodegenerator* BaseCodegenerator::getNextElement(QString sindex)
 {
     BaseCodegenerator *generator = nullptr;
     sindex = sindex.toLower();
@@ -153,7 +153,7 @@ void BaseCodegenerator::nextElement()
         }
         if(foundStr != tab)
         {
-            BaseCodegenerator *next = BaseCodegenerator::getClass(foundStr);
+            BaseCodegenerator *next = BaseCodegenerator::getNextElement(foundStr);
             next->generate();
             generatedCodeHeader = next->getHeaderListData();
             generatedCodeSource = next->getSourceListData();
