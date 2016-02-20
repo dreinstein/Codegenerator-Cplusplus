@@ -54,7 +54,7 @@ void BaseCodegenerator::generateDefault()
                     generatedCodeHeader.push_back(scriptelementFirst);
                     if(scriptelementLast != "")
                     {
-                        generatedCodeHeader.push_back(" ");
+                        generatedCodeHeader.push_back(tab);
                         generatedCodeHeader.push_back(scriptelementLast);
                         generatedCodeHeader.push_back("\n");
                     }
@@ -138,7 +138,7 @@ void BaseCodegenerator::nextElement()
     {
         QString umlElement = script[index];
         QStringList umlList = General::ExtractString::extractStringList(umlElement);
-        QString foundStr = " ";
+        QString foundStr = tab;
         foreach(QString v, umlList)
         {
             v = General::ExtractString::extractFirst(v);
@@ -151,7 +151,7 @@ void BaseCodegenerator::nextElement()
                 }
             }
         }
-        if(foundStr != " ")
+        if(foundStr != tab)
         {
             BaseCodegenerator *next = BaseCodegenerator::getClass(foundStr);
             next->generate();

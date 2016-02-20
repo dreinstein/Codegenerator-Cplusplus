@@ -45,6 +45,9 @@ protected:
     QString sourcefilename;
     QString heaterfilename;
     const QString tab = "   ";
+    const QString bracketOpen = "{";
+    const QString bracketClose = "{";
+    const QString classDefinition = "class";
 private:
     BaseCodegenerator *getClass(QString index);
 };
