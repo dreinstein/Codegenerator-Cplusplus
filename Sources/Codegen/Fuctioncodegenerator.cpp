@@ -1,5 +1,6 @@
 #include "Fuctioncodegenerator.h"
 #include "../Errorhandling/FunctionScriptException.h"
+#include "Functionelements.h"
 
 
 
@@ -23,18 +24,18 @@ FuctionCodeGenerator::~FuctionCodeGenerator()
 
 void FuctionCodeGenerator::generate()
 {
-    Codegenerator::FunctionElements *elements = new Codegenerator::FunctionElements();
-    elements->setElements(script[this->index]);
+    Codegenerator::FunctionElements *functionElements = new Codegenerator::FunctionElements();
+    functionElements->setElements(script[this->index]);
 
     // we expect as first a modifier, if not throw Error
-    if(elements->getModifierKeyword()!= MODIFIER)
+    if(functionElements->getModifierKeyword()!= MODIFIER)
     {
         throw Errorhandling::FunctionScriptException();
     }
 
-    generateHeaderList(elements);
-    generateSourceList(elements);
-    delete elements;
+    generateHeader(functionElements);
+    generateSource(functionElements);
+    delete functionElements;
     nextElement();
 }
 
@@ -43,15 +44,67 @@ void FuctionCodeGenerator::generate(const std::vector<QString>, const std::map<Q
     Q_ASSERT(false);
 }
 
-void FuctionCodeGenerator::generateHeaderList(FunctionElements* elements)
+void FuctionCodeGenerator::generateHeader(FunctionElements* functionElements)
+{
+    bool foundModifier = false;
+    QString element;
+    for(list<QString>::iterator iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator)
+    {
+        element = *iterator;
+        if(element.contains(functionElements->getModifierKeyword()))
+        {
+            foundModifier = true;
+        }
+        if(functionElements->getModifierKeyword() == modifierPublic)
+        {
+            if((element.contains(modifierPrivate)))
+            {
+                generateHeaderList(functionElements,iterator,foundModifier);
+                break;
+            }
+        }
+        else if ((element.contains(bracketClose)))
+        {
+            generateHeaderList(functionElements,iterator,foundModifier);
+            break;
+        }
+    }
+}
+
+
+void FuctionCodeGenerator::generateSource(FunctionElements* )
 {
 
 }
 
-void FuctionCodeGenerator::generateSourceList(FunctionElements* elements)
+void FuctionCodeGenerator::generateHeaderList(FunctionElements* functionElements, list<QString>::iterator iterator, bool foundModifier)
 {
-
+    list<QString> templist;
+    templist.splice(templist.begin(), generatedCodeHeader,iterator,generatedCodeHeader.end());
+    if(!foundModifier)
+    {
+        // create modifier
+        generatedCodeHeader.push_back(functionElements->getModifier());
+        generatedCodeHeader.push_back(colon);
+        generatedCodeHeader.push_back(newLine);
+    }
+    generatedCodeHeader.push_back(tab);
+    generatedCodeHeader.push_back(functionElements->getTyp());
+    generatedCodeHeader.push_back(tab);
+    generatedCodeHeader.push_back(classname);
+    generatedCodeHeader.push_back(colon);
+    generatedCodeHeader.push_back(colon);
+    generatedCodeHeader.push_back(functionElements->getFunction());
+    generatedCodeHeader.push_back(parameterBracketOpen);
+    generatedCodeHeader.push_back(parameterBracketClose);
+    generatedCodeHeader.push_back(newLine);
+    generatedCodeHeader.push_back(bracketOpen);
+    generatedCodeHeader.push_back(newLine);
+    generatedCodeHeader.push_back(bracketClose);
+    generatedCodeHeader.push_back(newLine);
+    generatedCodeHeader.insert(generatedCodeHeader.end(), templist.begin(),templist.end());
 }
+
 
 }
 

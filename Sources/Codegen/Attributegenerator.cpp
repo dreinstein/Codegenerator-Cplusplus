@@ -32,7 +32,7 @@ void Attribute::generate()
     {
         throw Errorhandling::AttributeScriptException();
     }
-    generateHeaderList(attributeElements);
+    generateHeader(attributeElements);
     delete attributeElements;
     nextElement();
 }
@@ -42,73 +42,52 @@ void Attribute::generate(const std::vector<QString>, const std::map<QString,QStr
     Q_ASSERT(false);
 }
 
-void Attribute::generateHeaderList(AttributeElements* attributElements)
+void Attribute::generateHeader(AttributeElements* attributElements)
 {
-    bool foundClass = false;
-    bool foundBracket = false;
     bool foundModifier = false;
     QString element;
-    int posClass = 0;
-    int pos = 0;
-    for(list<QString>::iterator iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator, ++pos)
+    for(list<QString>::iterator iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator)
     {
         element = *iterator;
-        if (element.contains(classDefinition))
-        {
-            foundClass = true;
-        }
-        if(element.contains(bracketOpen))
-        {
-            foundBracket = true;
-        }
-        if(element.contains(attributElements->getModifierKeyword()) && foundBracket && foundClass)
+        if(element.contains(attributElements->getModifierKeyword()))
         {
             foundModifier = true;
         }
-        // suche public modifier, pos merken
-        // suche private modifier, pos merken
-        // such bracket }, pos merken
-        // modifier ist public, public vorhanden, private vorhanden
-        //    gehe vor position private und schreibe attribute
-        // modifier ist public public nicht vorhanden, private vorhanden
-        //    gehe vor position private, schreibe public
-        //    schreibe attribute
-        // modifier ist public public nicht vorhanden, private nicht vorhanden
-        //    gehe eine position vor bracket } und schreibe public, schreibe attribute
-        // modifier ist private, public vorhanden, private vorhanden
-        //    gehe eine position vor bracket } und schreibe attribute
-        // modifier ist private, public nicht vorhanden, private vorhanden
-        //   gehe eine position vor bracket } und schreibe attribut
-        // modifier ist private, public nicht vorhanden, private nicht vorhanden
-        //   gehe eine position vor bracket } und schreibe attribute
-
-
-        if((element.contains(bracketClose)) && foundBracket && foundClass)
+        if(attributElements->getModifierKeyword() == modifierPublic)
         {
-            list<QString> templist;
-            templist.splice(templist.begin(), generatedCodeHeader,iterator,generatedCodeHeader.end());
-            if(!foundModifier)
+            if((element.contains(modifierPrivate)))
             {
-                // create modifier
-                generatedCodeHeader.push_back(attributElements->getModifier());
-                generatedCodeHeader.push_back(colon);
-                generatedCodeHeader.push_back(newLine);
+                generateHeaderList(attributElements,iterator,foundModifier);
+                break;
             }
-            generatedCodeHeader.push_back(tab);
-            generatedCodeHeader.push_back(attributElements->getTyp());
-            generatedCodeHeader.push_back(tab);
-            generatedCodeHeader.push_back(attributElements->getAttribute());
-            generatedCodeHeader.push_back(semiColon);
-            generatedCodeHeader.push_back(newLine);
-            generatedCodeHeader.insert(generatedCodeHeader.end(), templist.begin(),templist.end());
+        }
+        else if ((element.contains(bracketClose)))
+        {
+            generateHeaderList(attributElements,iterator,foundModifier);
             break;
         }
     }
-    // if Class not found, then throw exeption
-    if((false == foundClass) || (false == foundBracket ))
+}
+
+void Attribute::generateHeaderList(AttributeElements* attributElements, list<QString>::iterator iterator, bool foundModifier)
+{
+    list<QString> templist;
+    templist.splice(templist.begin(), generatedCodeHeader,iterator,generatedCodeHeader.end());
+    if(!foundModifier)
     {
-        throw Errorhandling::FileNotValidException();
+        // create modifier
+        generatedCodeHeader.push_back(attributElements->getModifier());
+        generatedCodeHeader.push_back(colon);
+        generatedCodeHeader.push_back(newLine);
     }
+    generatedCodeHeader.push_back(tab);
+    generatedCodeHeader.push_back(attributElements->getTyp());
+    generatedCodeHeader.push_back(tab);
+    generatedCodeHeader.push_back(attributElements->getAttribute());
+    generatedCodeHeader.push_back(semiColon);
+    generatedCodeHeader.push_back(newLine);
+    generatedCodeHeader.insert(generatedCodeHeader.end(), templist.begin(),templist.end());
+
 }
 
 }

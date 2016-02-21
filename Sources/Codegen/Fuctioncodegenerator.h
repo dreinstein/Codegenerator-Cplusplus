@@ -2,6 +2,7 @@
 #define FUCTIONCODEGENERATOR_H
 
 #include <vector>
+#include <list>
 #include <map>
 #include "QString"
 #include "Basecodegenerator.h"
@@ -20,8 +21,9 @@ public:
     void generate() override final;
     void generate(const std::vector<QString> strVecScript, const std::map<QString,QString> strMapRules,const std::vector<QString> strVecKeys) override final;
 private:
-    void generateHeaderList(FunctionElements* elements);
-    void generateSourceList(FunctionElements* elements);
+    void generateHeader(FunctionElements* elements);
+    void generateSource(FunctionElements* elements);
+    void generateHeaderList(FunctionElements* functionElements, std::list<QString>::iterator iterator, bool foundModifier);
 };
 
 }

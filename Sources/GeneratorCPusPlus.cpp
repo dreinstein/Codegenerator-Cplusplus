@@ -124,7 +124,7 @@ bool GeneratorCPlusPlus::areAllDatasReceived()
 
 void GeneratorCPlusPlus::receiveCode(const std::list<QString> strHeader,const std::list<QString> strSources)
 {
-
+    Q_ASSERT(false);
 }
 
 

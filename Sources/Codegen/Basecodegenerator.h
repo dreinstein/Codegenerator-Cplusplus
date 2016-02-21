@@ -36,6 +36,7 @@ protected:
     std::vector<BaseGenerator*> codegeratorObservers;
     std::list<QString> generatedCodeHeader;
     std::list<QString> generatedCodeSource;
+    QString classname;
     void openFiles();
     void generateDefault();
     void clone(const BaseCodegenerator *toClone);
@@ -46,11 +47,17 @@ protected:
     QString heaterfilename;
     const QString tab = "   ";
     const QString bracketOpen = "{";
-    const QString bracketClose = "{";
+    const QString bracketClose = "}";
     const QString classDefinition = "class";
     const QString newLine = "\n";
     const QString colon = ":";
     const QString semiColon = ";";
+    const QString emptyChar = "";
+    const QString modifierPrivate = "private";
+    const QString modifierPublic = "public";
+    const QString parameterBracketOpen = "(";
+    const QString parameterBracketClose = ")";
+
 private:
     BaseCodegenerator *getNextElement(QString index);
 };

@@ -1,3 +1,4 @@
+#include <list>
 #include "Basecodegenerator.h"
 #include "classgenerator.h"
 #include "Attributegenerator.h"
@@ -16,6 +17,7 @@ BaseCodegenerator::BaseCodegenerator()
     index = 0;
     sourcefilename = General::FilePath::SourceFileName;
     heaterfilename = General::FilePath::HeaderFileName;
+    classname = " ";
 }
 
 void BaseCodegenerator::clone(const BaseCodegenerator *toClone)
@@ -29,6 +31,7 @@ void BaseCodegenerator::clone(const BaseCodegenerator *toClone)
     rules = toClone->rules;
     keys = toClone->keys;
     codegeratorObservers = toClone->codegeratorObservers;
+    classname = toClone->classname;
 }
 
 
@@ -37,7 +40,7 @@ void BaseCodegenerator::generateDefault()
     QString row;
     QString scriptelement = script[index];
     QString scriptelementFirst = General::ExtractString::extractFirst(scriptelement);
-    QString scriptelementLast = General::ExtractString::extractLast(scriptelement);
+    classname = General::ExtractString::extractLast(scriptelement);
     QString mapValue = rules[scriptelementFirst];
 
     if(mapValue!= "")
@@ -52,21 +55,21 @@ void BaseCodegenerator::generateDefault()
                 if (row.contains(scriptelementFirst))
                 {
                     generatedCodeHeader.push_back(scriptelementFirst);
-                    if(scriptelementLast != "")
+                    if(classname != emptyChar)
                     {
                         generatedCodeHeader.push_back(tab);
-                        generatedCodeHeader.push_back(scriptelementLast);
-                        generatedCodeHeader.push_back("\n");
+                        generatedCodeHeader.push_back(classname);
+                        generatedCodeHeader.push_back(newLine);
                     }
                     else
                     {
-                        generatedCodeHeader.push_back("\n");
+                        generatedCodeHeader.push_back(newLine);
                     }
                 }
                 else
                 {
                     generatedCodeHeader.push_back(row);
-                    generatedCodeHeader.push_back("\n");
+                    generatedCodeHeader.push_back(newLine);
                 }
             }// while
 
@@ -76,7 +79,7 @@ void BaseCodegenerator::generateDefault()
             throw Errorhandling::OpenFileException();
         }
    }
-   generatedCodeHeader.push_back("\n");
+   generatedCodeHeader.push_back(newLine);
 }
 
 
@@ -161,5 +164,6 @@ void BaseCodegenerator::nextElement()
         }
     }
 }
+
 
 }

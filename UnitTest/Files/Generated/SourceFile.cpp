@@ -1,12 +1,12 @@
-class firstClass
+class   firstClass
 {
 public:
-   std::string myStringAttribute;
+   std::string   myStringAttribute;
 private:
-   const int myConstIntAttribute;
+   const int   myConstIntAttribute;
 private:
-   char myCharAttribute;
+   char   myCharAttribute;
 public:
-   double myDoubleAttribute;
+   double   myDoubleAttribute;
 };
 
