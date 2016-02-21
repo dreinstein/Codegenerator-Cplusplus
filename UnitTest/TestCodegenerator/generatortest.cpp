@@ -201,6 +201,34 @@ TEST(GeneratorTest, generateFunctionWithNoParameter)
     EXPECT_EQ(isIncluded, true);
 }
 
+
+TEST(GeneratorTest, generateFunctionWithOneParameter)
+{
+    ParserImpl *parser = new ParserImpl();
+    std::vector<QString> keywords = parser->doParseForVec("..\\Files\\Keywords\\myFirstKeywords.txt");
+    std::vector<QString> script = parser->doParseForVec("..\\Files\\Scripts\\functionTestScriptWithOneParameter.txt");
+    std::map<QString,QString> rules = parser->doParseForMap("..\\Files\\Rules\\");
+    Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
+    generator->generate(script,rules,keywords);
+    std::list<QString> classHeaderList = generator->getHeaderListData();
+    std::list<QString>::iterator iter = classHeaderList.begin();
+    bool isIncluded = (*iter == "class");
+  /*  std::advance(iter, 6);
+    isIncluded = (*iter == "public");
+    std::advance(iter, 6);
+    isIncluded = (*iter  == "firstClass");
+    std::advance(iter, 1);
+    isIncluded = (*iter == ":");
+    std::advance(iter, 1);
+    isIncluded = (*iter == ":");
+    std::advance(iter, 1);
+    isIncluded = (*iter  == "functionwithNoParameter");
+    std::advance(iter, 2);
+    isIncluded = (*iter  == ")");
+    std::advance(iter, 6);
+    isIncluded = (*iter  == "};");*/
+    EXPECT_EQ(isIncluded, true);
+}
 // test function evaluate in class Evaluator
 TEST(GeneratorTest, testHeaderFile) {
     ParserImpl *parser = new ParserImpl();
