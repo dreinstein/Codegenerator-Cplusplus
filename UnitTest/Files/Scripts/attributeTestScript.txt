@@ -1,7 +1,8 @@
 @path::..\\Files\\Generated\\myFirstGeneratedFile
 @class::firstClass
-@modifier::public@typ::std::string@attribute::myStringAttribute
-@modifier::private@typ::const int@attribute::myConstIntAttribute
-@modifier::private@typ::char@attribute::myCharAttribute
-@modifier::public@typ::double@attribute::myDoubleAttribute
+@attribute::myStringAttribute@modifier::public@typ::string
+@attribute::myConstIntAttribute@modifier::private@typ::const int
+@attribute::myCharAttribute@modifier::private@typ::char
+@attribute::myDoubleAttribute@modifier::public@typ::double
+
 

@@ -12,16 +12,18 @@ class AttributeElements
 public:
     AttributeElements();
     void setElements(QString element);
-    QString getModifierKeyword(){return modifierKeyword;}
+ //   QString getModifierKeyword(){return modifierKeyword;}
     QString getTyp(){return typ;}
     QString getAttribute(){return attribute;}
     QString getModifier(){return modifier;}
+    bool getIsRef(){return isRef;}
 
 private:
-    QString modifierKeyword;
+  //  QString modifierKeyword;
     QString modifier;
     QString typ;
     QString attribute;
+    bool isRef;
 };
 
 }

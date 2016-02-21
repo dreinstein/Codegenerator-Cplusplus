@@ -158,14 +158,14 @@ TEST(GeneratorTest, generateAttribute) {
     std::advance(iter, 6);
     isIncluded = (*iter == "public");
     std::advance(iter, 4);
-    isIncluded = (*iter  == "std::string");
+    isIncluded = (*iter  == "double");
     std::advance(iter, 2);
-    isIncluded = (*iter == "myStringAttribute");
+    isIncluded = (*iter == "myDoubleAttribute");
     std::advance(iter, 7);
     isIncluded = (*iter == "const int");
     std::advance(iter, 2);
     isIncluded = (*iter  == "myConstIntAttribute");
-    std::advance(iter, 7);
+    std::advance(iter, 4);
     isIncluded = (*iter  == "char");
     std::advance(iter, 2);
     isIncluded = (*iter  == "myCharAttribute");

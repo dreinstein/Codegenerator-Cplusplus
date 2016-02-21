@@ -7,16 +7,47 @@ namespace Codegenerator
 
 AttributeElements::AttributeElements()
 {
-
+    attribute = "";
+    typ = "";
+    modifier = "";
+    isRef = false;
 }
 
 void AttributeElements::setElements(QString element)
 {
     QStringList stringList = General::ExtractString::extractStringList(element);
-    modifierKeyword = General::ExtractString::extractFirst(stringList[0]);
-    modifier = General::ExtractString::extractLast(stringList[0]);
-    typ = General::ExtractString::extractLast(stringList[1]);
-    attribute = General::ExtractString::extractLast(stringList[2]);
+    // search @function
+    QString listelement = "";
+    QString elementLast = "";
+    QStringList::const_iterator constIterator;
+    for (constIterator = stringList.constBegin(); constIterator != stringList.constEnd();++constIterator)
+    {
+        listelement = *constIterator;
+        elementLast = General::ExtractString::extractLast(listelement);
+        if(listelement.contains("@attribute"))
+        {
+            attribute = elementLast;
+        }
+        if(listelement.contains("@typ"))
+        {
+            typ = elementLast;
+        }
+        if(listelement.contains("@modifier"))
+        {
+            modifier = elementLast;
+        }
+        if(listelement.contains("@isReference"))
+        {
+            QString s_isRef = elementLast;
+            if(s_isRef == "true")
+            {
+                isRef = true;
+            }
+            else
+            {
+                isRef = false;
+            }
+        }
+    }
 }
-
 }

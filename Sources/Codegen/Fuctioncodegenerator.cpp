@@ -27,12 +27,6 @@ void FuctionCodeGenerator::generate()
     Codegenerator::FunctionElements *functionElements = new Codegenerator::FunctionElements();
     functionElements->setElements(script[this->index]);
 
-    // we expect as first a modifier, if not throw Error
-    if(functionElements->getModifierKeyword()!= MODIFIER)
-    {
-        throw Errorhandling::FunctionScriptException();
-    }
-
     generateHeader(functionElements);
     generateSource(functionElements);
     delete functionElements;
@@ -51,11 +45,11 @@ void FuctionCodeGenerator::generateHeader(FunctionElements* functionElements)
     for(list<QString>::iterator iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator)
     {
         element = *iterator;
-        if(element.contains(functionElements->getModifierKeyword()))
+        if(element.contains(functionElements->getModifier()))
         {
             foundModifier = true;
         }
-        if(functionElements->getModifierKeyword() == modifierPublic)
+        if(functionElements->getModifier() == modifierPublic)
         {
             if((element.contains(modifierPrivate)))
             {

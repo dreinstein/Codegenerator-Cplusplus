@@ -1,8 +1,9 @@
 class   firstClass
 {
 public:
-   int   firstClass::functionwithNoParameter()
-{
-}
+   double   myDoubleAttribute;
+private:
+   const int   myConstIntAttribute;
+   char   myCharAttribute;
 };
 

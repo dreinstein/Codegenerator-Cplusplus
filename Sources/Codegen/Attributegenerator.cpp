@@ -27,11 +27,7 @@ void Attribute::generate()
 {
     AttributeElements *attributeElements = new AttributeElements();
     attributeElements->setElements(script[this->index]);
-    // we expect as first a modifier, if not throw Error
-    if(attributeElements->getModifierKeyword()!= MODIFIER)
-    {
-        throw Errorhandling::AttributeScriptException();
-    }
+
     generateHeader(attributeElements);
     delete attributeElements;
     nextElement();
@@ -49,11 +45,11 @@ void Attribute::generateHeader(AttributeElements* attributElements)
     for(list<QString>::iterator iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator)
     {
         element = *iterator;
-        if(element.contains(attributElements->getModifierKeyword()))
+        if(element.contains(attributElements->getModifier()))
         {
             foundModifier = true;
         }
-        if(attributElements->getModifierKeyword() == modifierPublic)
+        if(attributElements->getModifier() == modifierPublic)
         {
             if((element.contains(modifierPrivate)))
             {
