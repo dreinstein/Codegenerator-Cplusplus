@@ -2,4 +2,6 @@ class
 attribute
 function
 functionparameter
-isReference	
+isReference
+isConstant
+isPointer	

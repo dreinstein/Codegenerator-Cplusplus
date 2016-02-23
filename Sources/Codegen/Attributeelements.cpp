@@ -48,6 +48,30 @@ void AttributeElements::setElements(QString element)
                 isRef = false;
             }
         }
+        if(listelement.contains("@isPointer"))
+        {
+            QString s_isPointer = elementLast;
+            if(s_isPointer == "true")
+            {
+                isPointer = true;
+            }
+            else
+            {
+                isPointer = false;
+            }
+        }
+        if(listelement.contains("@isConstant"))
+        {
+            QString s_isConstant = elementLast;
+            if(s_isConstant == "true")
+            {
+                isConstant = true;
+            }
+            else
+            {
+                isConstant = false;
+            }
+        }
     }
 }
 }

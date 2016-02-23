@@ -5,5 +5,6 @@ public:
 private:
    const int   myConstIntAttribute;
    char   myCharAttribute;
-};
+}
+;
 
