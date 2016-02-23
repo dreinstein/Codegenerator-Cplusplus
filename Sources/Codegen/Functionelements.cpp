@@ -1,4 +1,5 @@
 #include "Functionelements.h"
+#include "Utilities.h"
 
 namespace Codegenerator
 {
@@ -6,6 +7,16 @@ namespace Codegenerator
 FunctionElements::FunctionElements()
 {
 
+}
+
+FunctionElements::~FunctionElements()
+{
+    AttributeElements* elements;
+    for (auto iterator = begin(functionParameters) ; iterator != functionParameters.end();++iterator)
+    {
+       elements = *iterator;
+       delete elements;
+    }
 }
 
 void FunctionElements::setElements(QString element)
@@ -66,6 +77,12 @@ void FunctionElements::setElements(QString element)
             {
                 isConstant = false;
             }
+        }
+        if(listelement.contains("@parameter"))
+        {
+            AttributeElements *attriElement = new AttributeElements();
+            attriElement->setElements(listelement);
+            functionParameters.push_back(attriElement);
         }
     }
 

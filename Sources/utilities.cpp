@@ -9,6 +9,7 @@ QString General::FilePath::SourceFileName = "c:\\Codegenerator\\UnitTest\\Files\
 QString General::FilePath::HeaderFileName = "c:\\Codegenerator\\UnitTest\\Files\\Generated\\HeaderFile.cpp";
 QString General::ExtractString::STRINGSEPERATOR = "@";
 QString General::ExtractString::SUBSTRINGSEPERATOR = "::";
+QString General::ExtractString::PARAMETERSEPERATOR = "@parameter";
 
 
 
@@ -41,6 +42,19 @@ QString ExtractString::extractLast(QString ostring)
     }
     return ostring;
 }
+
+QString ExtractString::extractParameter(QString ostring)
+{
+    std::size_t foundSeperator =  UINT_MAX;
+    // find seperator
+    foundSeperator = ostring.indexOf(PARAMETERSEPERATOR);
+    if (foundSeperator  < UINT_MAX)
+    {
+        ostring.remove(0,foundSeperator+2);
+    }
+    return ostring;
+}
+
 
 QStringList ExtractString::extractStringList(QString ostring)
 {

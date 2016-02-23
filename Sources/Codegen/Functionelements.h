@@ -13,6 +13,7 @@ class FunctionElements
 {
 public:
     FunctionElements();
+    ~FunctionElements();
     void setElements(QString element);
     QString getFunction() {return function;}
     QString getModifier() {return modifier;}
@@ -20,7 +21,7 @@ public:
     bool getIsRef() {return isRef;}
     bool getIsPointer() {return isPointer;}
     bool getIsConstant() {return isConstant;}
-    std::vector<AttributeElements> getFunctionParameters(){return functionParameters;}
+    std::vector<AttributeElements*> getFunctionParameters(){return functionParameters;}
 private:
     QString function;
     QString modifier;
@@ -28,7 +29,7 @@ private:
     bool isRef;
     bool isPointer;
     bool isConstant;
-    std::vector<AttributeElements> functionParameters;
+    std::vector<AttributeElements*> functionParameters;
 };
 }
 
