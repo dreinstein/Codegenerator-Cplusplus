@@ -229,8 +229,10 @@ TEST(GeneratorTest, generateFunctionWithOneParameter)
     isIncluded = (*iter  == "};");*/
     EXPECT_EQ(isIncluded, true);
 }
+
+
 // test function evaluate in class Evaluator
-TEST(GeneratorTest, testHeaderFile) {
+/*TEST(GeneratorTest, testHeaderFile) {
     ParserImpl *parser = new ParserImpl();
     std::vector<QString> keywords = parser->doParseForVec("..\\Files\\Keywords\\myFirstKeywords.txt");
     std::vector<QString> script = parser->doParseForVec("..\\Files\\Scripts\\attributeTestScript.txt");
@@ -264,6 +266,6 @@ TEST(GeneratorTest, testHeaderFile) {
 
 
     EXPECT_EQ(classWritten && attributeWritten && bracketWritten , true);
-}
+}*/
 
 

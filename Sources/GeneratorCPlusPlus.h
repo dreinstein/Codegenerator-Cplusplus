@@ -31,7 +31,7 @@ public:
     std::map<QString,QString> getRules() const override final {return rules;}
     std::vector<QString> getScripts() const override final {return script;}
     bool areAllDatasReceived() override final;
-    void receiveCode(const std::list<QString> strHeader,const std::list<QString> strSources) override final;
+    void receiveCode(const std::list<QString>, const std::list<QString>) override final;
 protected:
      virtual void allDatasReceived() const override final;
 private:

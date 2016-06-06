@@ -122,7 +122,7 @@ bool GeneratorCPlusPlus::areAllDatasReceived()
     return false;
 }
 
-void GeneratorCPlusPlus::receiveCode(const std::list<QString> strHeader,const std::list<QString> strSources)
+void GeneratorCPlusPlus::receiveCode(const std::list<QString>,const std::list<QString>)
 {
     Q_ASSERT(false);
 }

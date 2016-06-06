@@ -63,6 +63,7 @@ public:
     static QString extractLast(QString ostring);
     static QStringList extractStringList(QString ostring);
     static QString extractParameter(QString ostring);
+
 };
 
 

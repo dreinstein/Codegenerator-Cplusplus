@@ -57,7 +57,7 @@ void FuctionCodeGenerator::generateHeader(FunctionElements* functionElements)
                 break;
             }
         }
-        else if ((element.contains(bracketClose)))
+        if ((element.contains(bracketClose)))
         {
             generateHeaderList(functionElements,iterator,foundModifier);
             break;

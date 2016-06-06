@@ -50,7 +50,7 @@ QString ExtractString::extractParameter(QString ostring)
     foundSeperator = ostring.indexOf(PARAMETERSEPERATOR);
     if (foundSeperator  < UINT_MAX)
     {
-        ostring.remove(0,foundSeperator+2);
+        ostring.remove(0,foundSeperator);
     }
     return ostring;
 }
