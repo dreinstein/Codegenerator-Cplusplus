@@ -32,13 +32,13 @@ void FunctionElements::setElements(QString element)
     QString listelement = "";
     QString elementLast = "";
     QStringList::const_iterator constIterator;
-    bool breakLoop = false;
+ //   bool breakLoop = false;
     for (constIterator = stringList.constBegin(); constIterator != stringList.constEnd();++constIterator)
     {
-        if(breakLoop)
+      /*  if(breakLoop)
         {
             break;
-        }
+        }*/
         listelement = *constIterator;
         elementLast = General::ExtractString::extractLast(listelement);
 
@@ -46,11 +46,7 @@ void FunctionElements::setElements(QString element)
         {
            function = elementLast;
         }
-        if(listelement.contains("@parameter"))
-        {
-           parameter = elementLast;
-           listelement = listelement.remove(0,1);
-        }
+
         if(listelement.contains("@typ"))
         {
            typ = elementLast;
@@ -98,11 +94,14 @@ void FunctionElements::setElements(QString element)
 
         if(listelement.contains("@parameter"))
         {
-            breakLoop = true;
-            element = General::ExtractString::extractParameter(element);
+            // iterativ over all parameters
+           // breakLoop = true;
             FunctionElements *attriElement = new FunctionElements();
+            attriElement->setParameter(elementLast);
+            element = General::ExtractString::extractParameter(element);
             attriElement->setElements(element);
             functionParameters.push_back(attriElement);
+            break;
         }
     }
 

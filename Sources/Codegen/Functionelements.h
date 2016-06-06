@@ -22,6 +22,7 @@ public:
     bool getIsRef() {return isRef;}
     bool getIsPointer() {return isPointer;}
     bool getIsConstant() {return isConstant;}
+    void setParameter(QString param) {parameter = param;}
     std::vector<FunctionElements*> getFunctionParameters(){return functionParameters;}
 private:
     //@TODO as union
