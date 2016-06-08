@@ -26,19 +26,16 @@ FunctionElements::~FunctionElements()
     }
 }
 
-void FunctionElements::setElements(QString element)
+
+
+void FunctionElements::setElements(FunctionElements* funcElements,QString element)
 {
     QStringList stringList = General::ExtractString::extractStringList(element);
     QString listelement = "";
     QString elementLast = "";
     QStringList::const_iterator constIterator;
- //   bool breakLoop = false;
     for (constIterator = stringList.constBegin(); constIterator != stringList.constEnd();++constIterator)
     {
-      /*  if(breakLoop)
-        {
-            break;
-        }*/
         listelement = *constIterator;
         elementLast = General::ExtractString::extractLast(listelement);
 
@@ -99,12 +96,42 @@ void FunctionElements::setElements(QString element)
             FunctionElements *attriElement = new FunctionElements();
             attriElement->setParameter(elementLast);
             element = General::ExtractString::extractParameter(element);
-            attriElement->setElements(element);
-            functionParameters.push_back(attriElement);
+            attriElement->setElements(funcElements,element);
+            funcElements->functionParameters.push_back(attriElement);
             break;
         }
     }
 
 }
+
+/*void FunctionElements::isFunction(QString listelement,QString lastElement)
+{
+
+}
+
+void FunctionElements::isTyp(QString listelement,QString lastElement)
+{
+
+}
+
+void FunctionElements::isModifier(QString listelement,QString lastElement)
+{
+
+}
+
+void FunctionElements::isReference(QString listelement,QString lastElement)
+{
+
+}
+
+void FunctionElements::isPointer(QString listelement,QString lastElement)
+{
+
+}
+
+void FunctionElements::isConstant(QString listelement,QString lastElement)
+{
+
+}*/
 
 }

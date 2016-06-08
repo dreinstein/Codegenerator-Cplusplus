@@ -210,6 +210,7 @@ TEST(GeneratorTest, generateFunctionWithOneParameter)
     std::map<QString,QString> rules = parser->doParseForMap("..\\Files\\Rules\\");
     Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
     generator->generate(script,rules,keywords);
+
     std::list<QString> classHeaderList = generator->getHeaderListData();
     std::list<QString>::iterator iter = classHeaderList.begin();
     bool isIncluded = (*iter == "class");

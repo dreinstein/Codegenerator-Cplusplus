@@ -11,8 +11,11 @@
 namespace Codegenerator
 {
 
-FuctionCodeGenerator::FuctionCodeGenerator()
+
+FuctionCodeGenerator::FuctionCodeGenerator(const BaseCodegenerator *r)
 {
+    BaseCodegenerator::clone(r);
+    functionElements = new Codegenerator::FunctionElements();
 
 }
 
@@ -24,11 +27,11 @@ FuctionCodeGenerator::~FuctionCodeGenerator()
 
 void FuctionCodeGenerator::generate()
 {
-    Codegenerator::FunctionElements *functionElements = new Codegenerator::FunctionElements();
-    functionElements->setElements(script[this->index]);
+    Q_ASSERT(functionElements);
+    functionElements->setElements(functionElements,script[this->index]);
 
-    generateHeader(functionElements);
-    generateSource(functionElements);
+    generateHeader();
+    generateSource();
     delete functionElements;
     nextElement();
 }
@@ -38,8 +41,9 @@ void FuctionCodeGenerator::generate(const std::vector<QString>, const std::map<Q
     Q_ASSERT(false);
 }
 
-void FuctionCodeGenerator::generateHeader(FunctionElements* functionElements)
+void FuctionCodeGenerator::generateHeader()
 {
+    Q_ASSERT(functionElements);
     bool foundModifier = false;
     QString element;
     for(list<QString>::iterator iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator)
@@ -53,26 +57,27 @@ void FuctionCodeGenerator::generateHeader(FunctionElements* functionElements)
         {
             if((element.contains(modifierPrivate)))
             {
-                generateHeaderList(functionElements,iterator,foundModifier);
+                generateHeaderList(iterator,foundModifier);
                 break;
             }
         }
         if ((element.contains(bracketClose)))
         {
-            generateHeaderList(functionElements,iterator,foundModifier);
+            generateHeaderList(iterator,foundModifier);
             break;
         }
     }
 }
 
 
-void FuctionCodeGenerator::generateSource(FunctionElements* )
+void FuctionCodeGenerator::generateSource()
 {
-
+    Q_ASSERT(functionElements);
 }
 
-void FuctionCodeGenerator::generateHeaderList(FunctionElements* functionElements, list<QString>::iterator iterator, bool foundModifier)
+void FuctionCodeGenerator::generateHeaderList(list<QString>::iterator iterator, bool foundModifier)
 {
+    Q_ASSERT(functionElements);
     list<QString> templist;
     templist.splice(templist.begin(), generatedCodeHeader,iterator,generatedCodeHeader.end());
     if(!foundModifier)

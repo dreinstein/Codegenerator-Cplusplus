@@ -14,17 +14,18 @@ class FunctionElements
 public:
     FunctionElements();
     ~FunctionElements();
-    void setElements(QString element);
-    QString getFunction() {return function;}
-    QString getParameter() {return parameter;}
-    QString getModifier() {return modifier;}
-    QString getTyp() {return typ;}
-    bool getIsRef() {return isRef;}
-    bool getIsPointer() {return isPointer;}
-    bool getIsConstant() {return isConstant;}
-    void setParameter(QString param) {parameter = param;}
+    void setElements(FunctionElements* funcElements,QString element);
+    QString getFunction() const {return function;}
+    QString getParameter() const {return parameter;}
+    QString getModifier() const {return modifier;}
+    QString getTyp()const {return typ;}
+    bool getIsRef()const {return isRef;}
+    bool getIsPointer() const {return isPointer;}
+    bool getIsConstant() const {return isConstant;}
+    void setParameter(const QString param) {parameter = param;}
     std::vector<FunctionElements*> getFunctionParameters(){return functionParameters;}
 private:
+
     //@TODO as union
     QString function;
     QString parameter;

@@ -15,15 +15,18 @@ namespace Codegenerator
 class FuctionCodeGenerator:public BaseCodegenerator
 {
 public:
-    FuctionCodeGenerator();
-    FuctionCodeGenerator(const BaseCodegenerator *r){BaseCodegenerator::clone(r);}
+
+    FuctionCodeGenerator(const BaseCodegenerator *r);
     virtual ~FuctionCodeGenerator();
     void generate() override final;
     void generate(const std::vector<QString> strVecScript, const std::map<QString,QString> strMapRules,const std::vector<QString> strVecKeys) override final;
+    FunctionElements getFunctionElements() {return *functionElements;}
 private:
-    void generateHeader(FunctionElements* elements);
-    void generateSource(FunctionElements* elements);
-    void generateHeaderList(FunctionElements* functionElements, std::list<QString>::iterator iterator, bool foundModifier);
+    FuctionCodeGenerator();
+    FunctionElements *functionElements = nullptr;
+    void generateHeader();
+    void generateSource();
+    void generateHeaderList(std::list<QString>::iterator iterator, bool foundModifier);
 };
 
 }

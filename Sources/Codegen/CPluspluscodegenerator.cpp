@@ -48,7 +48,7 @@ void CPlusPlusCodegenerator::generate(const std::vector<QString> strVecScript,co
         codegeratorObservers[i]->notifyCodeGenerated();
     }
     // TODO create files should be done in class Basegenerator
-    createFiles();
+    //createFiles();
 }
 
 
