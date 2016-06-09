@@ -25,4 +25,5 @@ INPUT(
 ./release\Fuctioncodegenerator.o
 ./release\Functionelements.o
 ./release\Functionscriptexception.o
+./release\codegeneratorconstants.o
 );

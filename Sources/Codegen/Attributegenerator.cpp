@@ -3,6 +3,7 @@
 #include "QFile"
 #include "QTextStream"
 #include "Utilities.h"
+#include "codegeneratorconstants.h"
 #include "../Errorhandling/OpenfileException.h"
 #include "../Errorhandling/Attributescriptexception.h"
 #include "../Errorhandling/FileNotvalidexception.h"
@@ -49,15 +50,15 @@ void Attribute::generateHeader(AttributeElements* attributElements)
         {
             foundModifier = true;
         }
-        if(attributElements->getModifier() == modifierPublic)
+        if(attributElements->getModifier() == CodegeneratorConstants::modifierPublic)
         {
-            if((element.contains(modifierPrivate)))
+            if((element.contains(CodegeneratorConstants::modifierPrivate)))
             {
                 generateHeaderList(attributElements,iterator,foundModifier);
                 break;
             }
         }
-        else if ((element.contains(bracketClose)))
+        else if ((element.contains(CodegeneratorConstants::bracketClose)))
         {
             generateHeaderList(attributElements,iterator,foundModifier);
             break;
@@ -73,15 +74,15 @@ void Attribute::generateHeaderList(AttributeElements* attributElements, list<QSt
     {
         // create modifier
         generatedCodeHeader.push_back(attributElements->getModifier());
-        generatedCodeHeader.push_back(colon);
-        generatedCodeHeader.push_back(newLine);
+        generatedCodeHeader.push_back(CodegeneratorConstants::colon);
+        generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
     }
-    generatedCodeHeader.push_back(tab);
+    generatedCodeHeader.push_back(CodegeneratorConstants::tab);
     generatedCodeHeader.push_back(attributElements->getTyp());
-    generatedCodeHeader.push_back(tab);
+    generatedCodeHeader.push_back(CodegeneratorConstants::tab);
     generatedCodeHeader.push_back(attributElements->getAttribute());
-    generatedCodeHeader.push_back(semiColon);
-    generatedCodeHeader.push_back(newLine);
+    generatedCodeHeader.push_back(CodegeneratorConstants::semiColon);
+    generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
     generatedCodeHeader.insert(generatedCodeHeader.end(), templist.begin(),templist.end());
 
 }

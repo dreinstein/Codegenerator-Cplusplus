@@ -36,7 +36,8 @@ SOURCES += main.cpp\
     Codegen/Fuctioncodegenerator.cpp \
     Codegen/Attributeelements.cpp \
     Codegen/Functionelements.cpp \
-    Errorhandling/Functionscriptexception.cpp
+    Errorhandling/Functionscriptexception.cpp \
+    Codegen/Codegeneratorconstants.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
@@ -72,7 +73,8 @@ HEADERS  += mainwindow.h \
     Codegen/Fuctioncodegenerator.h \
     Codegen/Attributeelements.h \
     Codegen/Functionelements.h \
-    Errorhandling/Functionscriptexception.h
+    Errorhandling/Functionscriptexception.h \
+    Codegen/Codegeneratorconstants.h
 
 FORMS    += mainwindow.ui
 	

@@ -40,7 +40,8 @@ SOURCES += main.cpp \
     ../../Sources/Codegen/Attributeelements.cpp \
     ../../Sources/Codegen/Fuctioncodegenerator.cpp \
     ../../Sources/Codegen/Functionelements.cpp \
-    ../../Sources/Errorhandling/Functionscriptexception.cpp
+    ../../Sources/Errorhandling/Functionscriptexception.cpp \
+    ../../Sources/Codegen/codegeneratorconstants.cpp
 
 HEADERS += \
     parsertest.h \
@@ -75,5 +76,6 @@ HEADERS += \
     ../../Sources/Codegen/Attributeelements.h \
     ../../Sources/Codegen/Fuctioncodegenerator.h \
     ../../Sources/Codegen/Functionelements.h \
-    ../../Sources/Errorhandling/Functionscriptexception.h
+    ../../Sources/Errorhandling/Functionscriptexception.h \
+    ../../Sources/Codegen/codegeneratorconstants.h
 

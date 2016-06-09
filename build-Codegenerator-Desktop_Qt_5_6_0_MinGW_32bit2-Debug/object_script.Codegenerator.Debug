@@ -22,5 +22,6 @@ INPUT(
 ./debug\Attributeelements.o
 ./debug\Functionelements.o
 ./debug\Functionscriptexception.o
+./debug\Codegeneratorconstants.o
 ./debug\moc_mainwindow.o
 );

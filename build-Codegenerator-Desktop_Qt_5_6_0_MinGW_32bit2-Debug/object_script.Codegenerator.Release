@@ -22,5 +22,6 @@ INPUT(
 ./release\Attributeelements.o
 ./release\Functionelements.o
 ./release\Functionscriptexception.o
+./release\Codegeneratorconstants.o
 ./release\moc_mainwindow.o
 );

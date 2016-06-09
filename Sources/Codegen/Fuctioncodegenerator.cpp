@@ -1,6 +1,7 @@
 #include "Fuctioncodegenerator.h"
 #include "../Errorhandling/FunctionScriptException.h"
 #include "Functionelements.h"
+#include "Codegeneratorconstants.h"
 
 
 
@@ -53,15 +54,15 @@ void FuctionCodeGenerator::generateHeader()
         {
             foundModifier = true;
         }
-        if(functionElements->getModifier() == modifierPublic)
+        if(functionElements->getModifier() == CodegeneratorConstants::modifierPublic)
         {
-            if((element.contains(modifierPrivate)))
+            if((element.contains(CodegeneratorConstants::modifierPrivate)))
             {
                 generateHeaderList(iterator,foundModifier);
                 break;
             }
         }
-        if ((element.contains(bracketClose)))
+        if ((element.contains(CodegeneratorConstants::bracketClose)))
         {
             generateHeaderList(iterator,foundModifier);
             break;
@@ -84,23 +85,23 @@ void FuctionCodeGenerator::generateHeaderList(list<QString>::iterator iterator, 
     {
         // create modifier
         generatedCodeHeader.push_back(functionElements->getModifier());
-        generatedCodeHeader.push_back(colon);
-        generatedCodeHeader.push_back(newLine);
+        generatedCodeHeader.push_back(CodegeneratorConstants::colon);
+        generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
     }
-    generatedCodeHeader.push_back(tab);
+    generatedCodeHeader.push_back(CodegeneratorConstants::tab);
     generatedCodeHeader.push_back(functionElements->getTyp());
-    generatedCodeHeader.push_back(tab);
+    generatedCodeHeader.push_back(CodegeneratorConstants::tab);
     generatedCodeHeader.push_back(classname);
-    generatedCodeHeader.push_back(colon);
-    generatedCodeHeader.push_back(colon);
+    generatedCodeHeader.push_back(CodegeneratorConstants::colon);
+    generatedCodeHeader.push_back(CodegeneratorConstants::colon);
     generatedCodeHeader.push_back(functionElements->getFunction());
-    generatedCodeHeader.push_back(parameterBracketOpen);
-    generatedCodeHeader.push_back(parameterBracketClose);
-    generatedCodeHeader.push_back(newLine);
-    generatedCodeHeader.push_back(bracketOpen);
-    generatedCodeHeader.push_back(newLine);
-    generatedCodeHeader.push_back(bracketClose);
-    generatedCodeHeader.push_back(newLine);
+    generatedCodeHeader.push_back(CodegeneratorConstants::parameterBracketOpen);
+    generatedCodeHeader.push_back(CodegeneratorConstants::parameterBracketClose);
+    generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
+    generatedCodeHeader.push_back(CodegeneratorConstants::bracketOpen);
+    generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
+    generatedCodeHeader.push_back(CodegeneratorConstants::bracketClose);
+    generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
     generatedCodeHeader.insert(generatedCodeHeader.end(), templist.begin(),templist.end());
 }
 

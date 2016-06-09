@@ -9,8 +9,7 @@
 #include <QFile>
 #include <functional>
 #include "Base/BaseGenerator.h"
-
-
+#include "Functionelements.h"
 
 
 using namespace NGenerator;
@@ -28,12 +27,13 @@ public:
     virtual void registerObservers(BaseGenerator*) {;}
     virtual std::list<QString> getHeaderListData() const final {return generatedCodeHeader;}
     virtual std::list<QString> getSourceListData() const final {return generatedCodeSource;}
-    const QString MODIFIER = "modifier";
+    virtual FunctionElements getFunctionElements() const final {return *functionElements;}
 protected:
     std::vector<QString> script;
     std::vector<QString> keys;
     std::map<QString,QString> rules;
     std::vector<BaseGenerator*> codegeratorObservers;
+    FunctionElements *functionElements = nullptr;
     std::list<QString> generatedCodeHeader;
     std::list<QString> generatedCodeSource;
     QString classname;
@@ -45,18 +45,7 @@ protected:
     unsigned int index;
     QString sourcefilename;
     QString heaterfilename;
-    const QString tab = "   ";
-    const QString bracketOpen = "{";
-    const QString bracketClose = "}";
-    const QString classDefinition = "class";
-    const QString newLine = "\n";
-    const QString colon = ":";
-    const QString semiColon = ";";
-    const QString emptyChar = "";
-    const QString modifierPrivate = "private";
-    const QString modifierPublic = "public";
-    const QString parameterBracketOpen = "(";
-    const QString parameterBracketClose = ")";
+
 
 private:
     BaseCodegenerator *getNextElement(QString index);

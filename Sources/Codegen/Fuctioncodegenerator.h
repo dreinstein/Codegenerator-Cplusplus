@@ -20,10 +20,10 @@ public:
     virtual ~FuctionCodeGenerator();
     void generate() override final;
     void generate(const std::vector<QString> strVecScript, const std::map<QString,QString> strMapRules,const std::vector<QString> strVecKeys) override final;
-    FunctionElements getFunctionElements() {return *functionElements;}
+
 private:
     FuctionCodeGenerator();
-    FunctionElements *functionElements = nullptr;
+   // FunctionElements *functionElements = nullptr;
     void generateHeader();
     void generateSource();
     void generateHeaderList(std::list<QString>::iterator iterator, bool foundModifier);

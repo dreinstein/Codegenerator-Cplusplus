@@ -1,4 +1,5 @@
 #include <list>
+#include "Codegeneratorconstants.h"
 #include "Basecodegenerator.h"
 #include "classgenerator.h"
 #include "Attributegenerator.h"
@@ -55,21 +56,21 @@ void BaseCodegenerator::generateDefault()
                 if (row.contains(scriptelementFirst))
                 {
                     generatedCodeHeader.push_back(scriptelementFirst);
-                    if(classname != emptyChar)
+                    if(classname != CodegeneratorConstants::emptyChar)
                     {
-                        generatedCodeHeader.push_back(tab);
+                        generatedCodeHeader.push_back(CodegeneratorConstants::tab);
                         generatedCodeHeader.push_back(classname);
-                        generatedCodeHeader.push_back(newLine);
+                        generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
                     }
                     else
                     {
-                        generatedCodeHeader.push_back(newLine);
+                        generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
                     }
                 }
                 else
                 {
                     generatedCodeHeader.push_back(row);
-                    generatedCodeHeader.push_back(newLine);
+                    generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
                 }
             }// while
 
@@ -79,7 +80,7 @@ void BaseCodegenerator::generateDefault()
             throw Errorhandling::OpenFileException();
         }
    }
-   generatedCodeHeader.push_back(newLine);
+   generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
 }
 
 
@@ -141,7 +142,7 @@ void BaseCodegenerator::nextElement()
     {
         QString umlElement = script[index];
         QStringList umlList = General::ExtractString::extractStringList(umlElement);
-        QString foundStr = tab;
+        QString foundStr = CodegeneratorConstants::tab;
         foreach(QString v, umlList)
         {
             v = General::ExtractString::extractFirst(v);
@@ -154,7 +155,7 @@ void BaseCodegenerator::nextElement()
                 }
             }
         }
-        if(foundStr != tab)
+        if(foundStr != CodegeneratorConstants::tab)
         {
             BaseCodegenerator *next = BaseCodegenerator::getNextElement(foundStr);
             next->generate();
