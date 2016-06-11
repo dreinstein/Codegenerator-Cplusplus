@@ -23,6 +23,7 @@ FuctionCodeGenerator::FuctionCodeGenerator(const BaseCodegenerator *r)
 
 FuctionCodeGenerator::~FuctionCodeGenerator()
 {
+    delete functionElements;
 
 }
 
@@ -33,7 +34,7 @@ void FuctionCodeGenerator::generate()
 
     generateHeader();
     generateSource();
-    delete functionElements;
+  //  delete functionElements;
     nextElement();
 }
 
