@@ -71,7 +71,6 @@ void FuctionCodeGenerator::generateHeader()
     }
 }
 
-
 void FuctionCodeGenerator::generateSource()
 {
     Q_ASSERT(functionElements);
@@ -82,7 +81,26 @@ void FuctionCodeGenerator::generateHeaderList(list<QString>::iterator iterator, 
     Q_ASSERT(functionElements);
     list<QString> templist;
     templist.splice(templist.begin(), generatedCodeHeader,iterator,generatedCodeHeader.end());
-    if(!foundModifier)
+    setHeaderFunctionElements(foundModifier);
+    vector<FunctionElements*> parameterelements = functionElements->getFunctionParameters();
+    if(parameterelements.size() > 0)
+    {
+
+        for(auto iterator = parameterelements.begin();iterator != parameterelements.end(); ++iterator)
+        {
+           // FunctionElements *paraelements = *iterator;
+            setHeaderParameterElements(*iterator);
+        }
+
+    }
+    setHeaderClassFinal();
+    generatedCodeHeader.insert(generatedCodeHeader.end(), templist.begin(),templist.end());
+}
+
+
+void FuctionCodeGenerator::setHeaderFunctionElements(bool modifier)
+{
+    if(!modifier)
     {
         // create modifier
         generatedCodeHeader.push_back(functionElements->getModifier());
@@ -92,21 +110,65 @@ void FuctionCodeGenerator::generateHeaderList(list<QString>::iterator iterator, 
     generatedCodeHeader.push_back(CodegeneratorConstants::tab);
     generatedCodeHeader.push_back(functionElements->getTyp());
     generatedCodeHeader.push_back(CodegeneratorConstants::tab);
-    generatedCodeHeader.push_back(classname);
-    generatedCodeHeader.push_back(CodegeneratorConstants::colon);
-    generatedCodeHeader.push_back(CodegeneratorConstants::colon);
     generatedCodeHeader.push_back(functionElements->getFunction());
     generatedCodeHeader.push_back(CodegeneratorConstants::parameterBracketOpen);
+}
+
+void FuctionCodeGenerator::setHeaderClassFinal()
+{
     generatedCodeHeader.push_back(CodegeneratorConstants::parameterBracketClose);
+    generatedCodeHeader.push_back(CodegeneratorConstants::semiColon);
     generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
-    generatedCodeHeader.push_back(CodegeneratorConstants::bracketOpen);
-    generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
-    generatedCodeHeader.push_back(CodegeneratorConstants::bracketClose);
-    generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
-    generatedCodeHeader.insert(generatedCodeHeader.end(), templist.begin(),templist.end());
 }
 
 
+void FuctionCodeGenerator::setHeaderParameterElements(FunctionElements* parameterElements)
+{
+    if(parameterElements->getIsConstant())
+    {
+        generatedCodeHeader.push_back(CodegeneratorConstants::constant);
+        generatedCodeHeader.push_back(CodegeneratorConstants::emptyChar);
+    }
+    if(parameterElements->getTyp() != "")
+    {
+        generatedCodeHeader.push_back(parameterElements->getTyp());
+        generatedCodeHeader.push_back(CodegeneratorConstants::emptyChar);
+    }
+    else
+    {
+        // must have a typ
+        // TODO Errorhandling
+    }
+
+    if(parameterElements->getIsRef())
+    {
+        generatedCodeHeader.push_back(CodegeneratorConstants::reference);
+        generatedCodeHeader.push_back(CodegeneratorConstants::emptyChar);
+    }
+
+    if(parameterElements->getIsPointer())
+    {
+        generatedCodeHeader.push_back(CodegeneratorConstants::pointer);
+        generatedCodeHeader.push_back(CodegeneratorConstants::emptyChar);
+    }
+
+
+    if(parameterElements->getParameter() != "")
+    {
+        generatedCodeHeader.push_back(parameterElements->getParameter());
+    //    generatedCodeHeader.push_back(CodegeneratorConstants::emptyChar);
+    }
+    else
+    {
+        // must have a parameter name
+        // TODO Errorhandling
+    }
+
+
+
+    }
 }
+
+
 
 
