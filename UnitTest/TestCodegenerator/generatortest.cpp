@@ -141,6 +141,8 @@ TEST(GeneratorTest, generateClassCode) {
         isAllIncluded = (std::find(classHeaderList.begin(), classHeaderList.end(), "};") != classHeaderList.end());
     }
     EXPECT_EQ(isAllIncluded, true);
+    delete parser;
+    delete generator;
 }
 
 
@@ -172,6 +174,8 @@ TEST(GeneratorTest, generateAttribute) {
     std::advance(iter, 2);
     isIncluded = (*iter  == "myCharAttribute");
     EXPECT_EQ(isIncluded, true);
+    delete parser;
+    delete generator;
 }
 
 
@@ -199,6 +203,8 @@ TEST(GeneratorTest, generateFunctionWithNoParameter)
     std::advance(iter, 2);
     isIncluded = (*iter  == "};");
     EXPECT_EQ(isIncluded, true);
+    delete parser;
+    delete generator;
 }
 
 
@@ -241,7 +247,46 @@ TEST(GeneratorTest, generateFunctionWithOneParameter)
     isIncluded = (*iter  == "};");
 
     EXPECT_EQ(isIncluded, true);
+    delete parser;
+    delete generator;
 }
+
+TEST(GeneratorTest, functionNoParameter)
+{
+    ParserImpl *parser = new ParserImpl();
+    QString keywordPath = "..\\Files\\Keywords\\myFirstKeywords.txt";
+    QString scriptPath = "..\\Files\\Scripts\\functionWithNoParameter.txt";
+    QString rulesPath = "..\\Files\\Rules\\";
+    std::vector<QString> keywords = parser->doParseForVec(keywordPath);
+    std::vector<QString> script = parser->doParseForVec(scriptPath);
+    std::map<QString,QString> rules = parser->doParseForMap(rulesPath);
+    Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
+    generator->generate(script,rules,keywords);
+    std::list<QString> classHeaderList = generator->getHeaderListData();
+    std::list<QString>::iterator iter = classHeaderList.begin();
+    bool isIncluded = (*iter == "public");
+    std::advance(iter, 1);
+    isIncluded = (*iter  == ":");
+    std::advance(iter, 1);
+    isIncluded = (*iter  == "\n");
+    std::advance(iter, 1);
+    isIncluded = (*iter  == "int");
+    std::advance(iter, 1);
+    isIncluded = (*iter  == "\n");
+    std::advance(iter, 1);
+    isIncluded = (*iter  == "functionWithNoParameter");
+    std::advance(iter, 1);
+    isIncluded = (*iter  == "(");
+    std::advance(iter, 1);
+    isIncluded = (*iter  == "(");
+    std::advance(iter, 1);
+    isIncluded = (*iter  == ")");
+    EXPECT_EQ(isIncluded, true);
+    delete parser;
+    delete generator;
+}
+
+
 
 
 // test function evaluate in class Evaluator

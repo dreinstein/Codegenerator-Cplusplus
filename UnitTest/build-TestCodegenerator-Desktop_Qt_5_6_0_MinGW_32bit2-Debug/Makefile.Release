@@ -503,7 +503,10 @@ release/generatortest.o: ../TestCodegenerator/generatortest.cpp C:/Qt/5.6/mingw4
 		../../Sources/Codegen/Basecodegenerator.h \
 		../../Sources/Codegen/Functionelements.h \
 		../../Sources/Codegen/Attributeelements.h \
-		../../Sources/Codegen/CPluspluscodegenerator.h
+		../../Sources/Codegen/CPluspluscodegenerator.h \
+		../../Sources/codegen/Basecodegenerator.h \
+		../../Sources/codegen/Functionelements.h \
+		../../Sources/codegen/Attributeelements.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\generatortest.o ..\TestCodegenerator\generatortest.cpp
 
 release/GeneratorCPusPlus.o: ../../Sources/GeneratorCPusPlus.cpp C:/Qt/5.6/mingw49_32/include/QtCore/QtGlobal \
@@ -1201,7 +1204,9 @@ release/Basecodegenerator.o: ../../Sources/Codegen/Basecodegenerator.cpp ../../S
 		../../Sources/Codegen/Attributeelements.h \
 		../../Sources/Codegen/classgenerator.h \
 		../../Sources/Codegen/Attributegenerator.h \
+		../../Sources/codegen/Attributeelements.h \
 		../../Sources/Codegen/Fuctioncodegenerator.h \
+		../../Sources/codegen/Functionelements.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/QTextStream \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qtextstream.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qlocale.h \
@@ -1285,6 +1290,7 @@ release/Attributegenerator.o: ../../Sources/Codegen/Attributegenerator.cpp ../..
 		C:/Qt/5.6/mingw49_32/include/QtCore/QStringList \
 		../../Sources/Codegen/Functionelements.h \
 		../../Sources/Codegen/Attributeelements.h \
+		../../Sources/codegen/Attributeelements.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/QTextStream \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qtextstream.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qlocale.h \
@@ -1633,7 +1639,7 @@ release/Attributeelements.o: ../../Sources/Codegen/Attributeelements.cpp C:/Qt/5
 		C:/Qt/5.6/mingw49_32/include/QtCore/qnamespace.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qarraydata.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qstringbuilder.h \
-		../../Sources/Codegen/Attributeelements.h \
+		../../Sources/codegen/Attributeelements.h \
 		../../Sources/Utilities.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/QStringList \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qstringlist.h \
@@ -1714,14 +1720,16 @@ release/Fuctioncodegenerator.o: ../../Sources/Codegen/Fuctioncodegenerator.cpp .
 		C:/Qt/5.6/mingw49_32/include/QtCore/QStringList \
 		../../Sources/Codegen/Functionelements.h \
 		../../Sources/Codegen/Attributeelements.h \
+		../../Sources/codegen/Functionelements.h \
+		../../Sources/codegen/Attributeelements.h \
 		../../Sources/Errorhandling/FunctionScriptException.h \
 		../../Sources/Errorhandling/Exceptionhandling.h \
 		../../Sources/Errorhandling/scriptexception.h \
 		../../Sources/Codegen/Codegeneratorconstants.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Fuctioncodegenerator.o ..\..\Sources\Codegen\Fuctioncodegenerator.cpp
 
-release/Functionelements.o: ../../Sources/Codegen/Functionelements.cpp ../../Sources/Codegen/Functionelements.h \
-		../../Sources/Codegen/Attributeelements.h \
+release/Functionelements.o: ../../Sources/Codegen/Functionelements.cpp ../../Sources/codegen/Functionelements.h \
+		../../Sources/codegen/Attributeelements.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/QString \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qstring.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qchar.h \
