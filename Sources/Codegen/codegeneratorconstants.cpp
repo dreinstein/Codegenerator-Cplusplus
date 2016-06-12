@@ -20,6 +20,8 @@ QString Codegenerator::CodegeneratorConstants::reference = "&";
 QString Codegenerator::CodegeneratorConstants::constant = "const";
 QString Codegenerator::CodegeneratorConstants::typInt = "int";
 QString Codegenerator::CodegeneratorConstants::typDouble = "double";
+QString Codegenerator::CodegeneratorConstants::typQString = "QString";
+
 
 
 

@@ -7,7 +7,8 @@
 class TestdataGenerator
 {
 public:
-    static std::list<QString> testDataFunctionNoParamter();
+    static std::list<QString> testDataFunctionNoParamterReturnInt();
+    static std::list<QString> testDataFunctionNoParamterReturnQStringPointer();
 
 private:
     TestDataGenerator();

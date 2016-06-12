@@ -29,6 +29,7 @@ namespace Codegenerator
         static QString constant;
         static QString typInt;
         static QString typDouble;
+        static QString typQString;
     };
 }
 

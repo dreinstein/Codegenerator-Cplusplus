@@ -43,7 +43,8 @@ SOURCES += main.cpp \
     ../../Sources/Errorhandling/Functionscriptexception.cpp \
     ../../Sources/Codegen/codegeneratorconstants.cpp \
     testdatagenerator.cpp \
-    evaluatetest.cpp
+    evaluatetest.cpp \
+    functiontest.cpp
 
 HEADERS += \
     parsertest.h \
@@ -81,5 +82,6 @@ HEADERS += \
     ../../Sources/Errorhandling/Functionscriptexception.h \
     ../../Sources/Codegen/codegeneratorconstants.h \
     testdatagenerator.h \
-    evaluatetest.h
+    evaluatetest.h \
+    functiontest.h
 

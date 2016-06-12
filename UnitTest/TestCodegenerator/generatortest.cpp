@@ -182,7 +182,7 @@ TEST(GeneratorTest, generateAttribute) {
 }
 
 
-TEST(GeneratorTest, generateFunctionWithNoParameter)
+TEST(GeneratorTest, generateClassAndFunctionWithNoParameter)
 {
     ParserImpl *parser = new ParserImpl();
     std::vector<QString> keywords = parser->doParseForVec("..\\Files\\Keywords\\myFirstKeywords.txt");
@@ -211,7 +211,7 @@ TEST(GeneratorTest, generateFunctionWithNoParameter)
 }
 
 
-TEST(GeneratorTest, generateFunctionWithOneParameter)
+TEST(GeneratorTest, generateClassAndFunctionWithOneParameter)
 {
     ParserImpl *parser = new ParserImpl();
     std::vector<QString> keywords = parser->doParseForVec("..\\Files\\Keywords\\myFirstKeywords.txt");
@@ -254,25 +254,7 @@ TEST(GeneratorTest, generateFunctionWithOneParameter)
     delete generator;
 }
 
-TEST(GeneratorTest, functionNoParameter)
-{
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataFunctionNoParamter();
-    ParserImpl *parser = new ParserImpl();
-    QString keywordPath = "..\\Files\\Keywords\\myFirstKeywords.txt";
-    QString scriptPath = "..\\Files\\Scripts\\functionWithNoParameter.txt";
-    QString rulesPath = "..\\Files\\Rules\\";
-    std::vector<QString> keywords = parser->doParseForVec(keywordPath);
-    std::vector<QString> script = parser->doParseForVec(scriptPath);
-    std::map<QString,QString> rules = parser->doParseForMap(rulesPath);
-    Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
-    generator->generate(script,rules,keywords);
-    std::list<QString> classHeaderList = generator->getHeaderListData();
-    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
-    EXPECT_EQ(result, true);
-    delete parser;
-    delete generator;
-}
+
 
 
 
