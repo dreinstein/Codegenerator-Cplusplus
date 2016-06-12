@@ -15,10 +15,13 @@
 #include "Codegen/CPluspluscodegenerator.h"
 #include "Codegen/Functionelements.h"
 #include "codegen/Basecodegenerator.h"
+#include "testdatagenerator.h"
+#include "evaluatetest.h"
 
 
 
 #include <vector>
+#include <list>
 #include <QString>
 #include <QStringList>
 #include <algorithm>
@@ -253,6 +256,8 @@ TEST(GeneratorTest, generateFunctionWithOneParameter)
 
 TEST(GeneratorTest, functionNoParameter)
 {
+    std::list<QString> expectedList;
+    expectedList = TestdataGenerator::testDataFunctionNoParamter();
     ParserImpl *parser = new ParserImpl();
     QString keywordPath = "..\\Files\\Keywords\\myFirstKeywords.txt";
     QString scriptPath = "..\\Files\\Scripts\\functionWithNoParameter.txt";
@@ -263,25 +268,8 @@ TEST(GeneratorTest, functionNoParameter)
     Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
     generator->generate(script,rules,keywords);
     std::list<QString> classHeaderList = generator->getHeaderListData();
-    std::list<QString>::iterator iter = classHeaderList.begin();
-    bool isIncluded = (*iter == "public");
-    std::advance(iter, 1);
-    isIncluded = (*iter  == ":");
-    std::advance(iter, 1);
-    isIncluded = (*iter  == "\n");
-    std::advance(iter, 1);
-    isIncluded = (*iter  == "int");
-    std::advance(iter, 1);
-    isIncluded = (*iter  == "\n");
-    std::advance(iter, 1);
-    isIncluded = (*iter  == "functionWithNoParameter");
-    std::advance(iter, 1);
-    isIncluded = (*iter  == "(");
-    std::advance(iter, 1);
-    isIncluded = (*iter  == "(");
-    std::advance(iter, 1);
-    isIncluded = (*iter  == ")");
-    EXPECT_EQ(isIncluded, true);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    EXPECT_EQ(result, true);
     delete parser;
     delete generator;
 }
@@ -289,41 +277,5 @@ TEST(GeneratorTest, functionNoParameter)
 
 
 
-// test function evaluate in class Evaluator
-/*TEST(GeneratorTest, testHeaderFile) {
-    ParserImpl *parser = new ParserImpl();
-    std::vector<QString> keywords = parser->doParseForVec("..\\Files\\Keywords\\myFirstKeywords.txt");
-    std::vector<QString> script = parser->doParseForVec("..\\Files\\Scripts\\attributeTestScript.txt");
-    std::map<QString,QString> rules = parser->doParseForMap("..\\Files\\Rules\\");
-    Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
-    generator->generate(script,rules,keywords);
-
-    QFile hfile(General::FilePath::HeaderFileName);
-    hfile.open(QIODevice::ReadOnly | QIODevice::Text);
-    QByteArray line;
-    bool classWritten = false;
-    bool attributeWritten = false;
-    bool bracketWritten = false;
-
-    while (!hfile.atEnd())
-    {
-           QByteArray line = hfile.readLine();
-           if("class firstClass\n" == line)
-           {
-               classWritten = true;
-           }
-           if("   const int myConstIntAttribute;\n" == line)
-           {
-               attributeWritten = true;
-           }
-           if("};\n" == line)
-           {
-               bracketWritten = true;
-           }
-    }
-
-
-    EXPECT_EQ(classWritten && attributeWritten && bracketWritten , true);
-}*/
 
 

@@ -14,10 +14,12 @@ QString Codegenerator::CodegeneratorConstants::modifierPrivate = "private";
 QString Codegenerator::CodegeneratorConstants::modifierPublic = "public";
 QString Codegenerator::CodegeneratorConstants::parameterBracketOpen = "(";
 QString Codegenerator::CodegeneratorConstants::parameterBracketClose = ")";
-QString Codegenerator::CodegeneratorConstants::MODIFIER = "modifier";
+QString Codegenerator::CodegeneratorConstants::modifier = "modifier";
 QString Codegenerator::CodegeneratorConstants::pointer = "*";
 QString Codegenerator::CodegeneratorConstants::reference = "&";
 QString Codegenerator::CodegeneratorConstants::constant = "const";
+QString Codegenerator::CodegeneratorConstants::typInt = "int";
+QString Codegenerator::CodegeneratorConstants::typDouble = "double";
 
 
 
