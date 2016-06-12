@@ -15,5 +15,10 @@ QString Codegenerator::CodegeneratorConstants::modifierPublic = "public";
 QString Codegenerator::CodegeneratorConstants::parameterBracketOpen = "(";
 QString Codegenerator::CodegeneratorConstants::parameterBracketClose = ")";
 QString Codegenerator::CodegeneratorConstants::MODIFIER = "modifier";
+QString Codegenerator::CodegeneratorConstants::pointer = "*";
+QString Codegenerator::CodegeneratorConstants::reference = "&";
+QString Codegenerator::CodegeneratorConstants::constant = "const";
+
+
 
 

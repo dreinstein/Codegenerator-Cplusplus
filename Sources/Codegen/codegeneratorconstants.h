@@ -24,6 +24,9 @@ namespace Codegenerator
         static QString parameterBracketOpen;
         static QString parameterBracketClose;
         static QString MODIFIER;
+        static QString pointer;
+        static QString reference;
+        static QString constant;
     };
 }
 

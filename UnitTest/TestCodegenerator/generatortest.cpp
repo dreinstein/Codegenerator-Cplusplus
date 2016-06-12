@@ -189,16 +189,14 @@ TEST(GeneratorTest, generateFunctionWithNoParameter)
     std::advance(iter, 6);
     isIncluded = (*iter == "public");
     std::advance(iter, 6);
-    isIncluded = (*iter  == "firstClass");
+    isIncluded = (*iter  == "functionWithNoParameter");
     std::advance(iter, 1);
-    isIncluded = (*iter == ":");
+    isIncluded = (*iter == "(");
     std::advance(iter, 1);
-    isIncluded = (*iter == ":");
+    isIncluded = (*iter == ")");
     std::advance(iter, 1);
-    isIncluded = (*iter  == "functionwithNoParameter");
+    isIncluded = (*iter  == ";");
     std::advance(iter, 2);
-    isIncluded = (*iter  == ")");
-    std::advance(iter, 6);
     isIncluded = (*iter  == "};");
     EXPECT_EQ(isIncluded, true);
 }
@@ -212,25 +210,36 @@ TEST(GeneratorTest, generateFunctionWithOneParameter)
     std::map<QString,QString> rules = parser->doParseForMap("..\\Files\\Rules\\");
     Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
     generator->generate(script,rules,keywords);
-    Codegenerator::FunctionElements elements = generator->getFunctionElements();
+  //  Codegenerator::FunctionElements elements = generator->getFunctionElements();
 
     std::list<QString> classHeaderList = generator->getHeaderListData();
     std::list<QString>::iterator iter = classHeaderList.begin();
     bool isIncluded = (*iter == "class");
-  /*  std::advance(iter, 6);
-    isIncluded = (*iter == "public");
-    std::advance(iter, 6);
-    isIncluded = (*iter  == "firstClass");
-    std::advance(iter, 1);
-    isIncluded = (*iter == ":");
-    std::advance(iter, 1);
-    isIncluded = (*iter == ":");
-    std::advance(iter, 1);
-    isIncluded = (*iter  == "functionwithNoParameter");
+    std::advance(iter,2 );
+    isIncluded = (*iter == "firstClass");
     std::advance(iter, 2);
+    isIncluded = (*iter  == "{");
+    std::advance(iter, 2);
+    isIncluded = (*iter == "public");
+    std::advance(iter, 1);
+    isIncluded = (*iter == ":");
+    std::advance(iter, 3);
+    isIncluded = (*iter  == "double");
+    std::advance(iter, 2);
+    isIncluded = (*iter  == "functionwithOneParameter");
+    std::advance(iter, 1);
+    isIncluded = (*iter  == "(");
+    std::advance(iter, 1);
+    isIncluded = (*iter  == "double");
+    std::advance(iter, 2);
+    isIncluded = (*iter  == "parameter1");
+    std::advance(iter, 1);
     isIncluded = (*iter  == ")");
-    std::advance(iter, 6);
-    isIncluded = (*iter  == "};");*/
+    std::advance(iter, 1);
+    isIncluded = (*iter  == ";");
+    std::advance(iter, 2);
+    isIncluded = (*iter  == "};");
+
     EXPECT_EQ(isIncluded, true);
 }
 
