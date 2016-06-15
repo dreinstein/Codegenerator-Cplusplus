@@ -54,39 +54,15 @@ void FunctionElements::setElements(FunctionElements* funcElements,QString elemen
         }
         if(listelement.contains("@isReference"))
         {
-           QString s_isRef = elementLast;
-           if(s_isRef == "true")
-           {
               isRef = true;
-           }
-           else
-           {
-              isRef = false;
-           }
         }
         if(listelement.contains("@isPointer"))
         {
-           QString s_isPointer = elementLast;
-           if(s_isPointer == "true")
-           {
               isPointer = true;
-           }
-           else
-           {
-              isPointer = false;
-           }
         }
         if(listelement.contains("@isConstant"))
         {
-           QString s_isConstant = elementLast;
-           if(s_isConstant == "true")
-           {
               isConstant = true;
-           }
-           else
-           {
-              isConstant = false;
-           }
         }
 
         if(listelement.contains("@parameter"))

@@ -1,2 +1,2 @@
 @path::..\\Files\\Generated\\myFirstGeneratedFile
-@function::functionNoParameterReturnQStringPointer@modifier::private@typ::QString::Pointer
+@function::functionNoParameterReturnQStringPointer@modifier::private@typ::QString@isPointer
