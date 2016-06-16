@@ -23,10 +23,13 @@ namespace Codegenerator
         static QString modifierPublic;
         static QString parameterBracketOpen;
         static QString parameterBracketClose;
-        static QString MODIFIER;
+        static QString modifier;
         static QString pointer;
         static QString reference;
         static QString constant;
+        static QString typInt;
+        static QString typDouble;
+        static QString typQString;
     };
 }
 

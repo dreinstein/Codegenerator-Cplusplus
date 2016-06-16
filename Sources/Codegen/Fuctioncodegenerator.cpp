@@ -125,7 +125,7 @@ void FuctionCodeGenerator::setHeaderFunctionElements(bool modifier)
         generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
     }
     generatedCodeHeader.push_back(CodegeneratorConstants::tab);
-    generatedCodeHeader.push_back(functionElements->getTyp());
+    setHeaderTyp(functionElements);
     generatedCodeHeader.push_back(CodegeneratorConstants::tab);
     generatedCodeHeader.push_back(functionElements->getFunction());
     generatedCodeHeader.push_back(CodegeneratorConstants::parameterBracketOpen);
@@ -139,17 +139,36 @@ void FuctionCodeGenerator::setHeaderClassFinal()
 }
 
 
+
+
 void FuctionCodeGenerator::setHeaderParameterElements(FunctionElements* parameterElements)
 {
-    if(parameterElements->getIsConstant())
+
+    setHeaderTyp(parameterElements);
+    if(parameterElements->getParameter() != "")
+    {
+        generatedCodeHeader.push_back(CodegeneratorConstants::tab);
+        generatedCodeHeader.push_back(parameterElements->getParameter());
+    }
+    else
+    {
+        // must have a parameter name
+        // TODO Errorhandling
+    }
+}
+
+
+void FuctionCodeGenerator::setHeaderTyp(FunctionElements* element)
+{
+    if(element->getIsConstant())
     {
         generatedCodeHeader.push_back(CodegeneratorConstants::constant);
         generatedCodeHeader.push_back(CodegeneratorConstants::emptyChar);
     }
-    if(parameterElements->getTyp() != "")
+    if(element->getTyp() != "")
     {
-        generatedCodeHeader.push_back(parameterElements->getTyp());
-        generatedCodeHeader.push_back(CodegeneratorConstants::emptyChar);
+        generatedCodeHeader.push_back(element->getTyp());
+   //     generatedCodeHeader.push_back(CodegeneratorConstants::emptyChar);
     }
     else
     {
@@ -157,35 +176,19 @@ void FuctionCodeGenerator::setHeaderParameterElements(FunctionElements* paramete
         // TODO Errorhandling
     }
 
-    if(parameterElements->getIsRef())
+    if(element->getIsRef())
     {
         generatedCodeHeader.push_back(CodegeneratorConstants::reference);
-        generatedCodeHeader.push_back(CodegeneratorConstants::emptyChar);
+      //  generatedCodeHeader.push_back(CodegeneratorConstants::emptyChar);
     }
 
-    if(parameterElements->getIsPointer())
+    if(element->getIsPointer())
     {
         generatedCodeHeader.push_back(CodegeneratorConstants::pointer);
-        generatedCodeHeader.push_back(CodegeneratorConstants::emptyChar);
+     //   generatedCodeHeader.push_back(CodegeneratorConstants::emptyChar);
     }
 
-
-    if(parameterElements->getParameter() != "")
-    {
-        generatedCodeHeader.push_back(parameterElements->getParameter());
-    //    generatedCodeHeader.push_back(CodegeneratorConstants::emptyChar);
-    }
-    else
-    {
-        // must have a parameter name
-        // TODO Errorhandling
-    }
-
-
-
-    }
 }
 
-
-
+}
 
