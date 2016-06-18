@@ -61,6 +61,18 @@ TEST(FunctionTest, functionOneParameterReturninParameterDouble)
 }
 
 
+TEST(FunctionTest, functionOneParameterReturnTestClassParameterTestClassReference)
+{
+    QString scriptPath = "..\\Files\\Scripts\\functionWithOneParameterReturnTestClassParameterTestClassReference.txt";
+    std::list<QString> expectedList;
+    expectedList = TestdataGenerator::testDataFunctionOneParmeterReturnTestClassParameterTestClassReference();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
+    bool result = false;
+    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    EXPECT_EQ(result, true);
+}
+
+
 
 
 // Testcases Function with one Parameter

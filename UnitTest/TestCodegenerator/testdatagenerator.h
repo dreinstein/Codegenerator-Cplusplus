@@ -11,7 +11,7 @@ public:
     static std::list<QString> testDataFunctionNoParamterReturnQStringPointer();
     static std::list<QString> testDataFunctionNoParamterTestClassReference();
     static std::list<QString> testDataFunctionOneParmeterReturnIntParameterDouble();
-
+    static std::list<QString> testDataFunctionOneParmeterReturnTestClassParameterTestClassReference();
 
 
 private:

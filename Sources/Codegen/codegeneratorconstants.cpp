@@ -12,6 +12,7 @@ QString Codegenerator::CodegeneratorConstants::semiColon = ";";
 QString Codegenerator::CodegeneratorConstants::emptyChar = "";
 QString Codegenerator::CodegeneratorConstants::modifierPrivate = "private";
 QString Codegenerator::CodegeneratorConstants::modifierPublic = "public";
+QString Codegenerator::CodegeneratorConstants::modifierProtected = "protected";
 QString Codegenerator::CodegeneratorConstants::parameterBracketOpen = "(";
 QString Codegenerator::CodegeneratorConstants::parameterBracketClose = ")";
 QString Codegenerator::CodegeneratorConstants::modifier = "modifier";

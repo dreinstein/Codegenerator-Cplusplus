@@ -20,6 +20,7 @@ namespace Codegenerator
         static QString semiColon;
         static QString emptyChar;
         static QString modifierPrivate;
+        static QString modifierProtected;
         static QString modifierPublic;
         static QString parameterBracketOpen;
         static QString parameterBracketClose;
