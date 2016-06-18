@@ -26,4 +26,8 @@ INPUT(
 ./debug\Functionelements.o
 ./debug\Functionscriptexception.o
 ./debug\codegeneratorconstants.o
+./debug\testdatagenerator.o
+./debug\evaluatetest.o
+./debug\functiontest.o
+./debug\testutilities.o
 );

@@ -4,59 +4,66 @@
 #include <vector>
 #include <map>
 #include "../../gtest/gtest.h"
-#include "Codegen/Basecodegenerator.h"
-#include "Codegen/CPluspluscodegenerator.h"
-#include "Parsing/Parserimplementation.h"
 #include "testdatagenerator.h"
 #include "evaluatetest.h"
+#include "testutilities.h"
 
 FunctionTest::FunctionTest()
 {
 
 }
 
+// Testcases Function with no Parameter
+
 TEST(FunctionTest, functionNoParameterReturnInt)
 {
+    QString scriptPath = "..\\Files\\Scripts\\functionWithNoParameterReturnInt.txt";
     std::list<QString> expectedList;
     expectedList = TestdataGenerator::testDataFunctionNoParamterReturnInt();
-    NParser::ParserImpl *parser = new NParser::ParserImpl();
-    QString keywordPath = "..\\Files\\Keywords\\myFirstKeywords.txt";
-    QString scriptPath = "..\\Files\\Scripts\\functionWithNoParameterReturnInt.txt";
-    QString rulesPath = "..\\Files\\Rules\\";
-    std::vector<QString> keywords = parser->doParseForVec(keywordPath);
-    std::vector<QString> script = parser->doParseForVec(scriptPath);
-    std::map<QString,QString> rules = parser->doParseForMap(rulesPath);
-    Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
-    generator->generate(script,rules,keywords);
-    std::list<QString> classHeaderList = generator->getHeaderListData();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
     bool result = false;
     result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
-    delete parser;
-    delete generator;
 }
 
 TEST(FunctionTest, functionNoParameterReturnQStringPointer)
 {
+    QString scriptPath = "..\\Files\\Scripts\\functionWithNoParameterReturnQStringPointer.txt";
     std::list<QString> expectedList;
     expectedList = TestdataGenerator::testDataFunctionNoParamterReturnQStringPointer();
-    NParser::ParserImpl *parser = new NParser::ParserImpl();
-    QString keywordPath = "..\\Files\\Keywords\\myFirstKeywords.txt";
-    QString scriptPath = "..\\Files\\Scripts\\functionWithNoParameterReturnQStringPointer.txt";
-    QString rulesPath = "..\\Files\\Rules\\";
-    std::vector<QString> keywords = parser->doParseForVec(keywordPath);
-    std::vector<QString> script = parser->doParseForVec(scriptPath);
-    std::map<QString,QString> rules = parser->doParseForMap(rulesPath);
-    Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
-    generator->generate(script,rules,keywords);
-    std::list<QString> classHeaderList = generator->getHeaderListData();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
     bool result = false;
     result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
-    delete parser;
-    delete generator;
 }
 
+TEST(FunctionTest, functionNoParameterTestclassReference)
+{
+    QString scriptPath = "..\\Files\\Scripts\\functionWithNoParameterReturnTestClassReference.txt";
+    std::list<QString> expectedList;
+    expectedList = TestdataGenerator::testDataFunctionNoParamterTestClassReference();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
+    bool result = false;
+    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    EXPECT_EQ(result, true);
+}
+
+
+TEST(FunctionTest, functionOneParameterReturninParameterDouble)
+{
+    QString scriptPath = "..\\Files\\Scripts\\functionWithOneParameterReturnintParameterDouble.txt";
+    std::list<QString> expectedList;
+    expectedList = TestdataGenerator::testDataFunctionOneParmeterReturnIntParameterDouble();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
+    bool result = false;
+    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    EXPECT_EQ(result, true);
+}
+
+
+
+
+// Testcases Function with one Parameter
 
 
 

@@ -112,6 +112,8 @@ void BaseCodegenerator::openFiles()
  }
 
 
+/* deliver Codegenerator class out of string
+ */
 BaseCodegenerator* BaseCodegenerator::getNextElement(QString sindex)
 {
     BaseCodegenerator *generator = nullptr;
@@ -131,10 +133,13 @@ BaseCodegenerator* BaseCodegenerator::getNextElement(QString sindex)
         generator = new FuctionCodeGenerator(this);
         return generator;
     }
-    Q_ASSERT(false);
+    else return nullptr;
 }
 
 
+/* provide element to generate code out of string
+//  e.g umlList = @function::functionNoParameterReturnTestClassReference@modifier::public@typ::TestClass@isReference
+// first element v = function, generate code for function */
 void BaseCodegenerator::nextElement()
 {
     index = index +1;
@@ -142,27 +147,20 @@ void BaseCodegenerator::nextElement()
     {
         QString umlElement = script[index];
         QStringList umlList = General::ExtractString::extractStringList(umlElement);
-        QString foundStr = CodegeneratorConstants::tab;
+        BaseCodegenerator *next = nullptr;
         foreach(QString v, umlList)
         {
-            v = General::ExtractString::extractFirst(v);
-            for (QString s : keys)
-            {
-                if(v == s)
-                {
-                    foundStr = v;
-                    break;
-                }
-            }
+             v = General::ExtractString::extractFirst(v);
+             next = BaseCodegenerator::getNextElement(v);
+             if(next != nullptr)
+             {
+                 next->generate();
+                 generatedCodeHeader = next->getHeaderListData();
+                 generatedCodeSource = next->getSourceListData();
+             }
         }
-        if(foundStr != CodegeneratorConstants::tab)
-        {
-            BaseCodegenerator *next = BaseCodegenerator::getNextElement(foundStr);
-            next->generate();
-            generatedCodeHeader = next->getHeaderListData();
-            generatedCodeSource = next->getSourceListData();
-            delete next;
-        }
+        delete next;
+
     }
 }
 

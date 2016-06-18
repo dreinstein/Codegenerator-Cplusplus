@@ -26,4 +26,8 @@ INPUT(
 ./release\Functionelements.o
 ./release\Functionscriptexception.o
 ./release\codegeneratorconstants.o
+./release\testdatagenerator.o
+./release\evaluatetest.o
+./release\functiontest.o
+./release\testutilities.o
 );

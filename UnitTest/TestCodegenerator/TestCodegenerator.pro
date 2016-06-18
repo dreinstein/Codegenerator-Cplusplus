@@ -44,7 +44,8 @@ SOURCES += main.cpp \
     ../../Sources/Codegen/codegeneratorconstants.cpp \
     testdatagenerator.cpp \
     evaluatetest.cpp \
-    functiontest.cpp
+    functiontest.cpp \
+    testutilities.cpp
 
 HEADERS += \
     parsertest.h \
@@ -83,5 +84,6 @@ HEADERS += \
     ../../Sources/Codegen/codegeneratorconstants.h \
     testdatagenerator.h \
     evaluatetest.h \
-    functiontest.h
+    functiontest.h \
+    testutilities.h
 

@@ -1,0 +1,2 @@
+@path::..\\Files\\Generated\\myFirstGeneratedFile
+@function::functionNoParameterReturnTestClassReference@modifier::public@typ::TestClass@isReference
