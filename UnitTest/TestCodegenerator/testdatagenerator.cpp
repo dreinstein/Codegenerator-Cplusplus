@@ -46,6 +46,25 @@ std::list<QString>TestdataGenerator::testDataFunctionNoParamterTestClassReferenc
     return testDatalist;
 }
 
+std::list<QString>TestdataGenerator::testDataFunctionConstNoParamterVectorInt()
+{
+    std::list<QString> testDatalist;
+    QString functionName = "functionConstWithNoParameterReturnVectorInt";
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::modifierPublic);
+    testDatalist = TestdataGenerator::testDataFunctionBegin(testDatalist);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typVectorInt);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::reference);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(functionName);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::constant);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::semiColon);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+    return testDatalist;
+}
+
+
 
 std::list<QString>TestdataGenerator::testDataFunctionOneParmeterReturnIntParameterDouble()
 {
@@ -83,6 +102,8 @@ std::list<QString>TestdataGenerator::testDataFunctionOneParmeterReturnTestClassP
     testDatalist = testDataFunctionEnd(testDatalist);
     return testDatalist;
 }
+
+
 
 
 

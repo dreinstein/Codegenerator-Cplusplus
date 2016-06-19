@@ -31,6 +31,7 @@ namespace Codegenerator
         static QString typInt;
         static QString typDouble;
         static QString typQString;
+        static QString typVectorInt;
         static QString typTestClass;
     };
 }

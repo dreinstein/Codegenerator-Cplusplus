@@ -1,2 +1,2 @@
 @path::..\\Files\\Generated\\myFirstGeneratedFile
-@function::functionWithOnParameterReturnTestClassParameterTestClassReference@modifier::protected@typ::TestClass@parameter::TestClass@typ::isReference
+@function::functionWithOnParameterReturnTestClassParameterTestClassReference@modifier::protected@typ::TestClass@parameter::TestClassParameter@typ::TestClass@isReference

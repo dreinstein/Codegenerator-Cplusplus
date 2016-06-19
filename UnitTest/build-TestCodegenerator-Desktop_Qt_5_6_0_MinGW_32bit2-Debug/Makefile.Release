@@ -1985,38 +1985,6 @@ release/functiontest.o: ../TestCodegenerator/functiontest.cpp ../TestCodegenerat
 		../../gtest/gtest-test-part.h \
 		../../gtest/gtest-typed-test.h \
 		../../gtest/gtest_pred_impl.h \
-		../../Sources/Codegen/Basecodegenerator.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/QFile \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qfile.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qfiledevice.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qiodevice.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qobject.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qlist.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qalgorithms.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qiterator.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qhashfunctions.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qpair.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qbytearraylist.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qstringlist.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qregexp.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qstringmatcher.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qcoreevent.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qscopedpointer.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qmetatype.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qvarlengtharray.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qcontainerfwd.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qobject_impl.h \
-		../../Sources/Base/BaseGenerator.h \
-		../../Sources/Base/BaseEvaluator.h \
-		../../Sources/Utilities.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/QStringList \
-		../../Sources/Codegen/Functionelements.h \
-		../../Sources/Codegen/Attributeelements.h \
-		../../Sources/Codegen/CPluspluscodegenerator.h \
-		../../Sources/Parsing/Parserimplementation.h \
-		../../Sources/Base/BaseParserImplementation.h \
 		../TestCodegenerator/testdatagenerator.h \
 		../TestCodegenerator/evaluatetest.h \
 		../TestCodegenerator/testutilities.h
@@ -2059,7 +2027,39 @@ release/testutilities.o: ../TestCodegenerator/testutilities.cpp ../TestCodegener
 		C:/Qt/5.6/mingw49_32/include/QtCore/qrefcount.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qnamespace.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qarraydata.h \
-		C:/Qt/5.6/mingw49_32/include/QtCore/qstringbuilder.h
+		C:/Qt/5.6/mingw49_32/include/QtCore/qstringbuilder.h \
+		../../Sources/Codegen/Basecodegenerator.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/QFile \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qfile.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qfiledevice.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qiodevice.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qobject.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qlist.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qalgorithms.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qiterator.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qhashfunctions.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qpair.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qstringlist.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qregexp.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qstringmatcher.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qcoreevent.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qscopedpointer.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qmetatype.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qvarlengtharray.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qcontainerfwd.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/qobject_impl.h \
+		../../Sources/Base/BaseGenerator.h \
+		../../Sources/Base/BaseEvaluator.h \
+		../../Sources/Utilities.h \
+		C:/Qt/5.6/mingw49_32/include/QtCore/QStringList \
+		../../Sources/Codegen/Functionelements.h \
+		../../Sources/Codegen/Attributeelements.h \
+		../../Sources/Codegen/CPluspluscodegenerator.h \
+		../../Sources/Parsing/Parserimplementation.h \
+		../../Sources/Base/BaseParserImplementation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\testutilities.o ..\TestCodegenerator\testutilities.cpp
 
 ####### Install
