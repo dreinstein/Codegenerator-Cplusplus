@@ -1,2 +1,2 @@
 @path::..\\Files\\Generated\\myFirstGeneratedFile
-@function::functionConstWithNoParameterReturnVectorInt@modifier::public@isConstant@typ::vector<int>
+@function::functionConstWithNoParameterReturnVectorInt@modifier::public@isConstant@typ::vector<int>@isReturnConstant

@@ -1,0 +1,2 @@
+@path::..\\Files\\Generated\\myFirstGeneratedFile
+@function::functionConstWithOneParameterReturnVectorIntParameterReferenceVectorInt@modifier::protected@typ::vector<int>@isConstant@parameter::ParameterVectorInt@typ::vector<int>@isReference

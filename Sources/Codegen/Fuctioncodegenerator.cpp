@@ -101,7 +101,16 @@ void FuctionCodeGenerator::generateHeaderList(bool foundModifier)
         }
 
     }
-    setHeaderClassFinal();
+
+    if(functionElements->getIsConstant())
+    {
+       setHeaderClassFinalForConstant();
+    }
+    else
+    {
+        setHeaderClassFinal();
+    }
+
 
 }
 
@@ -138,6 +147,16 @@ void FuctionCodeGenerator::setHeaderClassFinal()
     generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
 }
 
+void FuctionCodeGenerator::setHeaderClassFinalForConstant()
+{
+    generatedCodeHeader.push_back(CodegeneratorConstants::parameterBracketClose);
+    generatedCodeHeader.push_back(CodegeneratorConstants::tab);
+    generatedCodeHeader.push_back(CodegeneratorConstants::constant);
+    generatedCodeHeader.push_back(CodegeneratorConstants::semiColon);
+    generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
+}
+
+
 
 
 
@@ -160,10 +179,10 @@ void FuctionCodeGenerator::setHeaderParameterElements(FunctionElements* paramete
 
 void FuctionCodeGenerator::setHeaderTyp(FunctionElements* element)
 {
-    if(element->getIsConstant())
+    if(element->getIsReturnConstant())
     {
         generatedCodeHeader.push_back(CodegeneratorConstants::constant);
-        generatedCodeHeader.push_back(CodegeneratorConstants::emptyChar);
+        generatedCodeHeader.push_back(CodegeneratorConstants::tab);
     }
     if(element->getTyp() != "")
     {

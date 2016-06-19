@@ -31,6 +31,7 @@ private:
     void setHeaderParameterElements(FunctionElements* parameterElements);
     void setHeaderFunctionElements(bool modifier);
     void setHeaderClassFinal();
+    void setHeaderClassFinalForConstant();
     void setHeaderTyp(FunctionElements* element);
 
 };

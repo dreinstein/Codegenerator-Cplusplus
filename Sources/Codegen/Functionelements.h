@@ -22,6 +22,7 @@ public:
     bool getIsRef()const {return isRef;}
     bool getIsPointer() const {return isPointer;}
     bool getIsConstant() const {return isConstant;}
+    getIsReturnConstant() const {return isReturnConstant;}
     void setParameter(const QString param) {parameter = param;}
     std::vector<FunctionElements*> getFunctionParameters(){return functionParameters;}
 private:
@@ -34,6 +35,7 @@ private:
     bool isRef;
     bool isPointer;
     bool isConstant;
+    bool isReturnConstant;
     std::vector<FunctionElements*> functionParameters;
 };
 }

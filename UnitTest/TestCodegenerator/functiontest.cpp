@@ -13,8 +13,8 @@ FunctionTest::FunctionTest()
 
 }
 
-// Testcases Function with no Parameter
-
+// Testcases Functions with no Parameter
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 TEST(FunctionTest, functionNoParameterReturnInt)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionWithNoParameterReturnInt.txt";
@@ -48,7 +48,7 @@ TEST(FunctionTest, functionNoParameterTestclassReference)
     EXPECT_EQ(result, true);
 }
 
-TEST(FunctionTest, functionNoParameterConstReturnvectorint)
+TEST(FunctionTest, functionNoParameterConstReturnvectorintConst)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionConstWithNoParameterReturnvectorint.txt";
     std::list<QString> expectedList;
@@ -58,7 +58,6 @@ TEST(FunctionTest, functionNoParameterConstReturnvectorint)
     result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
-
 
 TEST(FunctionTest, functionOneParameterReturninParameterDouble)
 {
@@ -72,7 +71,8 @@ TEST(FunctionTest, functionOneParameterReturninParameterDouble)
 }
 
 
-// function with on Parameter
+// functions with one Parameter
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 TEST(FunctionTest, functionOneParameterReturnTestClassParameterTestClassReference)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionWithOneParameterReturnTestClassParameterTestClassReference.txt";
@@ -86,23 +86,18 @@ TEST(FunctionTest, functionOneParameterReturnTestClassParameterTestClassReferenc
 
 
 
-//TEST(FunctionTest, functionconstOneParameterReturnVectorParameterconstlist)
-//{
-/*    QString scriptPath = "..\\Files\\Scripts\\functionWithOneParameterReturnTestClassParameterTestClassReference.txt";
+TEST(FunctionTest, functionConstOneParameterReturnVectorIntParameterReferenceVectorInt)
+{
+    QString scriptPath = "..\\Files\\Scripts\\functionConstWithoneParameterReturnVectorIntParameterReferenceVectorInt.txt";
     std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataFunctionOneParmeterReturnTestClassParameterTestClassReference();
-    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);*/
- //   bool result = false;
-  //  result = EvaluateTest::evaluate(classHeaderList, expectedList);
-//    EXPECT_EQ(result, true);
-//}
+    expectedList = TestdataGenerator::testDataConstFunctionOneParmeterReturnVectorIntParameterVectorInt();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
+    bool result = false;
+    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    EXPECT_EQ(result, true);
+}
 
 
-
-
-
-
-// Testcases Function with one Parameter
 
 
 
