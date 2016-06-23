@@ -23,7 +23,7 @@ public:
 
 private:
     FuctionCodeGenerator();
-   // FunctionElements *functionElements = nullptr;
+    // @ToDo document functions
     void generateHeader();
     void generateSource();
     void generateHeaderList(std::list<QString>::iterator iterator, bool foundModifier);
@@ -33,6 +33,8 @@ private:
     void setHeaderClassFinal();
     void setHeaderClassFinalForConstant();
     void setHeaderTyp(FunctionElements* element);
+    void setHeaderTypForFunctionElements(FunctionElements* element);
+    void setHeaderTypForParameterElements(FunctionElements* element);
 
 };
 

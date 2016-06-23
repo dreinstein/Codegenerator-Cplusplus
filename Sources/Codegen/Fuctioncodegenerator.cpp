@@ -93,9 +93,15 @@ void FuctionCodeGenerator::generateHeaderList(bool foundModifier)
     vector<FunctionElements*> parameterelements = functionElements->getFunctionParameters();
     if(parameterelements.size() > 0)
     {
-
-        for(auto iterator = parameterelements.begin();iterator != parameterelements.end(); ++iterator)
+        // from back to front, it is rekursiv parameterelements begin with last funktionparameter
+        for(auto iterator = parameterelements.rbegin();iterator != parameterelements.rend(); ++iterator)
         {
+            // need a colon between parameters
+            if(iterator != parameterelements.rbegin())
+            {
+                generatedCodeHeader.push_back(Codegenerator::CodegeneratorConstants::comma);
+            }
+
            // FunctionElements *paraelements = *iterator;
             setHeaderParameterElements(*iterator);
         }
@@ -134,7 +140,7 @@ void FuctionCodeGenerator::setHeaderFunctionElements(bool modifier)
         generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
     }
     generatedCodeHeader.push_back(CodegeneratorConstants::tab);
-    setHeaderTyp(functionElements);
+    setHeaderTypForFunctionElements(functionElements);
     generatedCodeHeader.push_back(CodegeneratorConstants::tab);
     generatedCodeHeader.push_back(functionElements->getFunction());
     generatedCodeHeader.push_back(CodegeneratorConstants::parameterBracketOpen);
@@ -163,7 +169,7 @@ void FuctionCodeGenerator::setHeaderClassFinalForConstant()
 void FuctionCodeGenerator::setHeaderParameterElements(FunctionElements* parameterElements)
 {
 
-    setHeaderTyp(parameterElements);
+    setHeaderTypForParameterElements(parameterElements);
     if(parameterElements->getParameter() != "")
     {
         generatedCodeHeader.push_back(CodegeneratorConstants::tab);
@@ -171,41 +177,54 @@ void FuctionCodeGenerator::setHeaderParameterElements(FunctionElements* paramete
     }
     else
     {
-        // must have a parameter name
-        // TODO Errorhandling
+        Q_ASSERT(false);
     }
 }
 
-
-void FuctionCodeGenerator::setHeaderTyp(FunctionElements* element)
+void FuctionCodeGenerator::setHeaderTypForFunctionElements(FunctionElements* element)
 {
     if(element->getIsReturnConstant())
     {
         generatedCodeHeader.push_back(CodegeneratorConstants::constant);
         generatedCodeHeader.push_back(CodegeneratorConstants::tab);
     }
+    setHeaderTyp(element);
+}
+
+
+void FuctionCodeGenerator::setHeaderTypForParameterElements(FunctionElements* element)
+{
+    if(element->getIsConstant())
+    {
+        generatedCodeHeader.push_back(CodegeneratorConstants::constant);
+        generatedCodeHeader.push_back(CodegeneratorConstants::tab);
+    }
+    setHeaderTyp(element);
+}
+
+
+void FuctionCodeGenerator::setHeaderTyp(FunctionElements* element)
+{
+
     if(element->getTyp() != "")
     {
         generatedCodeHeader.push_back(element->getTyp());
-   //     generatedCodeHeader.push_back(CodegeneratorConstants::emptyChar);
     }
     else
     {
-        // must have a typ
-        // TODO Errorhandling
+        Q_ASSERT(false);
     }
 
     if(element->getIsRef())
     {
         generatedCodeHeader.push_back(CodegeneratorConstants::reference);
-      //  generatedCodeHeader.push_back(CodegeneratorConstants::emptyChar);
     }
 
     if(element->getIsPointer())
     {
         generatedCodeHeader.push_back(CodegeneratorConstants::pointer);
-     //   generatedCodeHeader.push_back(CodegeneratorConstants::emptyChar);
     }
+
 
 }
 

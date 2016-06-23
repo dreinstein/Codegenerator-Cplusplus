@@ -27,7 +27,7 @@ public:
     virtual void registerObservers(BaseGenerator*) {;}
     virtual std::list<QString> getHeaderListData() const final {return generatedCodeHeader;}
     virtual std::list<QString> getSourceListData() const final {return generatedCodeSource;}
-    virtual FunctionElements getFunctionElements() const final {return *functionElements;}
+  //  virtual FunctionElements getFunctionElements() const final {return *functionElements;}
 protected:
     std::vector<QString> script;
     std::vector<QString> keys;

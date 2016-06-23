@@ -1,0 +1,2 @@
+@path::..\\Files\\Generated\\myFirstGeneratedFile
+@function::functionWithTwoParameterReturnIntReferenceParameterConstVoidPointer@modifier::private@typ::TestClass@parameter::intParameter@typ::int@parameter::TestParameter@typ::TestClass@isReference@isConstant

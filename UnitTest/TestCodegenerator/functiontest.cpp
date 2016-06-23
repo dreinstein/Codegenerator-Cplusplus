@@ -98,6 +98,33 @@ TEST(FunctionTest, functionConstOneParameterReturnVectorIntParameterReferenceVec
 }
 
 
+TEST(FunctionTest, functionConstOneParameterReturnintReferenceParameterconstPointervoid)
+{
+    QString scriptPath = "..\\Files\\Scripts\\functionConstWithoneParameterReturnintReferneceParameterConstPointervoid.txt";
+    std::list<QString> expectedList;
+    expectedList = TestdataGenerator::testDataConstFunctionOneParmeterReturnIntRefernceParameterVoidConstPointer();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
+    bool result = false;
+    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    EXPECT_EQ(result, true);
+}
+
+
+// function with two parameter
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+TEST(FunctionTest, functionTwoParameterReturnTestParameterPointerParameter1IntParameter2ConstTestParameterReference)
+{
+    QString scriptPath = "..\\Files\\Scripts\\functionWithTwoParameterReturnTestParameterPointerParameter1IntParameter2TestParameterConstReference.txt";
+    std::list<QString> expectedList;
+    expectedList = TestdataGenerator::testDataFunctionTwoParmeterReturnTestParameterParameterOneIntParameterTwoConstTestParameterReference();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
+    bool result = false;
+    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    EXPECT_EQ(result, true);
+}
+
+
 
 
 

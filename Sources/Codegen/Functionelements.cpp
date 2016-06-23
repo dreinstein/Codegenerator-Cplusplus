@@ -61,15 +61,14 @@ void FunctionElements::setElements(FunctionElements* funcElements,QString elemen
         {
               isPointer = true;
         }
-        if(listelement.contains("@isConstant"))
-        {
-              isConstant = true;
-        }
         if(listelement.contains("@isReturnConstant"))
         {
               isReturnConstant = true;
         }
-
+        else if(listelement.contains("@isConstant"))
+        {
+              isConstant = true;
+        }
 
         if(listelement.contains("@parameter"))
         {

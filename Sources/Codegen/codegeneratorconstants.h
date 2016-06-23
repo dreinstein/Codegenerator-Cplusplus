@@ -18,6 +18,7 @@ namespace Codegenerator
         static QString newLine;
         static QString colon;
         static QString semiColon;
+        static QString comma;
         static QString emptyChar;
         static QString modifierPrivate;
         static QString modifierProtected;
@@ -29,6 +30,7 @@ namespace Codegenerator
         static QString reference;
         static QString constant;
         static QString typInt;
+        static QString typVoid;
         static QString typDouble;
         static QString typQString;
         static QString typVectorInt;
