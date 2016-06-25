@@ -22,6 +22,7 @@ QString Codegenerator::CodegeneratorConstants::reference = "&";
 QString Codegenerator::CodegeneratorConstants::constant = "const";
 QString Codegenerator::CodegeneratorConstants::typInt = "int";
 QString Codegenerator::CodegeneratorConstants::typDouble = "double";
+QString Codegenerator::CodegeneratorConstants::typLong = "long";
 QString Codegenerator::CodegeneratorConstants::typVoid = "void";
 QString Codegenerator::CodegeneratorConstants::typQString = "QString";
 QString Codegenerator::CodegeneratorConstants::typVectorInt = "vector<int>";

@@ -15,12 +15,11 @@ public:
     static std::list<QString> testDataFunctionOneParmeterReturnIntParameterDouble();
     static std::list<QString> testDataFunctionOneParmeterReturnTestClassParameterTestClassReference();
     static std::list<QString> testDataConstFunctionOneParmeterReturnVectorIntParameterVectorInt();
-    static std::list<QString> testDataConstFunctionOneParmeterReturnIntRefernceParameterVoidConstPointer();
+    static std::list<QString> testDataConstFunctionOneParmeterReturnIntRefernceParameterConstVoidPointer();
+    static std::list<QString> testDataFunctionOneParmeterReturnDoubleParameterTestClassConstPointer();
+    static std::list<QString> testDataFunctionConstOneParmeterReturnConstPointerDoubleParameterConstPointerConstInt();
     static std::list<QString> testDataFunctionTwoParmeterReturnTestParameterParameterOneIntParameterTwoConstTestParameterReference();
-
-
-
-
+    static std::list<QString> testDataFunctionConstTwoParameterReturnLongReferenceParameter1ConstReferenceDoubleParameter2ConstReferenceConstTestClass();
 
 private:
     TestDataGenerator();

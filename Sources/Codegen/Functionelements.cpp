@@ -14,6 +14,7 @@ FunctionElements::FunctionElements()
     isPointer = false;
     isConstant = false;
     isReturnConstant = false;
+    isMemoryConstant = false;
 
 }
 
@@ -64,6 +65,10 @@ void FunctionElements::setElements(FunctionElements* funcElements,QString elemen
         if(listelement.contains("@isReturnConstant"))
         {
               isReturnConstant = true;
+        }
+        else if(listelement.contains("@isMemoryConstant"))
+        {
+              isMemoryConstant = true;
         }
         else if(listelement.contains("@isConstant"))
         {

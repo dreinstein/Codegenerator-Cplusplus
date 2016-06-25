@@ -30,6 +30,7 @@ namespace Codegenerator
         static QString reference;
         static QString constant;
         static QString typInt;
+        static QString typLong;
         static QString typVoid;
         static QString typDouble;
         static QString typQString;

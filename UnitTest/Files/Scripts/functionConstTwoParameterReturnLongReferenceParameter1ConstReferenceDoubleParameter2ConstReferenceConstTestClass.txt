@@ -1,0 +1,2 @@
+@path::..\\Files\\Generated\\myFirstGeneratedFile
+@function::functionConstWithTwoParameterReturnLongReferenceParameter1ConstReferenceDoubleParameter2ConstReferenceConstTestClass@modifier::private@typ::long@isConstant@isReference@parameter::constReferenceDouble@typ::double@isReference@isConstant@parameter::ConstReferenceConstTestClass@typ::TestClass@isReference@isConstant@isMemoryConstant

@@ -1,0 +1,2 @@
+@path::..\\Files\\Generated\\myFirstGeneratedFile
+@function::functionConstWithOneParameterReturnConstPointerDoubleParameterTestConstPointerConstInteger@modifier::private@typ::double@isPointer@isConstant@isReturnConstant@parameter::ConstPointerConstInteger@typ::double@isPointer@isConstant@isMemoryConstant

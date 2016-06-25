@@ -1,2 +1,0 @@
-@path::..\\Files\\Generated\\myFirstGeneratedFile
-@function::functionWithOnParameterReturnIntReferenceParameterConstVoidPointer@modifier::public@typ::int@isReference@isConstant@parameter::VoidConstPointerParameter@typ::void@isPointer

@@ -224,6 +224,11 @@ void FuctionCodeGenerator::setHeaderTyp(FunctionElements* element)
     {
         generatedCodeHeader.push_back(CodegeneratorConstants::pointer);
     }
+    if(element->getIsMemoryConstant())
+    {
+       generatedCodeHeader.push_back(CodegeneratorConstants::tab);
+       generatedCodeHeader.push_back(CodegeneratorConstants::constant);
+    }
 
 
 }
