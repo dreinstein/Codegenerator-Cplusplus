@@ -20,6 +20,7 @@ public:
     static std::list<QString> testDataFunctionConstOneParmeterReturnConstPointerDoubleParameterConstPointerConstInt();
     static std::list<QString> testDataFunctionTwoParmeterReturnTestParameterParameterOneIntParameterTwoConstTestParameterReference();
     static std::list<QString> testDataFunctionConstTwoParameterReturnLongReferenceParameter1ConstReferenceDoubleParameter2ConstReferenceConstTestClass();
+    static std::list<QString> testDatafunctionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3TestClass();
 
 private:
     TestDataGenerator();

@@ -163,6 +163,18 @@ TEST(FunctionTest, functionConstTwoParameterReturnLongReferenceParameter1ConstRe
 // function with three parameter
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+TEST(FunctionTest, functionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3TestClass)
+{
+    QString scriptPath = "..\\Files\\Scripts\\functionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3TestClass.txt";
+    std::list<QString> expectedList;
+    expectedList = TestdataGenerator::testDatafunctionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3TestClass();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
+    bool result = false;
+    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    EXPECT_EQ(result, true);
+}
+
+
 
 
 

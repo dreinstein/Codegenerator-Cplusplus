@@ -259,6 +259,34 @@ std::list<QString>TestdataGenerator::testDataFunctionConstTwoParameterReturnLong
     return testDatalist;
 }
 
+std::list<QString>TestdataGenerator::testDatafunctionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3TestClass()
+{
+    std::list<QString> testDatalist;
+    QString functionName = "functionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3TestClass";
+    QString parameterName1 = "doubleParameter";
+    QString parameterName2 = "intParameter";
+    QString parameterName3 = "TestClassParameter";
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::modifierPublic);
+    testDatalist = TestdataGenerator::testDataFunctionBegin(testDatalist);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typDouble);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(functionName);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typDouble);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(parameterName1);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::comma);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typInt);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(parameterName2);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::comma);
+    testDatalist.push_back("TestClass");
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(parameterName3);
+    testDatalist = TestdataGenerator::testDataFunctionEnd(testDatalist);
+    return testDatalist;
+}
+
 
 
 
