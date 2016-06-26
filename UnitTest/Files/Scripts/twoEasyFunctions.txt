@@ -1,0 +1,3 @@
+@path::..\\Files\\Generated\\myFirstGeneratedFile
+@function::functionReturnDoubleNoParameter@modifier::public@typ::double
+@function::functionReturnIntParameterDouble@modifier::public@typ::int@parameter::doubleParameter@typ::double

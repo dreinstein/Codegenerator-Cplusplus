@@ -4,7 +4,7 @@
 namespace Codegenerator
 {
 
-FunctionElements::FunctionElements()
+FunctionElements::FunctionElements(): NO_VALUE("NoValue")
 {
     function = "";
     parameter = "";
@@ -15,7 +15,7 @@ FunctionElements::FunctionElements()
     isConstant = false;
     isReturnConstant = false;
     isMemoryConstant = false;
-
+    defaultValue = NO_VALUE;
 }
 
 FunctionElements::~FunctionElements()
@@ -74,6 +74,11 @@ void FunctionElements::setElements(FunctionElements* funcElements,QString elemen
         {
               isConstant = true;
         }
+        else if(listelement.contains("@defaultValue"))
+        {
+              defaultValue = elementLast;
+        }
+
 
         if(listelement.contains("@parameter"))
         {
@@ -90,34 +95,14 @@ void FunctionElements::setElements(FunctionElements* funcElements,QString elemen
 
 }
 
-/*void FunctionElements::isFunction(QString listelement,QString lastElement)
+bool FunctionElements::getIsDefaultValue() const
 {
-
+    if(defaultValue != NO_VALUE)
+    {
+        return true;
+    }
+    return false;
 }
 
-void FunctionElements::isTyp(QString listelement,QString lastElement)
-{
-
-}
-
-void FunctionElements::isModifier(QString listelement,QString lastElement)
-{
-
-}
-
-void FunctionElements::isReference(QString listelement,QString lastElement)
-{
-
-}
-
-void FunctionElements::isPointer(QString listelement,QString lastElement)
-{
-
-}
-
-void FunctionElements::isConstant(QString listelement,QString lastElement)
-{
-
-}*/
 
 }

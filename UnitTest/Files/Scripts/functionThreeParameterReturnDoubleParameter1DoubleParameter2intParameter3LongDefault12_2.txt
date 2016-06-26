@@ -1,0 +1,2 @@
+@path::..\\Files\\Generated\\myFirstGeneratedFile
+@function::functionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3TestClass@modifier::public@typ::double@parameter::doubleParameter@typ::double@parameter::intParameter@typ::int@parameter::longParameterDefault12_2@typ::long@defaultValue::12,2

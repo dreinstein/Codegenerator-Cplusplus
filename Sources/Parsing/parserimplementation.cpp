@@ -7,6 +7,7 @@
 #include <windows.h>
 #include <string>
 #include "Parserimplementation.h"
+#include "../Errorhandling/OpenfileException.h"
 
 
 namespace NParser
@@ -38,6 +39,10 @@ std::vector<QString> ParserImpl::doParseForVec(const QString path)const
           values.push_back(row);
        }
        fin.close();
+    }
+    else
+    {
+      throw Errorhandling::OpenFileException();
     }
     return values;
 

@@ -36,6 +36,7 @@ namespace Codegenerator
         static QString typQString;
         static QString typVectorInt;
         static QString typTestClass;
+        static QString equal;
     };
 }
 

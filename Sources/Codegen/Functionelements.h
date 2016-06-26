@@ -10,7 +10,7 @@
 namespace Codegenerator
 {
 class FunctionElements
-{
+{   
 public:
     FunctionElements();
     ~FunctionElements();
@@ -24,11 +24,14 @@ public:
     bool getIsConstant() const {return isConstant;}
     getIsReturnConstant() const {return isReturnConstant;}
     getIsMemoryConstant() const {return isMemoryConstant;}
+    QString getDefaultValue() const {return defaultValue;}
+    bool getIsDefaultValue() const;
     void setParameter(const QString param) {parameter = param;}
     std::vector<FunctionElements*> getFunctionParameters(){return functionParameters;}
 private:
 
     //@TODO as union
+    //@TODO some missmatch with Attributeelements, merge
     QString function;
     QString parameter;
     QString modifier;
@@ -38,7 +41,10 @@ private:
     bool isConstant;
     bool isMemoryConstant;
     bool isReturnConstant;
+    QString defaultValue;
     std::vector<FunctionElements*> functionParameters;
+
+    const QString NO_VALUE;
 };
 }
 

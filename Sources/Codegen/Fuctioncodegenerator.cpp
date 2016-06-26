@@ -34,7 +34,6 @@ void FuctionCodeGenerator::generate()
 
     generateHeader();
     generateSource();
-  //  delete functionElements;
     nextElement();
 }
 
@@ -46,45 +45,54 @@ void FuctionCodeGenerator::generate(const std::vector<QString>, const std::map<Q
 void FuctionCodeGenerator::generateHeader()
 {
     Q_ASSERT(functionElements);
-    bool foundModifier = false;
-    QString element;
-    if(generatedCodeHeader.size() > 0)
-    {
-        for(list<QString>::iterator iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator)
-        {
-            element = *iterator;
-            if(element.contains(functionElements->getModifier()))
-            {
-                foundModifier = true;
-            }
-            if(functionElements->getModifier() == CodegeneratorConstants::modifierPublic)
-            {
-                if((element.contains(CodegeneratorConstants::modifierPrivate)))
-                {
-                    generateHeaderList(iterator,foundModifier);
-                    break;
-                }
-            }
-            if ((element.contains(CodegeneratorConstants::bracketClose)))
-            {
-                generateHeaderList(iterator,foundModifier);
-                break;
-            }
-        }
-    }
-    // no class definition only function
-    else
-    {
-        generateHeaderList(false);
-    }
-
-
+    list<QString>::iterator iterator = foundPositionToAppendToHeaderList();
+    generateHeaderList(iterator,hasElementModifier());
 }
 
 void FuctionCodeGenerator::generateSource()
 {
     Q_ASSERT(functionElements);
 }
+
+bool FuctionCodeGenerator::hasElementModifier()
+{
+    bool foundModifier = false;
+    QString element;
+    list<QString>::iterator iterator = generatedCodeHeader.begin();
+    for(iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator)
+    {
+        element = *iterator;
+        if(element.contains(functionElements->getModifier()))
+        {
+            foundModifier = true;
+        }
+    }
+    return foundModifier;
+}
+
+
+list<QString>::iterator FuctionCodeGenerator::foundPositionToAppendToHeaderList()
+{
+    QString element;
+    list<QString>::iterator iterator = generatedCodeHeader.begin();
+    for(iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator)
+    {
+        element = *iterator;
+        if(functionElements->getModifier() == CodegeneratorConstants::modifierPublic)
+        {
+            if((element.contains(CodegeneratorConstants::modifierPrivate)))
+            {
+                break;
+            }
+        }
+        if ((element.contains(CodegeneratorConstants::bracketClose)))
+        {
+            break;
+        }
+    }
+    return iterator;
+}
+
 
 void FuctionCodeGenerator::generateHeaderList(bool foundModifier)
 {
@@ -174,6 +182,13 @@ void FuctionCodeGenerator::setHeaderParameterElements(FunctionElements* paramete
     {
         generatedCodeHeader.push_back(CodegeneratorConstants::tab);
         generatedCodeHeader.push_back(parameterElements->getParameter());
+        if(parameterElements->getIsDefaultValue())
+        {
+            generatedCodeHeader.push_back(CodegeneratorConstants::tab);
+            generatedCodeHeader.push_back(CodegeneratorConstants::equal);
+            generatedCodeHeader.push_back(CodegeneratorConstants::tab);
+            generatedCodeHeader.push_back(parameterElements->getDefaultValue());
+        }
     }
     else
     {

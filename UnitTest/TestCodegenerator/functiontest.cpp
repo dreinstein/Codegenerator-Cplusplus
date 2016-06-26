@@ -97,6 +97,17 @@ TEST(FunctionTest, functionConstOneParameterReturnVectorIntParameterReferenceVec
     EXPECT_EQ(result, true);
 }
 
+TEST(FunctionTest, functionOneParameterReturnIntParameterIntDefaultValue31)
+{
+    QString scriptPath = "..\\Files\\Scripts\\functionOneParameterReturnIntParameterIntDefaultValue31.txt";
+    std::list<QString> expectedList;
+    expectedList = TestdataGenerator::testDatafunctionOneParameterReturnIntParameterIntDefaultValue31();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
+    bool result = false;
+    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    EXPECT_EQ(result, true);
+}
+
 
 TEST(FunctionTest, functionConstOneParameterReturnintReferenceParameterConstVoidPointer)
 {
@@ -173,6 +184,33 @@ TEST(FunctionTest, functionThreeParameterReturnDoubleParameter1DoubleParameter2i
     result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
+
+TEST(FunctionTest, functionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3LongDefaultValue12_2)
+{
+    QString scriptPath = "..\\Files\\Scripts\\functionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3LongDefault12_2.txt";
+    std::list<QString> expectedList;
+    expectedList = TestdataGenerator::testDatafunctionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3LongDefault12_2();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
+    bool result = false;
+    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    EXPECT_EQ(result, true);
+}
+
+
+
+//serverall functions
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+TEST(FunctionTest, twoEasyfunctions)
+{
+    QString scriptPath = "..\\Files\\Scripts\\twoEasyFunctions.txt";
+    std::list<QString> expectedList;
+    expectedList = TestdataGenerator::testDataTwoEasyFunctions();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
+    bool result = false;
+    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    EXPECT_EQ(result, true);
+}
+
 
 
 
