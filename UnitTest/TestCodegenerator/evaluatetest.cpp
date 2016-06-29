@@ -20,6 +20,7 @@ bool EvaluateTest::evaluate(std::list<QString> testdata, std::list<QString> eval
         evaluationDataString = *evaluationDataIterator;
         if(testDataString != evaluationDataString)
         {
+
             return false;
         }
     }

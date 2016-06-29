@@ -45,6 +45,18 @@ private:
     std::vector<FunctionElements*> functionParameters;
 
     const QString NO_VALUE;
+
+    const QString FUNCTIONELEMENT = "@function";
+    const QString TYPELEMENT = "@typ";
+    const QString MODIFIERELEMENT = "@modifier";
+    const QString ISREFERENCEELEMENT = "@isReference";
+    const QString ISPOINTERELEMENT = "@isPointer";
+    const QString ISRETURNCONSTANTELEMENT = "@isReturnConstant";
+    const QString ISMEMORYCONSTANTELEMENT = "@isMemoryConstant";
+    const QString ISCONSTANTELEMENT = "@isConstant";
+    const QString DEFAULTVALUEELEMENT = "@defaultValue";
+    const QString PARAMETERELEMENT = "@parameter";
+
 };
 }
 

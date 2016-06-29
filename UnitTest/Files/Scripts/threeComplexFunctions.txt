@@ -1,0 +1,4 @@
+@path::..\\Files\\Generated\\myFirstGeneratedFile
+@function::functionintPointer@modifier::public@typ::int@isPointer@isConstant@parameter::constDoubleReferenceParameter@typ::double@isConstant@isReference@parameter::TestClassPointerParameter@typ::TestClass@isPointer@parameter::intParameter@typ::int@defaultValue::5
+@function::functionReturndouble@modifier::public@typ::double@parameter::intPointerParameter@typ::int@isPointer@parameter::longParameter@typ::long
+@function::functionReturnTestClassReference@modifier::private@typ::TestClass@isReference@isReturnConstant@isConstant@parameter::constPointerconstParameter@typ::double@isConstant@isPointer@isMemoryConstant@parameter::intParameter@typ::int

@@ -212,6 +212,36 @@ TEST(FunctionTest, twoEasyfunctions)
 }
 
 
+// Function one:  int* (const double&,TestClass*, int = 5) const
+// Function two:  double (int *, long)
+// Function three: const Testclass& (const * const, int) const
+TEST(FunctionTest, threeComplexFunctions)
+{
+    QString scriptPath = "..\\Files\\Scripts\\threeComplexFunctions.txt";
+    std::list<QString> expectedList;
+    expectedList = TestdataGenerator::testDataThreeComplexFunctions();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
+    bool result = false;
+    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    EXPECT_EQ(result, true);
+}
+
+
+// Function one:  int* (const double&,TestClass*, int = 5) const
+// Function two:  double (int *, long)
+// Function three: const Testclass& (const * const, int) const
+TEST(FunctionTest, threeComplexFunctionsMixedModifier)
+{
+    QString scriptPath = "..\\Files\\Scripts\\threeComplexFunctionsMixedModifier.txt";
+    std::list<QString> expectedList;
+    expectedList = TestdataGenerator::testDataThreeComplexFunctions();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
+    bool result = false;
+    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    EXPECT_EQ(result, true);
+}
+
+
 
 
 

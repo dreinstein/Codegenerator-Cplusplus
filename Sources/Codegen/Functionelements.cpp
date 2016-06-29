@@ -4,7 +4,11 @@
 namespace Codegenerator
 {
 
-FunctionElements::FunctionElements(): NO_VALUE("NoValue")
+FunctionElements::FunctionElements(): NO_VALUE("NoValue"),FUNCTIONELEMENT("@function"),TYPELEMENT("@typ"),
+    MODIFIERELEMENT("@modifier"),ISREFERENCEELEMENT("@isReference"),ISPOINTERELEMENT("@isPointer"),
+    ISRETURNCONSTANTELEMENT("@isReturnConstant"),ISMEMORYCONSTANTELEMENT("@isMemoryConstant"),
+    ISCONSTANTELEMENT("@isConstant"), DEFAULTVALUEELEMENT("@defaultValue"),
+    PARAMETERELEMENT("@parameter")
 {
     function = "";
     parameter = "";
@@ -41,46 +45,46 @@ void FunctionElements::setElements(FunctionElements* funcElements,QString elemen
         listelement = *constIterator;
         elementLast = General::ExtractString::extractLast(listelement);
 
-        if(listelement.contains("@function"))
+        if(listelement.contains(FUNCTIONELEMENT))
         {
            function = elementLast;
         }
 
-        if(listelement.contains("@typ"))
+        if(listelement.contains(TYPELEMENT))
         {
            typ = elementLast;
         }
-        if(listelement.contains("@modifier"))
+        if(listelement.contains(MODIFIERELEMENT))
         {
            modifier = elementLast;
         }
-        if(listelement.contains("@isReference"))
+        if(listelement.contains(ISREFERENCEELEMENT))
         {
               isRef = true;
         }
-        if(listelement.contains("@isPointer"))
+        if(listelement.contains(ISPOINTERELEMENT))
         {
               isPointer = true;
         }
-        if(listelement.contains("@isReturnConstant"))
+        if(listelement.contains(ISRETURNCONSTANTELEMENT))
         {
               isReturnConstant = true;
         }
-        else if(listelement.contains("@isMemoryConstant"))
+        else if(listelement.contains(ISMEMORYCONSTANTELEMENT))
         {
               isMemoryConstant = true;
         }
-        else if(listelement.contains("@isConstant"))
+        else if(listelement.contains(ISCONSTANTELEMENT))
         {
               isConstant = true;
         }
-        else if(listelement.contains("@defaultValue"))
+        else if(listelement.contains(DEFAULTVALUEELEMENT))
         {
               defaultValue = elementLast;
         }
 
 
-        if(listelement.contains("@parameter"))
+        if(listelement.contains(PARAMETERELEMENT))
         {
             // iterativ over all parameters
            // breakLoop = true;
