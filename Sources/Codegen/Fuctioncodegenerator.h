@@ -24,8 +24,8 @@ public:
 private:
     FuctionCodeGenerator();
     // @ToDo document functions
-    std::list<QString>::iterator foundPositionToAppendToHeaderList();
-    bool hasElementModifier();
+   // std::list<QString>::iterator foundPositionToAppendToHeaderList();
+   // bool hasElementModifier();
     void generateHeader();
     void generateSource();
     void generateHeaderList(std::list<QString>::iterator iterator, bool foundModifier);

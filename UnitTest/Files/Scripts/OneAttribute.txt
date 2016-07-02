@@ -1,0 +1,2 @@
+@path::..\\Files\\Generated\\myFirstGeneratedFile
+@attribute::doubleAttribute@modifier::public@typ::double

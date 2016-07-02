@@ -30,8 +30,8 @@ FuctionCodeGenerator::~FuctionCodeGenerator()
 void FuctionCodeGenerator::generate()
 {
     Q_ASSERT(functionElements);
+    functionElements->resetData();
     functionElements->setElements(functionElements,script[this->index]);
-
     generateHeader();
     generateSource();
     nextElement();
@@ -54,7 +54,7 @@ void FuctionCodeGenerator::generateSource()
     Q_ASSERT(functionElements);
 }
 
-bool FuctionCodeGenerator::hasElementModifier()
+/*bool FuctionCodeGenerator::hasElementModifier()
 {
     bool foundModifier = false;
     QString element;
@@ -91,7 +91,7 @@ list<QString>::iterator FuctionCodeGenerator::foundPositionToAppendToHeaderList(
         }
     }
     return iterator;
-}
+}*/
 
 
 void FuctionCodeGenerator::generateHeaderList(bool foundModifier)

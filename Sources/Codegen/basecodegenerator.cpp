@@ -36,6 +36,47 @@ void BaseCodegenerator::clone(const BaseCodegenerator *toClone)
 }
 
 
+
+bool BaseCodegenerator::hasElementModifier()
+{
+    bool foundModifier = false;
+    QString element;
+    list<QString>::iterator iterator = generatedCodeHeader.begin();
+    for(iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator)
+    {
+        element = *iterator;
+        if(element.contains(functionElements->getModifier()))
+        {
+            foundModifier = true;
+        }
+    }
+    return foundModifier;
+}
+
+
+list<QString>::iterator BaseCodegenerator::foundPositionToAppendToHeaderList()
+{
+    QString element;
+    list<QString>::iterator iterator = generatedCodeHeader.begin();
+    for(iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator)
+    {
+        element = *iterator;
+        if(functionElements->getModifier() == CodegeneratorConstants::modifierPublic)
+        {
+            if((element.contains(CodegeneratorConstants::modifierPrivate)))
+            {
+                break;
+            }
+        }
+        if ((element.contains(CodegeneratorConstants::bracketClose)))
+        {
+            break;
+        }
+    }
+    return iterator;
+}
+
+
 void BaseCodegenerator::generateDefault()
 {
     QString row;

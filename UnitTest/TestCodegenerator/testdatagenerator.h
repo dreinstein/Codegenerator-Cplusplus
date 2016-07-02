@@ -25,6 +25,7 @@ public:
     static std::list<QString> testDatafunctionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3LongDefault12_2();
     static std::list<QString> testDataTwoEasyFunctions();
     static std::list<QString> testDataThreeComplexFunctions();
+    static std::list<QString> testOneAttribute();
 
 private:
     TestDataGenerator();

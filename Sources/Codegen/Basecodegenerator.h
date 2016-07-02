@@ -5,6 +5,7 @@
 #include <vector>
 #include <list>
 #include <map>
+#include <list>
 #include <QString>
 #include <QFile>
 #include <functional>
@@ -45,10 +46,13 @@ protected:
     unsigned int index;
     QString sourcefilename;
     QString heaterfilename;
+    bool hasElementModifier();
+    std::list<QString>::iterator foundPositionToAppendToHeaderList();
 
 
 private:
     BaseCodegenerator *getNextElement(QString index);
+
 };
 
 }

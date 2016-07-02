@@ -242,6 +242,23 @@ TEST(FunctionTest, threeComplexFunctionsMixedModifier)
 }
 
 
+//attributes
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+TEST(FunctionTest, OneAttributes)
+{
+    QString scriptPath = "..\\Files\\Scripts\\OneAttribute.txt";
+    std::list<QString> expectedList;
+    expectedList = TestdataGenerator::testOneAttribute();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
+    bool result = false;
+    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    EXPECT_EQ(result, true);
+}
+
+
+
+
+
 
 
 

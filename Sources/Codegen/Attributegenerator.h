@@ -19,8 +19,8 @@ public:
     void generate() override final;
     void generate(const std::vector<QString> strVecScript, const std::map<QString,QString> strMapRules,const std::vector<QString> strVecKeys) override final;
 private:
-    void generateHeaderList(AttributeElements* element, std::list<QString>::iterator iterator, bool foundModifier);
-    void generateHeader(AttributeElements* element);
+    void generateHeaderList(std::list<QString>::iterator iterator, bool foundModifier);
+    void generateHeader();
 };
 
 }

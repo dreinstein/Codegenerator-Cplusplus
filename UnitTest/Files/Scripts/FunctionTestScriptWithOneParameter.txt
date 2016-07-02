@@ -1,3 +1,4 @@
 @path::..\\Files\\Generated\\myFirstGeneratedFile
 @class::firstClass
 @function::functionwithOneParameter@modifier::public@typ::double@parameter::parameter1@typ::double
+@attribute::doubleAttribute@modifier::public@typ::double

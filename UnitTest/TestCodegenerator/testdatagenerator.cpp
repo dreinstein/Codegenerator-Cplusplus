@@ -460,7 +460,19 @@ std::list<QString>TestdataGenerator::testDataThreeComplexFunctions()
 }
 
 
-
+std::list<QString>TestdataGenerator::testOneAttribute()
+{
+    QString attributeName1 = "doubleAttribute";
+    std::list<QString> testDatalist;
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::modifierPublic);
+    testDatalist = TestdataGenerator::testDataFunctionBegin(testDatalist);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typDouble);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(attributeName1);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::semiColon);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+    return testDatalist;
+}
 
 
 
@@ -491,6 +503,9 @@ std::list<QString>TestdataGenerator::testDataFunctionEndForConst(std::list<QStri
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
     return testDatalist;
 }
+
+
+
 
 
 

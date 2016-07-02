@@ -19,7 +19,6 @@ INPUT(
 ./release\Script.o
 ./release\ParserFassade.o
 ./release\Fuctioncodegenerator.o
-./release\Attributeelements.o
 ./release\Functionelements.o
 ./release\Functionscriptexception.o
 ./release\Codegeneratorconstants.o

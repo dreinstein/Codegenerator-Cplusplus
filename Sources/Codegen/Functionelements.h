@@ -14,9 +14,12 @@ class FunctionElements
 public:
     FunctionElements();
     ~FunctionElements();
+    void setElements(QString element);
     void setElements(FunctionElements* funcElements,QString element);
+    void resetData();
     QString getFunction() const {return function;}
     QString getParameter() const {return parameter;}
+    QString getAttribute() const {return attribute;}
     QString getModifier() const {return modifier;}
     QString getTyp()const {return typ;}
     bool getIsRef()const {return isRef;}
@@ -34,19 +37,22 @@ private:
     //@TODO some missmatch with Attributeelements, merge
     QString function;
     QString parameter;
+    QString attribute;
+
+    bool isReturnConstant;
+    QString defaultValue;
     QString modifier;
     QString typ;
     bool isRef;
     bool isPointer;
     bool isConstant;
     bool isMemoryConstant;
-    bool isReturnConstant;
-    QString defaultValue;
+
     std::vector<FunctionElements*> functionParameters;
 
     const QString NO_VALUE;
-
     const QString FUNCTIONELEMENT = "@function";
+    const QString ATTRIBUEELEMENT = "@attribute";
     const QString TYPELEMENT = "@typ";
     const QString MODIFIERELEMENT = "@modifier";
     const QString ISREFERENCEELEMENT = "@isReference";
@@ -57,6 +63,7 @@ private:
     const QString DEFAULTVALUEELEMENT = "@defaultValue";
     const QString PARAMETERELEMENT = "@parameter";
 
+    void defineElements(QString listelement, QString elementLast);
 };
 }
 

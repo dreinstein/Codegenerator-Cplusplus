@@ -19,7 +19,6 @@ INPUT(
 ./debug\Script.o
 ./debug\ParserFassade.o
 ./debug\Fuctioncodegenerator.o
-./debug\Attributeelements.o
 ./debug\Functionelements.o
 ./debug\Functionscriptexception.o
 ./debug\Codegeneratorconstants.o
