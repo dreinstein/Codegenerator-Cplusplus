@@ -1,7 +1,6 @@
 INPUT(
 ./release\main.o
 ./release\parsertest.o
-./release\generatortest.o
 ./release\GeneratorCPusPlus.o
 ./release\ParserFassade.o
 ./release\Evaluator.o
@@ -30,4 +29,6 @@ INPUT(
 ./release\evaluatetest.o
 ./release\functiontest.o
 ./release\testutilities.o
+./release\Basictest.o
+./release\classtest.o
 );

@@ -1,7 +1,6 @@
 INPUT(
 ./debug\main.o
 ./debug\parsertest.o
-./debug\generatortest.o
 ./debug\GeneratorCPusPlus.o
 ./debug\ParserFassade.o
 ./debug\Evaluator.o
@@ -30,4 +29,6 @@ INPUT(
 ./debug\evaluatetest.o
 ./debug\functiontest.o
 ./debug\testutilities.o
+./debug\Basictest.o
+./debug\classtest.o
 );

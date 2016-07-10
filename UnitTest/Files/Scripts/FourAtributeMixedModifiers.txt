@@ -1,0 +1,6 @@
+@path::..\\Files\\Generated\\myFirstGeneratedFile
+@attribute::attributeint@modifier::public@typ::int
+@attribute::attributendouble@modifier::private@typ::double
+@attribute::attributelong@modifier::public@typ::long
+@attribute::attributeTestClass@modifier::public@typ::TestClass
+

@@ -17,7 +17,6 @@ LIBS +=  ../../gmock/staticlib/lgmock.lib
 
 SOURCES += main.cpp \
     parsertest.cpp \
-    generatortest.cpp \
     ../../Sources/GeneratorCPusPlus.cpp \
     ../../Sources/ParserFassade.cpp \
     ../../Sources/Evaluator.cpp \
@@ -45,11 +44,12 @@ SOURCES += main.cpp \
     testdatagenerator.cpp \
     evaluatetest.cpp \
     functiontest.cpp \
-    testutilities.cpp
+    testutilities.cpp \
+    Basictest.cpp \
+    classtest.cpp
 
 HEADERS += \
     parsertest.h \
-    generatortest.h \
     ../../Sources/GeneratorCPlusPlus.h \
     ../../Sources/ParserFassade.h \
     mockparser.h \
@@ -85,5 +85,7 @@ HEADERS += \
     testdatagenerator.h \
     evaluatetest.h \
     functiontest.h \
-    testutilities.h
+    testutilities.h \
+    classtest.h \
+    Basictest.h
 

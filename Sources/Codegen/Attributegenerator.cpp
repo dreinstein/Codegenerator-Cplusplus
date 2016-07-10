@@ -27,13 +27,7 @@ Attribute::~Attribute()
 
 void Attribute::generate()
 {
-    //AttributeElements *attributeElements = new AttributeElements();
- /*   FunctionElements *attributeElements = new FunctionElements();
-    attributeElements->resetData();
-    attributeElements->setElements(script[this->index]);
-*/
     generateHeader();
-
     nextElement();
 }
 
@@ -52,35 +46,6 @@ void Attribute::generateHeader(/*FunctionElements* attributElements*/)
     list<QString>::iterator iterator = foundPositionToAppendToHeaderList();
     generateHeaderList(iterator,hasElementModifier());
 
-
- /*   bool foundModifier = false;
-    QString element;
-    list<QString>::iterator iterator = generatedCodeHeader.begin();
-    for(iterator=generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator)
-    {
-        element = *iterator;
-        if(element.contains(attributElements->getModifier()))
-        {
-            foundModifier = true;
-        }
-        if(attributElements->getModifier() == CodegeneratorConstants::modifierPublic)
-        {
-            if((element.contains(CodegeneratorConstants::modifierPrivate)))
-            {
-                generateHeaderList(attributElements,iterator,foundModifier);
-                break;
-            }
-        }
-        else if ((element.contains(CodegeneratorConstants::bracketClose)))
-        {
-            generateHeaderList(attributElements,iterator,foundModifier);
-            break;
-        }
-    }
-    if(generatedCodeHeader.size() <= 0)
-    {
-        generateHeaderList(attributElements,iterator,false);
-    }*/
 }
 
 void Attribute::generateHeaderList(list<QString>::iterator iterator, bool foundModifier)
