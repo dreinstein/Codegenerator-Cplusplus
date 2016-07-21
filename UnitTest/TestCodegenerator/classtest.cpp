@@ -25,18 +25,16 @@ Classtest::Classtest()
 
 
 // test function evaluate in class Evaluator
+/*
 TEST(ClassTest, generateClassCode) {
     QString scriptPath = "..\\Files\\Scripts\\classTestScript.txt";
     std::list<QString> expectedList = TestdataGenerator::testSimpleClass();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
-    EXPECT_EQ(result, true);
-}
+    //int result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    EXPECT_TRUE(EvaluateTest::evaluate(classHeaderList, expectedList));
+}*/
 
-
-
-
+/*
 // test function evaluate in class Evaluator
 TEST(Classtest, generateAttribute) {
     ParserImpl *parser = new ParserImpl();
@@ -138,4 +136,4 @@ TEST(Classtest, generateClassAndFunctionWithOneParameter)
     EXPECT_EQ(isIncluded, true);
     delete parser;
     delete generator;
-}
+}*/

@@ -13,7 +13,9 @@ INCLUDEPATH += ../../Sources/
 INCLUDEPATH += ../../
 
 LIBS +=  ../../gtest/staticlib/lgtest.lib
-LIBS +=  ../../gmock/staticlib/lgmock.lib
+
+
+
 
 SOURCES += main.cpp \
     parsertest.cpp \

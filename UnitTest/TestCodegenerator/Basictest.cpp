@@ -34,7 +34,7 @@ BasicTest::BasicTest()
 
 
 // check funcktion "receive data" keywords in generator file
-TEST(BasicTest, ReceiveDataKeyWords) {
+/*TEST(BasicTest, ReceiveDataKeyWords) {
     std::vector<QString> value;
     value.push_back("Directory");
     BaseGenerator *generator = new GeneratorCPlusPlus("");
@@ -149,5 +149,5 @@ TEST(BasicTest, generateClassCode) {
     EXPECT_EQ(isAllIncluded, true);
     delete parser;
     delete generator;
-}
+}*/
 

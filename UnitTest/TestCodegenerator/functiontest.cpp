@@ -21,10 +21,9 @@ TEST(FunctionTest, functionNoParameterReturnInt)
     std::list<QString> expectedList;
     expectedList = TestdataGenerator::testDataFunctionNoParamterReturnInt();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
-    EXPECT_EQ(result, true);
+    EXPECT_EQ(EvaluateTest::evaluate(classHeaderList, expectedList),1);
 }
+
 
 TEST(FunctionTest, functionNoParameterReturnQStringPointer)
 {
