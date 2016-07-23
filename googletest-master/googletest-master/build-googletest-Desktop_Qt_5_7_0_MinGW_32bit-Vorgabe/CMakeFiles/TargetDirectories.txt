@@ -1,8 +1,0 @@
-C:/codegenerator/googletest-master/googletest-master/build-googletest-Desktop_Qt_5_7_0_MinGW_32bit-Vorgabe/CMakeFiles/gtest.dir
-C:/codegenerator/googletest-master/googletest-master/build-googletest-Desktop_Qt_5_7_0_MinGW_32bit-Vorgabe/CMakeFiles/install/local.dir
-C:/codegenerator/googletest-master/googletest-master/build-googletest-Desktop_Qt_5_7_0_MinGW_32bit-Vorgabe/CMakeFiles/install/strip.dir
-C:/codegenerator/googletest-master/googletest-master/build-googletest-Desktop_Qt_5_7_0_MinGW_32bit-Vorgabe/CMakeFiles/gtest_main.dir
-C:/codegenerator/googletest-master/googletest-master/build-googletest-Desktop_Qt_5_7_0_MinGW_32bit-Vorgabe/CMakeFiles/edit_cache.dir
-C:/codegenerator/googletest-master/googletest-master/build-googletest-Desktop_Qt_5_7_0_MinGW_32bit-Vorgabe/CMakeFiles/rebuild_cache.dir
-C:/codegenerator/googletest-master/googletest-master/build-googletest-Desktop_Qt_5_7_0_MinGW_32bit-Vorgabe/CMakeFiles/install.dir
-C:/codegenerator/googletest-master/googletest-master/build-googletest-Desktop_Qt_5_7_0_MinGW_32bit-Vorgabe/CMakeFiles/list_install_components.dir
