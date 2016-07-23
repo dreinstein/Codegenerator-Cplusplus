@@ -21,10 +21,9 @@ TEST(FunctionTest, functionNoParameterReturnInt)
     std::list<QString> expectedList;
     expectedList = TestdataGenerator::testDataFunctionNoParamterReturnInt();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
-    EXPECT_EQ(result, true);
+    EXPECT_EQ(EvaluateTest::evaluate(classHeaderList, expectedList),1);
 }
+
 
 TEST(FunctionTest, functionNoParameterReturnQStringPointer)
 {
@@ -211,6 +210,17 @@ TEST(FunctionTest, twoEasyfunctions)
     EXPECT_EQ(result, true);
 }
 
+TEST(FunctionTest, threeFunctionsMixedModifiers)
+{
+    QString scriptPath = "..\\Files\\Scripts\\fourFunctionsMixedModifier.txt";
+    std::list<QString> expectedList;
+    expectedList = TestdataGenerator::testDataFourFunctionsMixedModifiers();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
+    bool result = false;
+    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    EXPECT_EQ(result, true);
+}
+
 
 // Function one:  int* (const double&,TestClass*, int = 5) const
 // Function two:  double (int *, long)
@@ -256,7 +266,41 @@ TEST(FunctionTest, OneAttributes)
 }
 
 
+<<<<<<< HEAD
 */
+=======
+TEST(FunctionTest, FourAttributesMixedModifiers)
+{
+    QString scriptPath = "..\\Files\\Scripts\\FourAtributeMixedModifiers.txt";
+    std::list<QString> expectedList;
+    expectedList = TestdataGenerator::testDataFourAttributesMixedModifiers();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
+    bool result = false;
+    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    EXPECT_EQ(result, true);
+}
+
+
+// mixed with functions and attributes
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+TEST(FunctionTest, MixedFunctionAndAttributes)
+{
+    QString scriptPath = "..\\Files\\Scripts\\MixedFunctionsAndAttributes.txt";
+    std::list<QString> expectedList;
+    expectedList = TestdataGenerator::testDataFunctionsAttributesMixedModifiers();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
+    bool result = false;
+    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    EXPECT_EQ(result, true);
+}
+
+
+
+
+
+
+
+>>>>>>> 618d634f63e5dd5825ea52938773046db73a0a1c
 
 
 

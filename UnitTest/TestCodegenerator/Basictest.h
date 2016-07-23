@@ -1,10 +1,10 @@
 #ifndef GENERATORTEST
 #define GENERATORTEST
 
-class GeneratorTest
+class BasicTest
 {
 public:
-    GeneratorTest();
+    BasicTest();
 };
 
 #endif // GENERATORTEST

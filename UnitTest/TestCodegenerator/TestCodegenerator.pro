@@ -14,11 +14,12 @@ INCLUDEPATH += ../../
 INCLUDEPATH += ../../Sources
 
 LIBS +=  ../../gtest/staticlib/lgtest.lib
-LIBS +=  ../../gmock/staticlib/lgmock.lib
+
+
+
 
 SOURCES += Main.cpp \
     parsertest.cpp \
-    generatortest.cpp \
     ../../Sources/GeneratorCPusPlus.cpp \
     ../../Sources/ParserFassade.cpp \
     ../../Sources/Evaluator.cpp \
@@ -47,10 +48,14 @@ SOURCES += Main.cpp \
     evaluatetest.cpp \
     functiontest.cpp \
     testutilities.cpp \
+<<<<<<< HEAD
+=======
+    Basictest.cpp \
+    classtest.cpp
+>>>>>>> 618d634f63e5dd5825ea52938773046db73a0a1c
 
 HEADERS += \
     parsertest.h \
-    generatortest.h \
     ../../Sources/GeneratorCPlusPlus.h \
     ../../Sources/ParserFassade.h \
     mockparser.h \
@@ -86,5 +91,7 @@ HEADERS += \
     testdatagenerator.h \
     evaluatetest.h \
     functiontest.h \
-    testutilities.h
+    testutilities.h \
+    classtest.h \
+    Basictest.h
 

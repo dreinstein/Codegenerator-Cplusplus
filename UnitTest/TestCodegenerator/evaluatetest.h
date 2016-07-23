@@ -1,8 +1,10 @@
 #ifndef EVALUATETEST_H
 #define EVALUATETEST_H
 
+#include "../../gtest/gtest.h"
 #include <list>
 #include <QString>
+
 
 class EvaluateTest
 {

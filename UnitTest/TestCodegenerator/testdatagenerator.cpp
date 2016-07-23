@@ -460,6 +460,50 @@ std::list<QString>TestdataGenerator::testDataThreeComplexFunctions()
 }
 
 
+
+std::list<QString>TestdataGenerator::testDataFourFunctionsMixedModifiers()
+{
+    std::list<QString> testDatalist;
+    QString function1Name = "functionint";
+    QString function2Name = "functionReturndouble";
+    QString function3Name = "functionReturnTestClass";
+    QString function4Name = "functionReturnlong";
+    QString functionReturnTestClass = "functionReturnTestClass";
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::modifierPublic);
+    testDatalist = TestdataGenerator::testDataFunctionBegin(testDatalist);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typInt);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(function1Name);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
+    testDatalist = TestdataGenerator::testDataFunctionEnd(testDatalist);
+
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typLong);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(function4Name);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
+    testDatalist = TestdataGenerator::testDataFunctionEnd(testDatalist);
+
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back("TestClass");
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(function3Name);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
+    testDatalist = TestdataGenerator::testDataFunctionEnd(testDatalist);
+
+
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::modifierPrivate);
+    testDatalist = TestdataGenerator::testDataFunctionBegin(testDatalist);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typDouble);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(function2Name);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
+    testDatalist = TestdataGenerator::testDataFunctionEnd(testDatalist);
+
+    return testDatalist;
+}
+
+
 std::list<QString>TestdataGenerator::testOneAttribute()
 {
     QString attributeName1 = "doubleAttribute";
@@ -474,6 +518,150 @@ std::list<QString>TestdataGenerator::testOneAttribute()
     return testDatalist;
 }
 
+
+
+std::list<QString>TestdataGenerator::testDataFunctionsAttributesMixedModifiers()
+{
+    QString functionName1 = "functionint";
+    QString functionName2 = "functiondouble";
+    QString functionName3 = "functionlong";
+    QString functionName4 = "functionTestClass";
+    QString attributeName1 = "attributeint";
+    QString attributeName2 = "attributendouble";
+    QString attributeName3 = "attributelong";
+    QString attributeName4 = "attributeTestClass";
+
+    std::list<QString> testDatalist;
+
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::modifierPublic);
+
+    testDatalist = TestdataGenerator::testDataFunctionBegin(testDatalist);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typDouble);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(functionName2);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::semiColon);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back("TestClass");
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(functionName4);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::semiColon);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+
+
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typInt);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(attributeName1);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::semiColon);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typLong);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(attributeName3);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::semiColon);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+
+
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back("TestClass");
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(attributeName4);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::semiColon);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::modifierPrivate);
+
+    testDatalist = TestdataGenerator::testDataFunctionBegin(testDatalist);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typInt);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(functionName1);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::semiColon);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typLong);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(functionName3);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::semiColon);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typDouble);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(attributeName2);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::semiColon);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+
+    return testDatalist;
+}
+
+
+std::list<QString>TestdataGenerator::testDataFourAttributesMixedModifiers()
+{
+    QString attributeName1 = "attributeint";
+    QString attributeName2 = "attributendouble";
+    QString attributeName3 = "attributelong";
+    QString attributeName4 = "attributeTestClass";
+    std::list<QString> testDatalist;
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::modifierPublic);
+    testDatalist = TestdataGenerator::testDataFunctionBegin(testDatalist);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typInt);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(attributeName1);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::semiColon);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typLong);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(attributeName3);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::semiColon);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back("TestClass");
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(attributeName4);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::semiColon);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::modifierPrivate);
+    testDatalist = TestdataGenerator::testDataFunctionBegin(testDatalist);
+
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typDouble);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(attributeName2);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::semiColon);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+
+    return testDatalist;
+}
+
+
+std::list<QString>TestdataGenerator::testSimpleClass()
+{
+    std::list<QString> testDatalist;
+    testDatalist.push_back("Class");
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back("firstClass");
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::semiColon);
+    return testDatalist;
+}
 
 
 std::list<QString>TestdataGenerator::testDataFunctionBegin(std::list<QString> testDatalist)
@@ -503,6 +691,8 @@ std::list<QString>TestdataGenerator::testDataFunctionEndForConst(std::list<QStri
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
     return testDatalist;
 }
+
+
 
 
 
