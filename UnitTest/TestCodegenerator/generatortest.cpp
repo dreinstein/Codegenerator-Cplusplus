@@ -35,7 +35,7 @@ const QString parserstring = "Directory";
 GeneratorTest::GeneratorTest()
 {
 }
-
+/*
 
 // check funcktion "receive data" keywords in generator file
 TEST(GeneratorTest, ReceiveDataKeyWords) {
@@ -254,7 +254,7 @@ TEST(GeneratorTest, generateClassAndFunctionWithOneParameter)
     delete generator;
 }
 
-
+*/
 
 
 

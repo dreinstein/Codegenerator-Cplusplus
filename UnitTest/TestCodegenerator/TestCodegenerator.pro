@@ -6,16 +6,17 @@ CONFIG   += c++11
 TARGET = TestCodegenerator
 CONFIG += console
 CONFIG -= app_bundle
+CONFIG += no_batch
 
 TEMPLATE = app
 
-INCLUDEPATH += ../../Sources/
 INCLUDEPATH += ../../
+INCLUDEPATH += ../../Sources
 
 LIBS +=  ../../gtest/staticlib/lgtest.lib
 LIBS +=  ../../gmock/staticlib/lgmock.lib
 
-SOURCES += main.cpp \
+SOURCES += Main.cpp \
     parsertest.cpp \
     generatortest.cpp \
     ../../Sources/GeneratorCPusPlus.cpp \
@@ -45,7 +46,7 @@ SOURCES += main.cpp \
     testdatagenerator.cpp \
     evaluatetest.cpp \
     functiontest.cpp \
-    testutilities.cpp
+    testutilities.cpp \
 
 HEADERS += \
     parsertest.h \

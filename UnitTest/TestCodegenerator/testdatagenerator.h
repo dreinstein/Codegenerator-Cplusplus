@@ -28,7 +28,7 @@ public:
     static std::list<QString> testOneAttribute();
 
 private:
-    TestDataGenerator();
+    TestdataGenerator();
     static std::list<QString>testDataFunctionBegin(std::list<QString> testDatalist);
     static std::list<QString>testDataFunctionEnd(std::list<QString> testDatalist);
     static std::list<QString>testDataFunctionEndForConst(std::list<QString> testDatalist);

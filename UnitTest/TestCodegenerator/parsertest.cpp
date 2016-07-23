@@ -5,7 +5,7 @@
 #include <vector>
 #include <map>
 #include <QString>
-#include <unistd.h>
+//#include <unistd.h>
 #include <QtGlobal>
 
 using namespace NParser;
@@ -13,7 +13,7 @@ using namespace NParser;
 ParserTest::ParserTest()
 {
 }
-
+/*
 // check function to parser vector values
 TEST(ParserTest, GetVecValuesFromParserImplementation) {
     ParserImpl *parser = new ParserImpl();
@@ -30,3 +30,4 @@ TEST(ParserTest, GetHashValuesFromParserImplementation) {
     EXPECT_EQ(cwd, mapValues["class"]);
     delete parser;
 }
+*/

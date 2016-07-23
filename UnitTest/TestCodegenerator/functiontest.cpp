@@ -12,7 +12,7 @@ FunctionTest::FunctionTest()
 {
 
 }
-
+/*
 // Testcases Functions with no Parameter
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 TEST(FunctionTest, functionNoParameterReturnInt)
@@ -256,7 +256,7 @@ TEST(FunctionTest, OneAttributes)
 }
 
 
-
+*/
 
 
 

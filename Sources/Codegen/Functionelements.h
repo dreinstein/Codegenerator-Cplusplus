@@ -25,8 +25,8 @@ public:
     bool getIsRef()const {return isRef;}
     bool getIsPointer() const {return isPointer;}
     bool getIsConstant() const {return isConstant;}
-    getIsReturnConstant() const {return isReturnConstant;}
-    getIsMemoryConstant() const {return isMemoryConstant;}
+    bool getIsReturnConstant() const {return isReturnConstant;}
+    bool getIsMemoryConstant() const {return isMemoryConstant;}
     QString getDefaultValue() const {return defaultValue;}
     bool getIsDefaultValue() const;
     void setParameter(const QString param) {parameter = param;}

@@ -26,7 +26,7 @@ QString ExtractString::extractFirst(QString ostring)
     // earse after seperator
     if (foundSeperator  < UINT_MAX)
     {
-        ostring.remove(foundSeperator,ostring.length());
+        ostring.remove(static_cast<int>(foundSeperator),static_cast<int>(ostring.length()));
     }
     return ostring;
 }
@@ -43,7 +43,7 @@ QString ExtractString::extractLast(QString ostring)
     // earse after seperator
     if (foundSeperator  < UINT_MAX)
     {
-        ostring.remove(0,foundSeperator+2);
+        ostring.remove(0,static_cast<int>(foundSeperator+2));
     }
     return ostring;
 }
@@ -58,7 +58,7 @@ QString ExtractString::extractParameter(QString ostring)
     foundSeperator = ostring.indexOf(PARAMETERSEPERATOR);
     if (foundSeperator  < UINT_MAX)
     {
-        ostring.remove(0,foundSeperator);
+        ostring.remove(0,static_cast<int>(foundSeperator));
     }
     // remove first @
     ostring.remove(0,1);
@@ -66,7 +66,7 @@ QString ExtractString::extractParameter(QString ostring)
     // goto next @
     if (foundSeperator  < UINT_MAX)
     {
-        ostring.remove(0,foundSeperator);
+        ostring.remove(0,static_cast<int>(foundSeperator));
     }
     return ostring;
 }
@@ -90,9 +90,9 @@ QStringList ExtractString::extractStringList(QString ostring)
     while(foundSeperator < UINT_MAX)
     {
         iString = ostring;
-        iString.remove(foundSeperator,ostring.length());
+        iString.remove(static_cast<int>(foundSeperator),ostring.length());
         outStringList << iString;
-        ostring.remove(0,foundSeperator);
+        ostring.remove(0,static_cast<int>(foundSeperator));
         foundSeperator =  UINT_MAX;
         foundSeperator = ostring.indexOf(STRINGSEPERATOR,1);
     };
