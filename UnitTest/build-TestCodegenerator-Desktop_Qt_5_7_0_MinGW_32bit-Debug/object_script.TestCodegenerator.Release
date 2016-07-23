@@ -1,5 +1,5 @@
 INPUT(
-./release\main.o
+./release\Main.o
 ./release\parsertest.o
 ./release\GeneratorCPusPlus.o
 ./release\ParserFassade.o
