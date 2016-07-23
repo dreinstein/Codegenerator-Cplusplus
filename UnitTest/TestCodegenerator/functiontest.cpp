@@ -12,7 +12,7 @@ FunctionTest::FunctionTest()
 {
 
 }
-/*
+
 // Testcases Functions with no Parameter
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 TEST(FunctionTest, functionNoParameterReturnInt)
@@ -266,9 +266,6 @@ TEST(FunctionTest, OneAttributes)
 }
 
 
-<<<<<<< HEAD
-*/
-=======
 TEST(FunctionTest, FourAttributesMixedModifiers)
 {
     QString scriptPath = "..\\Files\\Scripts\\FourAtributeMixedModifiers.txt";
@@ -295,12 +292,6 @@ TEST(FunctionTest, MixedFunctionAndAttributes)
 }
 
 
-
-
-
-
-
->>>>>>> 618d634f63e5dd5825ea52938773046db73a0a1c
 
 
 

@@ -13,9 +13,9 @@ using namespace NParser;
 ParserTest::ParserTest()
 {
 }
-/*
+
 // check function to parser vector values
-/*TEST(ParserTest, GetVecValuesFromParserImplementation) {
+TEST(ParserTest, GetVecValuesFromParserImplementation) {
     ParserImpl *parser = new ParserImpl();
     std::vector<QString> value = parser->doParseForVec("..\\Files\\Keywords\\myFirstKeywords.txt");
     EXPECT_EQ("class", value[0]);
@@ -29,9 +29,6 @@ TEST(ParserTest, GetHashValuesFromParserImplementation) {
     QString cwd = "..\\Files\\Rules\\class.txt";
     EXPECT_EQ(cwd, mapValues["class"]);
     delete parser;
-<<<<<<< HEAD
+
 }
-*/
-=======
-}*/
->>>>>>> 618d634f63e5dd5825ea52938773046db73a0a1c
+

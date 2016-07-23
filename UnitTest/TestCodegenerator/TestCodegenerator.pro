@@ -14,9 +14,7 @@ INCLUDEPATH += ../../
 INCLUDEPATH += ../../Sources
 
 LIBS +=  ../../gtest/staticlib/lgtest.lib
-
-
-
+LIBS +=  ../../gmock/staticlib/libgmock.lib
 
 SOURCES += Main.cpp \
     parsertest.cpp \
@@ -48,11 +46,8 @@ SOURCES += Main.cpp \
     evaluatetest.cpp \
     functiontest.cpp \
     testutilities.cpp \
-<<<<<<< HEAD
-=======
     Basictest.cpp \
     classtest.cpp
->>>>>>> 618d634f63e5dd5825ea52938773046db73a0a1c
 
 HEADERS += \
     parsertest.h \
