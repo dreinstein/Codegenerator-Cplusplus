@@ -1,5 +1,5 @@
 #include <QCoreApplication>
-#include "../../gtest/gtest.h"
+//#include "../../gtest/gtest.h"
 #include "../../gmock/gmock.h"
 
 #include "Basictest.h"

@@ -13,7 +13,7 @@ TEMPLATE = app
 INCLUDEPATH += ../../
 INCLUDEPATH += ../../Sources
 
-LIBS +=  ../../gtest/staticlib/lgtest.lib
+
 LIBS +=  ../../gmock/staticlib/libgmock.lib
 
 SOURCES += Main.cpp \

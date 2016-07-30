@@ -26,7 +26,7 @@ Classtest::Classtest()
 
 // test function evaluate in class Evaluator
 
-TEST(ClassTest, generateClassCode) {
+/*TEST(ClassTest, generateClassCode) {
     QString scriptPath = "..\\Files\\Scripts\\classTestScript.txt";
     std::list<QString> expectedList = TestdataGenerator::testSimpleClass();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
@@ -137,3 +137,4 @@ TEST(Classtest, generateClassAndFunctionWithOneParameter)
     delete parser;
     delete generator;
 }
+*/
