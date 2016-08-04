@@ -39,6 +39,9 @@ private:
     bool keywordsReceived = false;
     bool rulesReceived = false;
     bool scriptReceived = false;
+    std::unique_ptr<ParserFassade> pParserFassade;
+    std::unique_ptr<CodegeneratorFassade> pCodegeneratorFassade;
+    std::unique_ptr<BaseEvaluator> pEvaluator;
 };
 
 }

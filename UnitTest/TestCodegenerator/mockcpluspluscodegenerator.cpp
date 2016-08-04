@@ -13,21 +13,14 @@
 
 MockCPlusPlusCodegenerator::MockCPlusPlusCodegenerator()
 {
-    pCodegeneratorFassade = new CodegeneratorFassade(this,Languages::Parserlanguage::CPLUSPLUS);
-    pParserFassade = new ParserFassade(this,Languages::Parserlanguage::CPLUSPLUS);
+    pCodegeneratorFassade =  std::unique_ptr<CodegeneratorFassade>(new CodegeneratorFassade(this,General::Languages::Parserlanguage::CPLUSPLUS));
+    pParserFassade =  std::unique_ptr<ParserFassade>(new ParserFassade(this,General::Languages::Parserlanguage::CPLUSPLUS));
 }
 
 
 MockCPlusPlusCodegenerator::~MockCPlusPlusCodegenerator()
 {
-    if(pParserFassade)
-    {
-        delete pParserFassade;
-    }
-    if(pCodegeneratorFassade)
-    {
-        delete pCodegeneratorFassade;
-    }
+
 }
 
 void MockCPlusPlusCodegenerator::generate()

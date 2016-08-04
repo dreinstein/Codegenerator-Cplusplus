@@ -2,6 +2,7 @@
 #include "../Errorhandling/FunctionScriptException.h"
 #include "Functionelements.h"
 #include "Codegeneratorconstants.h"
+#include <memory>
 
 
 
@@ -16,14 +17,15 @@ namespace Codegenerator
 FuctionCodeGenerator::FuctionCodeGenerator(const BaseCodegenerator *r)
 {
     BaseCodegenerator::clone(r);
-    functionElements = new Codegenerator::FunctionElements();
+    functionElements = std::shared_ptr<Codegenerator::FunctionElements>(new Codegenerator::FunctionElements());
+   // functionElements = new Codegenerator::FunctionElements();
 
 }
 
 
 FuctionCodeGenerator::~FuctionCodeGenerator()
 {
-    delete functionElements;
+   // delete functionElements;
 
 }
 
@@ -31,7 +33,7 @@ void FuctionCodeGenerator::generate()
 {
     Q_ASSERT(functionElements);
     functionElements->resetData();
-    functionElements->setElements(functionElements,script[this->index]);
+    functionElements->setElements(functionElements.get(),script[this->index]);
     generateHeader();
     generateSource();
     nextElement();
@@ -148,7 +150,7 @@ void FuctionCodeGenerator::setHeaderFunctionElements(bool modifier)
         generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
     }
     generatedCodeHeader.push_back(CodegeneratorConstants::tab);
-    setHeaderTypForFunctionElements(functionElements);
+    setHeaderTypForFunctionElements(functionElements.get());
     generatedCodeHeader.push_back(CodegeneratorConstants::tab);
     generatedCodeHeader.push_back(functionElements->getFunction());
     generatedCodeHeader.push_back(CodegeneratorConstants::parameterBracketOpen);

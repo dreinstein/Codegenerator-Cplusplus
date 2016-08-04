@@ -15,8 +15,12 @@
 #include <Vector>
 #include <QString>
 #include <cstddef>
+#include <memory>
 #include "Base/BaseGenerator.h"
 #include "Parsing/Parser.h"
+#include "Parsing/KeywordsCPlusPlus.h"
+#include "Parsing/Rulescplusplus.h"
+#include "Parsing/Script.h"
 
 #include "Utilities.h"
 
@@ -26,6 +30,8 @@ using namespace NGenerator;
 using namespace NParser;
 
 
+
+
 //namespace NParser
 //{
 class ParserFassade
@@ -33,7 +39,7 @@ class ParserFassade
 public:	
 
     ParserFassade(BaseGenerator* generator,Languages::Parserlanguage lang);
-    ~ParserFassade();
+    ~ParserFassade(){;}
 
     void ParseKeyword(QString str);
     void ParseRules(QString str);
@@ -43,9 +49,9 @@ public:
     void giveRulesData();
 
 private:
-    Parser *keyParser;
-    Parser *scriptParser;
-    Parser *rulesParser;
+    std::unique_ptr<KeywordsCPlusPlus> keyParser;
+    std::unique_ptr<Script> scriptParser;
+    std::unique_ptr<RulesCPlusPlus> rulesParser;
     void buildForCPlusPlus(BaseGenerator* generator);
     ParserFassade(const ParserFassade& f);
     ParserFassade& operator = (const ParserFassade& src);

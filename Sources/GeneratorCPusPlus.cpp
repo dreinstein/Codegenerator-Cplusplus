@@ -26,39 +26,45 @@ GeneratorCPlusPlus::GeneratorCPlusPlus(QString str)
 {
 
   //  pathScript = strString;
-    pCodegeneratorFassade = new CodegeneratorFassade(this,General::Languages::Parserlanguage::CPLUSPLUS);
-    pParserFassade = new ParserFassade(this,General::Languages::Parserlanguage::CPLUSPLUS);
+  //  pCodegeneratorFassade = new CodegeneratorFassade(this,General::Languages::Parserlanguage::CPLUSPLUS);
+    //pCodegeneratorFassade =  std::unique_ptr<CodegeneratorFassade>(new CodegeneratorFassade(this,General::Languages::Parserlanguage::CPLUSPLUS);
+    //pParserFassade = new ParserFassade(this,General::Languages::Parserlanguage::CPLUSPLUS);
+
 
   //  Evaluator eval;
-    pEvaluator = new ScriptEvaluator();
+
     pathScript = str;
 }
 
 
 GeneratorCPlusPlus::~GeneratorCPlusPlus()
 {
-    if(pEvaluator)
+   /* if(pEvaluator)
     {
          delete pEvaluator;
     }
     if(pParserFassade)
     {
-        delete pParserFassade;
+   //     delete pParserFassade;
     }
     if(pCodegeneratorFassade)
     {
-        delete pCodegeneratorFassade;
-    }
+    //    delete pCodegeneratorFassade;
+    }*/
 }
 
 void GeneratorCPlusPlus::generate()
 {
-    Q_ASSERT(pParserFassade);
     keywordsReceived = false;
     rulesReceived = false;
     scriptReceived = false;
     QString pathKeywords = General::FilePath::KeywordsCPlusPlus;
     QString pathRules = General::FilePath::RulesCPlusPlus;
+
+    pCodegeneratorFassade =  std::unique_ptr<CodegeneratorFassade>(new CodegeneratorFassade(this,General::Languages::Parserlanguage::CPLUSPLUS));
+    pParserFassade =  std::unique_ptr<ParserFassade>(new ParserFassade(this,General::Languages::Parserlanguage::CPLUSPLUS));
+    pEvaluator = std::unique_ptr<ScriptEvaluator> (new ScriptEvaluator());
+
     pParserFassade->ParseKeyword(pathKeywords);
     pParserFassade->ParseRules(pathRules);
     pParserFassade->ParseScript(pathScript);

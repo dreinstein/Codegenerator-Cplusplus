@@ -22,7 +22,7 @@ Attribute::Attribute()
 
 Attribute::~Attribute()
 {
-    delete functionElements;
+  //  delete functionElements;
 }
 
 void Attribute::generate()
@@ -40,7 +40,8 @@ void Attribute::generateHeader(/*FunctionElements* attributElements*/)
 {
   //  Q_ASSERT(functionElements);
     //AttributeElements *attributeElements = new AttributeElements();
-    functionElements = new FunctionElements();
+    functionElements = std::shared_ptr<FunctionElements>(new FunctionElements());
+ //   functionElements = new FunctionElements();
     functionElements->resetData();
     functionElements->setElements(script[this->index]);
     list<QString>::iterator iterator = foundPositionToAppendToHeaderList();

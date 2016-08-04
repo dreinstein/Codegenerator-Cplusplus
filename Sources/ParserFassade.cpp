@@ -10,9 +10,8 @@
 
 
 #include "Utilities.h"
-#include "Parsing/KeywordsCPlusPlus.h"
-#include "Parsing/Rulescplusplus.h"
-#include "Parsing/Script.h"
+
+
 #include "GeneratorCPlusPlus.h"
 #include "Parsing/Parser.h"
 #include "ParserFassade.h"
@@ -35,13 +34,6 @@ ParserFassade::ParserFassade(BaseGenerator* generator,General::Languages::Parser
     }
 }
 
-
-ParserFassade::~ParserFassade()
-{
-    delete keyParser;
-    delete rulesParser;
-    delete scriptParser;
-}
 
 
 void ParserFassade::ParseKeyword(QString strKeywords)
@@ -85,11 +77,11 @@ void ParserFassade::giveScriptData()
 
 void ParserFassade::buildForCPlusPlus(BaseGenerator* generator)
 {
-     keyParser = new KeywordsCPlusPlus();
+     keyParser =  std::unique_ptr<KeywordsCPlusPlus>(new KeywordsCPlusPlus());
+     rulesParser =  std::unique_ptr<RulesCPlusPlus>(new RulesCPlusPlus());
+     scriptParser =  std::unique_ptr<Script>(new Script());
      keyParser->registerObservers(generator);
-     rulesParser = new RulesCPlusPlus();
      rulesParser->registerObservers(generator);
-     scriptParser = new Script();
      scriptParser->registerObservers(generator);
 }
 

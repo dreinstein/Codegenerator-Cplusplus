@@ -25,9 +25,14 @@ public:
 protected:
     void allDatasReceived()const;
 private:
+    std::unique_ptr<ParserFassade> pParserFassade;
+    std::unique_ptr<CodegeneratorFassade> pCodegeneratorFassade;
+    std::unique_ptr<BaseEvaluator> pEvaluator;
+
     bool keywordsReceived = false;
     bool rulesReceived = false;
     bool scriptReceived = false;
+
 };
 
 #endif // MOCKCPLUSPLUSCODEGENERATOR_H

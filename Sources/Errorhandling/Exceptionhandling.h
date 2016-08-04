@@ -24,7 +24,7 @@ protected:
 
 public:
    // Excetionhandling();
-    virtual ~Exceptionhandling(){;};
+    virtual ~Exceptionhandling(){;}
     virtual int whatCode() const throw ()=0;
     virtual std::string whatDescription() const throw () = 0;
 };
