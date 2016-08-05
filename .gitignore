@@ -12,3 +12,10 @@ UnitTest/build-TestCodegenerator-Desktop_Qt_5_7_0_MinGW_32bit-Release/
 
 
 
+UnitTest/TestCodegenerator/TestCodegenerator.pro.user
+*.Debug
+*.Release
+UnitTest/build-TestCodegenerator-Desktop_Qt_5_7_0_MinGW_32bit-Debug/Makefile
+*.o
+UnitTest/build-TestCodegenerator-Desktop_Qt_5_7_0_MinGW_32bit-Debug/debug/TestCodegenerator.exe
+*.stash
