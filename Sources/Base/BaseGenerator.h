@@ -39,15 +39,7 @@ protected:
     std::vector<QString> keywords;
     std::map<QString,QString> rules;
     std::vector<QString> script;
-/*    //ParserFassade *pParserFassade=nullptr;
-    std::unique_ptr<ParserFassade> pParserFassade;
-    std::unique_ptr<CodegeneratorFassade> pCodegeneratorFassade;
-  //  CodegeneratorFassade *pCodegeneratorFassade = nullptr;
-   // BaseEvaluator *pEvaluator=nullptr;
-    std::unique_ptr<BaseEvaluator> pEvaluator;*/
     QString pathScript;
- //   virtual void receiveData() const;
-
 };
 }
 

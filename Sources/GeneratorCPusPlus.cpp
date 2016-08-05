@@ -25,13 +25,6 @@ namespace NGenerator
 GeneratorCPlusPlus::GeneratorCPlusPlus(QString str)
 {
 
-  //  pathScript = strString;
-  //  pCodegeneratorFassade = new CodegeneratorFassade(this,General::Languages::Parserlanguage::CPLUSPLUS);
-    //pCodegeneratorFassade =  std::unique_ptr<CodegeneratorFassade>(new CodegeneratorFassade(this,General::Languages::Parserlanguage::CPLUSPLUS);
-    //pParserFassade = new ParserFassade(this,General::Languages::Parserlanguage::CPLUSPLUS);
-
-
-  //  Evaluator eval;
 
     pathScript = str;
 }
@@ -39,18 +32,7 @@ GeneratorCPlusPlus::GeneratorCPlusPlus(QString str)
 
 GeneratorCPlusPlus::~GeneratorCPlusPlus()
 {
-   /* if(pEvaluator)
-    {
-         delete pEvaluator;
-    }
-    if(pParserFassade)
-    {
-   //     delete pParserFassade;
-    }
-    if(pCodegeneratorFassade)
-    {
-    //    delete pCodegeneratorFassade;
-    }*/
+
 }
 
 void GeneratorCPlusPlus::generate()

@@ -7,6 +7,7 @@
 #include "Utilities.h"
 #include "Base\BaseGenerator.h"
 #include "Codegen/Basecodegenerator.h"
+#include "memory"
 
 
 using namespace General;
@@ -21,7 +22,7 @@ public:
     void generate(const std::vector<QString> strVecScript, const std::map<QString,QString> strMapRules,const std::vector<QString> strVecKeys);
 private:
     void buildForCPlusPlus(BaseGenerator* generator);
-    BaseCodegenerator* pCodeGenerator = nullptr;
+    std::unique_ptr<BaseCodegenerator> pCodeGenerator;
 };
 
 #endif // CODEGENERATORFASSADE_H

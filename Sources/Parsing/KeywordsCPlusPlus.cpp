@@ -22,6 +22,7 @@ namespace NParser
 
 using namespace std;
 using namespace NGenerator;
+#include "memory"
 
 
 void  KeywordsCPlusPlus::registerObservers(NGenerator::BaseGenerator *observer)
@@ -33,12 +34,11 @@ void  KeywordsCPlusPlus::registerObservers(NGenerator::BaseGenerator *observer)
 
 void KeywordsCPlusPlus::Parse(const QString str)
 {
-    BaseParserImpl* parser = new ParserImpl();
+    std::unique_ptr<BaseParserImpl> parser (new ParserImpl());
     vecValues = parser->doParseForVec(str);
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notifyDatasGenerated(id);
     }
-    delete parser;
 }
 
 

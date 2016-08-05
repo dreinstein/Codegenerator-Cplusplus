@@ -18,6 +18,7 @@
 
 using namespace NGenerator;
 
+
 //class BaseGenerator;
 namespace NParser
 {

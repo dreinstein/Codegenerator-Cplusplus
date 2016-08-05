@@ -23,22 +23,21 @@ class BaseCodegenerator
 {
 public:
     BaseCodegenerator();
-    virtual ~BaseCodegenerator(){;}
+    virtual ~BaseCodegenerator();
     virtual void generate(const std::vector<QString> strVecScript, const std::map<QString,QString> strMapRules,const std::vector<QString> strVecKeys) = 0;
     virtual void generate() =0;
     virtual void registerObservers(BaseGenerator*) {;}
     virtual std::list<QString> getHeaderListData() const final {return generatedCodeHeader;}
     virtual std::list<QString> getSourceListData() const final {return generatedCodeSource;}
-  //  virtual FunctionElements getFunctionElements() const final {return *functionElements;}
 protected:
     std::vector<QString> script;
     std::vector<QString> keys;
     std::map<QString,QString> rules;
     std::vector<BaseGenerator*> codegeratorObservers;
     std::shared_ptr<FunctionElements> functionElements;
-    //FunctionElements *functionElements = nullptr;
     std::list<QString> generatedCodeHeader;
     std::list<QString> generatedCodeSource;
+    BaseCodegenerator* generator=nullptr;
     QString classname;
     void openFiles();
     void generateDefault();

@@ -27,7 +27,7 @@ CodegeneratorFassade::CodegeneratorFassade(BaseGenerator* generator,Languages::P
 
 CodegeneratorFassade::~CodegeneratorFassade()
 {
-    delete pCodeGenerator;
+
 }
 
 
@@ -40,6 +40,6 @@ void CodegeneratorFassade:: generate(const std::vector<QString> strVecScript, co
 
 void CodegeneratorFassade::buildForCPlusPlus(BaseGenerator* generator)
 {
-   pCodeGenerator = new CPlusPlusCodegenerator();
+   pCodeGenerator = std::unique_ptr<CPlusPlusCodegenerator>(new CPlusPlusCodegenerator());
    pCodeGenerator->registerObservers(generator);
 }

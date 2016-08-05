@@ -3,6 +3,7 @@
 #include "Basecodegenerator.h"
 #include "classgenerator.h"
 #include "Attributegenerator.h"
+#include <memory>
 #include "Fuctioncodegenerator.h"
 #include "QTextStream"
 #include "Utilities.h"
@@ -19,7 +20,17 @@ BaseCodegenerator::BaseCodegenerator()
     sourcefilename = General::FilePath::SourceFileName;
     heaterfilename = General::FilePath::HeaderFileName;
     classname = " ";
+    generator = nullptr;
 }
+
+BaseCodegenerator::~BaseCodegenerator()
+{
+    if(generator)
+    {
+        delete generator;
+    }
+}
+
 
 void BaseCodegenerator::clone(const BaseCodegenerator *toClone)
 {
@@ -157,24 +168,26 @@ void BaseCodegenerator::openFiles()
  */
 BaseCodegenerator* BaseCodegenerator::getNextElement(QString sindex)
 {
-    BaseCodegenerator *generator = nullptr;
+    if(generator)
+    {
+        delete generator;
+        generator = nullptr;
+    }
+
     sindex = sindex.toLower();
     if("class" == sindex)
     {
-        generator = new ClassGenerator(this);
-        return generator;
+        generator = new ClassGenerator();
     }
     if("attribute" == sindex)
     {
         generator = new Attribute(this);
-        return generator;
     }
     if("function" == sindex)
     {
         generator = new FuctionCodeGenerator(this);
-        return generator;
     }
-    else return nullptr;
+    return generator;
 }
 
 
