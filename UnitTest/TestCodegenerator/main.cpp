@@ -1,11 +1,6 @@
 #include <QCoreApplication>
-//#include "../../gtest/gtest.h"
 #include "../../gmock/gmock.h"
 
-#include "Basictest.h"
-#include "functiontest.h"
-#include "parsertest.h"
-#include "classtest.h"
 
 #include "systemtest.h"
 

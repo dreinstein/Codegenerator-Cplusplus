@@ -1,4 +1,3 @@
-#include "functiontest.h"
 #include <list>
 #include <QString>
 #include <vector>
@@ -8,78 +7,69 @@
 #include "evaluatetest.h"
 #include "testutilities.h"
 
-FunctionTest::FunctionTest()
+class FunctionTest
 {
+protected:
+    FunctionTest();
+};
 
-}
 
 // Testcases Functions with no Parameter
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 TEST(FunctionTest, functionNoParameterReturnInt)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionWithNoParameterReturnInt.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataFunctionNoParamterReturnInt();
+    std::list<QString> expectedList = TestdataGenerator::testDataFunctionNoParamterReturnInt();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
     EXPECT_EQ(EvaluateTest::evaluate(classHeaderList, expectedList),1);
 }
 
 
-TEST(FunctionTest, functionNoParameterReturnQStringPointer)
+TEST (FunctionTest, functionNoParameterReturnQStringPointer)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionWithNoParameterReturnQStringPointer.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataFunctionNoParamterReturnQStringPointer();
+    std::list<QString> expectedList = TestdataGenerator::testDataFunctionNoParamterReturnQStringPointer();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
-TEST(FunctionTest, functionNoParameterTestclassReference)
+TEST (FunctionTest, functionNoParameterTestclassReference)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionWithNoParameterReturnTestClassReference.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataFunctionNoParamterTestClassReference();
+    std::list<QString> expectedList = TestdataGenerator::testDataFunctionNoParamterTestClassReference();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
 TEST(FunctionTest, functionNoParameterConstReturnvectorintConst)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionConstWithNoParameterReturnvectorint.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataFunctionConstNoParamterVectorInt();
+    std::list<QString> expectedList = TestdataGenerator::testDataFunctionConstNoParamterVectorInt();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
 TEST(FunctionTest, functionOneParameterReturninParameterDouble)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionWithOneParameterReturnintParameterDouble.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataFunctionOneParmeterReturnIntParameterDouble();
+    std::list<QString> expectedList = TestdataGenerator::testDataFunctionOneParmeterReturnIntParameterDouble();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
 
 // functions with one Parameter
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-TEST(FunctionTest, functionOneParameterReturnTestClassParameterTestClassReference)
+TEST (FunctionTest, functionOneParameterReturnTestClassParameterTestClassReference)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionWithOneParameterReturnTestClassParameterTestClassReference.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataFunctionOneParmeterReturnTestClassParameterTestClassReference();
+    std::list<QString> expectedList = TestdataGenerator::testDataFunctionOneParmeterReturnTestClassParameterTestClassReference();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
@@ -88,22 +78,18 @@ TEST(FunctionTest, functionOneParameterReturnTestClassParameterTestClassReferenc
 TEST(FunctionTest, functionConstOneParameterReturnVectorIntParameterReferenceVectorInt)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionConstWithoneParameterReturnVectorIntParameterReferenceVectorInt.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataConstFunctionOneParmeterReturnVectorIntParameterVectorInt();
+    std::list<QString> expectedList = TestdataGenerator::testDataConstFunctionOneParmeterReturnVectorIntParameterVectorInt();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
 TEST(FunctionTest, functionOneParameterReturnIntParameterIntDefaultValue31)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionOneParameterReturnIntParameterIntDefaultValue31.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDatafunctionOneParameterReturnIntParameterIntDefaultValue31();
+    std::list<QString> expectedList = TestdataGenerator::testDatafunctionOneParameterReturnIntParameterIntDefaultValue31();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
@@ -111,33 +97,27 @@ TEST(FunctionTest, functionOneParameterReturnIntParameterIntDefaultValue31)
 TEST(FunctionTest, functionConstOneParameterReturnintReferenceParameterConstVoidPointer)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionConstWithoneParameterReturnintReferneceParameterConstVoidPointer.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataConstFunctionOneParmeterReturnIntRefernceParameterConstVoidPointer();
+    std::list<QString> expectedList = TestdataGenerator::testDataConstFunctionOneParmeterReturnIntRefernceParameterConstVoidPointer();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
 TEST(FunctionTest, functionOneParameterReturnDoubleParameterTestClassConstPointer)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionWithoneParameterReturnDoubleParameterTestClassConstPointer.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataFunctionOneParmeterReturnDoubleParameterTestClassConstPointer();
+    std::list<QString> expectedList = TestdataGenerator::testDataFunctionOneParmeterReturnDoubleParameterTestClassConstPointer();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
 TEST(FunctionTest, functionConstOneParameterReturnConstPointerDoubleParameterConstPointerConstInt)
 {
     QString scriptPath = "..\\Files\\Scripts\\testDataFunctionConstOneParmeterReturnConstPointerDoubleParameterConstPointerConstInt.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataFunctionConstOneParmeterReturnConstPointerDoubleParameterConstPointerConstInt();
+    std::list<QString> expectedList = TestdataGenerator::testDataFunctionConstOneParmeterReturnConstPointerDoubleParameterConstPointerConstInt();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
@@ -149,11 +129,9 @@ TEST(FunctionTest, functionConstOneParameterReturnConstPointerDoubleParameterCon
 TEST(FunctionTest, functionTwoParameterReturnTestParameterPointerParameter1IntParameter2ConstTestParameterReference)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionWithTwoParameterReturnTestParameterPointerParameter1IntParameter2TestParameterConstReference.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataFunctionTwoParmeterReturnTestParameterParameterOneIntParameterTwoConstTestParameterReference();
+    std::list<QString> expectedList = TestdataGenerator::testDataFunctionTwoParmeterReturnTestParameterParameterOneIntParameterTwoConstTestParameterReference();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
@@ -161,11 +139,9 @@ TEST(FunctionTest, functionTwoParameterReturnTestParameterPointerParameter1IntPa
 TEST(FunctionTest, functionConstTwoParameterReturnLongReferenceParameter1ConstReferenceDoubleParameter2ConstReferenceConstTestClass)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionConstTwoParameterReturnLongReferenceParameter1ConstReferenceDoubleParameter2ConstReferenceConstTestClass.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataFunctionConstTwoParameterReturnLongReferenceParameter1ConstReferenceDoubleParameter2ConstReferenceConstTestClass();
+    std::list<QString> expectedList = TestdataGenerator::testDataFunctionConstTwoParameterReturnLongReferenceParameter1ConstReferenceDoubleParameter2ConstReferenceConstTestClass();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
@@ -176,22 +152,18 @@ TEST(FunctionTest, functionConstTwoParameterReturnLongReferenceParameter1ConstRe
 TEST(FunctionTest, functionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3TestClass)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3TestClass.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDatafunctionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3TestClass();
+    std::list<QString> expectedList = TestdataGenerator::testDatafunctionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3TestClass();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
 TEST(FunctionTest, functionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3LongDefaultValue12_2)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3LongDefault12_2.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDatafunctionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3LongDefault12_2();
+    std::list<QString> expectedList = TestdataGenerator::testDatafunctionThreeParameterReturnDoubleParameter1DoubleParameter2intParameter3LongDefault12_2();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
@@ -202,22 +174,18 @@ TEST(FunctionTest, functionThreeParameterReturnDoubleParameter1DoubleParameter2i
 TEST(FunctionTest, twoEasyfunctions)
 {
     QString scriptPath = "..\\Files\\Scripts\\twoEasyFunctions.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataTwoEasyFunctions();
+    std::list<QString> expectedList = TestdataGenerator::testDataTwoEasyFunctions();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
 TEST(FunctionTest, threeFunctionsMixedModifiers)
 {
     QString scriptPath = "..\\Files\\Scripts\\fourFunctionsMixedModifier.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataFourFunctionsMixedModifiers();
+    std::list<QString> expectedList = TestdataGenerator::testDataFourFunctionsMixedModifiers();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
@@ -228,11 +196,9 @@ TEST(FunctionTest, threeFunctionsMixedModifiers)
 TEST(FunctionTest, threeComplexFunctions)
 {
     QString scriptPath = "..\\Files\\Scripts\\threeComplexFunctions.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataThreeComplexFunctions();
+    std::list<QString> expectedList = TestdataGenerator::testDataThreeComplexFunctions();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
@@ -243,11 +209,9 @@ TEST(FunctionTest, threeComplexFunctions)
 TEST(FunctionTest, threeComplexFunctionsMixedModifier)
 {
     QString scriptPath = "..\\Files\\Scripts\\threeComplexFunctionsMixedModifier.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataThreeComplexFunctions();
+    std::list<QString> expectedList = TestdataGenerator::testDataThreeComplexFunctions();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
@@ -257,11 +221,9 @@ TEST(FunctionTest, threeComplexFunctionsMixedModifier)
 TEST(FunctionTest, OneAttributes)
 {
     QString scriptPath = "..\\Files\\Scripts\\OneAttribute.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testOneAttribute();
+    std::list<QString> expectedList = TestdataGenerator::testOneAttribute();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
@@ -269,11 +231,9 @@ TEST(FunctionTest, OneAttributes)
 TEST(FunctionTest, FourAttributesMixedModifiers)
 {
     QString scriptPath = "..\\Files\\Scripts\\FourAtributeMixedModifiers.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataFourAttributesMixedModifiers();
+    std::list<QString> expectedList = TestdataGenerator::testDataFourAttributesMixedModifiers();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 
@@ -283,11 +243,9 @@ TEST(FunctionTest, FourAttributesMixedModifiers)
 TEST(FunctionTest, MixedFunctionAndAttributes)
 {
     QString scriptPath = "..\\Files\\Scripts\\MixedFunctionsAndAttributes.txt";
-    std::list<QString> expectedList;
-    expectedList = TestdataGenerator::testDataFunctionsAttributesMixedModifiers();
+    std::list<QString> expectedList = TestdataGenerator::testDataFunctionsAttributesMixedModifiers();
     std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
-    bool result = false;
-    result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    bool  result = EvaluateTest::evaluate(classHeaderList, expectedList);
     EXPECT_EQ(result, true);
 }
 

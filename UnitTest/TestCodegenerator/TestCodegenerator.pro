@@ -50,7 +50,6 @@ SOURCES += Main.cpp \
     classtest.cpp
 
 HEADERS += \
-    parsertest.h \
     ../../Sources/GeneratorCPlusPlus.h \
     ../../Sources/ParserFassade.h \
     mockparser.h \
@@ -85,7 +84,6 @@ HEADERS += \
     ../../Sources/Codegen/codegeneratorconstants.h \
     testdatagenerator.h \
     evaluatetest.h \
-    functiontest.h \
     testutilities.h \
     classtest.h \
     Basictest.h
