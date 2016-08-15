@@ -3,11 +3,13 @@
 
 #include <QString>
 #include <list>
+#include "Codegen/CPluspluscodegenerator.h"
 
 class TestUtilities
 {
 public:
     static std::list<QString> FunctionTest(QString codescript);
+    static void generate(Codegenerator::CPlusPlusCodegenerator* generator,QString codescript);
 private:
     TestUtilities();
     ~TestUtilities();

@@ -47,31 +47,30 @@ void CPlusPlusCodegenerator::generate(const std::vector<QString> strVecScript,co
     for(unsigned int i=0; i < codegeratorObservers.size(); i++){
         codegeratorObservers[i]->notifyCodeGenerated();
     }
-    // TODO create files should be done in class Basegenerator
-    //createFiles();
+    createFiles();
 }
 
 
 void CPlusPlusCodegenerator::createFiles()
 {
     QFile hfile(heaterfilename);
-    QFile sfile(sourcefilename);
+   // QFile sfile(sourcefilename);
 
     hfile.open(QIODevice::WriteOnly | QIODevice::Text);
-    sfile.open(QIODevice::WriteOnly | QIODevice::Text);
+   // sfile.open(QIODevice::WriteOnly | QIODevice::Text);
 
     QTextStream heaterFileStream (&hfile);
-    QTextStream sourceFileStream (&sfile);
+   // QTextStream sourceFileStream (&sfile);
     for (auto elementHeader: generatedCodeHeader)
     {
         heaterFileStream << elementHeader;
     }
-    for (auto elementSource: generatedCodeHeader)
+/*    for (auto elementSource: generatedCodeHeader)
     {
         sourceFileStream << elementSource;
-    }
+    }*/
     hfile.close();
-    sfile.close();
+  //  sfile.close();
 }
 
 

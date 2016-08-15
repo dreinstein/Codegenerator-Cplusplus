@@ -85,6 +85,5 @@ HEADERS += \
     testdatagenerator.h \
     evaluatetest.h \
     testutilities.h \
-    classtest.h \
     Basictest.h
 
