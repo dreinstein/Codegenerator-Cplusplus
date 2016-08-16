@@ -46,8 +46,9 @@ SOURCES += Main.cpp \
     evaluatetest.cpp \
     functiontest.cpp \
     testutilities.cpp \
-    Basictest.cpp \
-    classtest.cpp
+    classtest.cpp \
+    ReceiveDataTest.cpp \
+    extractstringstest.cpp
 
 HEADERS += \
     ../../Sources/GeneratorCPlusPlus.h \
@@ -84,6 +85,5 @@ HEADERS += \
     ../../Sources/Codegen/codegeneratorconstants.h \
     testdatagenerator.h \
     evaluatetest.h \
-    testutilities.h \
-    Basictest.h
+    testutilities.h
 
