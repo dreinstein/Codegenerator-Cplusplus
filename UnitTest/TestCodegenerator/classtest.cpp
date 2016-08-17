@@ -16,24 +16,42 @@ using namespace NParser;
 using ::testing::Return;
 
 
-class Classtest
+class Classtest: public ::testing::Test
 {
 protected:
-    Classtest();
+    QString name;
+    QString scriptPath;
+    QFile fout;
+    virtual void SetUp()
+    {
+        name = General::FilePath::HeaderFileName;
+        QFile::remove(name);
+        scriptPath = "..\\Files\\Scripts\\functionWithNoParameterReturnInt.txt";
+        TestUtilities::FunctionTest(scriptPath);
+        fout.setFileName(name);
+    }
+
 };
 
 
 
 
-TEST(Classtest, headerFileExist)
+TEST_F(Classtest, headerFileExist)
 {
-    QString name = General::FilePath::HeaderFileName;
-    QFile::remove(name);
-    QString scriptPath = "..\\Files\\Scripts\\functionWithNoParameterReturnInt.txt";
-    TestUtilities::FunctionTest(scriptPath);
-    QFile Fout(name);
-    EXPECT_EQ(Fout.exists(), true);
+    ASSERT_EQ(fout.exists(), true);
 }
+
+TEST_F(Classtest, headerProofClassString)
+{
+    ASSERT_EQ(fout.open(QIODevice::ReadOnly | QIODevice::Text),true);
+    QByteArray line;
+    line = fout.readLine();
+    ASSERT_EQ(line,"Class");
+}
+
+
+
+
 
 
 
