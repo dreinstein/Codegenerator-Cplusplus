@@ -45,7 +45,7 @@ TEST_F(Classtest, headerProofClassString)
     ASSERT_EQ(fout.open(QIODevice::ReadOnly | QIODevice::Text),true);
     QByteArray line;
     line = fout.readLine();
-    ASSERT_THAT(line,testing::Eq("Class"));
+    ASSERT_THAT(line,testing::Eq("class   myTestClass\n"));
     
 }
 
