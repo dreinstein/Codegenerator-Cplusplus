@@ -37,7 +37,6 @@ protected:
     std::shared_ptr<FunctionElements> functionElements;
     std::list<QString> generatedCodeHeader;
     std::list<QString> generatedCodeSource;
-    BaseCodegenerator* generator=nullptr;
     QString classname;
     void openFiles();
     void generateDefault();
@@ -49,11 +48,8 @@ protected:
     QString heaterfilename;
     bool hasElementModifier();
     std::list<QString>::iterator foundPositionToAppendToHeaderList();
-
-
 private:
-    BaseCodegenerator *getNextElement(QString index);
-
+    void getNextElement(BaseCodegenerator* &nextGenerator,QString sIndex);
 };
 
 }

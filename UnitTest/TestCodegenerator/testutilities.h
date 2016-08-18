@@ -9,7 +9,7 @@ class TestUtilities
 {
 public:
     static std::list<QString> FunctionTest(QString codescript);
-    static void generate(Codegenerator::CPlusPlusCodegenerator* generator,QString codescript);
+    static void generate(Codegenerator::BaseCodegenerator* generator,QString codescript);
 private:
     TestUtilities();
     ~TestUtilities();

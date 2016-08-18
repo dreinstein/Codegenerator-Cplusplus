@@ -22,10 +22,7 @@ CPlusPlusCodegenerator::CPlusPlusCodegenerator()
 }
 
 
-CPlusPlusCodegenerator::~CPlusPlusCodegenerator()
-{
 
-}
 
 void CPlusPlusCodegenerator::registerObservers(BaseGenerator *observer)
 {

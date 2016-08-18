@@ -1,0 +1,3 @@
+@path::..\\Files\\Generated\\myFirstGeneratedFile
+@class testClass
+@function::functionNoParameter@modifier::public@typ::int

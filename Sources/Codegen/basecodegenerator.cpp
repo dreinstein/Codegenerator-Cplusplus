@@ -20,15 +20,11 @@ BaseCodegenerator::BaseCodegenerator()
     sourcefilename = General::FilePath::SourceFileName;
     heaterfilename = General::FilePath::HeaderFileName;
     classname = " ";
-    generator = nullptr;
 }
 
 BaseCodegenerator::~BaseCodegenerator()
 {
-    if(generator)
-    {
-        delete generator;
-    }
+
 }
 
 
@@ -166,28 +162,21 @@ void BaseCodegenerator::openFiles()
 
 /* deliver Codegenerator class out of string
  */
-BaseCodegenerator* BaseCodegenerator::getNextElement(QString sindex)
+void BaseCodegenerator::getNextElement(BaseCodegenerator* &nextGenerator,QString sindex)
 {
-    if(generator)
-    {
-        delete generator;
-        generator = nullptr;
-    }
-
     sindex = sindex.toLower();
     if("class" == sindex)
     {
-        generator = new ClassGenerator();
+        nextGenerator = new ClassGenerator(this);
     }
-    if("attribute" == sindex)
+    else if("attribute" == sindex)
     {
-        generator = new Attribute(this);
+        nextGenerator = new Attribute(this);
     }
-    if("function" == sindex)
+    else if("function" == sindex)
     {
-        generator = new FuctionCodeGenerator(this);
+        nextGenerator = new FuctionCodeGenerator(this);
     }
-    return generator;
 }
 
 
@@ -202,10 +191,17 @@ void BaseCodegenerator::nextElement()
         QString umlElement = script[index];
         QStringList umlList = General::ExtractString::extractStringList(umlElement);
         BaseCodegenerator *next = nullptr;
+
         foreach(QString v, umlList)
         {
+            if(next)
+            {
+                delete next;
+                next = nullptr;
+            }
              v = General::ExtractString::extractFirst(v);
-             next = BaseCodegenerator::getNextElement(v);
+
+             BaseCodegenerator::getNextElement(next,v);
              if(next != nullptr)
              {
                  next->generate();
@@ -213,8 +209,11 @@ void BaseCodegenerator::nextElement()
                  generatedCodeSource = next->getSourceListData();
              }
         }
-        delete next;
-
+        if(next)
+        {
+            delete next;
+            next = nullptr;
+        }
     }
 }
 

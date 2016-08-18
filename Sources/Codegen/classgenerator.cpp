@@ -5,10 +5,6 @@ namespace Codegenerator
 {
 
 
-ClassGenerator::ClassGenerator()
-{
-
-}
 
 ClassGenerator::~ClassGenerator()
 {

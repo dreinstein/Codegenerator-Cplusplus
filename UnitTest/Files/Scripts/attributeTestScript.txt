@@ -1,5 +1,5 @@
 @path::..\\Files\\Generated\\myFirstGeneratedFile
-@class::firstClass
+@class::myTestClass
 @attribute::myStringAttribute@modifier::public@typ::string
 @attribute::myConstIntAttribute@modifier::private@typ::const int
 @attribute::myCharAttribute@modifier::private@typ::char

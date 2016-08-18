@@ -1,6 +1,6 @@
 
 #include "../../gtest/gtest.h"
-//#include "../../gmock/gmock.h"
+#include "../../gmock/gmock.h"
 #include "mockparser.h"
 #include "Parsing/Parserimplementation.h"
 #include "Codegen/Basecodegenerator.h"
@@ -26,11 +26,10 @@ protected:
     {
         name = General::FilePath::HeaderFileName;
         QFile::remove(name);
-        scriptPath = "..\\Files\\Scripts\\functionWithNoParameterReturnInt.txt";
+        scriptPath = "..\\Files\\Scripts\\attributeTestScript.txt";
         TestUtilities::FunctionTest(scriptPath);
         fout.setFileName(name);
     }
-
 };
 
 
@@ -46,7 +45,8 @@ TEST_F(Classtest, headerProofClassString)
     ASSERT_EQ(fout.open(QIODevice::ReadOnly | QIODevice::Text),true);
     QByteArray line;
     line = fout.readLine();
-    ASSERT_EQ(line,"Class");
+    ASSERT_THAT(line,testing::Eq("Class"));
+    
 }
 
 
