@@ -12,6 +12,7 @@ bool EvaluateTest::evaluate(std::list<QString> testdata, std::list<QString> eval
     {
         return false;
     }
+    int i = 0;
     QString testDataString ="";
     QString evaluationDataString = "";
     auto evaluationDataIterator = evaluationData.begin();
@@ -21,9 +22,9 @@ bool EvaluateTest::evaluate(std::list<QString> testdata, std::list<QString> eval
         evaluationDataString = *evaluationDataIterator;
         if(testDataString != evaluationDataString)
         {
-
             return false;
         }
+        i = ++i;
     }
     return true;
 }

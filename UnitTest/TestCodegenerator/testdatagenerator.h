@@ -30,6 +30,7 @@ public:
     static std::list<QString> testDataFourAttributesMixedModifiers();
     static std::list<QString> testDataFunctionsAttributesMixedModifiers();
     static std::list<QString> testSimpleClass();
+    static std::list<QString> testDataClass();
 
 
 private:

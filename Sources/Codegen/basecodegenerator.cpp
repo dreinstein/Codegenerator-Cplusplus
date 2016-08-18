@@ -128,7 +128,7 @@ void BaseCodegenerator::generateDefault()
             throw Errorhandling::OpenFileException();
         }
    }
-   generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
+ //  generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
 }
 
 

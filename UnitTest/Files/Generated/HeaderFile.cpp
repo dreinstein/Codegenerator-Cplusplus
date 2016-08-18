@@ -1,3 +1,5 @@
+class   myClass
+{
 public:
    double   functiondouble();
    TestClass   functionTestClass();
@@ -8,3 +10,4 @@ private:
    int   functionint();
    long   functionlong();
    double   attributendouble;
+};

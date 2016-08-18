@@ -4,5 +4,6 @@
 @attribute::myConstIntAttribute@modifier::private@typ::const int
 @attribute::myCharAttribute@modifier::private@typ::char
 @attribute::myDoubleAttribute@modifier::public@typ::double
+@function::myfunction@modifier::public@typ::int
 
 

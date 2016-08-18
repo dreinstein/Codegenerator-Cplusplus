@@ -249,6 +249,17 @@ TEST(FunctionTest, MixedFunctionAndAttributes)
     ASSERT_EQ(result, true);
 }
 
+TEST(FunctionTest, ClassTest)
+{
+    QString name = General::FilePath::HeaderFileName;
+    QString scriptPath = "..\\Files\\Scripts\\ClassMixedFunctionsAndAttributes.txt";
+    std::list<QString> expectedList = TestdataGenerator::testDataClass();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTest(scriptPath);
+    bool  result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    ASSERT_EQ(result, true);
+
+}
+
 
 
 
