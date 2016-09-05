@@ -27,7 +27,7 @@ protected:
         name = General::FilePath::HeaderFileName;
         QFile::remove(name);
         scriptPath = "..\\Files\\Scripts\\attributeTestScript.txt";
-        TestUtilities::FunctionTest(scriptPath);
+        TestUtilities::FunctionTestHeaderList(scriptPath);
         fout.setFileName(name);
     }
 };

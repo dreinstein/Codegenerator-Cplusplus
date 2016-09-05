@@ -33,8 +33,6 @@ public:
     std::vector<FunctionElements*> getFunctionParameters(){return functionParameters;}
 private:
 
-    //@TODO as union
-    //@TODO some missmatch with Attributeelements, merge
     QString function;
     QString parameter;
     QString attribute;

@@ -9,16 +9,22 @@
 
 
 
-std::list<QString> TestUtilities::FunctionTest(QString codescript)
+std::list<QString> TestUtilities::FunctionTestHeaderList(QString codescript)
 {
-
-    //std::unique_ptr<Codegenerator::CPlusPlusCodegenerator>generator(new Codegenerator::CPlusPlusCodegenerator());
-    Codegenerator::BaseCodegenerator *generator = new Codegenerator::CPlusPlusCodegenerator();
-    generate(generator,codescript);
+    std::unique_ptr<Codegenerator::CPlusPlusCodegenerator>generator(new Codegenerator::CPlusPlusCodegenerator());
+    generate(generator.get(),codescript);
     std::list<QString>retValue =  generator->getHeaderListData();
-    delete generator;
     return retValue;
 }
+
+std::list<QString> TestUtilities::FunctionTestSourceList(QString codescript)
+{
+    std::unique_ptr<Codegenerator::CPlusPlusCodegenerator>generator(new Codegenerator::CPlusPlusCodegenerator());
+    generate(generator.get(),codescript);
+    std::list<QString>retValue =  generator->getSourceListData();
+    return retValue;
+}
+
 
 
 void TestUtilities::generate(Codegenerator::BaseCodegenerator* generator,QString codescript)

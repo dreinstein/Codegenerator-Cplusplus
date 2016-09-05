@@ -49,10 +49,27 @@ void FuctionCodeGenerator::generateHeader()
     generateHeaderList(iterator,hasElementModifier());
 }
 
+
 void FuctionCodeGenerator::generateSource()
 {
     Q_ASSERT(functionElements);
+    vector<FunctionElements*> parameterelements = functionElements->getFunctionParameters();
+    generatedCodeSource.push_back(functionElements->getTyp());
+    generatedCodeSource.push_back(CodegeneratorConstants::tab);
+    generatedCodeSource.push_back(functionElements->getFunction());
+    generatedCodeSource.push_back(CodegeneratorConstants::parameterBracketOpen);
+
+    if(parameterelements.size() > 0)
+    {
+        // do something for parameters
+    }
+    generatedCodeSource.push_back(CodegeneratorConstants::parameterBracketClose);
+    generatedCodeSource.push_back(CodegeneratorConstants::newLine);
+    generatedCodeSource.push_back(CodegeneratorConstants::bracketOpen);
+    generatedCodeSource.push_back(CodegeneratorConstants::newLine);
+    generatedCodeSource.push_back(CodegeneratorConstants::bracketClose);
 }
+
 
 
 void FuctionCodeGenerator::generateHeaderList(bool foundModifier)

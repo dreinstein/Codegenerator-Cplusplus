@@ -78,8 +78,6 @@ void FunctionElements::setElements(FunctionElements* funcElements,QString elemen
 
 void FunctionElements::defineElements(QString listelement, QString elementLast)
 {
-
-
     if(listelement.contains(FUNCTIONELEMENT))
     {
        function = elementLast;
