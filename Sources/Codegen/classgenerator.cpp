@@ -13,7 +13,7 @@ ClassGenerator::~ClassGenerator()
 
 void ClassGenerator::generate()
 {
-   generateDefault();
+   BaseCodegenerator::generate();
 //   ++index;
    nextElement();
 

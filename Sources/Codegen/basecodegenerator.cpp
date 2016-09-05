@@ -83,8 +83,13 @@ list<QString>::iterator BaseCodegenerator::foundPositionToAppendToHeaderList()
     return iterator;
 }
 
+void BaseCodegenerator::generate()
+{
+    generateHeader();
+}
 
-void BaseCodegenerator::generateDefault()
+
+void BaseCodegenerator::generateHeader()
 {
     QString row;
     QString scriptelement = script[index];
@@ -129,6 +134,11 @@ void BaseCodegenerator::generateDefault()
         }
    }
  //  generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
+}
+
+void BaseCodegenerator::generateSource()
+{
+    Q_ASSERT(true);
 }
 
 

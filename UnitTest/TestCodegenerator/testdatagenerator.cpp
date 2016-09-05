@@ -785,7 +785,6 @@ std::list<QString>TestdataGenerator::testDataClass()
 
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::BracketWithSemiColon);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
-  //  testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
 
     return testDatalist;
 }

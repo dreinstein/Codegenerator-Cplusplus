@@ -25,7 +25,7 @@ public:
     BaseCodegenerator();
     virtual ~BaseCodegenerator();
     virtual void generate(const std::vector<QString> strVecScript, const std::map<QString,QString> strMapRules,const std::vector<QString> strVecKeys) = 0;
-    virtual void generate() =0;
+    virtual void generate();
     virtual void registerObservers(BaseGenerator*) {;}
     virtual std::list<QString> getHeaderListData() const final {return generatedCodeHeader;}
     virtual std::list<QString> getSourceListData() const final {return generatedCodeSource;}
@@ -39,7 +39,6 @@ protected:
     std::list<QString> generatedCodeSource;
     QString classname;
     void openFiles();
-    void generateDefault();
     void clone(const BaseCodegenerator *toClone);
     void nextElement();
     void setFilenames();
@@ -50,6 +49,8 @@ protected:
     std::list<QString>::iterator foundPositionToAppendToHeaderList();
 private:
     void getNextElement(BaseCodegenerator* &nextGenerator,QString sIndex);
+    void generateHeader();
+    void generateSource();
 };
 
 }
