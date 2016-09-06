@@ -260,10 +260,19 @@ TEST(FunctionTest, ClassTest)
 }
 
 
-TEST(FunctionTest, SourceFileOneFunctionWithParameter)
+TEST(FunctionTest, SourceFileOneFunctionWithNoParameter)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionWithNoParameterReturnInt.txt";
     std::list<QString> expectedList = TestdataGenerator::DatatestSourceFileFunctionNoParamterReturnInt();
+    std::list<QString> classSourceList = TestUtilities::FunctionTestSourceList(scriptPath);
+    ASSERT_EQ(EvaluateTest::evaluate(classSourceList, expectedList),1);
+}
+
+
+TEST(FunctionTest, SourceFileOneFunctionOneParameter)
+{
+    QString scriptPath = "..\\Files\\Scripts\\functionWithOneParameterReturnintParameterDouble.txt";
+    std::list<QString> expectedList = TestdataGenerator::DatatestSourceFileFunctionOneParamterReturnDouble();
     std::list<QString> classSourceList = TestUtilities::FunctionTestSourceList(scriptPath);
     ASSERT_EQ(EvaluateTest::evaluate(classSourceList, expectedList),1);
 }

@@ -32,6 +32,7 @@ public:
     static std::list<QString> testSimpleClass();
     static std::list<QString> testDataClass();
     static std::list<QString> DatatestSourceFileFunctionNoParamterReturnInt();
+    static std::list<QString> DatatestSourceFileFunctionOneParamterReturnDouble();
 
 
 private:

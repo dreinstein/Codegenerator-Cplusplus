@@ -807,6 +807,27 @@ std::list<QString>TestdataGenerator::DatatestSourceFileFunctionNoParamterReturnI
 }
 
 
+std::list<QString>TestdataGenerator::DatatestSourceFileFunctionOneParamterReturnDouble()
+{
+    std::list<QString> testDatalist;
+    QString functionName = "functionWithOnParameterReturnintParameterDouble";
+    QString parameterName = "parameter";
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typInt);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(functionName);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typDouble);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(parameterName);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::bracketOpen);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::bracketClose);
+    return testDatalist;
+}
+
+
 
 
 

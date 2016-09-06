@@ -1,2 +1,2 @@
-public:
-   int   functionNoParameterReturnInt();
+private:
+   int   functionWithOnParameterReturnintParameterDouble(double   parameter);

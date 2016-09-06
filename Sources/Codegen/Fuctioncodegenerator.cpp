@@ -61,7 +61,18 @@ void FuctionCodeGenerator::generateSource()
 
     if(parameterelements.size() > 0)
     {
-        // do something for parameters
+        // from back to front, it is rekursiv parameterelements begin with last funktionparameter
+        for(auto iterator = parameterelements.rbegin();iterator != parameterelements.rend(); ++iterator)
+        {
+            // need a colon between parameters
+            if(iterator != parameterelements.rbegin())
+            {
+             //   generatedCodeHeader.push_back(Codegenerator::CodegeneratorConstants::comma);
+            }
+
+           // FunctionElements *paraelements = *iterator;
+           // setHeaderParameterElements(*iterator);
+        }
     }
     generatedCodeSource.push_back(CodegeneratorConstants::parameterBracketClose);
     generatedCodeSource.push_back(CodegeneratorConstants::newLine);
@@ -69,6 +80,7 @@ void FuctionCodeGenerator::generateSource()
     generatedCodeSource.push_back(CodegeneratorConstants::newLine);
     generatedCodeSource.push_back(CodegeneratorConstants::bracketClose);
 }
+
 
 
 
