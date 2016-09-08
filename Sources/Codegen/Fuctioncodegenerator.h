@@ -27,13 +27,13 @@ private:
     void generateSource();
     void generateHeaderList(std::list<QString>::iterator iterator, bool foundModifier);
     void generateHeaderList(bool foundModifier);
-    void setHeaderParameterElements(FunctionElements* parameterElements);
+    void setHeaderParameterElements(std::list<QString>& codeList,FunctionElements* parameterElements);
     void setHeaderFunctionElements(bool modifier);
     void setHeaderClassFinal();
     void setHeaderClassFinalForConstant();
-    void setHeaderTyp(FunctionElements* element);
-    void setHeaderTypForFunctionElements(FunctionElements* element);
-    void setHeaderTypForParameterElements(FunctionElements* element);
+    void setTyp(std::list<QString>& codeList,FunctionElements* element);
+    void setTypForFunctionElements(std::list<QString>& codeList,FunctionElements* element);
+    void setTypForParameterElements(std::list<QString>& codeList,FunctionElements* element);
 
 };
 

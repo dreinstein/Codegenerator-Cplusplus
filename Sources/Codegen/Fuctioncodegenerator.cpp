@@ -50,6 +50,7 @@ void FuctionCodeGenerator::generateHeader()
 }
 
 
+
 void FuctionCodeGenerator::generateSource()
 {
     Q_ASSERT(functionElements);
@@ -67,11 +68,10 @@ void FuctionCodeGenerator::generateSource()
             // need a colon between parameters
             if(iterator != parameterelements.rbegin())
             {
-             //   generatedCodeHeader.push_back(Codegenerator::CodegeneratorConstants::comma);
+                generatedCodeSource.push_back(Codegenerator::CodegeneratorConstants::comma);
             }
 
-           // FunctionElements *paraelements = *iterator;
-           // setHeaderParameterElements(*iterator);
+            setHeaderParameterElements(generatedCodeSource,*iterator);
         }
     }
     generatedCodeSource.push_back(CodegeneratorConstants::parameterBracketClose);
@@ -101,7 +101,7 @@ void FuctionCodeGenerator::generateHeaderList(bool foundModifier)
             }
 
            // FunctionElements *paraelements = *iterator;
-            setHeaderParameterElements(*iterator);
+            setHeaderParameterElements(generatedCodeHeader,*iterator);
         }
 
     }
@@ -138,7 +138,7 @@ void FuctionCodeGenerator::setHeaderFunctionElements(bool modifier)
         generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
     }
     generatedCodeHeader.push_back(CodegeneratorConstants::tab);
-    setHeaderTypForFunctionElements(functionElements.get());
+    setTypForFunctionElements(generatedCodeHeader,functionElements.get());
     generatedCodeHeader.push_back(CodegeneratorConstants::tab);
     generatedCodeHeader.push_back(functionElements->getFunction());
     generatedCodeHeader.push_back(CodegeneratorConstants::parameterBracketOpen);
@@ -164,20 +164,20 @@ void FuctionCodeGenerator::setHeaderClassFinalForConstant()
 
 
 
-void FuctionCodeGenerator::setHeaderParameterElements(FunctionElements* parameterElements)
+void FuctionCodeGenerator::setHeaderParameterElements(std::list<QString>& codeList, FunctionElements* parameterElements)
 {
 
-    setHeaderTypForParameterElements(parameterElements);
+    setTypForParameterElements(codeList,parameterElements);
     if(parameterElements->getParameter() != "")
     {
-        generatedCodeHeader.push_back(CodegeneratorConstants::tab);
-        generatedCodeHeader.push_back(parameterElements->getParameter());
+        codeList.push_back(CodegeneratorConstants::tab);
+        codeList.push_back(parameterElements->getParameter());
         if(parameterElements->getIsDefaultValue())
         {
-            generatedCodeHeader.push_back(CodegeneratorConstants::tab);
-            generatedCodeHeader.push_back(CodegeneratorConstants::equal);
-            generatedCodeHeader.push_back(CodegeneratorConstants::tab);
-            generatedCodeHeader.push_back(parameterElements->getDefaultValue());
+            codeList.push_back(CodegeneratorConstants::tab);
+            codeList.push_back(CodegeneratorConstants::equal);
+            codeList.push_back(CodegeneratorConstants::tab);
+            codeList.push_back(parameterElements->getDefaultValue());
         }
     }
     else
@@ -186,34 +186,34 @@ void FuctionCodeGenerator::setHeaderParameterElements(FunctionElements* paramete
     }
 }
 
-void FuctionCodeGenerator::setHeaderTypForFunctionElements(FunctionElements* element)
+void FuctionCodeGenerator::setTypForFunctionElements(std::list<QString>& codeList,FunctionElements* element)
 {
     if(element->getIsReturnConstant())
     {
-        generatedCodeHeader.push_back(CodegeneratorConstants::constant);
-        generatedCodeHeader.push_back(CodegeneratorConstants::tab);
+        codeList.push_back(CodegeneratorConstants::constant);
+        codeList.push_back(CodegeneratorConstants::tab);
     }
-    setHeaderTyp(element);
+    setTyp(codeList,element);
 }
 
 
-void FuctionCodeGenerator::setHeaderTypForParameterElements(FunctionElements* element)
+void FuctionCodeGenerator::setTypForParameterElements(std::list<QString>& codeList,FunctionElements* element)
 {
     if(element->getIsConstant())
     {
-        generatedCodeHeader.push_back(CodegeneratorConstants::constant);
-        generatedCodeHeader.push_back(CodegeneratorConstants::tab);
+        codeList.push_back(CodegeneratorConstants::constant);
+        codeList.push_back(CodegeneratorConstants::tab);
     }
-    setHeaderTyp(element);
+    setTyp(codeList,element);
 }
 
 
-void FuctionCodeGenerator::setHeaderTyp(FunctionElements* element)
+void FuctionCodeGenerator::setTyp(std::list<QString>& codeList,FunctionElements* element)
 {
 
     if(element->getTyp() != "")
     {
-        generatedCodeHeader.push_back(element->getTyp());
+        codeList.push_back(element->getTyp());
     }
     else
     {
@@ -222,17 +222,17 @@ void FuctionCodeGenerator::setHeaderTyp(FunctionElements* element)
 
     if(element->getIsRef())
     {
-        generatedCodeHeader.push_back(CodegeneratorConstants::reference);
+        codeList.push_back(CodegeneratorConstants::reference);
     }
 
     if(element->getIsPointer())
     {
-        generatedCodeHeader.push_back(CodegeneratorConstants::pointer);
+        codeList.push_back(CodegeneratorConstants::pointer);
     }
     if(element->getIsMemoryConstant())
     {
-       generatedCodeHeader.push_back(CodegeneratorConstants::tab);
-       generatedCodeHeader.push_back(CodegeneratorConstants::constant);
+       codeList.push_back(CodegeneratorConstants::tab);
+       codeList.push_back(CodegeneratorConstants::constant);
     }
 
 
