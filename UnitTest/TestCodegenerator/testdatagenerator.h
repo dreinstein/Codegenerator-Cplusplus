@@ -31,8 +31,10 @@ public:
     static std::list<QString> testDataFunctionsAttributesMixedModifiers();
     static std::list<QString> testSimpleClass();
     static std::list<QString> testDataClass();
-    static std::list<QString> DatatestSourceFileFunctionNoParamterReturnInt();
-    static std::list<QString> DatatestSourceFileFunctionOneParamterReturnDouble();
+    static std::list<QString> testDataSourceFileFunctionNoParamterReturnInt();
+    static std::list<QString> testDataSourceFileFunctionOneParamterReturnDouble();
+    static std::list<QString> testDataSourceFileFunctionTwoParmeterReturnTestParameterParameterOneIntParameterTwoConstTestParameterReference();
+    static std::list<QString> testDataSourceFileTwoEasyFunctions();
 
 
 private:
@@ -40,6 +42,7 @@ private:
     static std::list<QString>testDataFunctionBegin(std::list<QString> testDatalist);
     static std::list<QString>testDataFunctionEnd(std::list<QString> testDatalist);
     static std::list<QString>testDataFunctionEndForConst(std::list<QString> testDatalist);
+    static std::list<QString>testFunctionSourcFileEnd(std::list<QString> testDatalist);
 }
 ;
 

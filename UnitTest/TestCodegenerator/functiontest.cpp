@@ -263,7 +263,7 @@ TEST(FunctionTest, ClassTest)
 TEST(FunctionTest, SourceFileOneFunctionWithNoParameter)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionWithNoParameterReturnInt.txt";
-    std::list<QString> expectedList = TestdataGenerator::DatatestSourceFileFunctionNoParamterReturnInt();
+    std::list<QString> expectedList = TestdataGenerator::testDataSourceFileFunctionNoParamterReturnInt();
     std::list<QString> classSourceList = TestUtilities::FunctionTestSourceList(scriptPath);
     ASSERT_EQ(EvaluateTest::evaluate(classSourceList, expectedList),1);
 }
@@ -272,10 +272,45 @@ TEST(FunctionTest, SourceFileOneFunctionWithNoParameter)
 TEST(FunctionTest, SourceFileOneFunctionOneParameter)
 {
     QString scriptPath = "..\\Files\\Scripts\\functionWithOneParameterReturnintParameterDouble.txt";
-    std::list<QString> expectedList = TestdataGenerator::DatatestSourceFileFunctionOneParamterReturnDouble();
+    std::list<QString> expectedList = TestdataGenerator::testDataSourceFileFunctionOneParamterReturnDouble();
     std::list<QString> classSourceList = TestUtilities::FunctionTestSourceList(scriptPath);
     ASSERT_EQ(EvaluateTest::evaluate(classSourceList, expectedList),1);
 }
+
+
+TEST(FunctionTest, SourceFileOneFunctionTwoParameterReturnTestParameterPointerParameter1IntParameter2ConstTestParameterReference)
+{
+    QString scriptPath = "..\\Files\\Scripts\\functionWithTwoParameterReturnTestParameterPointerParameter1IntParameter2TestParameterConstReference.txt";
+    std::list<QString> expectedList = TestdataGenerator::testDataSourceFileFunctionTwoParmeterReturnTestParameterParameterOneIntParameterTwoConstTestParameterReference();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTestSourceList(scriptPath);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    ASSERT_EQ(result, true);
+}
+
+
+
+TEST(FunctionTest, SourceFiletwoEasyfunctions)
+{
+    QString scriptPath = "..\\Files\\Scripts\\twoEasyFunctions.txt";
+    std::list<QString> expectedList = TestdataGenerator::testDataSourceFileTwoEasyFunctions();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTestSourceList(scriptPath);
+    bool result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    ASSERT_EQ(result, true);
+}
+
+
+
+
+// Function one:  int* (const double&,TestClass*, int = 5) const
+// Function two:  double (int *, long)
+// Function three: const Testclass& (const * const, int) const
+/*TEST(FunctionTest, SourceFileThreeComplexFunctionsMixedModifier)
+{
+    QString scriptPath = "..\\Files\\Scripts\\functionWithOneParameterReturnintParameterDouble.txt";
+    std::list<QString> expectedList = TestdataGenerator::DatatestSourceFileFunctionOneParamterReturnDouble();
+    std::list<QString> classSourceList = TestUtilities::FunctionTestSourceList(scriptPath);
+    ASSERT_EQ(EvaluateTest::evaluate(classSourceList, expectedList),1);
+}*/
 
 
 

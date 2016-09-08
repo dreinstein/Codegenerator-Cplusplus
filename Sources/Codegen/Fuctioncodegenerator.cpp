@@ -55,6 +55,7 @@ void FuctionCodeGenerator::generateSource()
 {
     Q_ASSERT(functionElements);
     vector<FunctionElements*> parameterelements = functionElements->getFunctionParameters();
+    generatedCodeSource.push_back(CodegeneratorConstants::newLine);
     generatedCodeSource.push_back(functionElements->getTyp());
     generatedCodeSource.push_back(CodegeneratorConstants::tab);
     generatedCodeSource.push_back(functionElements->getFunction());

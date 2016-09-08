@@ -664,22 +664,6 @@ std::list<QString>TestdataGenerator::testSimpleClass()
 }
 
 
-std::list<QString>TestdataGenerator::testDataFunctionBegin(std::list<QString> testDatalist)
-{
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::colon);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
-    return testDatalist;
-}
-
-std::list<QString>TestdataGenerator::testDataFunctionEnd(std::list<QString> testDatalist)
-{
-
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::semiColon);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
-    return testDatalist;
-}
 
 std::list<QString>TestdataGenerator::testDataFunctionEndForConst(std::list<QString> testDatalist)
 {
@@ -790,28 +774,27 @@ std::list<QString>TestdataGenerator::testDataClass()
 }
 
 
-std::list<QString>TestdataGenerator::DatatestSourceFileFunctionNoParamterReturnInt()
+std::list<QString>TestdataGenerator::testDataSourceFileFunctionNoParamterReturnInt()
 {
     std::list<QString> testDatalist;
     QString functionName = "functionNoParameterReturnInt";
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::typInt);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
     testDatalist.push_back(functionName);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::bracketOpen);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::bracketClose);
+    testDatalist = testFunctionSourcFileEnd(testDatalist);
     return testDatalist;
 }
 
 
-std::list<QString>TestdataGenerator::DatatestSourceFileFunctionOneParamterReturnDouble()
+std::list<QString>TestdataGenerator::testDataSourceFileFunctionOneParamterReturnDouble()
 {
     std::list<QString> testDatalist;
     QString functionName = "functionWithOnParameterReturnintParameterDouble";
     QString parameterName = "parameter";
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::typInt);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
     testDatalist.push_back(functionName);
@@ -820,13 +803,90 @@ std::list<QString>TestdataGenerator::DatatestSourceFileFunctionOneParamterReturn
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
     testDatalist.push_back(parameterName);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
+    testDatalist =  testFunctionSourcFileEnd(testDatalist);
+    return testDatalist;
+}
+
+
+std::list<QString>TestdataGenerator::testDataSourceFileFunctionTwoParmeterReturnTestParameterParameterOneIntParameterTwoConstTestParameterReference()
+{
+    std::list<QString> testDatalist;
+    QString functionName = "functionWithTwoParameterReturnIntReferenceParameterConstVoidPointer";
+    QString parameterName1 = "intParameter";
+    QString parameterName2 = "TestParameter";
+    QString typ = "TestClass";
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+    testDatalist.push_back(typ);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(functionName);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typInt);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(parameterName1);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::comma);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::constant);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(typ);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::reference);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(parameterName2);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
+    testDatalist = testFunctionSourcFileEnd(testDatalist);
+    return testDatalist;
+}
+
+std::list<QString>TestdataGenerator::testDataSourceFileTwoEasyFunctions()
+{
+    std::list<QString> testDatalist;
+    QString function1Name = "functionReturnDoubleNoParameter";
+    QString function2Name = "functionReturnIntParameterDouble";
+    QString parameterName = "doubleParameter";
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typDouble);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(function1Name);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
+     testDatalist = testFunctionSourcFileEnd(testDatalist);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typInt);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(function2Name);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typDouble);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    testDatalist.push_back(parameterName);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
+    testDatalist = testFunctionSourcFileEnd(testDatalist);
+    return testDatalist;
+}
+
+
+std::list<QString>TestdataGenerator::testDataFunctionBegin(std::list<QString> testDatalist)
+{
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::colon);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
+    return testDatalist;
+}
+
+std::list<QString>TestdataGenerator::testDataFunctionEnd(std::list<QString> testDatalist)
+{
+
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::semiColon);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
+    return testDatalist;
+}
+
+std::list<QString>TestdataGenerator::testFunctionSourcFileEnd(std::list<QString> testDatalist)
+{
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::bracketOpen);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::bracketClose);
     return testDatalist;
 }
-
 
 
 
