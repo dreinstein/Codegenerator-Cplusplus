@@ -322,6 +322,17 @@ TEST(FunctionTest, SourceFileWithAttribute)
     ASSERT_EQ(result, true);
 }
 
+TEST(FunctionTest, SourceFileWithClass)
+{
+    QString scriptPath = "..\\Files\\Scripts\\ClassMixedFunctionsAndAttributes.txt";
+    std::list<QString> expectedList = TestdataGenerator::testDataSourceFileWithClass();
+    std::list<QString> classHeaderList = TestUtilities::FunctionTestSourceList(scriptPath);
+    bool  result = EvaluateTest::evaluate(classHeaderList, expectedList);
+    ASSERT_EQ(result, true);
+}
+
+
+
 
 
 

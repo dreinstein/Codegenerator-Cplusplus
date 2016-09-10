@@ -37,6 +37,7 @@ public:
     static std::list<QString> testDataSourceFileTwoEasyFunctions();
     static std::list<QString> testDataSourceFileThreeComplexFunction();
     static std::list<QString> testDataSourceFileWithAttributes();
+    static std::list<QString> testDataSourceFileWithClass();
 
 
 

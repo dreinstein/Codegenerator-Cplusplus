@@ -133,7 +133,6 @@ void BaseCodegenerator::generateHeader()
             throw Errorhandling::OpenFileException();
         }
    }
- //  generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
 }
 
 void BaseCodegenerator::generateSource()
