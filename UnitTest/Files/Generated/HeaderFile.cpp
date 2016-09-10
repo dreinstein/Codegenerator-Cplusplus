@@ -1,5 +1,13 @@
+class   myClass
+{
 public:
-   int*   functionintPointer(const   double&   constDoubleReferenceParameter,TestClass*   TestClassPointerParameter,int   intParameter   =   5)   const;
-   double   functionReturndouble(int*   intPointerParameter,long   longParameter);
+   double   functiondouble();
+   TestClass   functionTestClass();
+   int   attributeint;
+   long   attributelong;
+   TestClass   attributeTestClass;
 private:
-   const   TestClass&   functionReturnTestClassReference(const   double*   const   constPointerconstParameter,int   intParameter)   const;
+   int   functionint();
+   long   functionlong();
+   double   attributendouble;
+};

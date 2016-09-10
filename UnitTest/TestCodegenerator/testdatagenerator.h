@@ -36,6 +36,7 @@ public:
     static std::list<QString> testDataSourceFileFunctionTwoParmeterReturnTestParameterParameterOneIntParameterTwoConstTestParameterReference();
     static std::list<QString> testDataSourceFileTwoEasyFunctions();
     static std::list<QString> testDataSourceFileThreeComplexFunction();
+    static std::list<QString> testDataSourceFileWithAttributes();
 
 
 
