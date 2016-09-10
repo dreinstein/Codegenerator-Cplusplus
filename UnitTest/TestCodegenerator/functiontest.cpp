@@ -304,13 +304,13 @@ TEST(FunctionTest, SourceFiletwoEasyfunctions)
 // Function one:  int* (const double&,TestClass*, int = 5) const
 // Function two:  double (int *, long)
 // Function three: const Testclass& (const * const, int) const
-/*TEST(FunctionTest, SourceFileThreeComplexFunctionsMixedModifier)
+TEST(FunctionTest, SourceFileThreeComplexFunctionsMixedModifier)
 {
-    QString scriptPath = "..\\Files\\Scripts\\functionWithOneParameterReturnintParameterDouble.txt";
-    std::list<QString> expectedList = TestdataGenerator::DatatestSourceFileFunctionOneParamterReturnDouble();
+    QString scriptPath = "..\\Files\\Scripts\\threeComplexFunctionsMixedModifier.txt";
+    std::list<QString> expectedList = TestdataGenerator::testDataSourceFileThreeComplexFunction();
     std::list<QString> classSourceList = TestUtilities::FunctionTestSourceList(scriptPath);
     ASSERT_EQ(EvaluateTest::evaluate(classSourceList, expectedList),1);
-}*/
+}
 
 
 

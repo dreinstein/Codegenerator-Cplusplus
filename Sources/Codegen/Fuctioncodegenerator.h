@@ -27,7 +27,7 @@ private:
     void generateSource();
     void generateHeaderList(std::list<QString>::iterator iterator, bool foundModifier);
     void generateHeaderList(bool foundModifier);
-    void setHeaderParameterElements(std::list<QString>& codeList,FunctionElements* parameterElements);
+    void setHeaderParameterElements(std::list<QString>& codeList,FunctionElements* parameterElements, bool generateHeaderFile = true);
     void setHeaderFunctionElements(bool modifier);
     void setHeaderClassFinal();
     void setHeaderClassFinalForConstant();

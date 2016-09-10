@@ -56,7 +56,8 @@ void FuctionCodeGenerator::generateSource()
     Q_ASSERT(functionElements);
     vector<FunctionElements*> parameterelements = functionElements->getFunctionParameters();
     generatedCodeSource.push_back(CodegeneratorConstants::newLine);
-    generatedCodeSource.push_back(functionElements->getTyp());
+ //   generatedCodeSource.push_back(functionElements->getTyp());
+    setTypForFunctionElements(generatedCodeSource,functionElements.get());
     generatedCodeSource.push_back(CodegeneratorConstants::tab);
     generatedCodeSource.push_back(functionElements->getFunction());
     generatedCodeSource.push_back(CodegeneratorConstants::parameterBracketOpen);
@@ -72,7 +73,7 @@ void FuctionCodeGenerator::generateSource()
                 generatedCodeSource.push_back(Codegenerator::CodegeneratorConstants::comma);
             }
 
-            setHeaderParameterElements(generatedCodeSource,*iterator);
+            setHeaderParameterElements(generatedCodeSource,*iterator, false);
         }
     }
     generatedCodeSource.push_back(CodegeneratorConstants::parameterBracketClose);
@@ -165,7 +166,7 @@ void FuctionCodeGenerator::setHeaderClassFinalForConstant()
 
 
 
-void FuctionCodeGenerator::setHeaderParameterElements(std::list<QString>& codeList, FunctionElements* parameterElements)
+void FuctionCodeGenerator::setHeaderParameterElements(std::list<QString>& codeList, FunctionElements* parameterElements, bool generateHeaderFile)
 {
 
     setTypForParameterElements(codeList,parameterElements);
@@ -173,7 +174,8 @@ void FuctionCodeGenerator::setHeaderParameterElements(std::list<QString>& codeLi
     {
         codeList.push_back(CodegeneratorConstants::tab);
         codeList.push_back(parameterElements->getParameter());
-        if(parameterElements->getIsDefaultValue())
+
+        if(parameterElements->getIsDefaultValue()&& generateHeaderFile)
         {
             codeList.push_back(CodegeneratorConstants::tab);
             codeList.push_back(CodegeneratorConstants::equal);

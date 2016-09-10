@@ -35,6 +35,8 @@ public:
     static std::list<QString> testDataSourceFileFunctionOneParamterReturnDouble();
     static std::list<QString> testDataSourceFileFunctionTwoParmeterReturnTestParameterParameterOneIntParameterTwoConstTestParameterReference();
     static std::list<QString> testDataSourceFileTwoEasyFunctions();
+    static std::list<QString> testDataSourceFileThreeComplexFunction();
+
 
 
 private:
@@ -42,7 +44,7 @@ private:
     static std::list<QString>testDataFunctionBegin(std::list<QString> testDatalist);
     static std::list<QString>testDataFunctionEnd(std::list<QString> testDatalist);
     static std::list<QString>testDataFunctionEndForConst(std::list<QString> testDatalist);
-    static std::list<QString>testFunctionSourcFileEnd(std::list<QString> testDatalist);
+    static std::list<QString>testFunctionSourceFileEnd(std::list<QString> testDatalist);
 }
 ;
 
