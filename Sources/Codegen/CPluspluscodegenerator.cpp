@@ -16,14 +16,6 @@ using namespace Errorhandling;
 namespace Codegenerator
 {
 
-CPlusPlusCodegenerator::CPlusPlusCodegenerator()
-{
-
-}
-
-
-
-
 void CPlusPlusCodegenerator::registerObservers(BaseGenerator *observer)
 {
     codegeratorObservers.push_back(&*observer);
@@ -31,6 +23,7 @@ void CPlusPlusCodegenerator::registerObservers(BaseGenerator *observer)
 
 void CPlusPlusCodegenerator::generate()
 {
+    Q_ASSERT(true);
 }
 
 
@@ -44,32 +37,34 @@ void CPlusPlusCodegenerator::generate(const std::vector<QString> strVecScript,co
     for(unsigned int i=0; i < codegeratorObservers.size(); i++){
         codegeratorObservers[i]->notifyCodeGenerated();
     }
-    createFiles();
+    createHeaderFile();
+    createSourceFile();
 }
 
 
-void CPlusPlusCodegenerator::createFiles()
+void CPlusPlusCodegenerator::createHeaderFile()
 {
     QFile hfile(heaterfilename);
-   // QFile sfile(sourcefilename);
-
     hfile.open(QIODevice::WriteOnly | QIODevice::Text);
-   // sfile.open(QIODevice::WriteOnly | QIODevice::Text);
-
     QTextStream heaterFileStream (&hfile);
-   // QTextStream sourceFileStream (&sfile);
     for (auto elementHeader: generatedCodeHeader)
     {
         heaterFileStream << elementHeader;
     }
-/*    for (auto elementSource: generatedCodeHeader)
-    {
-        sourceFileStream << elementSource;
-    }*/
     hfile.close();
-  //  sfile.close();
 }
 
+void CPlusPlusCodegenerator::createSourceFile()
+{
+    QFile sfile(sourcefilename);
+    sfile.open(QIODevice::WriteOnly | QIODevice::Text);
+    QTextStream sourceFileStream (&sfile);
+    for (auto elementSource: generatedCodeSource)
+    {
+        sourceFileStream << elementSource;
+    }
+    sfile.close();
+}
 
 
 }
