@@ -46,7 +46,11 @@ void Attribute::generateHeader(/*FunctionElements* attributElements*/)
     functionElements->setElements(script[this->index]);
     list<QString>::iterator iterator = foundPositionToAppendToHeaderList();
     generateHeaderList(iterator,hasElementModifier());
+}
 
+void Attribute::generateSource()
+{
+    Q_ASSERT(true);
 }
 
 void Attribute::generateHeaderList(list<QString>::iterator iterator, bool foundModifier)

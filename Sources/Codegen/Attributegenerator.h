@@ -21,6 +21,7 @@ public:
 private:
     void generateHeaderList(std::list<QString>::iterator iterator, bool foundModifier);
     void generateHeader();
+    void generateSource();   
 };
 
 }

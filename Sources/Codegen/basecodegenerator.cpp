@@ -60,7 +60,10 @@ bool BaseCodegenerator::hasElementModifier()
     return foundModifier;
 }
 
-
+//@todo we do not need this function, if user aranges functions in proper way
+//@todo delete this function in later step
+//also we have not the possiblity to arrage function automtically in proper way in sourcecode
+//it should be the reposibility of the user
 list<QString>::iterator BaseCodegenerator::foundPositionToAppendToHeaderList()
 {
     QString element;
