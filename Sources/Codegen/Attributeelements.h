@@ -20,7 +20,6 @@ public:
     bool getIsConstant() {return isConstant;}
 
 private:
-  //  QString modifierKeyword;
     QString modifier;
     QString typ;
     QString attribute;

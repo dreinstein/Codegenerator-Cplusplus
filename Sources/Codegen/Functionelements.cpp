@@ -124,8 +124,6 @@ void FunctionElements::defineElements(QString listelement, QString elementLast)
 
 
 
-
-
 bool FunctionElements::getIsDefaultValue() const
 {
     if(defaultValue != NO_VALUE)

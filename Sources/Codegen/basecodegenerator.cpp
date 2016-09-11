@@ -19,7 +19,7 @@ BaseCodegenerator::BaseCodegenerator()
     index = 0;
     sourcefilename = General::FilePath::SourceFileName;
     heaterfilename = General::FilePath::HeaderFileName;
-    classname = " ";
+    classname = "";
 }
 
 BaseCodegenerator::~BaseCodegenerator()

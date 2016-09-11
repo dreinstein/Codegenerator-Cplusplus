@@ -5,10 +5,6 @@
 
 
 
-
-
-
-
 namespace Codegenerator
 {
 
@@ -17,7 +13,6 @@ FuctionCodeGenerator::FuctionCodeGenerator(const BaseCodegenerator *r)
 {
     BaseCodegenerator::clone(r);
     functionElements = std::shared_ptr<FunctionElements>(new Codegenerator::FunctionElements());
-
 }
 
 
@@ -59,6 +54,12 @@ void FuctionCodeGenerator::generateSource()
  //   generatedCodeSource.push_back(functionElements->getTyp());
     setTypForFunctionElements(generatedCodeSource,functionElements.get());
     generatedCodeSource.push_back(CodegeneratorConstants::tab);
+    if(classname != "")
+    {
+        generatedCodeSource.push_back(classname);
+        generatedCodeSource.push_back(CodegeneratorConstants::colon);
+        generatedCodeSource.push_back(CodegeneratorConstants::colon);
+    }
     generatedCodeSource.push_back(functionElements->getFunction());
     generatedCodeSource.push_back(CodegeneratorConstants::parameterBracketOpen);
 

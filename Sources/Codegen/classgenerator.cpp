@@ -14,6 +14,7 @@ ClassGenerator::~ClassGenerator()
 void ClassGenerator::generate()
 {
    BaseCodegenerator::generate();
+
 //   ++index;
    nextElement();
 

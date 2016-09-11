@@ -251,13 +251,14 @@ TEST(FunctionTest, MixedFunctionAndAttributes)
 
 TEST(FunctionTest, ClassTest)
 {
-//    QString name = General::FilePath::HeaderFileName;
     QString scriptPath = "..\\Files\\Scripts\\ClassMixedFunctionsAndAttributes.txt";
     std::list<QString> expectedList = TestdataGenerator::testDataClass();
     std::list<QString> classHeaderList = TestUtilities::FunctionTestHeaderList(scriptPath);
     bool  result = EvaluateTest::evaluate(classHeaderList, expectedList);
     ASSERT_EQ(result, true);
 }
+
+/********************************************************************************************/
 
 
 TEST(FunctionTest, SourceFileOneFunctionWithNoParameter)
@@ -313,14 +314,6 @@ TEST(FunctionTest, SourceFileThreeComplexFunctionsMixedModifier)
 }
 
 
-TEST(FunctionTest, SourceFileWithAttribute)
-{
-    QString scriptPath = "..\\Files\\Scripts\\ClassMixedFunctionsAndAttributes.txt";
-    std::list<QString> expectedList = TestdataGenerator::testDataSourceFileWithAttributes();
-    std::list<QString> classHeaderList = TestUtilities::FunctionTestSourceList(scriptPath);
-    bool  result = EvaluateTest::evaluate(classHeaderList, expectedList);
-    ASSERT_EQ(result, true);
-}
 
 TEST(FunctionTest, SourceFileWithClass)
 {

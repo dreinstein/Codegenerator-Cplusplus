@@ -942,66 +942,6 @@ std::list<QString>TestdataGenerator::testDataSourceFileThreeComplexFunction()
 
 
 
-std::list<QString>TestdataGenerator::testDataSourceFileWithAttributes()
-{
-    QString className = "myClass";
-    QString functionName1 = "functionint";
-    QString functionName2 = "functiondouble";
-    QString functionName3 = "functionlong";
-    QString functionName4 = "functionTestClass";
-
-    std::list<QString> testDatalist;
-
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
-
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typInt);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
-    testDatalist.push_back(functionName1);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::bracketOpen);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::bracketClose);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
-
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typDouble);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
-    testDatalist.push_back(functionName2);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::bracketOpen);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::bracketClose);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
-
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::typLong);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
-    testDatalist.push_back(functionName3);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::bracketOpen);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::bracketClose);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
-
-    testDatalist.push_back("TestClass");
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
-    testDatalist.push_back(functionName4);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::bracketOpen);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::newLine);
-    testDatalist.push_back(Codegenerator::CodegeneratorConstants::bracketClose);
-
-    return testDatalist;
-}
-
-
-
 std::list<QString>TestdataGenerator::testDataSourceFileWithClass()
 {
     QString className = "myClass";
@@ -1018,6 +958,7 @@ std::list<QString>TestdataGenerator::testDataSourceFileWithClass()
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
     testDatalist.push_back(className);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::colon);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::colon);
     testDatalist.push_back(functionName1);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
@@ -1030,6 +971,7 @@ std::list<QString>TestdataGenerator::testDataSourceFileWithClass()
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::typDouble);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
     testDatalist.push_back(className);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::colon);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::colon);
     testDatalist.push_back(functionName2);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
@@ -1044,6 +986,7 @@ std::list<QString>TestdataGenerator::testDataSourceFileWithClass()
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
     testDatalist.push_back(className);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::colon);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::colon);
     testDatalist.push_back(functionName3);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketClose);
@@ -1056,6 +999,7 @@ std::list<QString>TestdataGenerator::testDataSourceFileWithClass()
     testDatalist.push_back("TestClass");
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::tab);
     testDatalist.push_back(className);
+    testDatalist.push_back(Codegenerator::CodegeneratorConstants::colon);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::colon);
     testDatalist.push_back(functionName4);
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::parameterBracketOpen);

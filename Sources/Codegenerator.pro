@@ -72,7 +72,8 @@ HEADERS  += mainwindow.h \
     Codegen/Fuctioncodegenerator.h \
     Codegen/Functionelements.h \
     Errorhandling/Functionscriptexception.h \
-    Codegen/Codegeneratorconstants.h
+    Codegen/Codegeneratorconstants.h \
+    Codegen/Attributeelements.h
 
 FORMS    += mainwindow.ui
 	
