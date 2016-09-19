@@ -3,7 +3,7 @@
 #include "../../gtest/gtest.h"
 #include "../../gmock/gmock.h"
 #include "GeneratorCPlusPlus.h"
-#include "Parsing/Parserimplementation.h"
+#include "Parsing/ParserimplementationText.h"
 
 using namespace NGenerator;
 using namespace NParser;

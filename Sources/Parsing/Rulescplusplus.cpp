@@ -5,7 +5,7 @@
 #include "RulesCPlusPlus.h"
 #include "Utilities.h"
 #include "GeneratorCPlusPlus.h"
-#include "Parserimplementation.h"
+#include "ParserimplementationText.h"
 #include "Base/BaseParserImplementation.h"
 
 
@@ -23,7 +23,7 @@ void  RulesCPlusPlus::registerObservers(BaseGenerator *observer)
 
 void RulesCPlusPlus::Parse(const QString str)
 {
-    std::unique_ptr<BaseParserImpl> parser (new ParserImpl());
+    std::unique_ptr<ParserImplText> parser (new ParserImplText());
     mapValues = parser->doParseForMap(str);
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notifyDatasGenerated(id);

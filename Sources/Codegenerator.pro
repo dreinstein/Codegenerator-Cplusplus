@@ -29,14 +29,14 @@ SOURCES += main.cpp\
     Errorhandling/Attributescriptexception.cpp \
     Errorhandling/FileNotvalidexception.cpp \
     Codegen/Attributegenerator.cpp \
-    Parsing/parserimplementation.cpp \
     Parsing/Rulescplusplus.cpp \
     Parsing/Script.cpp \
     ParserFassade.cpp \
     Codegen/Fuctioncodegenerator.cpp \
     Codegen/Functionelements.cpp \
     Errorhandling/Functionscriptexception.cpp \
-    Codegen/Codegeneratorconstants.cpp
+    Codegen/Codegeneratorconstants.cpp \
+    Parsing/parserimplementationText.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
@@ -65,7 +65,6 @@ HEADERS  += mainwindow.h \
     Errorhandling/FileNotvalidexception.h \
     Codegen/Attributegenerator.h \
     Parsing/Parser.h \
-    Parsing/Parserimplementation.h \
     Parsing/Rulescplusplus.h \
     Parsing/Script.h \
     Parsing/Keywordscplusplus.h \
@@ -73,7 +72,8 @@ HEADERS  += mainwindow.h \
     Codegen/Functionelements.h \
     Errorhandling/Functionscriptexception.h \
     Codegen/Codegeneratorconstants.h \
-    Codegen/Attributeelements.h
+    Codegen/Attributeelements.h \
+    Parsing/ParserimplementationText.h
 
 FORMS    += mainwindow.ui
 	

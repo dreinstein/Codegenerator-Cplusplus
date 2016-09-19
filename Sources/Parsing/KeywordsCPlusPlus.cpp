@@ -12,7 +12,7 @@
 #include "KeywordsCPlusPlus.h"
 #include "Utilities.h"
 #include "GeneratorCPlusPlus.h"
-#include "Parserimplementation.h"
+#include "ParserimplementationText.h"
 #include "Base/BaseGenerator.h"
 #include "Base/BaseParserImplementation.h"
 
@@ -34,7 +34,7 @@ void  KeywordsCPlusPlus::registerObservers(NGenerator::BaseGenerator *observer)
 
 void KeywordsCPlusPlus::Parse(const QString str)
 {
-    std::unique_ptr<BaseParserImpl> parser (new ParserImpl());
+    std::unique_ptr<ParserImplText> parser (new ParserImplText());
     vecValues = parser->doParseForVec(str);
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notifyDatasGenerated(id);

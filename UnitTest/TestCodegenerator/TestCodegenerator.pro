@@ -34,7 +34,6 @@ SOURCES += Main.cpp \
     ../../Sources/Errorhandling/Attributescriptexception.cpp \
     ../../Sources/Errorhandling/FileNotvalidexception.cpp \
     ../../Sources/Parsing/KeywordsCPlusPlus.cpp \
-    ../../Sources/Parsing/parserimplementation.cpp \
     ../../Sources/Parsing/Rulescplusplus.cpp \
     ../../Sources/Parsing/Script.cpp \
     ../../Sources/Codegen/Attributeelements.cpp \
@@ -48,7 +47,8 @@ SOURCES += Main.cpp \
     testutilities.cpp \
     classtest.cpp \
     ReceiveDataTest.cpp \
-    extractstringstest.cpp
+    extractstringstest.cpp \
+    ../../Sources/Parsing/parserimplementationText.cpp
 
 HEADERS += \
     ../../Sources/GeneratorCPlusPlus.h \
@@ -74,7 +74,6 @@ HEADERS += \
     baseevaluator.h \
     ../../Sources/Parsing/Keywordscplusplus.h \
     ../../Sources/Parsing/Parser.h \
-    ../../Sources/Parsing/Parserimplementation.h \
     ../../Sources/Parsing/RulesC++.h \
     ../../Sources/Parsing/Rulescplusplus.h \
     ../../Sources/Parsing/Script.h \
@@ -85,5 +84,5 @@ HEADERS += \
     ../../Sources/Codegen/codegeneratorconstants.h \
     testdatagenerator.h \
     evaluatetest.h \
-    testutilities.h
+    testutilities.h \
 

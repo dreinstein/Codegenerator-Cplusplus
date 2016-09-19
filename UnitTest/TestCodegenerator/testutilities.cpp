@@ -4,7 +4,7 @@
 #include <memory>
 #include "testutilities.h"
 #include "Codegen/Basecodegenerator.h"
-#include "Parsing/Parserimplementation.h"
+#include "Parsing/ParserimplementationText.h"
 
 
 
@@ -29,7 +29,7 @@ std::list<QString> TestUtilities::FunctionTestSourceList(QString codescript)
 
 void TestUtilities::generate(Codegenerator::BaseCodegenerator* generator,QString codescript)
 {
-    std::unique_ptr<NParser::ParserImpl> parser(new NParser::ParserImpl());
+    std::unique_ptr<NParser::ParserImplText> parser(new NParser::ParserImplText());
     QString keywordPath = "..\\Files\\Keywords\\myFirstKeywords.txt";
     QString rulesPath = "..\\Files\\Rules\\";
     std::vector<QString> keywords = parser->doParseForVec(keywordPath);

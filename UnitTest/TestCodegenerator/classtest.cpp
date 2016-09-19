@@ -2,7 +2,7 @@
 #include "../../gtest/gtest.h"
 #include "../../gmock/gmock.h"
 #include "mockparser.h"
-#include "Parsing/Parserimplementation.h"
+#include "Parsing/ParserimplementationText.h"
 #include "Codegen/Basecodegenerator.h"
 #include "Codegen/CPluspluscodegenerator.h"
 #include "Codegen/Functionelements.h"
