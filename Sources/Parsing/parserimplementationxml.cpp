@@ -32,7 +32,7 @@ std::vector<QString> ParserImplXML::doParseForVec(const QString path)const
 
 void ParserImplXML::parseAndStoreToVec()const
 {
-    vecElement = " ";
+    vecElement = emptyChar;
     do
     {
         reader.readNextStartElement();
@@ -83,7 +83,7 @@ void  ParserImplXML::storeValue()const
     {
         tagElement = reader.name().toString();
         attributeStream = reader.attributes();
-        vecElement += "@" + tagElement + "::";
+        vecElement += at + tagElement + doubleColon;
         if(attributeStream.count()>0)
         {
             attribute = attributeStream.at(0).name().toString();
@@ -107,7 +107,7 @@ void ParserImplXML::pushInVectorArray()const
         {
             xmlValues.push_back(vecElement);
             vecElement.clear();
-            startElement = " ";
+            startElement = emptyChar;
         }
     }
 }
@@ -116,7 +116,7 @@ bool ParserImplXML::mustLoopBeInterrupted() const
 {
     if(reader.isEndElement())
     {
-        if ("root" == reader.name().toString())
+        if (root == reader.name().toString())
         {
             return true;
         }

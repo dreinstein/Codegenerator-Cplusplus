@@ -14,12 +14,16 @@ namespace NParser
 class ParserImplXML : public BaseParserImpl
 {
 private:
+    const QString at = "@";
+    const QString doubleColon = "::";
+    const QString emptyChar = " ";
+    const QString root = "root";
     mutable QXmlStreamReader reader;
     mutable QString vecElement;
     mutable QString startElement;
     mutable std::vector<QString> xmlValues;
     void parseAndStoreToVec() const;
-    void storeValueWhenStartElement()const;
+    void storeValue()const;
     void pushInVectorArray()const;
     bool mustLoopBeInterrupted() const;
 public:
