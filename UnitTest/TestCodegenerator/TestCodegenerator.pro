@@ -48,7 +48,8 @@ SOURCES += Main.cpp \
     classtest.cpp \
     ReceiveDataTest.cpp \
     extractstringstest.cpp \
-    ../../Sources/Parsing/parserimplementationText.cpp
+    ../../Sources/Parsing/parserimplementationText.cpp \
+    ../../Sources/Parsing/parserimplementationxml.cpp
 
 HEADERS += \
     ../../Sources/GeneratorCPlusPlus.h \
@@ -85,4 +86,5 @@ HEADERS += \
     testdatagenerator.h \
     evaluatetest.h \
     testutilities.h \
+    ../../Sources/Parsing/parserimplementationxml.h
 
