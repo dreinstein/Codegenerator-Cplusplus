@@ -3,7 +3,7 @@
 #include "../../gtest/gtest.h"
 #include "../../gmock/gmock.h"
 #include "GeneratorCPlusPlus.h"
-#include "Parsing/Parserimplementation.h"
+#include "Parsing/ParserimplementationText.h"
 
 #include <vector>
 #include <list>
@@ -51,6 +51,14 @@ TEST_F(ReceiveDataTest, ReceiveDataRules) {
 
 // check funcktion "receive data" script in generator file
 TEST_F(ReceiveDataTest, ReceiveDataScript) {
+    std::vector<QString> value;
+    value.push_back("Directory");
+    generator->receiveData(value,General::ParserId::Id::Script);
+    std::vector<QString> scriptstrings = generator->getScripts();
+    ASSERT_EQ(parserstring, scriptstrings[0]);
+}
+
+TEST_F(ReceiveDataTest, ReceiveXMLDataScript) {
     std::vector<QString> value;
     value.push_back("Directory");
     generator->receiveData(value,General::ParserId::Id::Script);

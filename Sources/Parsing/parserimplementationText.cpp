@@ -1,12 +1,11 @@
 
-//#include <iostream>
-//#include <fstream>
+
 #include <QString>
 #include <QTextStream>
 #include <QFile>
 #include <windows.h>
 #include <string>
-#include "Parserimplementation.h"
+#include "ParserimplementationText.h"
 #include "../Errorhandling/OpenfileException.h"
 
 
@@ -14,17 +13,9 @@ namespace NParser
 {
 
 
-ParserImpl::ParserImpl()
-{
 
-}
 
-ParserImpl::~ParserImpl()
-{
-
-}
-
-std::vector<QString> ParserImpl::doParseForVec(const QString path)const
+std::vector<QString> ParserImplText::doParseForVec(const QString path)const
 {
 
     QFile fin(path);
@@ -45,11 +36,12 @@ std::vector<QString> ParserImpl::doParseForVec(const QString path)const
       throw Errorhandling::OpenFileException();
     }
     return values;
-
 }
 
+
+
 // get hash fileName(Keyword,path)
-std::map<QString, QString> ParserImpl::doParseForMap(const QString val) const
+std::map<QString, QString> ParserImplText::doParseForMap(const QString val) const
 {
     HANDLE fHandle;
     WIN32_FIND_DATA wfd;

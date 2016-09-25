@@ -10,11 +10,11 @@
 namespace NParser
 {
 
-class ParserImpl:public BaseParserImpl
+class ParserImplText:public BaseParserImpl
 {
 public:
-    ParserImpl();
-    virtual ~ParserImpl();
+    ParserImplText(){;}
+    virtual ~ParserImplText(){;}
     std::vector<QString> doParseForVec(const QString)const override final;
     std::map<QString,QString> doParseForMap(const QString)const override final;
 };
