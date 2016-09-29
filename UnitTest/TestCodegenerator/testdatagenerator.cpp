@@ -527,7 +527,7 @@ std::list<QString>TestdataGenerator::testDataFunctionsAttributesMixedModifiers()
     QString functionName3 = "functionlong";
     QString functionName4 = "functionTestClass";
     QString attributeName1 = "attributeint";
-    QString attributeName2 = "attributendouble";
+    QString attributeName2 = "attributedouble";
     QString attributeName3 = "attributelong";
     QString attributeName4 = "attributeTestClass";
 

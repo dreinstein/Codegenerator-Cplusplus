@@ -86,7 +86,7 @@ void  ParserImplXML::storeValue()const
         vecElement += at + tagElement + doubleColon;
         if(attributeStream.count()>0)
         {
-            attribute = attributeStream.at(0).name().toString();
+            attribute = attributeStream.at(0).value().toString();
             vecElement += attribute;
             startElement = reader.name().toString();
         }
