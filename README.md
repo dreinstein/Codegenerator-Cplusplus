@@ -17,7 +17,6 @@ Attributs
 Datas stored via textfile or xmlfile
 cpp File and headerfile are be created
 
-
 Next steps will be:
 
 enhance to generator enums, lamdas, etc
