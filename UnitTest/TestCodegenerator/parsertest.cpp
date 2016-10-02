@@ -51,9 +51,9 @@ TEST_F(ParserTest, GetVecValuesFromParserImplementationForXMLFile)
 {
     std::vector<QString> values = parserXML->doParseForVec("..\\Files\\Scripts\\xml\\MixedFunctionsAndAttributes.xml");
     EvaluateTest::evaluateParserVector(values,refValues);
-
-
 }
+
+
 
 
 // check function to parse map values

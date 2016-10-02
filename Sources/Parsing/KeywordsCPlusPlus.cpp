@@ -14,7 +14,9 @@
 #include "GeneratorCPlusPlus.h"
 #include "ParserimplementationText.h"
 #include "Base/BaseGenerator.h"
+#include "../Errorhandling/Exceptionhandling.h"
 #include "Base/BaseParserImplementation.h"
+#include "iostream"
 
 namespace NParser
 {
@@ -35,7 +37,15 @@ void  KeywordsCPlusPlus::registerObservers(NGenerator::BaseGenerator *observer)
 void KeywordsCPlusPlus::Parse(const QString str)
 {
     std::unique_ptr<ParserImplText> parser (new ParserImplText());
-    vecValues = parser->doParseForVec(str);
+    try
+    {
+        vecValues = parser->doParseForVec(str);
+    }
+    catch(Errorhandling::Exceptionhandling &error)
+    {
+        // @todo:: log
+        std::cout << error.whatDescription();
+    }
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notifyDatasGenerated(id);
     }

@@ -7,6 +7,9 @@
 #include "GeneratorCPlusPlus.h"
 #include "ParserimplementationText.h"
 #include "Base/BaseParserImplementation.h"
+#include "../Errorhandling/Exceptionhandling.h"
+#include "Base/BaseParserImplementation.h"
+#include "iostream"
 
 
 namespace NParser
@@ -24,7 +27,15 @@ void  RulesCPlusPlus::registerObservers(BaseGenerator *observer)
 void RulesCPlusPlus::Parse(const QString str)
 {
     std::unique_ptr<ParserImplText> parser (new ParserImplText());
-    mapValues = parser->doParseForMap(str);
+    try
+    {
+        mapValues = parser->doParseForMap(str);
+    }
+    catch(Errorhandling::Exceptionhandling &error)
+    {
+        // @todo:: log
+        std::cout << error.whatDescription();
+    }
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notifyDatasGenerated(id);
     }

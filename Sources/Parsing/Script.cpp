@@ -6,6 +6,8 @@
 #include "GeneratorCPlusPlus.h"
 #include "parserimplementationxml.h"
 #include "Base/BaseParserImplementation.h"
+#include "../Errorhandling/Exceptionhandling.h"
+#include "iostream"
 
 namespace NParser
 {
@@ -23,7 +25,16 @@ void  Script::registerObservers(BaseGenerator *observer)
 void Script::Parse(const QString str)
 {
     std::unique_ptr<ParserImplXML> parser (new ParserImplXML());
-    vecValues = parser->doParseForVec(str);
+    try
+    {
+        vecValues = parser->doParseForVec(str);
+    }
+    catch(Errorhandling::Exceptionhandling &error)
+    {
+        // @todo:: log
+        std::cout << error.whatDescription();
+    }
+
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notifyDatasGenerated(id);
     }
