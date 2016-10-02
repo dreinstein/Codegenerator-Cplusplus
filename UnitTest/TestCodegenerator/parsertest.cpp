@@ -2,6 +2,8 @@
 #include "../../gmock/gmock.h"
 #include "Parsing\ParserimplementationText.h"
 #include "Parsing\ParserimplementationXML.h"
+#include "Errorhandling/OpenfileException.h"
+#include "Errorhandling/Xmlfileexception.h"
 #include "evaluatetest.h"
 #include <vector>
 #include <map>
@@ -49,15 +51,19 @@ TEST_F(ParserTest, GetVecValuesFromParserImplementationForTextFile)
 // check function to parser vector values
 TEST_F(ParserTest, GetVecValuesFromParserImplementationForXMLFile)
 {
+    ASSERT_NO_THROW({
+
     std::vector<QString> values = parserXML->doParseForVec("..\\Files\\Scripts\\xml\\MixedFunctionsAndAttributes.xml");
     EvaluateTest::evaluateParserVector(values,refValues);
 }
 
+    });
 
 
 
 // check function to parse map values
-TEST_F(ParserTest, GetHashValuesFromParserImplementation) {
+TEST_F(ParserTest, GetHashValuesFromParserImplementation)
+{
     std::map<QString, QString> value = parserText->doParseForMap(("..\\Files\\Rules"));
     QString cwd = "..\\Files\\Rules\\class.txt";
     ASSERT_EQ(cwd, value["class"]);
@@ -65,8 +71,22 @@ TEST_F(ParserTest, GetHashValuesFromParserImplementation) {
 
 
 
+TEST_F(ParserTest, ThrowExceptionCannotOpenFileXML)
+{
+    ASSERT_THROW( parserXML->doParseForVec("..\\Files\\Scripts\\xml\\MixedFunctions.xml"),Errorhandling::OpenFileException);
+}
 
 
+TEST_F(ParserTest, ThrowExceptionCanNotOpenFileText)
+{
+    ASSERT_THROW( parserText->doParseForVec("..\\Files\\Scripts\\xml\\MixedFunctions.txt"),Errorhandling::OpenFileException);
+}
+
+
+TEST_F(ParserTest, ThrowExceptionFileNotValidXML)
+{
+    ASSERT_THROW( parserXML->doParseForVec("..\\Files\\Scripts\\xml\\FunctionWithNoParameterReturnIntNotValid.xml"),Errorhandling::XMLFileException);
+}
 
 
 

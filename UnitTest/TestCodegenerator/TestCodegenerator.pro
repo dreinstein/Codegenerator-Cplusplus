@@ -49,7 +49,8 @@ SOURCES += Main.cpp \
     ReceiveDataTest.cpp \
     extractstringstest.cpp \
     ../../Sources/Parsing/parserimplementationText.cpp \
-    ../../Sources/Parsing/parserimplementationxml.cpp
+    ../../Sources/Parsing/parserimplementationxml.cpp \
+    ../../Sources/Errorhandling/Xmlfileexception.cpp
 
 HEADERS += \
     ../../Sources/GeneratorCPlusPlus.h \
@@ -86,5 +87,6 @@ HEADERS += \
     testdatagenerator.h \
     evaluatetest.h \
     testutilities.h \
-    ../../Sources/Parsing/parserimplementationxml.h
+    ../../Sources/Parsing/parserimplementationxml.h \
+    ../../Sources/Errorhandling/Xmlfileexception.h
 

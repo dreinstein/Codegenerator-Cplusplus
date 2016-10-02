@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+<function name="functionNoParameterReturnInt">
+		<modifier>public</modifier>
+		<typ>int</typ>
+</function>
+<function name="secondFunction">
+		<modifier>private</modifier>
+		<typ>double</typ>
+</function>
+</root>

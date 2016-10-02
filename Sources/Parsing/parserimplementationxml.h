@@ -29,7 +29,7 @@ private:
 public:
     ParserImplXML(){;}
     virtual ~ParserImplXML(){;}
-    std::vector<QString> doParseForVec(const QString)const override final;
+    std::vector<QString> doParseForVec(const QString) const override final;
     std::map<QString,QString> doParseForMap(const QString)const override final;
 };
 
