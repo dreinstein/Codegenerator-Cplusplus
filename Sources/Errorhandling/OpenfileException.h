@@ -17,7 +17,7 @@ public:
     Exceptionhandling::ExceptionCodes whatCode() const throw () override final;
     std::string whatDescription() const throw () override final;
 private:
-    const std::string error = "Cannot generateFile";
+    const std::string error = "annot read File";
 };
 
 }

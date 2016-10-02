@@ -4,7 +4,7 @@
 #include "RulesCPlusPlus.h"
 #include "Utilities.h"
 #include "GeneratorCPlusPlus.h"
-#include "ParserimplementationText.h"
+#include "parserimplementationxml.h"
 #include "Base/BaseParserImplementation.h"
 
 namespace NParser
@@ -22,7 +22,7 @@ void  Script::registerObservers(BaseGenerator *observer)
 
 void Script::Parse(const QString str)
 {
-    std::unique_ptr<ParserImplText> parser (new ParserImplText());
+    std::unique_ptr<ParserImplXML> parser (new ParserImplXML());
     vecValues = parser->doParseForVec(str);
     for(unsigned int i=0; i < parserObservers.size(); i++){
         parserObservers[i]->notifyDatasGenerated(id);

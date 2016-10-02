@@ -6,6 +6,7 @@
 #include <QXmlStreamAttribute>
 #include <windows.h>
 #include <string>
+#include "../Errorhandling/Xmlfileexception.h"
 #include "../Errorhandling/OpenfileException.h"
 
 
@@ -57,8 +58,9 @@ void ParserImplXML::parseAndStoreToVec()const
         // check Error
         if(reader.hasError())
         {
-        // ändern andere FEhlerbehandlung
-           throw Errorhandling::OpenFileException();
+        // ändern andere Fehlerbehandlung
+            break;
+            throw Errorhandling::XMLFileException();
         }
    }
    while(!reader.atEnd() &&  !reader.hasError());
