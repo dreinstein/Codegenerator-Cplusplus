@@ -13,9 +13,9 @@ FileNotValidException::~FileNotValidException()
 
 }
 
-int FileNotValidException::whatCode() const throw ()
+Exceptionhandling::ExceptionCodes FileNotValidException::whatCode() const throw ()
 {
-    return ExceptionCode::FileNotValidException;
+    return ExceptionCodes::FileNotValidException;
 }
 
 std::string FileNotValidException::whatDescription() const throw ()

@@ -28,7 +28,7 @@ QString Codegenerator::CodegeneratorConstants::typQString = "QString";
 QString Codegenerator::CodegeneratorConstants::typVectorInt = "vector<int>";
 QString Codegenerator::CodegeneratorConstants::typTestClass  = "TestClass";
 QString Codegenerator::CodegeneratorConstants::equal  = "=";
-QString Codegenerator::CodegeneratorConstants::BracketWithSemiColon = "};";
+QString Codegenerator::CodegeneratorConstants::bracketWithSemiColon = "};";
 
 
 

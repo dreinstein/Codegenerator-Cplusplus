@@ -16,7 +16,7 @@ private:
 public:
     AttributeScriptException();
     virtual ~AttributeScriptException();
-    virtual std::string whatDescription() const throw ();
+    virtual std::string whatDescription() const throw () override final;
 private:
     const std::string error = "Script error, error in defining Attribute";
 };

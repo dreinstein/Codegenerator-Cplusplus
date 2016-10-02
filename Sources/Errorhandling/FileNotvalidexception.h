@@ -12,8 +12,8 @@ class FileNotValidException : public Exceptionhandling
 public:
     FileNotValidException();
     virtual ~FileNotValidException();
-    int whatCode() const throw ();
-    std::string whatDescription() const throw ();
+    Exceptionhandling::ExceptionCodes whatCode() const throw () override final;
+    std::string whatDescription() const throw () override final;
 private:
     const std::string error = "File is not valid";
 };

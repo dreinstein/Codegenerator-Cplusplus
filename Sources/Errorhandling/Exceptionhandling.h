@@ -14,18 +14,19 @@ namespace Errorhandling
 class Exceptionhandling:public exception
 {
 protected:
-    enum ExceptionCode
+    enum class ExceptionCodes
     {
         OpenFileException       = 1,
         ScriptException         = 2,
-        FileNotValidException   = 3
+        FileNotValidException   = 3,
+        XMLNotValidException    = 4
     };
 
 
 public:
    // Excetionhandling();
     virtual ~Exceptionhandling(){;}
-    virtual int whatCode() const throw ()=0;
+    virtual ExceptionCodes whatCode() const throw ()=0;
     virtual std::string whatDescription() const throw () = 0;
 };
 

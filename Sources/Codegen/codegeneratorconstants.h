@@ -37,7 +37,7 @@ namespace Codegenerator
         static QString typVectorInt;
         static QString typTestClass;
         static QString equal;
-        static QString BracketWithSemiColon;
+        static QString bracketWithSemiColon;
     };
 }
 

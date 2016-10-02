@@ -14,8 +14,8 @@ private:
 public:
     OpenFileException();
     virtual ~OpenFileException();
-    int whatCode() const throw ();
-    std::string whatDescription() const throw ();
+    Exceptionhandling::ExceptionCodes whatCode() const throw () override final;
+    std::string whatDescription() const throw () override final;
 private:
     const std::string error = "Cannot generateFile";
 };

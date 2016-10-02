@@ -8,12 +8,12 @@ namespace Errorhandling
 
 class ScriptException : public Exceptionhandling
 {
-private:
+
 public:
     ScriptException();
     virtual ~ScriptException();
-    int whatCode() const throw ();
-    virtual std::string whatDescription() const throw ();
+    Exceptionhandling::ExceptionCodes whatCode() const throw () override final;
+    virtual std::string whatDescription() const throw () override ;
 private:
     const std::string error = "script Error";
 };

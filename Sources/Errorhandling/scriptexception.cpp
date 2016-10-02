@@ -14,9 +14,9 @@ ScriptException::~ScriptException()
 
 }
 
-int ScriptException::whatCode() const throw ()
+Exceptionhandling::ExceptionCodes ScriptException::whatCode() const throw ()
 {
-    return ExceptionCode::ScriptException;
+    return ExceptionCodes::ScriptException;
 }
 
 std::string ScriptException::whatDescription() const throw ()

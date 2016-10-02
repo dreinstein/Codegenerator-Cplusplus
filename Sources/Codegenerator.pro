@@ -37,7 +37,8 @@ SOURCES += main.cpp\
     Errorhandling/Functionscriptexception.cpp \
     Codegen/Codegeneratorconstants.cpp \
     Parsing/parserimplementationText.cpp \
-    Parsing/parserimplementationxml.cpp
+    Parsing/parserimplementationxml.cpp \
+    Errorhandling/Xmlfileexception.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
@@ -75,7 +76,8 @@ HEADERS  += mainwindow.h \
     Codegen/Codegeneratorconstants.h \
     Codegen/Attributeelements.h \
     Parsing/ParserimplementationText.h \
-    Parsing/parserimplementationxml.h
+    Parsing/parserimplementationxml.h \
+    Errorhandling/Xmlfileexception.h
 
 FORMS    += mainwindow.ui
 	
