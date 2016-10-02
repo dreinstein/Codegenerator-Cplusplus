@@ -9,17 +9,19 @@ Qt 5.7.0
 Project is driven by TTD with google mock
 
 Status:
-August 2016:
+Septemaber 2016:
 Algorithms to generate code ready:
 classes
 functions
 Attributs
+Datas stored via textfile or xmlfile
+cpp File and headerfile are be created
 
 
 Next steps will be:
-create heater and sourcefile
+
 enhance to generator enums, lamdas, etc
-adapt scripts to xml
+enhance polymorphismn
 provide gui
 ...
 
