@@ -36,8 +36,14 @@ void ParserImplXML::parseAndStoreToVec()const
     vecElement = emptyChar;
     do
     {
+
         reader.readNextStartElement();
         // check Error
+        if(reader.hasError())
+        {
+        // ändern andere Fehlerbehandlung
+            throw Errorhandling::XMLFileException();
+        }
 
         // must check if reader is at end
         if( reader.atEnd())
@@ -49,11 +55,11 @@ void ParserImplXML::parseAndStoreToVec()const
         {
             continue;
         } 
-        if(reader.hasError())
+        /*if(reader.hasError())
         {
         // ändern andere Fehlerbehandlung
             throw Errorhandling::XMLFileException();
-        }
+        }*/
         // here we should check if we are at root and has to be break the loop
         if(mustLoopBeInterrupted())
         {
