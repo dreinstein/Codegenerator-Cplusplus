@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+<path name="..\\Files\\Generated\\myFirstGeneratedClass">
+</path>
+<class name = "mytestClass">
+	<function name="functionint">
+		<modifier>private</modifier>
+		<typ>int</typ>
+	</function>
+	<function name="functiondouble">
+		<modifier>public</modifier>
+		<typ>double</typ>
+	</function>
+	<function name="functionlong">
+		<modifier>private</modifier>
+		<typ>long</typ>
+	</function>
+	<function name="functionTestClass">
+		<modifier>public</modifier>
+		<typ>TestClass</typ>
+	</function>
+	<attribute name="attributeint">
+		<modifier>public</modifier>
+		<typ>int</typ>
+	</attribute>
+	<attribute name="attributedouble">
+		<modifier>private</modifier>
+		<typ>double</typ>
+	</attribute>
+	<attribute name="attributelong">
+		<modifier>public</modifier>
+		<typ>long</typ>
+	</attribute>
+	<attribute name="attributeTestClass">
+		<modifier>public</modifier>
+		<typ>TestClass</typ>
+	</attribute>
+</class>

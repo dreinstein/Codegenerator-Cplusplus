@@ -34,32 +34,29 @@ std::vector<QString> ParserImplXML::doParseForVec(const QString path)const
 void ParserImplXML::parseAndStoreToVec()const
 {
     vecElement = emptyChar;
-    do
+    while(!reader.atEnd() &&  !reader.hasError())
     {
 
         reader.readNextStartElement();
         // check Error
         if(reader.hasError())
         {
-        // ändern andere Fehlerbehandlung
-            throw Errorhandling::XMLFileException();
-        }
-
-        // must check if reader is at end
-        if( reader.atEnd())
-        {
-            break;
+            // this is the end of file
+            if(reader.error() == QXmlStreamReader::PrematureEndOfDocumentError)
+            {
+                break;
+            }
+            // something other go wrong
+            else
+            {
+                throw Errorhandling::XMLFileException();
+            }
         }
         // if root ignore
         if(reader.name() == "root")
         {
             continue;
-        } 
-        /*if(reader.hasError())
-        {
-        // ändern andere Fehlerbehandlung
-            throw Errorhandling::XMLFileException();
-        }*/
+        }
         // here we should check if we are at root and has to be break the loop
         if(mustLoopBeInterrupted())
         {
@@ -68,10 +65,7 @@ void ParserImplXML::parseAndStoreToVec()const
 
         // store the Values
         storeValue();
-
-
    }
-   while(!reader.atEnd() &&  !reader.hasError());
 }
 
 
