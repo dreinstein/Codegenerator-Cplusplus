@@ -8,7 +8,7 @@ class BaseParserImpl
 {
 public:
     virtual ~BaseParserImpl(){;}
-    virtual std::vector<QString> doParseForVec(const QString) const = 0 ;
+    virtual std::vector<QString> doParseForVec(const QString) = 0 ;
     virtual std::map<QString, QString> doParseForMap(const QString)const=0;
 };
 

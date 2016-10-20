@@ -14,7 +14,7 @@ namespace NParser
 {
 
 
-std::vector<QString> ParserImplXML::doParseForVec(const QString path)const
+std::vector<QString> ParserImplXML::doParseForVec(const QString path)
 {
     QFile fin(path);
     if (fin.open(QIODevice::ReadOnly))
@@ -31,7 +31,7 @@ std::vector<QString> ParserImplXML::doParseForVec(const QString path)const
 }
 
 
-void ParserImplXML::parseAndStoreToVec()const
+void ParserImplXML::parseAndStoreToVec()
 {
     vecElement = emptyChar;
     while(!reader.atEnd() &&  !reader.hasError())
@@ -78,7 +78,7 @@ std::map<QString, QString> ParserImplXML::doParseForMap(const QString) const
     return map;
 }
 
-void  ParserImplXML::storeValue()const
+void  ParserImplXML::storeValue()
 {
     QString tagElement;
     QXmlStreamAttributes attributeStream;
@@ -86,8 +86,20 @@ void  ParserImplXML::storeValue()const
     if(reader.isStartElement())
     {
         tagElement = reader.name().toString();
+        if(isClassString())
+        {
+           className = reader.attributes().at(0).value().toString();
+           isClassPrefixNecessary = true;
+           return;
+        }
         attributeStream = reader.attributes();
         vecElement += at + tagElement + doubleColon;
+        if(isClassPrefixNecessary)
+        {
+            vecElement = at + classStr + doubleColon + className + vecElement;
+            // do it only once for the vecElement
+            isClassPrefixNecessary = false;
+        }
         if(attributeStream.count()>0)
         {
             attribute = attributeStream.at(0).value().toString();
@@ -112,6 +124,12 @@ void ParserImplXML::pushInVectorArray()const
             xmlValues.push_back(vecElement);
             vecElement.clear();
             startElement = emptyChar;
+            if(className !="")
+            {
+                // classPrefix is necessary for new vecElement
+                isClassPrefixNecessary = true;
+            }
+
         }
     }
 }
@@ -124,6 +142,15 @@ bool ParserImplXML::mustLoopBeInterrupted() const
         {
             return true;
         }
+    }
+    return false;
+}
+
+bool ParserImplXML::isClassString()
+{
+    if(reader.name().toString() == classStr)
+    {       
+        return true;
     }
     return false;
 }
