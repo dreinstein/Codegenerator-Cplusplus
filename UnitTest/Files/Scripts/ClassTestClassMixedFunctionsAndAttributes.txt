@@ -1,0 +1,10 @@
+@path::..\\Files\\Generated\\myFirstGeneratedFile
+@class::testClass@function::functionint@modifier::private@typ::int
+@class::testClass@function::functiondouble@modifier::public@typ::double
+@class::testClass@function::functionlong@modifier::private@typ::long
+@class::testClass@function::functionTestClass@modifier::public@typ::TestClass
+@class::testClass@attribute::attributeint@modifier::public@typ::int
+@class::testClass@attribute::attributedouble@modifier::private@typ::double
+@class::testClass@attribute::attributelong@modifier::public@typ::long
+@class::testClass@attribute::attributeTestClass@modifier::public@typ::TestClass
+

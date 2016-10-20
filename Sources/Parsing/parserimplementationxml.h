@@ -18,18 +18,22 @@ private:
     const QString doubleColon = "::";
     const QString emptyChar = " ";
     const QString root = "root";
+    const QString classStr = "class";
     mutable QXmlStreamReader reader;
     mutable QString vecElement;
     mutable QString startElement;
+    mutable QString className;
+    mutable bool isClassPrefixNecessary;
     mutable std::vector<QString> xmlValues;
-    void parseAndStoreToVec() const;
-    void storeValue()const;
+    void parseAndStoreToVec();
+    void storeValue();
     void pushInVectorArray()const;
     bool mustLoopBeInterrupted() const;
+    bool isClassString();
 public:
-    ParserImplXML(){;}
+    ParserImplXML(){className = "";isClassPrefixNecessary = false;}
     virtual ~ParserImplXML(){;}
-    std::vector<QString> doParseForVec(const QString) const override final;
+    std::vector<QString> doParseForVec(const QString) override final;
     std::map<QString,QString> doParseForMap(const QString)const override final;
 };
 

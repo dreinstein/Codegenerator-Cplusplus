@@ -15,7 +15,7 @@ namespace NParser
 
 
 
-std::vector<QString> ParserImplText::doParseForVec(const QString path)const
+std::vector<QString> ParserImplText::doParseForVec(const QString path)
 {
 
     QFile fin(path);
