@@ -30,6 +30,11 @@ std::vector<QString> ParserImplXML::doParseForVec(const QString path)
     return xmlValues;
 }
 
+void ParserImplXML::storeValues()
+{
+    return;
+}
+
 
 void ParserImplXML::parseAndStoreToVec()
 {

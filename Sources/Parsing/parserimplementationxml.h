@@ -35,6 +35,7 @@ public:
     virtual ~ParserImplXML(){;}
     std::vector<QString> doParseForVec(const QString) override final;
     std::map<QString,QString> doParseForMap(const QString)const override final;
+    void storeValues() override final;
 };
 
 }
