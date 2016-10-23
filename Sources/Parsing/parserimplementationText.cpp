@@ -71,6 +71,13 @@ std::map<QString, QString> ParserImplText::doParseForMap(const QString val) cons
     FindClose(fHandle);
     return map;
 }
+
+void ParserImplText::storeValues()
+{
+    // should not come here
+    Q_ASSERT(true);
+}
+
 }
 
 
