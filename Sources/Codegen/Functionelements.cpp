@@ -1,3 +1,4 @@
+#include <memory>
 #include "Functionelements.h"
 #include "Utilities.h"
 
@@ -10,7 +11,7 @@ FunctionElements::FunctionElements()
 
 FunctionElements::~FunctionElements()
 {
-    FunctionElements* elements;
+    AttributeElements* elements;
     for (auto iterator = begin(functionParameters) ; iterator != functionParameters.end();++iterator)
     {
        elements = *iterator;
@@ -22,16 +23,14 @@ FunctionElements::~FunctionElements()
 void FunctionElements::resetData()
 {
     function = "";
-    parameter = "";
     modifier = "";
-    attribute = "";
     typ = "";
     isRef = false;
     isPointer = false;
     isConstant = false;
     isReturnConstant = false;
     isMemoryConstant = false;
-    defaultValue = NO_VALUE;
+    defaultValue = General::ElementStrings::NO_VALUE;
 }
 
 
@@ -59,18 +58,21 @@ void FunctionElements::setElements(FunctionElements* funcElements,QString elemen
     {
         listelement = *constIterator;
         elementLast = General::ExtractString::extractLast(listelement);
-        defineElements(listelement,elementLast);
-        if(listelement.contains(PARAMETERELEMENT))
+        if(listelement.contains(General::ElementStrings::PARAMETERELEMENT))
         {
             // iterativ over all parameters
            // breakLoop = true;
-            FunctionElements *attriElement = new FunctionElements();
+            std::unique_ptr<AttributeElements> attriElement = std::unique_ptr<AttributeElements>(new Codegenerator::AttributeElements());
             attriElement->resetData();
-            attriElement->setParameter(elementLast);
+          //  attriElement->setParameter(elementLast);
             element = General::ExtractString::extractParameter(element);
-            attriElement->setElements(funcElements,element);
-            funcElements->functionParameters.push_back(attriElement);
+            attriElement->setElements(element);
+            funcElements->getFunctionParameters().push_back(attriElement.get());
             break;
+        }
+        else
+        {
+             defineElements(listelement,elementLast);
         }
     }
 }
@@ -78,45 +80,40 @@ void FunctionElements::setElements(FunctionElements* funcElements,QString elemen
 
 void FunctionElements::defineElements(QString listelement, QString elementLast)
 {
-    if(listelement.contains(FUNCTIONELEMENT))
+    if(listelement.contains(General::ElementStrings::FUNCTIONELEMENT))
     {
        function = elementLast;
     }
 
-    if(listelement.contains(ATTRIBUEELEMENT))
-    {
-       attribute = elementLast;
-    }
-
-    if(listelement.contains(TYPELEMENT))
+    if(listelement.contains(General::ElementStrings::TYPELEMENT))
     {
        typ = elementLast;
     }
-    if(listelement.contains(MODIFIERELEMENT))
+    if(listelement.contains(General::ElementStrings::MODIFIERELEMENT))
     {
        modifier = elementLast;
     }
-    if(listelement.contains(ISREFERENCEELEMENT))
+    if(listelement.contains(General::ElementStrings::ISREFERENCEELEMENT))
     {
           isRef = true;
     }
-    if(listelement.contains(ISPOINTERELEMENT))
+    if(listelement.contains(General::ElementStrings::ISPOINTERELEMENT))
     {
           isPointer = true;
     }
-    if(listelement.contains(ISRETURNCONSTANTELEMENT))
+    if(listelement.contains(General::ElementStrings::ISRETURNCONSTANTELEMENT))
     {
           isReturnConstant = true;
     }
-    else if(listelement.contains(ISMEMORYCONSTANTELEMENT))
+    else if(listelement.contains(General::ElementStrings::ISMEMORYCONSTANTELEMENT))
     {
           isMemoryConstant = true;
     }
-    else if(listelement.contains(ISCONSTANTELEMENT))
+    else if(listelement.contains(General::ElementStrings::ISCONSTANTELEMENT))
     {
           isConstant = true;
     }
-    else if(listelement.contains(DEFAULTVALUEELEMENT))
+    else if(listelement.contains(General::ElementStrings::DEFAULTVALUEELEMENT))
     {
           defaultValue = elementLast;
     }
@@ -126,7 +123,7 @@ void FunctionElements::defineElements(QString listelement, QString elementLast)
 
 bool FunctionElements::getIsDefaultValue() const
 {
-    if(defaultValue != NO_VALUE)
+    if(defaultValue != General::ElementStrings::NO_VALUE)
     {
         return true;
     }

@@ -49,6 +49,23 @@ public:
     static QString HeaderFileName;
 };
 
+class ElementStrings
+{
+public:
+    static QString NO_VALUE;
+    static QString FUNCTIONELEMENT;
+    static QString ATTRIBUEELEMENT;
+    static QString TYPELEMENT;
+    static QString MODIFIERELEMENT;
+    static QString ISREFERENCEELEMENT;
+    static QString ISPOINTERELEMENT;
+    static QString ISRETURNCONSTANTELEMENT;
+    static QString ISMEMORYCONSTANTELEMENT;
+    static QString ISCONSTANTELEMENT;
+    static QString DEFAULTVALUEELEMENT;
+    static QString PARAMETERELEMENT;
+};
+
 
 
 // Todo create seperate File for Class Extract String, perhaps give it other name

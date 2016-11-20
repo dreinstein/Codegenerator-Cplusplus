@@ -40,12 +40,13 @@ void Attribute::generateHeader(/*FunctionElements* attributElements*/)
 {
   //  Q_ASSERT(functionElements);
     //AttributeElements *attributeElements = new AttributeElements();
-    functionElements = std::shared_ptr<FunctionElements>(new FunctionElements());
+    attributeElements = std::unique_ptr<AttributeElements>(new AttributeElements());
  //   functionElements = new FunctionElements();
-    functionElements->resetData();
-    functionElements->setElements(script[this->index]);
-    list<QString>::iterator iterator = foundPositionToAppendToHeaderList();
-    generateHeaderList(iterator,hasElementModifier());
+    attributeElements->resetData();
+    attributeElements->setElements(script[this->index]);
+    bool hasPublicModifier = (attributeElements->getModifier() == CodegeneratorConstants::modifierPublic);
+    list<QString>::iterator iterator = foundPositionToAppendToHeaderList(hasPublicModifier);
+    generateHeaderList(iterator,hasElementModifier(attributeElements->getModifier()));
 }
 
 void Attribute::generateSource()
@@ -53,32 +54,29 @@ void Attribute::generateSource()
     Q_ASSERT(true);
 }
 
+
+
 void Attribute::generateHeaderList(list<QString>::iterator iterator, bool foundModifier)
 {
     list<QString> templist;
     templist.splice(templist.begin(), generatedCodeHeader,iterator,generatedCodeHeader.end());
 
-
-
-    Q_ASSERT(functionElements);
-
+   Q_ASSERT(attributeElements);
 
     if(!foundModifier)
     {
         // create modifier
-        generatedCodeHeader.push_back(functionElements->getModifier());
+        generatedCodeHeader.push_back(attributeElements->getModifier());
         generatedCodeHeader.push_back(CodegeneratorConstants::colon);
         generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
     }
     generatedCodeHeader.push_back(CodegeneratorConstants::tab);
-    generatedCodeHeader.push_back(functionElements->getTyp());
+    generatedCodeHeader.push_back(attributeElements->getTyp());
     generatedCodeHeader.push_back(CodegeneratorConstants::tab);
-    generatedCodeHeader.push_back(functionElements->getAttribute());
+    generatedCodeHeader.push_back(attributeElements.get()->getAttribute());
     generatedCodeHeader.push_back(CodegeneratorConstants::semiColon);
     generatedCodeHeader.push_back(CodegeneratorConstants::newLine);
     generatedCodeHeader.insert(generatedCodeHeader.end(), templist.begin(),templist.end());
-
-
 }
 
 }

@@ -18,6 +18,9 @@ public:
     bool getIsRef(){return isRef;}
     bool getIsPointer() {return isPointer;}
     bool getIsConstant() {return isConstant;}
+    QString getDefaultValue() const {return defaultValue;}
+    bool getIsDefaultValue() const;
+    void resetData();
 
 private:
     QString modifier;
@@ -26,6 +29,7 @@ private:
     bool isRef;
     bool isPointer;
     bool isConstant;
+    QString defaultValue;
 };
 
 }

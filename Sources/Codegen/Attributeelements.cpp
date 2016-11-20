@@ -1,6 +1,6 @@
 #include "QString"
 #include "Attributeelements.h"
-
+#include "Utilities.h"
 
 namespace Codegenerator
 {
@@ -11,6 +11,18 @@ AttributeElements::AttributeElements()
     typ = "";
     modifier = "";
     isRef = false;
+}
+
+void AttributeElements::resetData()
+{
+
+    modifier="";
+    typ = "";
+    attribute="";
+    isRef = false;
+    isPointer = false;
+    isConstant = false;
+    defaultValue = "";
 }
 
 void AttributeElements::setElements(QString element)
@@ -73,5 +85,14 @@ void AttributeElements::setElements(QString element)
             }
         }
     }
+}
+
+bool AttributeElements::getIsDefaultValue() const
+{
+    if(defaultValue != General::ElementStrings::NO_VALUE)
+    {
+        return true;
+    }
+    return false;
 }
 }

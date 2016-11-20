@@ -44,7 +44,7 @@ void BaseCodegenerator::clone(const BaseCodegenerator *toClone)
 
 
 
-bool BaseCodegenerator::hasElementModifier()
+bool BaseCodegenerator::hasElementModifier(QString elementModifier)
 {
     bool foundModifier = false;
     QString element;
@@ -52,7 +52,7 @@ bool BaseCodegenerator::hasElementModifier()
     for(iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator)
     {
         element = *iterator;
-        if(element.contains(functionElements->getModifier()))
+        if(element.contains(elementModifier))
         {
             foundModifier = true;
         }
@@ -64,14 +64,14 @@ bool BaseCodegenerator::hasElementModifier()
 //@todo delete this function in later step
 //also we have not the possiblity to arrage function automtically in proper way in sourcecode
 //it should be the reposibility of the user
-list<QString>::iterator BaseCodegenerator::foundPositionToAppendToHeaderList()
+list<QString>::iterator BaseCodegenerator::foundPositionToAppendToHeaderList(bool hasPublicModifier)
 {
     QString element;
     list<QString>::iterator iterator = generatedCodeHeader.begin();
     for(iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator)
     {
         element = *iterator;
-        if(functionElements->getModifier() == CodegeneratorConstants::modifierPublic)
+        if(hasPublicModifier)
         {
             if((element.contains(CodegeneratorConstants::modifierPrivate)))
             {
