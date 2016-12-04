@@ -12,6 +12,19 @@ QString General::ExtractString::SUBSTRINGSEPERATOR = "::";
 QString General::ExtractString::PARAMETERSEPERATOR = "@parameter";
 
 
+QString ElementStrings::NO_VALUE="";
+QString ElementStrings::FUNCTIONELEMENT = "@function";
+QString ElementStrings::ATTRIBUEELEMENT = "@attribute";
+QString ElementStrings::TYPELEMENT = "@typ";
+QString ElementStrings::MODIFIERELEMENT = "@modifier";
+QString ElementStrings::ISREFERENCEELEMENT = "@isReference";
+QString ElementStrings::ISPOINTERELEMENT = "@isPointer";
+QString ElementStrings::ISRETURNCONSTANTELEMENT = "@isReturnConstant";
+QString ElementStrings::ISMEMORYCONSTANTELEMENT = "@isMemoryConstant";
+QString ElementStrings::ISCONSTANTELEMENT = "@isConstant";
+QString ElementStrings::DEFAULTVALUEELEMENT = "@defaultValue";
+QString ElementStrings::PARAMETERELEMENT = "@parameter";
+
 
 // extract from String first before spearator
 // eg. @Name::myFunctionName   seperator is "::"

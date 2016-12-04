@@ -11,6 +11,7 @@
 #include <functional>
 #include "Base/BaseGenerator.h"
 #include "Functionelements.h"
+#include "Attributeelements.h"
 #include <memory>
 
 
@@ -34,7 +35,8 @@ protected:
     std::vector<QString> keys;
     std::map<QString,QString> rules;
     std::vector<BaseGenerator*> codegeratorObservers;
-    std::shared_ptr<FunctionElements> functionElements;
+    std::unique_ptr<FunctionElements> functionElements;
+    std::unique_ptr<AttributeElements> attributeElements;
     std::list<QString> generatedCodeHeader;
     std::list<QString> generatedCodeSource;
     QString classname;
@@ -45,8 +47,8 @@ protected:
     unsigned int index;
     QString sourcefilename;
     QString heaterfilename;
-    bool hasElementModifier();
-    std::list<QString>::iterator foundPositionToAppendToHeaderList();
+    bool hasElementModifier(QString elementModifier);
+    std::list<QString>::iterator foundPositionToAppendToHeaderList(bool hasPublicModifier);
 private:
     void getNextElement(BaseCodegenerator* &nextGenerator,QString sIndex);
     void generateHeader();

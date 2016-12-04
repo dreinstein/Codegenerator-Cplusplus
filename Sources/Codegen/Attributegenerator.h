@@ -14,7 +14,7 @@ class Attribute : public BaseCodegenerator
 {
 public:
     Attribute(); 
-    Attribute(const BaseCodegenerator *r){BaseCodegenerator::clone(r);}
+    Attribute(const BaseCodegenerator *r);
     virtual ~Attribute();
     void generate() override final;
     void generate(const std::vector<QString> strVecScript, const std::map<QString,QString> strMapRules,const std::vector<QString> strVecKeys) override final;

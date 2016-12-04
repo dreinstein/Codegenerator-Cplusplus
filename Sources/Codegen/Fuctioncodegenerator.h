@@ -18,7 +18,7 @@ public:
 
     FuctionCodeGenerator(const BaseCodegenerator *r);
     virtual ~FuctionCodeGenerator();
-    void generate() override final;
+    void generate();
     void generate(const std::vector<QString> strVecScript, const std::map<QString,QString> strMapRules,const std::vector<QString> strVecKeys) override final;
 
 private:
@@ -27,14 +27,14 @@ private:
     void generateSource();
     void generateHeaderList(std::list<QString>::iterator iterator, bool foundModifier);
     void generateHeaderList(bool foundModifier);
-    void setHeaderParameterElements(std::list<QString>& codeList,FunctionElements* parameterElements, bool generateHeaderFile = true);
+    void setHeaderParameterElements(std::list<QString>& codeList,AttributeElements* parameterElements, bool generateHeaderFile = true);
     void setHeaderFunctionElements(bool modifier);
     void setHeaderClassFinal();
     void setHeaderClassFinalForConstant();
-    void setTyp(std::list<QString>& codeList,FunctionElements* element);
     void setTypForFunctionElements(std::list<QString>& codeList,FunctionElements* element);
-    void setTypForParameterElements(std::list<QString>& codeList,FunctionElements* element);
-
+    void setTypForParameterElements(std::list<QString>& codeList,AttributeElements* element);
+    void setTyp(std::list<QString>& codeList,FunctionElements* element);
+    void setTyp(std::list<QString>& codeList,AttributeElements* element);
 };
 
 }

@@ -18,6 +18,12 @@ public:
     bool getIsRef(){return isRef;}
     bool getIsPointer() {return isPointer;}
     bool getIsConstant() {return isConstant;}
+    bool getIsMemoryConstant() {return isMemoryConstant;}
+    QString getDefaultValue() const {return defaultValue;}
+    bool getIsDefaultValue() const;
+    void setAttribute(QString attr){attribute = attr;}
+    void defineElements(QString listelement,QString element);
+    void resetData();
 
 private:
     QString modifier;
@@ -26,6 +32,9 @@ private:
     bool isRef;
     bool isPointer;
     bool isConstant;
+    bool isMemoryConstant;
+    QString defaultValue;
+
 };
 
 }

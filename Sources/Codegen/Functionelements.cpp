@@ -1,3 +1,4 @@
+#include <memory>
 #include "Functionelements.h"
 #include "Utilities.h"
 
@@ -10,7 +11,14 @@ FunctionElements::FunctionElements()
 
 FunctionElements::~FunctionElements()
 {
-    FunctionElements* elements;
+    deleteParameters();
+}
+
+
+void FunctionElements::deleteParameters()
+{
+    // @todo element to uniqueptr
+    AttributeElements* elements;
     for (auto iterator = begin(functionParameters) ; iterator != functionParameters.end();++iterator)
     {
        elements = *iterator;
@@ -22,103 +30,99 @@ FunctionElements::~FunctionElements()
 void FunctionElements::resetData()
 {
     function = "";
-    parameter = "";
     modifier = "";
-    attribute = "";
     typ = "";
     isRef = false;
     isPointer = false;
     isConstant = false;
     isReturnConstant = false;
     isMemoryConstant = false;
-    defaultValue = NO_VALUE;
+    defaultValue = General::ElementStrings::NO_VALUE;
+    deleteParameters();
 }
+
 
 
 void FunctionElements::setElements(QString element)
-{
-    QStringList stringList = General::ExtractString::extractStringList(element);
-    QString listelement = "";
-    QString elementLast = "";
-    QStringList::const_iterator constIterator;
-    for (constIterator = stringList.constBegin(); constIterator != stringList.constEnd();++constIterator)
-    {
-        listelement = *constIterator;
-        elementLast = General::ExtractString::extractLast(listelement);
-        defineElements(listelement,elementLast);
-    }
-}
-
-
-void FunctionElements::setElements(FunctionElements* funcElements,QString element)
 {   QStringList stringList = General::ExtractString::extractStringList(element);
     QString listelement = "";
     QString elementLast = "";
     QStringList::const_iterator constIterator;
+    AttributeElements *attriElement = nullptr;
+    bool foundParameters= false;
     for (constIterator = stringList.constBegin(); constIterator != stringList.constEnd();++constIterator)
     {
         listelement = *constIterator;
         elementLast = General::ExtractString::extractLast(listelement);
-        defineElements(listelement,elementLast);
-        if(listelement.contains(PARAMETERELEMENT))
+        if(listelement.contains(General::ElementStrings::PARAMETERELEMENT))
         {
-            // iterativ over all parameters
-           // breakLoop = true;
-            FunctionElements *attriElement = new FunctionElements();
-            attriElement->resetData();
-            attriElement->setParameter(elementLast);
+            // new parameterElement, save previous one
+            if(attriElement != nullptr)
+            {
+                pushFunctionParameter(attriElement);
+            }
+            attriElement = new AttributeElements;
+            foundParameters = true;
             element = General::ExtractString::extractParameter(element);
-            attriElement->setElements(funcElements,element);
-            funcElements->functionParameters.push_back(attriElement);
-            break;
+            attriElement->resetData();
+            attriElement->defineElements(listelement,elementLast);
         }
+        // modifier already found, define the elements
+        else if(foundParameters)
+        {
+            attriElement->defineElements(listelement,elementLast);
+        }
+        else
+        {
+           defineElements(listelement,elementLast);
+        }
+    }
+    if(attriElement != nullptr)
+    {
+        pushFunctionParameter(attriElement);
     }
 }
 
 
-void FunctionElements::defineElements(QString listelement, QString elementLast)
+
+void FunctionElements::defineElements(QString listelement, QString element)
 {
-    if(listelement.contains(FUNCTIONELEMENT))
+    if(listelement.contains(General::ElementStrings::FUNCTIONELEMENT))
     {
-       function = elementLast;
+       function = element;
     }
 
-    if(listelement.contains(ATTRIBUEELEMENT))
+    if(listelement.contains(General::ElementStrings::TYPELEMENT))
     {
-       attribute = elementLast;
+       typ = element;
     }
-
-    if(listelement.contains(TYPELEMENT))
+    if(listelement.contains(General::ElementStrings::MODIFIERELEMENT))
     {
-       typ = elementLast;
+       modifier = element;
     }
-    if(listelement.contains(MODIFIERELEMENT))
-    {
-       modifier = elementLast;
-    }
-    if(listelement.contains(ISREFERENCEELEMENT))
+    if(listelement.contains(General::ElementStrings::ISREFERENCEELEMENT))
     {
           isRef = true;
     }
-    if(listelement.contains(ISPOINTERELEMENT))
+    if(listelement.contains(General::ElementStrings::ISPOINTERELEMENT))
     {
           isPointer = true;
     }
-    if(listelement.contains(ISRETURNCONSTANTELEMENT))
+    if(listelement.contains(General::ElementStrings::ISRETURNCONSTANTELEMENT))
     {
           isReturnConstant = true;
     }
-    else if(listelement.contains(ISMEMORYCONSTANTELEMENT))
+    else if(listelement.contains(General::ElementStrings::ISMEMORYCONSTANTELEMENT))
     {
           isMemoryConstant = true;
     }
-    else if(listelement.contains(ISCONSTANTELEMENT))
+    else if(listelement.contains(General::ElementStrings::ISCONSTANTELEMENT))
     {
           isConstant = true;
     }
-    else if(listelement.contains(DEFAULTVALUEELEMENT))
+    else if(listelement.contains(General::ElementStrings::DEFAULTVALUEELEMENT))
     {
-          defaultValue = elementLast;
+          defaultValue = element;
     }
 }
 
@@ -126,7 +130,7 @@ void FunctionElements::defineElements(QString listelement, QString elementLast)
 
 bool FunctionElements::getIsDefaultValue() const
 {
-    if(defaultValue != NO_VALUE)
+    if(defaultValue != General::ElementStrings::NO_VALUE)
     {
         return true;
     }

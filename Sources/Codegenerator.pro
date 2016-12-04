@@ -38,7 +38,8 @@ SOURCES += main.cpp\
     Codegen/Codegeneratorconstants.cpp \
     Parsing/parserimplementationText.cpp \
     Parsing/parserimplementationxml.cpp \
-    Errorhandling/Xmlfileexception.cpp
+    Errorhandling/Xmlfileexception.cpp \
+    Codegen/Attributeelements.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\

@@ -18,8 +18,7 @@ public:
     void setElements(FunctionElements* funcElements,QString element);
     void resetData();
     QString getFunction() const {return function;}
-    QString getParameter() const {return parameter;}
-    QString getAttribute() const {return attribute;}
+  //  QString getParameter() const {return parameter;}
     QString getModifier() const {return modifier;}
     QString getTyp()const {return typ;}
     bool getIsRef()const {return isRef;}
@@ -29,14 +28,13 @@ public:
     bool getIsMemoryConstant() const {return isMemoryConstant;}
     QString getDefaultValue() const {return defaultValue;}
     bool getIsDefaultValue() const;
-    void setParameter(const QString param) {parameter = param;}
-    std::vector<FunctionElements*> getFunctionParameters(){return functionParameters;}
+ //   void setParameter(const QString param) {parameter = param;}
+    std::vector<AttributeElements*> getFunctionParameters(){return functionParameters;}
+    void pushFunctionParameter(AttributeElements* param){functionParameters.push_back(param);}
 private:
 
     QString function;
-    QString parameter;
-    QString attribute;
-
+   // QString parameter;
     bool isReturnConstant;
     QString defaultValue;
     QString modifier;
@@ -46,22 +44,9 @@ private:
     bool isConstant;
     bool isMemoryConstant;
 
-    std::vector<FunctionElements*> functionParameters;
-
-    const QString NO_VALUE;
-    const QString FUNCTIONELEMENT = "@function";
-    const QString ATTRIBUEELEMENT = "@attribute";
-    const QString TYPELEMENT = "@typ";
-    const QString MODIFIERELEMENT = "@modifier";
-    const QString ISREFERENCEELEMENT = "@isReference";
-    const QString ISPOINTERELEMENT = "@isPointer";
-    const QString ISRETURNCONSTANTELEMENT = "@isReturnConstant";
-    const QString ISMEMORYCONSTANTELEMENT = "@isMemoryConstant";
-    const QString ISCONSTANTELEMENT = "@isConstant";
-    const QString DEFAULTVALUEELEMENT = "@defaultValue";
-    const QString PARAMETERELEMENT = "@parameter";
-
+    std::vector<AttributeElements*> functionParameters;
     void defineElements(QString listelement, QString elementLast);
+    void deleteParameters();
 };
 }
 
