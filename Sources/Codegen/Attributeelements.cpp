@@ -1,89 +1,38 @@
-#include "QString"
 #include "Attributeelements.h"
-#include "Utilities.h"
 
 namespace Codegenerator
 {
 
 AttributeElements::AttributeElements()
 {
-    attribute = "";
-    typ = "";
-    modifier = "";
-    isRef = false;
+
 }
 
 void AttributeElements::resetData()
 {
-
-    modifier="";
+    modifier = "";
     typ = "";
-    attribute="";
+    attribute = "";
     isRef = false;
     isPointer = false;
     isConstant = false;
-    defaultValue = "";
+    isMemoryConstant = false;
+    defaultValue = General::ElementStrings::NO_VALUE;
 }
 
 void AttributeElements::setElements(QString element)
 {
     QStringList stringList = General::ExtractString::extractStringList(element);
-    // search @function
     QString listelement = "";
     QString elementLast = "";
     QStringList::const_iterator constIterator;
+
+
     for (constIterator = stringList.constBegin(); constIterator != stringList.constEnd();++constIterator)
     {
         listelement = *constIterator;
         elementLast = General::ExtractString::extractLast(listelement);
-        if(listelement.contains("@attribute"))
-        {
-            attribute = elementLast;
-        }
-        if(listelement.contains("@typ"))
-        {
-            typ = elementLast;
-        }
-        if(listelement.contains("@modifier"))
-        {
-            modifier = elementLast;
-        }
-        if(listelement.contains("@isReference"))
-        {
-            QString s_isRef = elementLast;
-            if(s_isRef == "true")
-            {
-                isRef = true;
-            }
-            else
-            {
-                isRef = false;
-            }
-        }
-        if(listelement.contains("@isPointer"))
-        {
-            QString s_isPointer = elementLast;
-            if(s_isPointer == "true")
-            {
-                isPointer = true;
-            }
-            else
-            {
-                isPointer = false;
-            }
-        }
-        if(listelement.contains("@isConstant"))
-        {
-            QString s_isConstant = elementLast;
-            if(s_isConstant == "true")
-            {
-                isConstant = true;
-            }
-            else
-            {
-                isConstant = false;
-            }
-        }
+        defineElements(listelement,elementLast);
     }
 }
 
@@ -95,4 +44,42 @@ bool AttributeElements::getIsDefaultValue() const
     }
     return false;
 }
+
+void AttributeElements::defineElements(QString listelement,QString elementLast)
+{
+    if(listelement.contains(General::ElementStrings::FUNCTIONELEMENT))
+    {
+       attribute = elementLast;
+    }
+
+    if(listelement.contains(General::ElementStrings::TYPELEMENT))
+    {
+       typ = elementLast;
+    }
+    if(listelement.contains(General::ElementStrings::MODIFIERELEMENT))
+    {
+       modifier = elementLast;
+    }
+    if(listelement.contains(General::ElementStrings::ISREFERENCEELEMENT))
+    {
+       isRef = true;
+    }
+    if(listelement.contains(General::ElementStrings::ISPOINTERELEMENT))
+    {
+       isPointer = true;
+    }
+    else if(listelement.contains(General::ElementStrings::ISCONSTANTELEMENT))
+    {
+       isConstant = true;
+    }
+    else if(listelement.contains(General::ElementStrings::ISMEMORYCONSTANTELEMENT))
+    {
+       isMemoryConstant = true;
+    }
+    else if(listelement.contains(General::ElementStrings::DEFAULTVALUEELEMENT))
+    {
+       defaultValue = elementLast;
+    }
+}
+
 }

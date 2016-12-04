@@ -29,7 +29,8 @@ public:
     QString getDefaultValue() const {return defaultValue;}
     bool getIsDefaultValue() const;
  //   void setParameter(const QString param) {parameter = param;}
-    std::vector<AttributeElements*> getFunctionParameters(){return functionParameters;}
+    std::vector<AttributeElements> getFunctionParameters(){return functionParameters;}
+    void pushFunctionParameter(AttributeElements param){functionParameters.push_back(param);}
 private:
 
     QString function;
@@ -43,8 +44,10 @@ private:
     bool isConstant;
     bool isMemoryConstant;
 
-    std::vector<AttributeElements*> functionParameters;
+    std::vector<AttributeElements> functionParameters;
     void defineElements(QString listelement, QString elementLast);
+    void deleteParameters();
+    void setAttributes(QString element);
 };
 }
 

@@ -8,6 +8,8 @@
 #include "../Errorhandling/Attributescriptexception.h"
 #include "Functionelements.h"
 #include "../Errorhandling/FileNotvalidexception.h"
+#include "Attributeelements.h"
+#include "Basecodegenerator.h"
 
 
 
@@ -15,9 +17,10 @@ namespace Codegenerator
 {
 
 
-Attribute::Attribute()
+Attribute::Attribute(const BaseCodegenerator *r)
 {
-
+    BaseCodegenerator::clone(r);
+    attributeElements = std::unique_ptr<Codegenerator::AttributeElements>(new Codegenerator::AttributeElements());
 }
 
 Attribute::~Attribute()
@@ -38,11 +41,7 @@ void Attribute::generate(const std::vector<QString>, const std::map<QString,QStr
 
 void Attribute::generateHeader(/*FunctionElements* attributElements*/)
 {
-  //  Q_ASSERT(functionElements);
-    //AttributeElements *attributeElements = new AttributeElements();
-    attributeElements = std::unique_ptr<AttributeElements>(new AttributeElements());
- //   functionElements = new FunctionElements();
-    attributeElements->resetData();
+    attributeElements.get()->resetData();
     attributeElements->setElements(script[this->index]);
     bool hasPublicModifier = (attributeElements->getModifier() == CodegeneratorConstants::modifierPublic);
     list<QString>::iterator iterator = foundPositionToAppendToHeaderList(hasPublicModifier);

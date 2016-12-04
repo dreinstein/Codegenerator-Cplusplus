@@ -18,7 +18,7 @@ public:
 
     FuctionCodeGenerator(const BaseCodegenerator *r);
     virtual ~FuctionCodeGenerator();
-    void generate() override final;
+    void generate();
     void generate(const std::vector<QString> strVecScript, const std::map<QString,QString> strMapRules,const std::vector<QString> strVecKeys) override final;
 
 private:
@@ -35,7 +35,6 @@ private:
     void setTypForParameterElements(std::list<QString>& codeList,AttributeElements* element);
     void setTyp(std::list<QString>& codeList,FunctionElements* element);
     void setTyp(std::list<QString>& codeList,AttributeElements* element);
-
 };
 
 }

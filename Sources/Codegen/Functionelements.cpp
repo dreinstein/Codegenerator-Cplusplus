@@ -11,12 +11,19 @@ FunctionElements::FunctionElements()
 
 FunctionElements::~FunctionElements()
 {
-    AttributeElements* elements;
+    deleteParameters();
+}
+
+
+void FunctionElements::deleteParameters()
+{
+    // @todo element to uniqueptr
+  /*  AttributeElements* elements;
     for (auto iterator = begin(functionParameters) ; iterator != functionParameters.end();++iterator)
     {
        elements = *iterator;
        delete elements;
-    }
+    }*/
 }
 
 
@@ -31,10 +38,11 @@ void FunctionElements::resetData()
     isReturnConstant = false;
     isMemoryConstant = false;
     defaultValue = General::ElementStrings::NO_VALUE;
+    deleteParameters();
 }
 
 
-void FunctionElements::setElements(QString element)
+/*void FunctionElements::setElements(QString element)
 {
     QStringList stringList = General::ExtractString::extractStringList(element);
     QString listelement = "";
@@ -46,52 +54,67 @@ void FunctionElements::setElements(QString element)
         elementLast = General::ExtractString::extractLast(listelement);
         defineElements(listelement,elementLast);
     }
-}
+}*/
 
 
-void FunctionElements::setElements(FunctionElements* funcElements,QString element)
+void FunctionElements::setElements(QString element)
 {   QStringList stringList = General::ExtractString::extractStringList(element);
     QString listelement = "";
     QString elementLast = "";
     QStringList::const_iterator constIterator;
+    bool foundParameters= false;
     for (constIterator = stringList.constBegin(); constIterator != stringList.constEnd();++constIterator)
     {
         listelement = *constIterator;
         elementLast = General::ExtractString::extractLast(listelement);
         if(listelement.contains(General::ElementStrings::PARAMETERELEMENT))
         {
-            // iterativ over all parameters
-           // breakLoop = true;
-            std::unique_ptr<AttributeElements> attriElement = std::unique_ptr<AttributeElements>(new Codegenerator::AttributeElements());
-            attriElement->resetData();
-          //  attriElement->setParameter(elementLast);
-            element = General::ExtractString::extractParameter(element);
-            attriElement->setElements(element);
-            funcElements->getFunctionParameters().push_back(attriElement.get());
+            setAttributes(listelement);
             break;
         }
         else
         {
-             defineElements(listelement,elementLast);
+            if(!foundParameters)
+            {
+                defineElements(listelement,elementLast);
+            }
         }
     }
 }
 
+void FunctionElements::setAttributes(QString element)
+{
+    QString elementLast = General::ExtractString::extractLast(element);
 
-void FunctionElements::defineElements(QString listelement, QString elementLast)
+    if(elementLast.contains(General::ElementStrings::PARAMETERELEMENT))
+    {
+        // iterativ over all parameters
+       // breakLoop = true;
+        AttributeElements attriElement;
+        attriElement.resetData();
+        attriElement.setAttribute(elementLast);
+        element = General::ExtractString::extractParameter(element);
+        attriElement.setElements(element);
+        pushFunctionParameter(attriElement);
+        attriElement.setAttribute(elementLast);
+    }
+}
+
+
+void FunctionElements::defineElements(QString listelement, QString element)
 {
     if(listelement.contains(General::ElementStrings::FUNCTIONELEMENT))
     {
-       function = elementLast;
+       function = element;
     }
 
     if(listelement.contains(General::ElementStrings::TYPELEMENT))
     {
-       typ = elementLast;
+       typ = element;
     }
     if(listelement.contains(General::ElementStrings::MODIFIERELEMENT))
     {
-       modifier = elementLast;
+       modifier = element;
     }
     if(listelement.contains(General::ElementStrings::ISREFERENCEELEMENT))
     {
@@ -115,7 +138,7 @@ void FunctionElements::defineElements(QString listelement, QString elementLast)
     }
     else if(listelement.contains(General::ElementStrings::DEFAULTVALUEELEMENT))
     {
-          defaultValue = elementLast;
+          defaultValue = element;
     }
 }
 

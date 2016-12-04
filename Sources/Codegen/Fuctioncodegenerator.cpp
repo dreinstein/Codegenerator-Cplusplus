@@ -26,13 +26,13 @@ void FuctionCodeGenerator::generate()
 {
     Q_ASSERT(functionElements);
     functionElements->resetData();
-    functionElements->setElements(functionElements.get(),script[this->index]);
+    functionElements->setElements(/*functionElements.get(),*/script[this->index]);
     generateHeader();
     generateSource();
     nextElement();
 }
 
-void FuctionCodeGenerator::generate(const std::vector<QString>, const std::map<QString,QString>,std::vector<QString>)
+void FuctionCodeGenerator::generate(const std::vector<QString>, const std::map<QString,QString>,const std::vector<QString>)
 {
     Q_ASSERT(false);
 }
@@ -50,7 +50,7 @@ void FuctionCodeGenerator::generateHeader()
 void FuctionCodeGenerator::generateSource()
 {
     Q_ASSERT(functionElements);
-    vector<AttributeElements*> parameterelements = functionElements->getFunctionParameters();
+    vector<AttributeElements> parameterelements = functionElements->getFunctionParameters();
     generatedCodeSource.push_back(CodegeneratorConstants::newLine);
  //   generatedCodeSource.push_back(functionElements->getTyp());
     setTypForFunctionElements(generatedCodeSource,functionElements.get());
@@ -75,7 +75,7 @@ void FuctionCodeGenerator::generateSource()
                 generatedCodeSource.push_back(Codegenerator::CodegeneratorConstants::comma);
             }
 
-            setHeaderParameterElements(generatedCodeSource,*iterator, false);
+            setHeaderParameterElements(generatedCodeSource,&*iterator, false);
         }
     }
     generatedCodeSource.push_back(CodegeneratorConstants::parameterBracketClose);
@@ -92,20 +92,21 @@ void FuctionCodeGenerator::generateHeaderList(bool foundModifier)
 {
     Q_ASSERT(functionElements);
     setHeaderFunctionElements(foundModifier);
-    vector<AttributeElements*> parameterelements = functionElements->getFunctionParameters();
-    if(parameterelements.size() > 0)
+  //  vector<AttributeElements*> attributes = attributeElements->getFunctionParameters();
+    vector<AttributeElements> attributes = functionElements.get()->getFunctionParameters();
+    if(attributes.size() > 0)
     {
         // from back to front, it is rekursiv parameterelements begin with last funktionparameter
-        for(auto iterator = parameterelements.rbegin();iterator != parameterelements.rend(); ++iterator)
+        for(auto iterator = attributes.rbegin();iterator != attributes.rend(); ++iterator)
         {
             // need a colon between parameters
-            if(iterator != parameterelements.rbegin())
+            if(iterator != attributes.rbegin())
             {
                 generatedCodeHeader.push_back(Codegenerator::CodegeneratorConstants::comma);
             }
 
            // FunctionElements *paraelements = *iterator;
-            setHeaderParameterElements(generatedCodeHeader,*iterator);
+            setHeaderParameterElements(generatedCodeHeader,&*iterator);
         }
 
     }
@@ -256,6 +257,12 @@ void FuctionCodeGenerator::setTyp(std::list<QString>& codeList,AttributeElements
         {
             codeList.push_back(CodegeneratorConstants::pointer);
         }
+        if(element->getIsMemoryConstant())
+        {
+           codeList.push_back(CodegeneratorConstants::tab);
+           codeList.push_back(CodegeneratorConstants::constant);
+        }
+
 }
 
 
