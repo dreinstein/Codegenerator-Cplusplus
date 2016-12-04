@@ -22,6 +22,7 @@ public:
     QString getDefaultValue() const {return defaultValue;}
     bool getIsDefaultValue() const;
     void setAttribute(QString attr){attribute = attr;}
+    void defineElements(QString listelement,QString element);
     void resetData();
 
 private:
@@ -33,7 +34,7 @@ private:
     bool isConstant;
     bool isMemoryConstant;
     QString defaultValue;
-    void defineElements(QString listelement,QString element);
+
 };
 
 }

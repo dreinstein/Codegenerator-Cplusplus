@@ -27,7 +27,6 @@ void AttributeElements::setElements(QString element)
     QString elementLast = "";
     QStringList::const_iterator constIterator;
 
-
     for (constIterator = stringList.constBegin(); constIterator != stringList.constEnd();++constIterator)
     {
         listelement = *constIterator;
@@ -47,10 +46,16 @@ bool AttributeElements::getIsDefaultValue() const
 
 void AttributeElements::defineElements(QString listelement,QString elementLast)
 {
-    if(listelement.contains(General::ElementStrings::FUNCTIONELEMENT))
+    if(listelement.contains(General::ElementStrings::ATTRIBUEELEMENT))
     {
        attribute = elementLast;
     }
+
+    if(listelement.contains(General::ElementStrings::PARAMETERELEMENT))
+    {
+       attribute = elementLast;
+    }
+
 
     if(listelement.contains(General::ElementStrings::TYPELEMENT))
     {

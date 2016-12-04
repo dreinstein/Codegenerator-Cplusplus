@@ -1,2 +1,13 @@
+class   myClass
+{
+public:
+   double   functiondouble();
+   TestClass   functionTestClass();
+   int   attributeint;
+   long   attributelong;
+   TestClass   attributeTestClass;
 private:
-   const   double*   functionConstWithOneParameterReturnConstPointerDoubleParameterTestConstPointerConstInteger()   const;
+   int   functionint();
+   long   functionlong();
+   double   attributendouble;
+};

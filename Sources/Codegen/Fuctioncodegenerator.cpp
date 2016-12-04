@@ -50,7 +50,7 @@ void FuctionCodeGenerator::generateHeader()
 void FuctionCodeGenerator::generateSource()
 {
     Q_ASSERT(functionElements);
-    vector<AttributeElements> parameterelements = functionElements->getFunctionParameters();
+    vector<AttributeElements*> parameterelements = functionElements->getFunctionParameters();
     generatedCodeSource.push_back(CodegeneratorConstants::newLine);
  //   generatedCodeSource.push_back(functionElements->getTyp());
     setTypForFunctionElements(generatedCodeSource,functionElements.get());
@@ -67,15 +67,15 @@ void FuctionCodeGenerator::generateSource()
     if(parameterelements.size() > 0)
     {
         // from back to front, it is rekursiv parameterelements begin with last funktionparameter
-        for(auto iterator = parameterelements.rbegin();iterator != parameterelements.rend(); ++iterator)
+        for(auto iterator = parameterelements.begin();iterator != parameterelements.end(); ++iterator)
         {
             // need a colon between parameters
-            if(iterator != parameterelements.rbegin())
+            if(iterator != parameterelements.begin())
             {
                 generatedCodeSource.push_back(Codegenerator::CodegeneratorConstants::comma);
             }
 
-            setHeaderParameterElements(generatedCodeSource,&*iterator, false);
+            setHeaderParameterElements(generatedCodeSource,*iterator, false);
         }
     }
     generatedCodeSource.push_back(CodegeneratorConstants::parameterBracketClose);
@@ -93,20 +93,20 @@ void FuctionCodeGenerator::generateHeaderList(bool foundModifier)
     Q_ASSERT(functionElements);
     setHeaderFunctionElements(foundModifier);
   //  vector<AttributeElements*> attributes = attributeElements->getFunctionParameters();
-    vector<AttributeElements> attributes = functionElements.get()->getFunctionParameters();
+    vector<AttributeElements*> attributes = functionElements.get()->getFunctionParameters();
     if(attributes.size() > 0)
     {
         // from back to front, it is rekursiv parameterelements begin with last funktionparameter
-        for(auto iterator = attributes.rbegin();iterator != attributes.rend(); ++iterator)
+        for(auto iterator = attributes.begin();iterator != attributes.end(); ++iterator)
         {
             // need a colon between parameters
-            if(iterator != attributes.rbegin())
+            if(iterator != attributes.begin())
             {
                 generatedCodeHeader.push_back(Codegenerator::CodegeneratorConstants::comma);
             }
 
            // FunctionElements *paraelements = *iterator;
-            setHeaderParameterElements(generatedCodeHeader,&*iterator);
+            setHeaderParameterElements(generatedCodeHeader,*iterator);
         }
 
     }

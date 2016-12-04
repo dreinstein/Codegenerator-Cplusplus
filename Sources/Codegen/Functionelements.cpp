@@ -18,12 +18,12 @@ FunctionElements::~FunctionElements()
 void FunctionElements::deleteParameters()
 {
     // @todo element to uniqueptr
-  /*  AttributeElements* elements;
+    AttributeElements* elements;
     for (auto iterator = begin(functionParameters) ; iterator != functionParameters.end();++iterator)
     {
        elements = *iterator;
        delete elements;
-    }*/
+    }
 }
 
 
@@ -42,26 +42,13 @@ void FunctionElements::resetData()
 }
 
 
-/*void FunctionElements::setElements(QString element)
-{
-    QStringList stringList = General::ExtractString::extractStringList(element);
-    QString listelement = "";
-    QString elementLast = "";
-    QStringList::const_iterator constIterator;
-    for (constIterator = stringList.constBegin(); constIterator != stringList.constEnd();++constIterator)
-    {
-        listelement = *constIterator;
-        elementLast = General::ExtractString::extractLast(listelement);
-        defineElements(listelement,elementLast);
-    }
-}*/
-
 
 void FunctionElements::setElements(QString element)
 {   QStringList stringList = General::ExtractString::extractStringList(element);
     QString listelement = "";
     QString elementLast = "";
     QStringList::const_iterator constIterator;
+    AttributeElements *attriElement = nullptr;
     bool foundParameters= false;
     for (constIterator = stringList.constBegin(); constIterator != stringList.constEnd();++constIterator)
     {
@@ -69,36 +56,33 @@ void FunctionElements::setElements(QString element)
         elementLast = General::ExtractString::extractLast(listelement);
         if(listelement.contains(General::ElementStrings::PARAMETERELEMENT))
         {
-            setAttributes(listelement);
-            break;
+            // new parameterElement, save previous one
+            if(attriElement != nullptr)
+            {
+                pushFunctionParameter(attriElement);
+            }
+            attriElement = new AttributeElements;
+            foundParameters = true;
+            element = General::ExtractString::extractParameter(element);
+            attriElement->resetData();
+            attriElement->defineElements(listelement,elementLast);
+        }
+        // modifier already found, define the elements
+        else if(foundParameters)
+        {
+            attriElement->defineElements(listelement,elementLast);
         }
         else
         {
-            if(!foundParameters)
-            {
-                defineElements(listelement,elementLast);
-            }
+           defineElements(listelement,elementLast);
         }
     }
-}
-
-void FunctionElements::setAttributes(QString element)
-{
-    QString elementLast = General::ExtractString::extractLast(element);
-
-    if(elementLast.contains(General::ElementStrings::PARAMETERELEMENT))
+    if(attriElement != nullptr)
     {
-        // iterativ over all parameters
-       // breakLoop = true;
-        AttributeElements attriElement;
-        attriElement.resetData();
-        attriElement.setAttribute(elementLast);
-        element = General::ExtractString::extractParameter(element);
-        attriElement.setElements(element);
         pushFunctionParameter(attriElement);
-        attriElement.setAttribute(elementLast);
     }
 }
+
 
 
 void FunctionElements::defineElements(QString listelement, QString element)
