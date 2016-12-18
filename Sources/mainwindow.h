@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+class ClassForm;
+
 namespace Ui {
 class MainWindow;
 }
@@ -16,6 +18,10 @@ public:
     ~MainWindow();
 private slots:
     void newFile();
+    void closeApp();
+    void closeClassFormWidget();
+private:
+    ClassForm* classFormWidget = nullptr;
 };
 
 #endif // MAINWINDOW_H

@@ -40,7 +40,8 @@ SOURCES += main.cpp\
     Parsing/parserimplementationxml.cpp \
     Errorhandling/Xmlfileexception.cpp \
     Codegen/Attributeelements.cpp \
-    Gui/classform.cpp
+    Gui/classform.cpp \
+    Gui/functionwidged.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
@@ -80,8 +81,10 @@ HEADERS  += mainwindow.h \
     Parsing/ParserimplementationText.h \
     Parsing/parserimplementationxml.h \
     Errorhandling/Xmlfileexception.h \
-    Gui/classform.h
+    Gui/classform.h \
+    Gui/functionwidged.h
 
 FORMS    += mainwindow.ui \
-    Gui/classform.ui
+    Gui/classform.ui \
+    Gui/functionwidged.ui
 	

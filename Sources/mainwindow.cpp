@@ -2,36 +2,57 @@
 #include <QtWidgets>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "Gui/classform.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
-   // QWidget *widget = new QWidget;
-   // setCentralWidget(widget);
-   // widget->setBaseSize(100,50);
+
     setObjectName("MainWindow");
     setWindowTitle("Simple Code Generator");
     this->resize(700,500);
 
     QMenu *fileMenu = menuBar()->addMenu(tr("&File"));
-  //  QToolBar *fileToolBar = addToolBar(tr("File"));
     QAction *newAct = new QAction(tr("&New"), this);
+    QAction *closeAct = new QAction(tr("Close"),this);
     newAct->setShortcuts(QKeySequence::New);
-  //  newAct->setStatusTip(tr("Create a new file"));
+    closeAct->setShortcuts(QKeySequence::Close);
     connect(newAct, &QAction::triggered, this, &MainWindow::newFile);
+    connect(closeAct, &QAction::triggered, this, &MainWindow::closeApp);
+
     fileMenu->addAction(newAct);
-  //  fileToolBar->addAction(newAct);
+    fileMenu->addAction(closeAct);
+
+
 }
+
 
 MainWindow::~MainWindow()
 {
-	
+    if (classFormWidget != nullptr)
+    {
+        delete classFormWidget;
+    }
 }
-
 
 void MainWindow::newFile()
 {
-    int i;
-    ++i;
+    classFormWidget = new ClassForm();
+    classFormWidget->show();
 
+    connect(classFormWidget, SIGNAL(closeWidget()),
+                        this, SLOT(closeClassFormWidget()));
+}
+
+void MainWindow::closeApp()
+{
+   this->close();
+}
+
+
+void MainWindow::closeClassFormWidget()
+{
+    classFormWidget->close();
+    delete classFormWidget;
+    classFormWidget = nullptr;
 }

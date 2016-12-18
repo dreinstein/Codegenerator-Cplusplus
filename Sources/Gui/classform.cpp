@@ -15,5 +15,10 @@ ClassForm::~ClassForm()
 
 void ClassForm::on_SaveButton_clicked()
 {
+    emit closeWidget();
+}
 
+void ClassForm::on_CloseButton_clicked()
+{
+   emit closeWidget();
 }
