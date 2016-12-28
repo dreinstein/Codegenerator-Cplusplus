@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>292</width>
-    <height>339</height>
+    <width>366</width>
+    <height>537</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,120 +27,127 @@
    <item row="0" column="0">
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
-      <string>GroupBox</string>
+      <string/>
      </property>
-     <widget class="QCheckBox" name="checkBox">
+     <widget class="QWidget" name="widget" native="true">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>140</y>
-        <width>70</width>
-        <height>17</height>
+        <x>30</x>
+        <y>30</y>
+        <width>272</width>
+        <height>162</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>constant</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_3">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>230</y>
-        <width>241</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
-     <widget class="QWidget" name="">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>23</y>
-        <width>174</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QLabel" name="label">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit">
+           <property name="maximumSize">
+            <size>
+             <width>133</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;give in name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="frame">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Return Value</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCommandLinkButton" name="commandLinkButton">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="2" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Parameter</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCommandLinkButton" name="commandLinkButton_2">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="0">
+        <widget class="QCheckBox" name="checkBox_2">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
           </font>
          </property>
          <property name="text">
-          <string>Name</string>
-         </property>
-        </widget>
-       </item>
-       <item alignment="Qt::AlignVCenter">
-        <widget class="QLineEdit" name="lineEdit">
-         <property name="maximumSize">
-          <size>
-           <width>133</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;give in name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="frame">
-          <bool>false</bool>
+          <string>constant</string>
          </property>
         </widget>
        </item>
       </layout>
      </widget>
-     <widget class="QSplitter" name="splitter">
+     <widget class="QWidget" name="widget_2" native="true">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>51</y>
-        <width>135</width>
-        <height>24</height>
+        <x>30</x>
+        <y>200</y>
+        <width>271</width>
+        <height>251</height>
        </rect>
       </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <widget class="QLabel" name="label_2">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Parameter</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>. . . </string>
-       </property>
-       <property name="checkable">
-        <bool>false</bool>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
+      <widget class="QListView" name="listView">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>271</width>
+         <height>251</height>
+        </rect>
        </property>
       </widget>
      </widget>
@@ -148,10 +155,6 @@
    </item>
   </layout>
  </widget>
- <tabstops>
-  <tabstop>lineEdit</tabstop>
-  <tabstop>pushButton</tabstop>
- </tabstops>
  <resources/>
  <connections>
   <connection>
