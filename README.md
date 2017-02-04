@@ -4,12 +4,13 @@ Codegenerator for c++
 
 Chain tool:
 QtCreator 4.0.2
-Qt 5.7.0
+Qt 5.7.0 / mingw   
+Download: qt-opensource-windows-x86-mingw530-5.7.0.exe
 
 Project is driven by TTD with google mock
 
 Status:
-Oktober 2016:
+Februar 2016 2016:
 
 Algorithms to generate code ready:
 
@@ -21,6 +22,7 @@ Attributs
 
 Datas stored via textfile or xmlfile;
 
-cpp File and headerfile are be created;
+create cpp File and headerfile 
 
-Design is open to enhance generate other languages
+Gui in work
+
