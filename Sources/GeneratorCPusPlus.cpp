@@ -24,8 +24,6 @@ namespace NGenerator
 
 GeneratorCPlusPlus::GeneratorCPlusPlus(QString str)
 {
-
-
     pathScript = str;
 }
 

@@ -41,7 +41,8 @@ SOURCES += main.cpp\
     Errorhandling/Xmlfileexception.cpp \
     Codegen/Attributeelements.cpp \
     Gui/classform.cpp \
-    Gui/functionwidged.cpp
+    Gui/functionwidged.cpp \
+    Gui/attributewidget.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
@@ -82,9 +83,13 @@ HEADERS  += mainwindow.h \
     Parsing/parserimplementationxml.h \
     Errorhandling/Xmlfileexception.h \
     Gui/classform.h \
-    Gui/functionwidged.h
+    Gui/functionwidged.h \
+    Gui/attributewidget.h
 
 FORMS    += mainwindow.ui \
     Gui/classform.ui \
-    Gui/functionwidged.ui
+    Gui/functionwidged.ui \
+    Gui/attributewidget.ui
 	
+
+DISTFILES +=
