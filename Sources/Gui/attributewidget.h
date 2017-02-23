@@ -15,8 +15,23 @@ public:
     explicit AttributeWidget(QWidget *parent = 0);
     ~AttributeWidget();
 
+    QString getName()const {return name;}
+    QString getTyp() const {return typ;}
+    bool getIsPointer() const {return isPointer;}
+    bool getIsConst() const {return isConst;}
+    bool getIsPointerConst() const {return isPointerConst;}
+    bool getIsReference() const {return isReference;}
+    bool getIsReferenceConst() const {return isReferenceConst;}
+
 private:
     Ui::AttributeWidget *ui;
+    QString name;
+    QString typ;
+    bool isConst;
+    bool isPointer;
+    bool isPointerConst;
+    bool isReference;
+    bool isReferenceConst;
 
 signals:
     void closeAttributeWidget();

@@ -24,7 +24,6 @@ SOURCES += Main.cpp \
     ../../Sources/Codegen/CPluspluscodegenerator.cpp \
     ../../Sources/Codegeneratorfassade.cpp \
     ../../Sources/utilities.cpp \
-    systemtest.cpp \
     mockcpluspluscodegenerator.cpp \
     ../../Sources/Errorhandling/openfileexception.cpp \
     ../../Sources/Codegen/Classgenerator.cpp \

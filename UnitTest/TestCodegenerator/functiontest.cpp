@@ -21,7 +21,7 @@ TEST(FunctionTest, functionNoParameterReturnInt)
     QString scriptPath = "..\\Files\\Scripts\\functionWithNoParameterReturnInt.txt";
     std::list<QString> expectedList = TestdataGenerator::testDataFunctionNoParamterReturnInt();
     std::list<QString> classHeaderList = TestUtilities::FunctionTestHeaderList(scriptPath);
-    ASSERT_EQ(EvaluateTest::evaluate(classHeaderList, expectedList),1);
+    ASSERT_EQ(EvaluateTest::evaluate(classHeaderList, expectedList),true);
 }
 
 
