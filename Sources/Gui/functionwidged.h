@@ -17,6 +17,13 @@ public:
 
 private:
     Ui::FunctionWidged *ui;
+
+signals:
+    void closeFunctionWidget();
+private slots:
+    void on_Close_Button_clicked();
+    void on_Save_Button_clicked();
+    void on_pushButton_SetParameter_clicked();
 };
 
 #endif // FUNCTIONWIDGED_H

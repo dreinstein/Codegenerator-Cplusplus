@@ -2,6 +2,8 @@
 #define CLASSFORM_H
 
 #include <QWidget>
+#include "Gui/functionwidged.h"
+#include "Gui/attributewidget.h"
 
 namespace Ui {
 class ClassForm;
@@ -16,13 +18,21 @@ public:
     ~ClassForm();
 
 signals:
-    void closeWidget();
+    void closeFunctionWidget();
+    void closeAttributeWidget();
 private slots:
     void on_SaveButton_clicked();
     void on_CloseButton_clicked();
+    void on_CreateFunctionButton_clicked();
+    void closeFunctionFormWidget();
+    void on_CreateAttributeButton_clicked();
+    void closeAttributeFormWidget();
 
 private:
     Ui::ClassForm *ui;
+    FunctionWidged* functionFormWidged = nullptr;
+    AttributeWidget* attributeFormWidged = nullptr;
+    void addListElement();
 };
 
 #endif // CLASSFORM_H
