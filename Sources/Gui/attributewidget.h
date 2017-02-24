@@ -22,6 +22,7 @@ public:
     bool getIsPointerConst() const {return isPointerConst;}
     bool getIsReference() const {return isReference;}
     bool getIsReferenceConst() const {return isReferenceConst;}
+    QString getVisiblity() const {return visiblity;}
 
 private:
     Ui::AttributeWidget *ui;
@@ -32,6 +33,10 @@ private:
     bool isPointerConst;
     bool isReference;
     bool isReferenceConst;
+    QString visiblity;
+    const QString privateString = "private";
+    const QString protectedString = "protected";
+    const QString publicString = "public";
 
 signals:
     void closeAttributeWidget();

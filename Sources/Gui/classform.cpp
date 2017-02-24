@@ -58,6 +58,15 @@ void ClassForm::on_CreateAttributeButton_clicked()
 void ClassForm::closeAttributeFormWidget()
 {
 
+    addListElement();
+    attributeFormWidged->close();
+    delete attributeFormWidged;
+    attributeFormWidged = nullptr;
+}
+
+
+void ClassForm::addListElement()
+{
     QString constType = "const";
     QString pointer = "*";
     QString reference = "&";
@@ -70,8 +79,11 @@ void ClassForm::closeAttributeFormWidget()
     bool attributeIsReference = attributeFormWidged->getIsReference();
     bool attributeIsPointerConst = attributeFormWidged->getIsPointerConst();
     bool attributeIsReferenceConst = attributeFormWidged->getIsReferenceConst();
+    QString visiblity = attributeFormWidged->getVisiblity();
 
-    QString listElement = attributeType;
+    QString listElement = visiblity;
+    listElement += emptySpace;
+    listElement += attributeType;
     listElement += emptySpace;
     if(attributeIsConst)
     {
@@ -101,9 +113,8 @@ void ClassForm::closeAttributeFormWidget()
     listElement += attributeName;
 
 
-    attributeFormWidged->close();
-    delete attributeFormWidged;
-    attributeFormWidged = nullptr;
+    ui->classListWidget->addItem(listElement);
+
 }
 
 
