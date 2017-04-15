@@ -1,6 +1,6 @@
 #include "functionwidged.h"
 #include "ui_functionwidged.h"
-//#include "ui_attributewidget.h"
+#include "ui_attributewidget.h"
 
 FunctionWidged::FunctionWidged(QWidget *parent) :
     QDialog(parent),
@@ -27,6 +27,17 @@ void FunctionWidged::on_Save_Button_clicked()
 
 void FunctionWidged::on_pushButton_SetParameter_clicked()
 {
-   // functionFormWidged = new FunctionWidged();
-   // functionFormWidged->show();
+    attributeFormWidged = new AttributeWidget();
+    attributeFormWidged->show();
+
+    connect(attributeFormWidged, SIGNAL(closeAttributeWidget()),
+                        this, SLOT(closeParameterFormWidget()));
 }
+
+void FunctionWidged::closeParameterFormWidget()
+{
+    attributeFormWidged->close();
+    delete attributeFormWidged;
+    attributeFormWidged = nullptr;
+}
+

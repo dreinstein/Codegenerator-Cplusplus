@@ -19,7 +19,7 @@
      <x>10</x>
      <y>20</y>
      <width>381</width>
-     <height>341</height>
+     <height>368</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -46,7 +46,7 @@
       <property name="bottomMargin">
        <number>9</number>
       </property>
-      <item row="0" column="0">
+      <item row="1" column="0">
        <widget class="QLabel" name="nameLabel">
         <property name="font">
          <font>
@@ -58,10 +58,7 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="lineEdit_AttributeName"/>
-      </item>
-      <item row="1" column="0">
+      <item row="3" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
          <widget class="QLabel" name="labelTyp">
@@ -77,10 +74,7 @@
         </item>
        </layout>
       </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="lineEdit_AttributeType"/>
-      </item>
-      <item row="2" column="0">
+      <item row="4" column="0">
        <widget class="QRadioButton" name="radioButton_Private">
         <property name="font">
          <font>
@@ -98,7 +92,7 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
+      <item row="5" column="0">
        <widget class="QRadioButton" name="radioButton_Protected">
         <property name="font">
          <font>
@@ -110,7 +104,7 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
+      <item row="6" column="0">
        <widget class="QRadioButton" name="radioButton_Public">
         <property name="font">
          <font>
@@ -122,7 +116,22 @@
         </property>
        </widget>
       </item>
-      <item row="6" column="0">
+      <item row="7" column="0">
+       <widget class="QCheckBox" name="checkBox_AttributeConst">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>const</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
        <widget class="QCheckBox" name="checkBox_AttributePointer">
         <property name="font">
          <font>
@@ -143,7 +152,7 @@
         </property>
        </widget>
       </item>
-      <item row="6" column="1">
+      <item row="8" column="1">
        <widget class="QCheckBox" name="checkBox_AttributePointerConst">
         <property name="font">
          <font>
@@ -154,11 +163,11 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>const Pointer</string>
+         <string>const</string>
         </property>
        </widget>
       </item>
-      <item row="7" column="0">
+      <item row="9" column="0">
        <widget class="QCheckBox" name="checkBox_AttributeReference">
         <property name="minimumSize">
          <size>
@@ -182,7 +191,7 @@
         </property>
        </widget>
       </item>
-      <item row="7" column="1">
+      <item row="9" column="1">
        <widget class="QCheckBox" name="checkBox_AttributeReferenceConst">
         <property name="font">
          <font>
@@ -190,11 +199,11 @@
          </font>
         </property>
         <property name="text">
-         <string>const Reference</string>
+         <string>const</string>
         </property>
        </widget>
       </item>
-      <item row="8" column="0" colspan="2">
+      <item row="10" column="0" colspan="2">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <widget class="QPushButton" name="pushButton__Close">
@@ -228,20 +237,18 @@
         </item>
        </layout>
       </item>
-      <item row="5" column="0">
-       <widget class="QCheckBox" name="checkBox_AttributeConst">
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
+      <item row="3" column="1">
+       <widget class="QComboBox" name="comboBox_Type">
+        <property name="enabled">
+         <bool>true</bool>
         </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>const</string>
+        <property name="editable">
+         <bool>true</bool>
         </property>
        </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineEdit_Name"/>
       </item>
      </layout>
     </item>

@@ -27,6 +27,7 @@ private slots:
     void closeFunctionFormWidget();
     void on_CreateAttributeButton_clicked();
     void closeAttributeFormWidget();
+    void saveAttributeFormWidget();
 
 private:
     Ui::ClassForm *ui;

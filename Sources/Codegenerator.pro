@@ -48,21 +48,15 @@ HEADERS  += mainwindow.h \
     Utilities.h\
     ParserFassade.h \
     GeneratorCPlusPlus.h \
-    Rulescplusplus.h \
-    Parserimplementation.h \
-    Script.h \
-    Parser.h \
     Base/BaseParserImplementation.h \
     Evaluator.h \
     Base/BaseEvaluator.h \
     Base/BaseGenerator.h \
     Base/baseKeywordChecker.h \
     Base/BaseParserImplementation.h \
-    Parserimplementation.h \
     Codegeneratorfassade.h \
     Codegen/Basecodegenerator.h \
     Codegen/CPluspluscodegenerator.h \
-    Execptionhandling/OpenfileException.h \
     Errorhandling/Exceptionhandling.h \
     Errorhandling/OpenfileException.h \
     Codegen/Classgenerator.h \

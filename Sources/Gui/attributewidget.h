@@ -40,9 +40,12 @@ private:
 
 signals:
     void closeAttributeWidget();
+    void saveAttributeWidget();
 private slots:
     void on_pushButton__Close_clicked();
     void on_pushButton_Save_clicked();
+    void on_checkBox_AttributePointer_clicked();
+    void on_checkBox_AttributeReference_clicked();
 };
 
 #endif // ATTRIBUTEWIDGET_H

@@ -53,9 +53,19 @@ void ClassForm::on_CreateAttributeButton_clicked()
 
     connect(attributeFormWidged, SIGNAL(closeAttributeWidget()),
                         this, SLOT(closeAttributeFormWidget()));
+    connect(attributeFormWidged, SIGNAL(saveAttributeWidget()),
+                        this, SLOT(saveAttributeFormWidget()));
+
 }
 
 void ClassForm::closeAttributeFormWidget()
+{
+    attributeFormWidged->close();
+    delete attributeFormWidged;
+    attributeFormWidged = nullptr;
+}
+
+void ClassForm::saveAttributeFormWidget()
 {
 
     addListElement();
@@ -83,31 +93,40 @@ void ClassForm::addListElement()
 
     QString listElement = visiblity;
     listElement += emptySpace;
-    listElement += attributeType;
     listElement += emptySpace;
+
     if(attributeIsConst)
     {
         listElement += constType;
         listElement += emptySpace;
+        listElement += emptySpace;
     }
+    listElement += attributeType;
+    listElement += emptySpace;
+    listElement += emptySpace;
+
     if(attributeIsPointer)
     {
         listElement += pointer;
+        listElement += emptySpace;
         listElement += emptySpace;
     }
     if(attributeIsPointerConst)
     {
         listElement += constType;
         listElement += emptySpace;
+        listElement += emptySpace;
     }
     if(attributeIsReference)
     {
         listElement += reference;
         listElement += emptySpace;
+        listElement += emptySpace;
     }
     if(attributeIsReferenceConst)
     {
         listElement += constType;
+        listElement += emptySpace;
         listElement += emptySpace;
     }
     listElement += attributeName;
