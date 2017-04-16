@@ -27,17 +27,30 @@ void FunctionWidged::on_Save_Button_clicked()
 
 void FunctionWidged::on_pushButton_SetParameter_clicked()
 {
-    attributeFormWidged = new AttributeWidget();
-    attributeFormWidged->show();
+    parameterFormWidged = new AttributeWidget(true);
+    parameterFormWidged->show();
 
-    connect(attributeFormWidged, SIGNAL(closeAttributeWidget()),
+    connect(parameterFormWidged, SIGNAL(closeAttributeWidget()),
                         this, SLOT(closeParameterFormWidget()));
+
+    connect(parameterFormWidged, SIGNAL(saveAttributeWidget()),
+                        this, SLOT(saveParameterFormWidget()));
 }
 
 void FunctionWidged::closeParameterFormWidget()
 {
-    attributeFormWidged->close();
-    delete attributeFormWidged;
-    attributeFormWidged = nullptr;
+    parameterFormWidged->close();
+    delete parameterFormWidged;
+    parameterFormWidged = nullptr;
 }
+
+void FunctionWidged::saveParameterFormWidget()
+{
+    QString listElement = parameterFormWidged->getFormatedString();
+    ui->functionListWidget->addItem(listElement);
+    parameterFormWidged->close();
+    delete parameterFormWidged;
+    parameterFormWidged = nullptr;
+}
+
 

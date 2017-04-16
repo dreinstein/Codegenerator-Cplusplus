@@ -68,72 +68,12 @@ void ClassForm::closeAttributeFormWidget()
 void ClassForm::saveAttributeFormWidget()
 {
 
-    addListElement();
+    QString listElement = attributeFormWidged->getFormatedString();
+    ui->classListWidget->addItem(listElement);
     attributeFormWidged->close();
     delete attributeFormWidged;
     attributeFormWidged = nullptr;
 }
 
-
-void ClassForm::addListElement()
-{
-    QString constType = "const";
-    QString pointer = "*";
-    QString reference = "&";
-    QString emptySpace = " ";
-
-    QString attributeName = attributeFormWidged->getName();
-    QString attributeType = attributeFormWidged->getTyp();
-    bool attributeIsConst = attributeFormWidged->getIsConst();
-    bool attributeIsPointer = attributeFormWidged->getIsPointer();
-    bool attributeIsReference = attributeFormWidged->getIsReference();
-    bool attributeIsPointerConst = attributeFormWidged->getIsPointerConst();
-    bool attributeIsReferenceConst = attributeFormWidged->getIsReferenceConst();
-    QString visiblity = attributeFormWidged->getVisiblity();
-
-    QString listElement = visiblity;
-    listElement += emptySpace;
-    listElement += emptySpace;
-
-    if(attributeIsConst)
-    {
-        listElement += constType;
-        listElement += emptySpace;
-        listElement += emptySpace;
-    }
-    listElement += attributeType;
-    listElement += emptySpace;
-    listElement += emptySpace;
-
-    if(attributeIsPointer)
-    {
-        listElement += pointer;
-        listElement += emptySpace;
-        listElement += emptySpace;
-    }
-    if(attributeIsPointerConst)
-    {
-        listElement += constType;
-        listElement += emptySpace;
-        listElement += emptySpace;
-    }
-    if(attributeIsReference)
-    {
-        listElement += reference;
-        listElement += emptySpace;
-        listElement += emptySpace;
-    }
-    if(attributeIsReferenceConst)
-    {
-        listElement += constType;
-        listElement += emptySpace;
-        listElement += emptySpace;
-    }
-    listElement += attributeName;
-
-
-    ui->classListWidget->addItem(listElement);
-
-}
 
 

@@ -17,7 +17,6 @@ FunctionElements::~FunctionElements()
 
 void FunctionElements::deleteParameters()
 {
-    // @todo element to uniqueptr
     AttributeElements* elements;
     for (auto iterator = begin(functionParameters) ; iterator != functionParameters.end();++iterator)
     {

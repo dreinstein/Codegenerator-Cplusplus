@@ -56,7 +56,7 @@
         <bool>false</bool>
        </property>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -80,7 +80,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -120,7 +120,8 @@
         </item>
        </layout>
       </widget>
-      <zorder>edit_FunctionReturnValue</zorder>
+      <zorder>layoutWidget</zorder>
+      <zorder>layoutWidget</zorder>
       <zorder>edit_FunctionName</zorder>
      </widget>
      <widget class="QWidget" name="widget_2" native="true">
@@ -136,7 +137,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>110</y>
+         <y>170</y>
          <width>373</width>
          <height>20</height>
         </rect>
@@ -176,18 +177,18 @@
         </item>
        </layout>
       </widget>
-      <widget class="QListView" name="listView_Functions_2">
+      <widget class="QListWidget" name="functionListWidget">
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>190</y>
-         <width>381</width>
-         <height>71</height>
+         <y>0</y>
+         <width>391</width>
+         <height>121</height>
         </rect>
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>40</x>

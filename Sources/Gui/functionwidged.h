@@ -19,7 +19,7 @@ public:
 
 private:
     Ui::FunctionWidged *ui;
-    AttributeWidget* attributeFormWidged = nullptr;
+    AttributeWidget* parameterFormWidged = nullptr;
 
 signals:
     void closeFunctionWidget();
@@ -28,6 +28,7 @@ private slots:
     void on_Save_Button_clicked();
     void on_pushButton_SetParameter_clicked();
     void closeParameterFormWidget();
+    void saveParameterFormWidget();
 
 };
 

@@ -33,7 +33,6 @@ private:
     Ui::ClassForm *ui;
     FunctionWidged* functionFormWidged = nullptr;
     AttributeWidget* attributeFormWidged = nullptr;
-    void addListElement();
 };
 
 #endif // CLASSFORM_H

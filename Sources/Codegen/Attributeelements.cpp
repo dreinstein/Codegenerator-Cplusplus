@@ -10,14 +10,14 @@ AttributeElements::AttributeElements()
 
 void AttributeElements::resetData()
 {
-    modifier = "";
-    typ = "";
-    attribute = "";
-    isRef = false;
-    isPointer = false;
-    isConstant = false;
-    isMemoryConstant = false;
-    defaultValue = General::ElementStrings::NO_VALUE;
+    modifiers.modifier = "";
+    modifiers.typ = "";
+    modifiers.attribute = "";
+    modifiers.isRef = false;
+    modifiers.isPointer = false;
+    modifiers.isConstant = false;
+    modifiers.isMemoryConstant = false;
+    modifiers.defaultValue = General::ElementStrings::NO_VALUE;
 }
 
 void AttributeElements::setElements(QString element)
@@ -37,7 +37,7 @@ void AttributeElements::setElements(QString element)
 
 bool AttributeElements::getIsDefaultValue() const
 {
-    if(defaultValue != General::ElementStrings::NO_VALUE)
+    if(modifiers.defaultValue != General::ElementStrings::NO_VALUE)
     {
         return true;
     }
@@ -48,43 +48,44 @@ void AttributeElements::defineElements(QString listelement,QString elementLast)
 {
     if(listelement.contains(General::ElementStrings::ATTRIBUEELEMENT))
     {
-       attribute = elementLast;
+       modifiers.attribute = elementLast;
     }
 
     if(listelement.contains(General::ElementStrings::PARAMETERELEMENT))
     {
-       attribute = elementLast;
+      modifiers. attribute = elementLast;
     }
-
 
     if(listelement.contains(General::ElementStrings::TYPELEMENT))
     {
-       typ = elementLast;
+       modifiers.typ = elementLast;
     }
     if(listelement.contains(General::ElementStrings::MODIFIERELEMENT))
     {
-       modifier = elementLast;
+       modifiers.modifier = elementLast;
     }
     if(listelement.contains(General::ElementStrings::ISREFERENCEELEMENT))
     {
-       isRef = true;
+       modifiers.isRef = true;
     }
     if(listelement.contains(General::ElementStrings::ISPOINTERELEMENT))
     {
-       isPointer = true;
+       modifiers.isPointer = true;
     }
     else if(listelement.contains(General::ElementStrings::ISCONSTANTELEMENT))
     {
-       isConstant = true;
+       modifiers.isConstant = true;
     }
     else if(listelement.contains(General::ElementStrings::ISMEMORYCONSTANTELEMENT))
     {
-       isMemoryConstant = true;
+       modifiers.isMemoryConstant = true;
     }
     else if(listelement.contains(General::ElementStrings::DEFAULTVALUEELEMENT))
     {
-       defaultValue = elementLast;
+       modifiers.defaultValue = elementLast;
     }
 }
+
+
 
 }

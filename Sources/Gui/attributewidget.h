@@ -2,41 +2,24 @@
 #define ATTRIBUTEWIDGET_H
 
 #include <QWidget>
+#include "iwidget.h"
 
 namespace Ui {
 class AttributeWidget;
 }
 
-class AttributeWidget : public QWidget
+class AttributeWidget : public QWidget,public IWidget
 {
     Q_OBJECT
 
 public:
-    explicit AttributeWidget(QWidget *parent = 0);
+    explicit AttributeWidget(bool parameterSetting = false,QWidget *parent = 0);
     ~AttributeWidget();
-
-    QString getName()const {return name;}
-    QString getTyp() const {return typ;}
-    bool getIsPointer() const {return isPointer;}
-    bool getIsConst() const {return isConst;}
-    bool getIsPointerConst() const {return isPointerConst;}
-    bool getIsReference() const {return isReference;}
-    bool getIsReferenceConst() const {return isReferenceConst;}
-    QString getVisiblity() const {return visiblity;}
+    QString getFormatedString() override final;
 
 private:
     Ui::AttributeWidget *ui;
-    QString name;
-    QString typ;
-    bool isConst;
-    bool isPointer;
-    bool isPointerConst;
-    bool isReference;
-    bool isReferenceConst;
-    QString visiblity;
-    const QString privateString = "private";
-    const QString protectedString = "protected";
-    const QString publicString = "public";
+    const bool parameterSetting;
 
 signals:
     void closeAttributeWidget();
@@ -46,6 +29,9 @@ private slots:
     void on_pushButton_Save_clicked();
     void on_checkBox_AttributePointer_clicked();
     void on_checkBox_AttributeReference_clicked();
+private:
+    const QString parameterString = "Parameter";
+    const QString attributeString = "Attribute";
 };
 
 #endif // ATTRIBUTEWIDGET_H

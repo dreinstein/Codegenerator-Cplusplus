@@ -78,7 +78,8 @@ HEADERS  += mainwindow.h \
     Errorhandling/Xmlfileexception.h \
     Gui/classform.h \
     Gui/functionwidged.h \
-    Gui/attributewidget.h
+    Gui/attributewidget.h \
+    Gui/iwidget.h
 
 FORMS    += mainwindow.ui \
     Gui/classform.ui \
