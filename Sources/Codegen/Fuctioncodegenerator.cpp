@@ -207,6 +207,9 @@ void FuctionCodeGenerator::setTypForParameterElements(std::list<QString>& codeLi
 }
 
 
+//@todo AttributeElements and FunctionElements with Baseclass
+// this two functions settyp with FunctionElements and AttributeElements should be one function
+
 void FuctionCodeGenerator::setTyp(std::list<QString>& codeList,FunctionElements* element)
 {
 

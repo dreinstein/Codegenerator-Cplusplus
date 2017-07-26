@@ -98,6 +98,9 @@
             <property name="dragDropMode">
              <enum>QAbstractItemView::InternalMove</enum>
             </property>
+            <property name="selectionBehavior">
+             <enum>QAbstractItemView::SelectColumns</enum>
+            </property>
            </widget>
           </item>
          </layout>

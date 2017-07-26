@@ -71,11 +71,11 @@ public:
 // Todo create seperate File for Class Extract String, perhaps give it other name
 class ExtractString
 {
-private:
+public:
     static QString STRINGSEPERATOR;
     static QString SUBSTRINGSEPERATOR;
     static QString PARAMETERSEPERATOR;
-public:
+
     static QString extractFirst(QString ostring);
     static QString extractLast(QString ostring);
     static QStringList extractStringList(QString ostring);
