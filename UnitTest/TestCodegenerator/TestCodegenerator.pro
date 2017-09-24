@@ -49,7 +49,11 @@ SOURCES += Main.cpp \
     extractstringstest.cpp \
     ../../Sources/Parsing/parserimplementationText.cpp \
     ../../Sources/Parsing/parserimplementationxml.cpp \
-    ../../Sources/Errorhandling/Xmlfileexception.cpp
+    ../../Sources/Errorhandling/Xmlfileexception.cpp \
+    guiattribute.cpp \
+    ../../Sources/Codegen/classelements.cpp \
+    ../../Sources/excetionhandling.cpp \
+    ../../Sources/keywordchecker.cpp \
 
 HEADERS += \
     ../../Sources/GeneratorCPlusPlus.h \
@@ -87,5 +91,22 @@ HEADERS += \
     evaluatetest.h \
     testutilities.h \
     ../../Sources/Parsing/parserimplementationxml.h \
-    ../../Sources/Errorhandling/Xmlfileexception.h
+    ../../Sources/Errorhandling/Xmlfileexception.h \
+    ../../Sources/Codegen/classelements.h \
+    ../../Sources/Gui/iwidget.h \
+    ../../Sources/Parsing/ParserimplementationText.h \
+    ../../Sources/codegeneratorconstants.h \
+    ../../Sources/excetionhandling.h \
+    ../../Sources/keywordchecker.h \
+    ../../Sources/ui_mainwindow.h \
+    ../../Sources/Utilities.h
+
+SUBDIRS += \
+    ../../Sources/Codegenerator.pro
+
+FORMS +=
+
+DISTFILES += \
+    ../../Sources/object_script.Codegenerator.Debug \
+    ../../Sources/object_script.Codegenerator.Release
 

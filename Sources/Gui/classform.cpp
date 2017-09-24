@@ -68,11 +68,11 @@ void ClassForm::closeAttributeFormWidget()
 void ClassForm::saveAttributeFormWidget()
 {
 
-    QString listElement = attributeFormWidged->getFormatedString();
-    ui->classListWidget->addItem(listElement);
-    attributeFormWidged->close();
-    delete attributeFormWidged;
-    attributeFormWidged = nullptr;
+  //  QString listElement = attributeFormWidged->getFormatedString();
+  //  ui->classListWidget->addItem(listElement);
+  //  attributeFormWidged->close();
+  //  delete attributeFormWidged;
+  //  attributeFormWidged = nullptr;
 }
 
 

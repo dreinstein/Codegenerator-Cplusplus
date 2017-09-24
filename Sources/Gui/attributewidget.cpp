@@ -4,6 +4,8 @@
 #include "Codegen/Attributeelements.h"
 #include "Utilities.h"
 #include "memory"
+#include "../Codegen/Attributeelements.h"
+#include <QFileDialog>
 
 
 AttributeWidget::AttributeWidget(bool _parameterSetting, QWidget *parent) :
@@ -43,7 +45,9 @@ void AttributeWidget::on_pushButton__Close_clicked()
 
 void AttributeWidget::on_pushButton_Save_clicked()
 {
+#ifndef Test
     emit saveAttributeWidget();
+#endif
 }
 
 void AttributeWidget::on_checkBox_AttributePointer_clicked()
@@ -70,8 +74,21 @@ void AttributeWidget::on_checkBox_AttributeReference_clicked()
     }
 }
 
+void AttributeWidget::on_pushButton_Open_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this,
+        tr("Open File"), "", tr("File (*.xml)"));
+    std::unique_ptr<AttributeLoadAndFormate> opendata =  std::unique_ptr<AttributeLoadAndFormate>(new AttributeLoadAndFormate());
+    std::unique_ptr<Codegenerator::AttributeElements> elements = std::unique_ptr<Codegenerator::AttributeElements>(new Codegenerator::AttributeElements());
+    elements = opendata->loadDataSet(fileName);
+}
 
-QString AttributeWidget::getFormatedString()
+
+
+
+
+
+/*QString AttributeWidget::getFormatedString()
 {
 
     Codegenerator::AttributeModifiers modifiers;
@@ -86,34 +103,22 @@ QString AttributeWidget::getFormatedString()
     modifiers.isRef = ui->checkBox_AttributeReference;
     modifiers.typ = ui->comboBox_Type->currentText();
     modifiers.isParameter = parameterSetting;
-
     modifiers.modifier = Codegenerator::CodegeneratorConstants::modifierPrivate;
+    
 
-    if(ui->radioButton_Protected->isChecked())
+    if(!parameterSetting)
     {
-         modifiers.modifier = Codegenerator::CodegeneratorConstants::modifierProtected;
-    }
-    else if(ui->radioButton_Public->isChecked())
-    {
-         modifiers.modifier = Codegenerator::CodegeneratorConstants::modifierPublic;
+        if(ui->radioButton_Protected->isChecked())
+        {
+             modifiers.modifier = Codegenerator::CodegeneratorConstants::modifierProtected;
+        }
+        else if(ui->radioButton_Public->isChecked())
+        {
+             modifiers.modifier = Codegenerator::CodegeneratorConstants::modifierPublic;
+        }
     }
 
     QString listElement="";
-
-    // flogendes in AttributeElements schieben
-    Codegenerator::AttributeElements attributes;
-  //  return attributes.getFormatedString(modifiers);
-    //parameter notwendig
-
-/*   bool attributeIsConst = ui->checkBox_AttributeConst->isChecked();
-    bool attributeIsPointer = ui->checkBox_AttributePointer->isChecked();
-    bool attributeIsReference = ui->checkBox_AttributeReference->isChecked();
-    bool attributeIsPointerConst = ui->checkBox_AttributePointerConst->isChecked();
-    bool attributeIsReferenceConst = ui->checkBox_AttributeReferenceConst->isChecked();
-*/
-
-
-
 
     // 1. attributeName
     listElement += General::ExtractString::STRINGSEPERATOR;
@@ -121,50 +126,37 @@ QString AttributeWidget::getFormatedString()
     listElement += General::ExtractString::SUBSTRINGSEPERATOR;
     listElement += ui->lineEdit_Name->text();
 
-
-
-
     // 2. modifier, if not a parameter
     if(!parameterSetting)
     {
-        QString modifier = Codegenerator::CodegeneratorConstants::modifierPrivate;
-
-        if(ui->radioButton_Protected->isChecked())
-        {
-            modifier = Codegenerator::CodegeneratorConstants::modifierProtected;
-        }
-        else if(ui->radioButton_Public->isChecked())
-        {
-            modifier = Codegenerator::CodegeneratorConstants::modifierPublic;
-        }
-
         listElement += General::ExtractString::STRINGSEPERATOR;
         listElement += General::ElementStrings::MODIFIERELEMENT;
         listElement += General::ExtractString::SUBSTRINGSEPERATOR;
-        listElement += modifier;
+        listElement += modifiers.modifier;
     }
 
     // 3. typ
     listElement += General::ExtractString::STRINGSEPERATOR;
     listElement += General::ElementStrings::TYPELEMENT;
     listElement += General::ExtractString::SUBSTRINGSEPERATOR;
-    listElement += ui->comboBox_Type->currentText();
-
+    listElement += modifiers.typ;
+    
+    
     // 4.typ pointer
-    if(ui->checkBox_AttributePointer->isChecked())
+    if( modifiers.isPointer)
     {
         listElement += General::ExtractString::STRINGSEPERATOR;
         listElement += General::ElementStrings::ISPOINTERELEMENT;
 
         // 4.2 pointer const
-        if(ui->checkBox_AttributeConst->isChecked())
+        if(modifiers.isConstant)
         {
             listElement += General::ExtractString::STRINGSEPERATOR;
             listElement += General::ElementStrings::ISCONSTANTELEMENT;
         }
 
         // 4.3
-        if(ui->checkBox_MemoryPointerConst->isChecked())
+        if(modifiers.isMemoryConstant)
         {
             listElement += General::ExtractString::STRINGSEPERATOR;
             listElement += General::ElementStrings::ISMEMORYCONSTANTELEMENT;
@@ -173,13 +165,13 @@ QString AttributeWidget::getFormatedString()
 
     // 5. Reference Typ
 
-    if(ui->checkBox_AttributeReference->isChecked())
+    if( modifiers.isRef)
     {
         listElement += General::ExtractString::STRINGSEPERATOR;
         listElement += General::ElementStrings::ISREFERENCEELEMENT;
 
         // 4.2 pointer const
-        if(ui->checkBox_AttributeConst->isChecked())
+        if(modifiers.isConstant)
         {
             listElement += General::ExtractString::STRINGSEPERATOR;
             listElement += General::ElementStrings::ISCONSTANTELEMENT;
@@ -194,4 +186,5 @@ QString AttributeWidget::getFormatedString()
     }
 
     return listElement;
-}
+}*/
+

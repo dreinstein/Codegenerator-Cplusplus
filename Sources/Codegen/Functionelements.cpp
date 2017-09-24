@@ -58,8 +58,10 @@ void FunctionElements::setElements(QString element)
             // new parameterElement, save previous one
             if(attriElement != nullptr)
             {
+
                 pushFunctionParameter(attriElement);
             }
+            //Todo wird hier wohl nicht gelöscht
             attriElement = new AttributeElements;
             foundParameters = true;
             element = General::ExtractString::extractParameter(element);

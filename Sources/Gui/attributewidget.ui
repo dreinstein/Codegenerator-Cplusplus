@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>237</width>
-    <height>250</height>
+    <width>276</width>
+    <height>261</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -42,7 +42,7 @@
     <rect>
      <x>10</x>
      <y>40</y>
-     <width>213</width>
+     <width>247</width>
      <height>199</height>
     </rect>
    </property>
@@ -260,9 +260,12 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QPushButton" name="pushButton__Close">
+       <widget class="QPushButton" name="pushButton_Open">
+        <property name="contextMenuPolicy">
+         <enum>Qt::NoContextMenu</enum>
+        </property>
         <property name="text">
-         <string>Close</string>
+         <string>Open</string>
         </property>
        </widget>
       </item>
@@ -270,6 +273,13 @@
        <widget class="QPushButton" name="pushButton_Save">
         <property name="text">
          <string>Save</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton__Close">
+        <property name="text">
+         <string>Close</string>
         </property>
        </widget>
       </item>

@@ -46,11 +46,11 @@ void FunctionWidged::closeParameterFormWidget()
 
 void FunctionWidged::saveParameterFormWidget()
 {
-    QString listElement = parameterFormWidged->getFormatedString();
+  /*  QString listElement = parameterFormWidged->getFormatedString();
     ui->functionListWidget->addItem(listElement);
     parameterFormWidged->close();
     delete parameterFormWidged;
-    parameterFormWidged = nullptr;
+    parameterFormWidged = nullptr;*/
 }
 
 

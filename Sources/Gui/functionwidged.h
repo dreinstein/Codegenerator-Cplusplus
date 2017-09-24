@@ -6,8 +6,9 @@
 
 
 namespace Ui {
-class FunctionWidged;
+    class FunctionWidged;
 }
+
 
 class FunctionWidged : public QDialog
 {
@@ -31,5 +32,7 @@ private slots:
     void saveParameterFormWidget();
 
 };
+
+
 
 #endif // FUNCTIONWIDGED_H

@@ -23,7 +23,6 @@ SOURCES += main.cpp\
     Codegen/CPluspluscodegenerator.cpp \    
     Utilities.cpp \
     Errorhandling/OpenfileException.cpp \
-    Codegen/Basecodegenerator.cpp \
     Codegen/Classgenerator.cpp \
     Errorhandling/Scriptexception.cpp \
     Errorhandling/Attributescriptexception.cpp \
@@ -42,7 +41,9 @@ SOURCES += main.cpp\
     Codegen/Attributeelements.cpp \
     Gui/classform.cpp \
     Gui/functionwidged.cpp \
-    Gui/attributewidget.cpp
+    Gui/attributewidget.cpp \
+    Gui/attributeloadandformate.cpp \
+    Codegen/basecodegenerator.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
@@ -79,7 +80,8 @@ HEADERS  += mainwindow.h \
     Gui/classform.h \
     Gui/functionwidged.h \
     Gui/attributewidget.h \
-    Gui/iwidget.h
+    Gui/attributeloadandformate.h \
+    Gui/baseLoadAndFormate.h
 
 FORMS    += mainwindow.ui \
     Gui/classform.ui \

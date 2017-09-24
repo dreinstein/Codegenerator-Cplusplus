@@ -1,8 +1,10 @@
 
-#include <QtWidgets>
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
 #include "Gui/classform.h"
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
@@ -22,8 +24,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     fileMenu->addAction(newAct);
     fileMenu->addAction(closeAct);
-
-
 }
 
 
@@ -56,3 +56,5 @@ void MainWindow::closeClassFormWidget()
     delete classFormWidget;
     classFormWidget = nullptr;
 }
+
+

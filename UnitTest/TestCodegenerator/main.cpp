@@ -2,7 +2,7 @@
 #include "../../gmock/gmock.h"
 
 
-#include "systemtest.h"
+//#include "systemtest.h"
 
 
 int main(int argc, char *argv[])

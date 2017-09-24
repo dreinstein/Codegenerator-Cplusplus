@@ -6,8 +6,9 @@
 #include "Gui/attributewidget.h"
 
 namespace Ui {
-class ClassForm;
+    class ClassForm;
 }
+
 
 class ClassForm : public QWidget
 {
@@ -34,5 +35,6 @@ private:
     FunctionWidged* functionFormWidged = nullptr;
     AttributeWidget* attributeFormWidged = nullptr;
 };
+
 
 #endif // CLASSFORM_H

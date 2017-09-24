@@ -1,13 +1,13 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QtWidgets>
 #include <QMainWindow>
+
+//#include "Gui/classform.h"
 
 class ClassForm;
 
-namespace Ui {
-class MainWindow;
-}
 
 class MainWindow : public QMainWindow
 {
@@ -23,5 +23,6 @@ private slots:
 private:
     ClassForm* classFormWidget = nullptr;
 };
+
 
 #endif // MAINWINDOW_H
