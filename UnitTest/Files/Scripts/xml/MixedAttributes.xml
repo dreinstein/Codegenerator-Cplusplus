@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+<path name="..\\Files\\Generated\\myFirstGeneratedFile">
+</path>
+<attribute name="attributeint">
+		<modifier>public</modifier>
+		<typ>int</typ>
+</attribute>
+<attribute name="attributedouble">
+		<modifier>private</modifier>
+		<typ>double</typ>
+</attribute>
+<attribute name="attributelong">
+		<modifier>public</modifier>
+		<typ>long</typ>
+</attribute>
+<attribute name="attributeTestClass">
+		<modifier>public</modifier>
+		<typ>TestClass</typ>
+</attribute>

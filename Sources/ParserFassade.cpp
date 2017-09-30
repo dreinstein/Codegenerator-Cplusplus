@@ -77,8 +77,8 @@ void ParserFassade::giveScriptData()
 
 void ParserFassade::buildForCPlusPlus(BaseGenerator* generator)
 {
-     keyParser =  std::unique_ptr<KeywordsCPlusPlus>(new KeywordsCPlusPlus());
-     rulesParser =  std::unique_ptr<RulesCPlusPlus>(new RulesCPlusPlus());
+     keyParser =  std::unique_ptr<Parser>(new KeywordsCPlusPlus());
+     rulesParser =  std::unique_ptr<Parser>(new RulesCPlusPlus());
      scriptParser =  std::unique_ptr<Script>(new Script());
      keyParser->registerObservers(generator);
      rulesParser->registerObservers(generator);

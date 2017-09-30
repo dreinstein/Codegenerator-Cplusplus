@@ -49,9 +49,9 @@ public:
     void giveRulesData();
 
 private:
-    std::unique_ptr<KeywordsCPlusPlus> keyParser;
+    std::unique_ptr<Parser> keyParser;
     std::unique_ptr<Script> scriptParser;
-    std::unique_ptr<RulesCPlusPlus> rulesParser;
+    std::unique_ptr<Parser> rulesParser;
     void buildForCPlusPlus(BaseGenerator* generator);
     ParserFassade(const ParserFassade& f);
     ParserFassade& operator = (const ParserFassade& src);

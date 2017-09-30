@@ -26,7 +26,7 @@ void  RulesCPlusPlus::registerObservers(BaseGenerator *observer)
 
 void RulesCPlusPlus::Parse(const QString str)
 {
-    std::unique_ptr<ParserImplText> parser (new ParserImplText());
+    std::unique_ptr<BaseParserImpl> parser (new ParserImplText());
     try
     {
         mapValues = parser->doParseForMap(str);

@@ -28,12 +28,12 @@ class ParserTest : public ::testing::Test {
   std::vector<QString> refValues = {String0,String1,String2,String3,String4,String5,String6,String7,String8};
 
 
-  std::unique_ptr<ParserImplText> parserText;
-  std::unique_ptr<ParserImplXML> parserXML;
+  std::unique_ptr<BaseParserImpl> parserText;
+  std::unique_ptr<BaseParserImpl> parserXML;
   virtual void SetUp()
   {
-      parserText  =  std::unique_ptr<ParserImplText>(new ParserImplText());
-      parserXML  =   std::unique_ptr<ParserImplXML>(new ParserImplXML());
+      parserText  =  std::unique_ptr<BaseParserImpl>(new ParserImplText());
+      parserXML  =   std::unique_ptr<BaseParserImpl>(new ParserImplXML());
   }
 
 };

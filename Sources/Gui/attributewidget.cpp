@@ -14,6 +14,7 @@ AttributeWidget::AttributeWidget(bool _parameterSetting, QWidget *parent) :
     parameterSetting(_parameterSetting)
 {
    ui->setupUi(this);
+   datas =  std::unique_ptr<BaseLoadAndFormate>(new AttributeLoadAndFormate());
    if(parameterSetting)
    {
        this->setWindowTitle(parameterString);
@@ -36,6 +37,7 @@ AttributeWidget::~AttributeWidget()
 {
     delete ui;
     ui = nullptr;
+
 }
 
 void AttributeWidget::on_pushButton__Close_clicked()
@@ -78,9 +80,32 @@ void AttributeWidget::on_pushButton_Open_clicked()
 {
     QString fileName = QFileDialog::getOpenFileName(this,
         tr("Open File"), "", tr("File (*.xml)"));
-    std::unique_ptr<AttributeLoadAndFormate> opendata =  std::unique_ptr<AttributeLoadAndFormate>(new AttributeLoadAndFormate());
-    std::unique_ptr<Codegenerator::AttributeElements> elements = std::unique_ptr<Codegenerator::AttributeElements>(new Codegenerator::AttributeElements());
-    elements = opendata->loadDataSet(fileName);
+    datas->loadDataSet(fileName);
+    fillGuiWithElements();
+}
+
+void AttributeWidget::fillGuiWithElements()
+{
+    std::unique_ptr<Codegenerator::AttributeElements> element;
+    element = datas->getElement();
+    ui->lineEdit_Name->setText(element.get()->getAttribute());
+    if(element.get()->getModifier() == Codegenerator::CodegeneratorConstants::modifierPrivate)
+    {
+        ui->radioButton_Private->setChecked(true);
+    }
+    if(element.get()->getModifier() == Codegenerator::CodegeneratorConstants::modifierProtected)
+    {
+        ui->radioButton_Protected->setChecked(true);
+    }
+    if(element.get()->getModifier() == Codegenerator::CodegeneratorConstants::modifierPublic)
+    {
+        ui->radioButton_Public->setChecked(true);
+    }
+  /*  if(element.modifiers.modifier == Codegenerator::CodegeneratorConstants::::modifierProtected)
+    {
+        ui->checkBox_MemoryPointerConst->setDisabled(true);
+    }*/
+   // ui->checkBox_MemoryReferenceConst->setDisabled(true);
 }
 
 

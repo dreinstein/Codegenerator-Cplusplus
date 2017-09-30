@@ -18,12 +18,12 @@ const QString parserstring = "Directory";
 class ReceiveDataTest: public ::testing::Test
 {
 protected:
-    std::unique_ptr<GeneratorCPlusPlus>generator;
+    std::unique_ptr<BaseGenerator>generator;
     QString parserstring;
     virtual void SetUp()
     {
        parserstring = "Directory";
-       generator = std::unique_ptr<GeneratorCPlusPlus>(new  GeneratorCPlusPlus(""));
+       generator = std::unique_ptr<BaseGenerator>(new  GeneratorCPlusPlus(""));
     }
 };
 

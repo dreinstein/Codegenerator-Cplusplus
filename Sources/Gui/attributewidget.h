@@ -37,9 +37,12 @@ private slots:
     void on_checkBox_AttributeReference_clicked();
     void on_pushButton_Open_clicked();
 
+
 private:
+     void fillGuiWithElements();
     const QString parameterString = "Parameter";
     const QString attributeString = "Attribute";
+    std::unique_ptr<BaseLoadAndFormate> datas;
 };
 
 #endif // ATTRIBUTEWIDGET_H

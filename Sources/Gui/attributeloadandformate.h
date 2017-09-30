@@ -10,7 +10,12 @@ class AttributeLoadAndFormate : public BaseLoadAndFormate
 public:
     AttributeLoadAndFormate();
     QString getFormatedString() override final;
-     virtual std::unique_ptr<Codegenerator::AttributeElements> loadDataSet(QString path) override final;
+    virtual void loadDataSet(QString path) override final;
+    virtual std::unique_ptr<Codegenerator::AttributeElements> getElement() override final;
+
+private:
+    std::unique_ptr<Codegenerator::AttributeElements> elements;
+    static const int attributePos = 1;
 };
 
 

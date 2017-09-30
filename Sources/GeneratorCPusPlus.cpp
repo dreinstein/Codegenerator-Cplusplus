@@ -43,7 +43,7 @@ void GeneratorCPlusPlus::generate()
 
     pCodegeneratorFassade =  std::unique_ptr<CodegeneratorFassade>(new CodegeneratorFassade(this,General::Languages::Parserlanguage::CPLUSPLUS));
     pParserFassade =  std::unique_ptr<ParserFassade>(new ParserFassade(this,General::Languages::Parserlanguage::CPLUSPLUS));
-    pEvaluator = std::unique_ptr<ScriptEvaluator> (new ScriptEvaluator());
+    pEvaluator = std::unique_ptr<BaseEvaluator> (new ScriptEvaluator());
 
     pParserFassade->ParseKeyword(pathKeywords);
     pParserFassade->ParseRules(pathRules);

@@ -39,7 +39,7 @@ void CodegeneratorFassade:: generate(const std::vector<QString> strVecScript, co
 
 
 void CodegeneratorFassade::buildForCPlusPlus(BaseGenerator* generator)
-{
-   pCodeGenerator = std::unique_ptr<CPlusPlusCodegenerator>(new CPlusPlusCodegenerator());
+{ 
+   pCodeGenerator = std::unique_ptr<BaseCodegenerator>(new CPlusPlusCodegenerator());
    pCodeGenerator->registerObservers(generator);
 }

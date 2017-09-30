@@ -36,7 +36,7 @@ void  KeywordsCPlusPlus::registerObservers(NGenerator::BaseGenerator *observer)
 
 void KeywordsCPlusPlus::Parse(const QString str)
 {
-    std::unique_ptr<ParserImplText> parser (new ParserImplText());
+    std::unique_ptr<BaseParserImpl> parser (new ParserImplText());
     try
     {
         vecValues = parser->doParseForVec(str);

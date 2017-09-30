@@ -24,7 +24,7 @@ void  Script::registerObservers(BaseGenerator *observer)
 
 void Script::Parse(const QString str)
 {
-    std::unique_ptr<ParserImplXML> parser (new ParserImplXML());
+    std::unique_ptr<BaseParserImpl> parser (new ParserImplXML());
     try
     {
         vecValues = parser->doParseForVec(str);

@@ -4,7 +4,7 @@
 
 #include "gmock/gmock.h"
 #include<QString>
-#include "Gui/t.h"
+//#include "Gui/t.h"
 
 
 

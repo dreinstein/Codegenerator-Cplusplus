@@ -2,9 +2,8 @@
 
 #include "gmock/gmock.h"
 #include<QString>
-#include "Gui/t.h"
 
-class MockGuiAttribute : public IWidget
+class MockGuiAttribute
 {
 public:
 
