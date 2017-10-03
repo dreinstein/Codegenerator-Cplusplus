@@ -46,9 +46,7 @@ void AttributeWidget::on_pushButton__Close_clicked()
 
 void AttributeWidget::on_pushButton_Save_clicked()
 {
-#ifndef Test
     emit saveAttributeWidget();
-#endif
 }
 
 void AttributeWidget::on_checkBox_AttributePointer_clicked()
@@ -71,33 +69,33 @@ void AttributeWidget::on_pushButton_Open_clicked()
     if(fileName != "")
     {
         std::unique_ptr<BaseLoadAndFormate> datas =  std::unique_ptr<BaseLoadAndFormate>(new AttributeLoadAndFormate());
-        std::vector<std::unique_ptr<Codegenerator::AttributeElements>> vecElements = datas->loadDataSet(fileName);
-        fillGuiWithElements(std::move(vecElements[0]));
+        vecElements = datas->loadDataSet(fileName);
+        fillGuiWithElements();
     }
 }
 
 
-void AttributeWidget::fillGuiWithElements(std::unique_ptr<Codegenerator::AttributeElements> element)
+void AttributeWidget::fillGuiWithElements()
 {
 
-    ui->lineEdit_Name->setText(element.get()->getAttribute());
-    if(element.get()->getModifier() == Codegenerator::CodegeneratorConstants::modifierPrivate)
+    ui->lineEdit_Name->setText(vecElements[0].get()->getAttribute());
+    if(vecElements[0].get()->getModifier() == Codegenerator::CodegeneratorConstants::modifierPrivate)
     {
         ui->radioButton_Private->setChecked(true);
     }
-    if(element.get()->getModifier() == Codegenerator::CodegeneratorConstants::modifierProtected)
+    if(vecElements[0].get()->getModifier() == Codegenerator::CodegeneratorConstants::modifierProtected)
     {
         ui->radioButton_Protected->setChecked(true);
     }
-    if(element.get()->getModifier() == Codegenerator::CodegeneratorConstants::modifierPublic)
+    if(vecElements[0].get()->getModifier() == Codegenerator::CodegeneratorConstants::modifierPublic)
     {
         ui->radioButton_Public->setChecked(true);
     }
-    if(element.get()->getModifier() == Codegenerator::CodegeneratorConstants::modifierPublic)
+    if(vecElements[0].get()->getModifier() == Codegenerator::CodegeneratorConstants::modifierPublic)
     {
         ui->radioButton_Public->setChecked(true);
     }
-    if(element.get()->getIsConstant())
+    if(vecElements[0].get()->getIsConstant())
     {
         ui->checkBox_AttributeConst->setChecked(true);
     }
@@ -105,7 +103,7 @@ void AttributeWidget::fillGuiWithElements(std::unique_ptr<Codegenerator::Attribu
     {
         ui->checkBox_AttributeConst->setChecked(false);
     }
-    if(element.get()->getIsPointer())
+    if(vecElements[0].get()->getIsPointer())
     {
         ui->checkBox_AttributePointer->setChecked(true);
     }
@@ -113,7 +111,7 @@ void AttributeWidget::fillGuiWithElements(std::unique_ptr<Codegenerator::Attribu
     {
         ui->checkBox_AttributePointer->setChecked(false);
     }
-    if(element.get()->getIsRef())
+    if(vecElements[0].get()->getIsRef())
     {
         ui->checkBox_AttributeReference->setChecked(true);
     }
@@ -121,7 +119,7 @@ void AttributeWidget::fillGuiWithElements(std::unique_ptr<Codegenerator::Attribu
     {
         ui->checkBox_AttributeReference->setChecked(false);
     }
-    if(element.get()->getIsMemoryConstant())
+    if(vecElements[0].get()->getIsMemoryConstant())
     {
         ui->checkBox_MemoryPointerConst->setChecked(true);
     }
@@ -133,106 +131,4 @@ void AttributeWidget::fillGuiWithElements(std::unique_ptr<Codegenerator::Attribu
 
 
 
-
-
-
-/*QString AttributeWidget::getFormatedString()
-{
-
-    Codegenerator::AttributeModifiers modifiers;
-
-    modifiers.attribute = ui->lineEdit_Name->text();
-    // not availible
-    modifiers.defaultValue="";
-    modifiers.isConstant = ui->checkBox_AttributeConst->isChecked();
-    // passt nicht, nur ein Wert notwendig
-    modifiers.isMemoryConstant = ui->checkBox_MemoryPointerConst;
-    modifiers.isPointer = ui->checkBox_AttributePointer;
-    modifiers.isRef = ui->checkBox_AttributeReference;
-    modifiers.typ = ui->comboBox_Type->currentText();
-    modifiers.isParameter = parameterSetting;
-    modifiers.modifier = Codegenerator::CodegeneratorConstants::modifierPrivate;
-    
-
-    if(!parameterSetting)
-    {
-        if(ui->radioButton_Protected->isChecked())
-        {
-             modifiers.modifier = Codegenerator::CodegeneratorConstants::modifierProtected;
-        }
-        else if(ui->radioButton_Public->isChecked())
-        {
-             modifiers.modifier = Codegenerator::CodegeneratorConstants::modifierPublic;
-        }
-    }
-
-    QString listElement="";
-
-    // 1. attributeName
-    listElement += General::ExtractString::STRINGSEPERATOR;
-    listElement += General::ElementStrings::ATTRIBUEELEMENT;
-    listElement += General::ExtractString::SUBSTRINGSEPERATOR;
-    listElement += ui->lineEdit_Name->text();
-
-    // 2. modifier, if not a parameter
-    if(!parameterSetting)
-    {
-        listElement += General::ExtractString::STRINGSEPERATOR;
-        listElement += General::ElementStrings::MODIFIERELEMENT;
-        listElement += General::ExtractString::SUBSTRINGSEPERATOR;
-        listElement += modifiers.modifier;
-    }
-
-    // 3. typ
-    listElement += General::ExtractString::STRINGSEPERATOR;
-    listElement += General::ElementStrings::TYPELEMENT;
-    listElement += General::ExtractString::SUBSTRINGSEPERATOR;
-    listElement += modifiers.typ;
-    
-    
-    // 4.typ pointer
-    if( modifiers.isPointer)
-    {
-        listElement += General::ExtractString::STRINGSEPERATOR;
-        listElement += General::ElementStrings::ISPOINTERELEMENT;
-
-        // 4.2 pointer const
-        if(modifiers.isConstant)
-        {
-            listElement += General::ExtractString::STRINGSEPERATOR;
-            listElement += General::ElementStrings::ISCONSTANTELEMENT;
-        }
-
-        // 4.3
-        if(modifiers.isMemoryConstant)
-        {
-            listElement += General::ExtractString::STRINGSEPERATOR;
-            listElement += General::ElementStrings::ISMEMORYCONSTANTELEMENT;
-        }
-    }
-
-    // 5. Reference Typ
-
-    if( modifiers.isRef)
-    {
-        listElement += General::ExtractString::STRINGSEPERATOR;
-        listElement += General::ElementStrings::ISREFERENCEELEMENT;
-
-        // 4.2 pointer const
-        if(modifiers.isConstant)
-        {
-            listElement += General::ExtractString::STRINGSEPERATOR;
-            listElement += General::ElementStrings::ISCONSTANTELEMENT;
-        }
-
-        // 4.3
-        if(ui->checkBox_MemoryReferenceConst->isChecked())
-        {
-            listElement += General::ExtractString::STRINGSEPERATOR;
-            listElement += General::ElementStrings::ISMEMORYCONSTANTELEMENT;
-        }
-    }
-
-    return listElement;
-}*/
 

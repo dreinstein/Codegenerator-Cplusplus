@@ -20,6 +20,7 @@ class AttributeWidget : public QWidget
 public:
     explicit AttributeWidget(bool parameterSetting = false,QWidget *parent = 0);
     ~AttributeWidget();
+    std::vector<std::unique_ptr<Codegenerator::AttributeElements>> getElements() {return std::move(vecElements);}
 
 
 private:
@@ -38,9 +39,10 @@ private slots:
 
 
 private:
-     void fillGuiWithElements(std::unique_ptr<Codegenerator::AttributeElements> element);
+    void fillGuiWithElements();
     const QString parameterString = "Parameter";
     const QString attributeString = "Attribute";
+    std::vector<std::unique_ptr<Codegenerator::AttributeElements>> vecElements;
 };
 
 #endif // ATTRIBUTEWIDGET_H

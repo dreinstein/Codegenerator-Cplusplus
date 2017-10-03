@@ -1,5 +1,8 @@
 #include "classform.h"
 #include "ui_classform.h"
+#include "Codegen/Codegeneratorconstants.h"
+
+
 
 
 
@@ -44,6 +47,14 @@ void ClassForm::closeFunctionFormWidget()
     functionFormWidged = nullptr;
 }
 
+void ClassForm::closeAttributeFormWidget()
+{
+    attributeFormWidged->close();
+    delete attributeFormWidged;
+    attributeFormWidged = nullptr;
+
+}
+
 
 
 void ClassForm::on_CreateAttributeButton_clicked()
@@ -58,22 +69,66 @@ void ClassForm::on_CreateAttributeButton_clicked()
 
 }
 
-void ClassForm::closeAttributeFormWidget()
-{
-    attributeFormWidged->close();
-    delete attributeFormWidged;
-    attributeFormWidged = nullptr;
-}
-
 void ClassForm::saveAttributeFormWidget()
 {
-
-  //  QString listElement = attributeFormWidged->getFormatedString();
-  //  ui->classListWidget->addItem(listElement);
-  //  attributeFormWidged->close();
-  //  delete attributeFormWidged;
-  //  attributeFormWidged = nullptr;
+    std::vector<std::unique_ptr<Codegenerator::AttributeElements>>  attrElements = attributeFormWidged->getElements();
+    auto count = attrElements.size();
+    for(uint i=0;i<count;++i)
+    {
+        writeAttribute(attrElements[i].get());
+    }
+    closeAttributeFormWidget();
 }
+
+
+void ClassForm::writeAttribute(Codegenerator::AttributeElements* element)
+{
+    QString list = "";
+    if(element->getModifier() == Codegenerator::CodegeneratorConstants::modifierPrivate)
+    {
+        list += Codegenerator::CodegeneratorConstants::modifierPrivate;
+    }
+    else if(element->getModifier() == Codegenerator::CodegeneratorConstants::modifierProtected)
+    {
+        list += Codegenerator::CodegeneratorConstants::modifierProtected;
+    }
+    else
+    {
+        list += Codegenerator::CodegeneratorConstants::modifierPublic;
+    }
+    list += Codegenerator::CodegeneratorConstants::emptyChar;
+
+    if(element->getIsConstant())
+    {
+        list += Codegenerator::CodegeneratorConstants::constant;
+    }
+    list += Codegenerator::CodegeneratorConstants::emptyChar;
+
+    list += element->getTyp();
+    list += Codegenerator::CodegeneratorConstants::emptyChar;
+
+    if(element->getIsPointer())
+    {
+        list += Codegenerator::CodegeneratorConstants::pointer;
+        if(element->getIsMemoryConstant())
+        {
+            list += Codegenerator::CodegeneratorConstants::emptyChar;
+            list += Codegenerator::CodegeneratorConstants::constant;
+        }
+    }
+    else if(element->getIsRef())
+    {
+        list += Codegenerator::CodegeneratorConstants::reference;
+    }
+    list += Codegenerator::CodegeneratorConstants::emptyChar;
+    list += element->getAttribute();
+
+    ui->classListWidget->addItem(list);
+}
+
+
+
+
 
 
 
