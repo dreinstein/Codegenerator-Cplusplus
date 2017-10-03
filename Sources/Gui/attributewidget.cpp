@@ -14,7 +14,7 @@ AttributeWidget::AttributeWidget(bool _parameterSetting, QWidget *parent) :
     parameterSetting(_parameterSetting)
 {
    ui->setupUi(this);
-   datas =  std::unique_ptr<BaseLoadAndFormate>(new AttributeLoadAndFormate());
+
    if(parameterSetting)
    {
        this->setWindowTitle(parameterString);
@@ -27,7 +27,6 @@ AttributeWidget::AttributeWidget(bool _parameterSetting, QWidget *parent) :
    ui->radioButton_Protected->setChecked(false);
    ui->radioButton_Public->setChecked(false);
    ui->checkBox_MemoryPointerConst->setDisabled(true);
-   ui->checkBox_MemoryReferenceConst->setDisabled(true);
    QStringList itemList;
    itemList << Codegenerator::CodegeneratorConstants::typInt << Codegenerator::CodegeneratorConstants::typDouble << Codegenerator::CodegeneratorConstants::typLong << Codegenerator::CodegeneratorConstants::typQString << Codegenerator::CodegeneratorConstants::typVoid;
    ui->comboBox_Type->addItems(itemList);
@@ -64,30 +63,23 @@ void AttributeWidget::on_checkBox_AttributePointer_clicked()
     }
 }
 
-void AttributeWidget::on_checkBox_AttributeReference_clicked()
-{
-    if(ui->checkBox_AttributeReference->isChecked())
-    {
-        ui->checkBox_MemoryReferenceConst->setDisabled(false);
-    }
-    else
-    {
-         ui->checkBox_MemoryReferenceConst->setDisabled(true);
-    }
-}
 
 void AttributeWidget::on_pushButton_Open_clicked()
 {
     QString fileName = QFileDialog::getOpenFileName(this,
         tr("Open File"), "", tr("File (*.xml)"));
-    datas->loadDataSet(fileName);
-    fillGuiWithElements();
+    if(fileName != "")
+    {
+        std::unique_ptr<BaseLoadAndFormate> datas =  std::unique_ptr<BaseLoadAndFormate>(new AttributeLoadAndFormate());
+        std::vector<std::unique_ptr<Codegenerator::AttributeElements>> vecElements = datas->loadDataSet(fileName);
+        fillGuiWithElements(std::move(vecElements[0]));
+    }
 }
 
-void AttributeWidget::fillGuiWithElements()
+
+void AttributeWidget::fillGuiWithElements(std::unique_ptr<Codegenerator::AttributeElements> element)
 {
-    std::unique_ptr<Codegenerator::AttributeElements> element;
-    element = datas->getElement();
+
     ui->lineEdit_Name->setText(element.get()->getAttribute());
     if(element.get()->getModifier() == Codegenerator::CodegeneratorConstants::modifierPrivate)
     {
@@ -101,11 +93,42 @@ void AttributeWidget::fillGuiWithElements()
     {
         ui->radioButton_Public->setChecked(true);
     }
-  /*  if(element.modifiers.modifier == Codegenerator::CodegeneratorConstants::::modifierProtected)
+    if(element.get()->getModifier() == Codegenerator::CodegeneratorConstants::modifierPublic)
     {
-        ui->checkBox_MemoryPointerConst->setDisabled(true);
-    }*/
-   // ui->checkBox_MemoryReferenceConst->setDisabled(true);
+        ui->radioButton_Public->setChecked(true);
+    }
+    if(element.get()->getIsConstant())
+    {
+        ui->checkBox_AttributeConst->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_AttributeConst->setChecked(false);
+    }
+    if(element.get()->getIsPointer())
+    {
+        ui->checkBox_AttributePointer->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_AttributePointer->setChecked(false);
+    }
+    if(element.get()->getIsRef())
+    {
+        ui->checkBox_AttributeReference->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_AttributeReference->setChecked(false);
+    }
+    if(element.get()->getIsMemoryConstant())
+    {
+        ui->checkBox_MemoryPointerConst->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_MemoryPointerConst->setChecked(false);
+    }
 }
 
 

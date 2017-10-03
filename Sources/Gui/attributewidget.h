@@ -24,7 +24,6 @@ public:
 
 private:
     Ui::AttributeWidget *ui;
-    BaseLoadAndFormate *laf;
     const bool parameterSetting;
 
 signals:
@@ -39,10 +38,9 @@ private slots:
 
 
 private:
-     void fillGuiWithElements();
+     void fillGuiWithElements(std::unique_ptr<Codegenerator::AttributeElements> element);
     const QString parameterString = "Parameter";
     const QString attributeString = "Attribute";
-    std::unique_ptr<BaseLoadAndFormate> datas;
 };
 
 #endif // ATTRIBUTEWIDGET_H

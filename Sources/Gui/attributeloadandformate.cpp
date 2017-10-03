@@ -5,7 +5,7 @@
 
 AttributeLoadAndFormate::AttributeLoadAndFormate()
 {
-    elements =  std::unique_ptr<Codegenerator::AttributeElements>(new Codegenerator::AttributeElements());
+    //elements =  std::unique_ptr<Codegenerator::AttributeElements>(new Codegenerator::AttributeElements());
 }
 
 QString AttributeLoadAndFormate::getFormatedString()
@@ -16,20 +16,25 @@ QString AttributeLoadAndFormate::getFormatedString()
 
 }
 
-void AttributeLoadAndFormate::loadDataSet(QString path)
+std::vector<std::unique_ptr<Codegenerator::AttributeElements>> AttributeLoadAndFormate::loadDataSet(QString path)
 {
     std::unique_ptr<BaseParserImpl> parser(new NParser::ParserImplXML());
     std::vector<QString> script = parser->doParseForVec(path);
     QString v="";
-    v = General::ExtractString::extractFirst(script[attributePos]);
-    if(v == "attribute")
+    int index = 0;
+    int vecIndex = 0;
+    for(auto iterator = script.begin();iterator != script.end();++iterator,++index)
     {
-        elements.get()->setElements(script[attributePos]);
+        v = General::ExtractString::extractFirst(script[index]);
+        if(v == "attribute")
+        {
+            elementVec.push_back(std::unique_ptr<Codegenerator::AttributeElements>(new Codegenerator::AttributeElements()));
+            elementVec[vecIndex].get()->resetData();
+            elementVec[vecIndex].get()->setElements(script[index]);
+            vecIndex++;
+        }
     }
+    return std::move(elementVec);
 }
 
-std::unique_ptr<Codegenerator::AttributeElements> AttributeLoadAndFormate::getElement()
-{
-    return std::move(elements);
-}
 
