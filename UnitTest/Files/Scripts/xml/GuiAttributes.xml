@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+<path name="..\\Files\\Generated\\myFirstGeneratedFile">
+</path>
+<attribute name="attributeint">
+		<modifier>protected</modifier>
+		<typ>int</typ>
+		<isPointer>true</isPointer>
+		<isConstant>true</isConstant>
+</attribute>
+<attribute name="attributedouble">
+		<modifier>public</modifier>
+		<typ>double</typ>
+		<isPointer>true</isPointer>
+        <isMemoryConstant>true</isMemoryConstant>
+		<isConstant>true</isConstant>
+</attribute>
+<attribute name="attributeClassTest">
+		<modifier>private</modifier>
+		<typ>class Test</typ>
+		<isReference>true</isReference>
+		<isConstant>true</isConstant>
+</attribute>
+

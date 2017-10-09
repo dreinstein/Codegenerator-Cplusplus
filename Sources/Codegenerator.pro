@@ -15,7 +15,6 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-    mainwindow.cpp\
     Parsing/KeywordsCPlusPlus.cpp \
     GeneratorCPusPlus.cpp \
     Evaluator.cpp \
@@ -41,9 +40,10 @@ SOURCES += main.cpp\
     Codegen/Attributeelements.cpp \
     Gui/classform.cpp \
     Gui/functionwidged.cpp \
+    Codegen/basecodegenerator.cpp \
+    Gui/attributeload.cpp \
     Gui/attributewidget.cpp \
-    Gui/attributeloadandformate.cpp \
-    Codegen/basecodegenerator.cpp
+    mainwindow.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
@@ -80,8 +80,10 @@ HEADERS  += mainwindow.h \
     Gui/classform.h \
     Gui/functionwidged.h \
     Gui/attributewidget.h \
-    Gui/attributeloadandformate.h \
-    Gui/baseLoadAndFormate.h
+    Gui/baseLoadAndFormate.h \
+    Gui/attributeload.h \
+    Gui/attributewidget.h \
+    mainwindow.h
 
 FORMS    += mainwindow.ui \
     Gui/classform.ui \

@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include "baseLoadAndFormate.h"
-#include "attributeLoadAndFormate.h"
+#include "attributeLoad.h"
 
 namespace Ui {
    class AttributeWidget;
@@ -20,11 +20,11 @@ class AttributeWidget : public QWidget
 public:
     explicit AttributeWidget(bool parameterSetting = false,QWidget *parent = 0);
     ~AttributeWidget();
+    std::vector<std::unique_ptr<Codegenerator::AttributeElements>> getElements() {return std::move(vecElements);}
 
 
 private:
     Ui::AttributeWidget *ui;
-    BaseLoadAndFormate *laf;
     const bool parameterSetting;
 
 signals:
@@ -39,10 +39,10 @@ private slots:
 
 
 private:
-     void fillGuiWithElements();
+    void fillGuiWithElements();
     const QString parameterString = "Parameter";
     const QString attributeString = "Attribute";
-    std::unique_ptr<BaseLoadAndFormate> datas;
+    std::vector<std::unique_ptr<Codegenerator::AttributeElements>> vecElements;
 };
 
 #endif // ATTRIBUTEWIDGET_H

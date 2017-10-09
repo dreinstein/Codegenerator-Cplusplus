@@ -48,7 +48,7 @@ void FunctionElements::setElements(QString element)
     QString elementLast = "";
     QStringList::const_iterator constIterator;
     AttributeElements *attriElement = nullptr;
-    bool foundParameters= false;
+  //  bool foundParameters= false;
     for (constIterator = stringList.constBegin(); constIterator != stringList.constEnd();++constIterator)
     {
         listelement = *constIterator;
@@ -61,15 +61,14 @@ void FunctionElements::setElements(QString element)
 
                 pushFunctionParameter(attriElement);
             }
-            //Todo wird hier wohl nicht gelöscht
             attriElement = new AttributeElements;
-            foundParameters = true;
+          //  foundParameters = true;
             element = General::ExtractString::extractParameter(element);
             attriElement->resetData();
             attriElement->defineElements(listelement,elementLast);
         }
         // modifier already found, define the elements
-        else if(foundParameters)
+        else if(attriElement != nullptr)
         {
             attriElement->defineElements(listelement,elementLast);
         }

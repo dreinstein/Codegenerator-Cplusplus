@@ -26,9 +26,6 @@ SOURCES += Main.cpp \
     ../../Sources/utilities.cpp \
     mockcpluspluscodegenerator.cpp \
     ../../Sources/Errorhandling/openfileexception.cpp \
-    ../../Sources/Codegen/Classgenerator.cpp \
-    ../../Sources/Codegen/Basecodegenerator.cpp \
-    ../../Sources/Codegen/Attributegenerator.cpp \
     ../../Sources/Errorhandling/Scriptexception.cpp \
     ../../Sources/Errorhandling/Attributescriptexception.cpp \
     ../../Sources/Errorhandling/FileNotvalidexception.cpp \
@@ -52,8 +49,12 @@ SOURCES += Main.cpp \
     ../../Sources/Errorhandling/Xmlfileexception.cpp \
     guiattribute.cpp \
     ../../Sources/Codegen/classelements.cpp \
-    ../../Sources/excetionhandling.cpp \
     ../../Sources/keywordchecker.cpp \
+    ../../Sources/Codegen/Attributegenerator.cpp \
+    ../../Sources/Codegen/basecodegenerator.cpp \
+    ../../Sources/Codegen/classgenerator.cpp \
+    ../../Sources/Gui/attributeload.cpp \
+    ../../Sources/Gui/baseloadandformate.cpp \
 
 HEADERS += \
     ../../Sources/GeneratorCPlusPlus.h \
@@ -62,8 +63,6 @@ HEADERS += \
     ../../Sources/Evaluator.h \
     ../../Sources/Base/BaseGenerator.h \
     ../../Sources/Codegen/CPluspluscodegenerator.h \
-    ../../Sources/Codegen/Basecodegenerator.h \
-    ../../Sources/Base/BaseEvaluator.h \
     ../../Sources/Base/baseKeywordChecker.h \
     ../../Sources/Base/BaseParserImplementation.h \
     ../../Sources/Codegeneratorfassade.h \
@@ -71,8 +70,6 @@ HEADERS += \
     mockcpluspluscodegenerator.h \
     ../../Sources/Errorhandling/Exceptionhandling.h \
     ../../Sources/Errorhandling/OpenfileException.h \
-    ../../Sources/Codegen/Classgenerator.h \
-    ../../Sources/Codegen/Attributegenerator.h \
     ../../Sources/Errorhandling/Scriptexception.h \
     ../../Sources/Errorhandling/FileNotvalidexception.h \
     ../../Sources/Errorhandling/Attributescriptexception.h \
@@ -94,12 +91,18 @@ HEADERS += \
     ../../Sources/Errorhandling/Xmlfileexception.h \
     ../../Sources/Codegen/classelements.h \
     ../../Sources/Gui/iwidget.h \
-    ../../Sources/Parsing/ParserimplementationText.h \
-    ../../Sources/codegeneratorconstants.h \
-    ../../Sources/excetionhandling.h \
     ../../Sources/keywordchecker.h \
     ../../Sources/ui_mainwindow.h \
-    ../../Sources/Utilities.h
+    ../../Sources/Utilities.h \
+    ../../Sources/Base/BaseGenerator.h \
+    ../../Sources/Codegen/Basecodegenerator.h \
+    ../../Sources/Codegen/classgenerator.h \
+    ../../Sources/Gui/attributeload.h \
+    ../../Sources/Gui/BaseLoadAndFormate.h \
+    ../../Sources/Parsing/Parser.h \
+    ../../Sources/Parsing/ParserimplementationText.h \
+    ../../Sources/Parsing/RulesC++.h \
+    ../../Sources/GeneratorCPlusPlus.h \
 
 SUBDIRS += \
     ../../Sources/Codegenerator.pro

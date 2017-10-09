@@ -20,20 +20,21 @@ public:
 
 signals:
     void closeFunctionWidget();
-    void closeAttributeWidget();
 private slots:
     void on_SaveButton_clicked();
     void on_CloseButton_clicked();
     void on_CreateFunctionButton_clicked();
     void closeFunctionFormWidget();
-    void on_CreateAttributeButton_clicked();
     void closeAttributeFormWidget();
+    void on_CreateAttributeButton_clicked();
     void saveAttributeFormWidget();
+
 
 private:
     Ui::ClassForm *ui;
     FunctionWidged* functionFormWidged = nullptr;
     AttributeWidget* attributeFormWidged = nullptr;
+    void writeAttribute(Codegenerator::AttributeElements* element);
 };
 
 
