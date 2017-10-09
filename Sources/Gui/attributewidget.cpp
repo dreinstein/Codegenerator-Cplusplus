@@ -68,7 +68,7 @@ void AttributeWidget::on_pushButton_Open_clicked()
         tr("Open File"), "", tr("File (*.xml)"));
     if(fileName != "")
     {
-        std::unique_ptr<BaseLoadAndFormate> datas =  std::unique_ptr<BaseLoadAndFormate>(new AttributeLoadAndFormate());
+        std::unique_ptr<BaseLoadAndFormate> datas =  std::unique_ptr<BaseLoadAndFormate>(new AttributeLoad());
         vecElements = datas->loadDataSet(fileName);
         fillGuiWithElements();
     }

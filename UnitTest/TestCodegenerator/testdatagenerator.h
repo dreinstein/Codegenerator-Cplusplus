@@ -38,7 +38,7 @@ public:
     static std::list<QString> testDataSourceFileThreeComplexFunction();
     static std::list<QString> testDataSourceFileWithAttributes();
     static std::list<QString> testDataSourceFileWithClass();
-
+    static std::list<QString> testLoadGuiAttributes();
 
 
 private:

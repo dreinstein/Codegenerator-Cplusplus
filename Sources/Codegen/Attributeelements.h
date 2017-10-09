@@ -40,6 +40,8 @@ public:
     bool getIsConstant() {return modifiers.isConstant;}
     // consts memory,posible pointer or reference
     bool getIsMemoryConstant() {return modifiers.isMemoryConstant;}
+    // isParmeter, true or false, difference between attribute and parameter in function
+    bool getIsParameter() {return modifiers.isParameter;}
     // default value
     QString getDefaultValue() const {return modifiers.defaultValue;}
     bool getIsDefaultValue() const;

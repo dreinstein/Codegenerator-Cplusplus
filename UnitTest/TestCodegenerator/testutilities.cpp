@@ -37,3 +37,5 @@ void TestUtilities::generate(Codegenerator::BaseCodegenerator* generator,QString
     std::map<QString,QString> rules = parser->doParseForMap(rulesPath);
     generator->generate(script,rules,keywords);
 }
+
+

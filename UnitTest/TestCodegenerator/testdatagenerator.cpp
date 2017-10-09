@@ -1012,6 +1012,14 @@ std::list<QString>TestdataGenerator::testDataSourceFileWithClass()
     return testDatalist;
 }
 
+std::list<QString>TestdataGenerator::testLoadGuiAttributes()
+{
+    std::list<QString> testDatalist;
+
+    return testDatalist;
+}
+
+
 
 std::list<QString>TestdataGenerator::testDataFunctionBegin(std::list<QString> testDatalist)
 {
@@ -1038,6 +1046,7 @@ std::list<QString>TestdataGenerator::testFunctionSourceFileEnd(std::list<QString
     testDatalist.push_back(Codegenerator::CodegeneratorConstants::bracketClose);
     return testDatalist;
 }
+
 
 
 

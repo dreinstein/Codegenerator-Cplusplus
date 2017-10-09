@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include "baseLoadAndFormate.h"
-#include "attributeLoadAndFormate.h"
+#include "attributeLoad.h"
 
 namespace Ui {
    class AttributeWidget;

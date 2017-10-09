@@ -11,7 +11,7 @@
 class BaseLoadAndFormate
 {
 public:
-    virtual QString getFormatedString() = 0;
+    virtual ~BaseLoadAndFormate(){;}
     virtual std::vector<std::unique_ptr<Codegenerator::AttributeElements>>  loadDataSet(QString path)=0;
 };
 
