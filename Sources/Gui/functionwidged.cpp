@@ -15,22 +15,12 @@ FunctionWidged::~FunctionWidged()
 }
 
 
-void FunctionWidged::on_Close_Button_clicked()
-{
-    emit closeFunctionWidget();
-}
-
-void FunctionWidged::on_Save_Button_clicked()
-{
-    emit closeFunctionWidget();
-}
-
 void FunctionWidged::on_pushButton_SetParameter_clicked()
 {
     parameterFormWidged = new AttributeWidget(true);
     parameterFormWidged->show();
 
-    connect(parameterFormWidged, SIGNAL(closeAttributeWidget()),
+    connect(parameterFormWidged, SIGNAL(closeParameterWidget()),
                         this, SLOT(closeParameterFormWidget()));
 
     connect(parameterFormWidged, SIGNAL(saveAttributeWidget()),
@@ -46,11 +36,25 @@ void FunctionWidged::closeParameterFormWidget()
 
 void FunctionWidged::saveParameterFormWidget()
 {
-  /*  QString listElement = parameterFormWidged->getFormatedString();
-    ui->functionListWidget->addItem(listElement);
+    std::vector<std::unique_ptr<Codegenerator::AttributeElements>>  attrElements = parameterFormWidged->getElements();
+    auto count = attrElements.size();
+    //ui->functionListWidget->addItem(listElement);
     parameterFormWidged->close();
-    delete parameterFormWidged;
-    parameterFormWidged = nullptr;*/
 }
 
 
+
+void FunctionWidged::on_pushButton_Open_clicked()
+{
+
+}
+
+void FunctionWidged::on_pushButton_Save_clicked()
+{
+    emit saveFunctionWidget();
+}
+
+void FunctionWidged::on_pushButton__Close_clicked()
+{
+     emit closeFunctionWidget();
+}

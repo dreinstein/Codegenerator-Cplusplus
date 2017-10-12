@@ -1,4 +1,5 @@
 #include "Attributeelements.h"
+#include "Codegen/Codegeneratorconstants.h"
 
 namespace Codegenerator
 {
@@ -87,5 +88,53 @@ void AttributeElements::defineElements(QString listelement,QString elementLast)
 }
 
 
+QString AttributeElements::getString()
+{
+    QString string = "";
+    if(modifiers.modifier == Codegenerator::CodegeneratorConstants::modifierPrivate)
+    {
+        string += Codegenerator::CodegeneratorConstants::modifierPrivate;
+    }
+    else if(modifiers.modifier == Codegenerator::CodegeneratorConstants::modifierProtected)
+    {
+        string += Codegenerator::CodegeneratorConstants::modifierProtected;
+    }
+    else
+    {
+        string += Codegenerator::CodegeneratorConstants::modifierPublic;
+    }
+    string += Codegenerator::CodegeneratorConstants::emptyChar;
+
+    if(modifiers.isConstant)
+    {
+        string += Codegenerator::CodegeneratorConstants::constant;
+    }
+    string += Codegenerator::CodegeneratorConstants::emptyChar;
+
+    string += modifiers.typ;
+    string += Codegenerator::CodegeneratorConstants::emptyChar;
+
+    if(modifiers.isPointer)
+    {
+        string += Codegenerator::CodegeneratorConstants::pointer;
+        if(modifiers.isMemoryConstant)
+        {
+            string += Codegenerator::CodegeneratorConstants::emptyChar;
+            string += Codegenerator::CodegeneratorConstants::constant;
+        }
+    }
+    else if(modifiers.isRef)
+    {
+        string += Codegenerator::CodegeneratorConstants::reference;
+    }
+    string += Codegenerator::CodegeneratorConstants::emptyChar;
+    string += modifiers.attribute;
+    return string;
+}
+
 
 }
+
+
+
+

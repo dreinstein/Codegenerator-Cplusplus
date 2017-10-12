@@ -24,13 +24,15 @@ private:
 
 signals:
     void closeFunctionWidget();
+    void saveFunctionWidget();
+
 private slots:
-    void on_Close_Button_clicked();
-    void on_Save_Button_clicked();
-    void on_pushButton_SetParameter_clicked();
     void closeParameterFormWidget();
     void saveParameterFormWidget();
-
+    void on_pushButton_SetParameter_clicked();
+    void on_pushButton_Open_clicked();
+    void on_pushButton_Save_clicked();
+    void on_pushButton__Close_clicked();
 };
 
 

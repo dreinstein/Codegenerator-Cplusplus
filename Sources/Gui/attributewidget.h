@@ -29,6 +29,7 @@ private:
 
 signals:
     void closeAttributeWidget();
+    void closeParameterWidget();
     void saveAttributeWidget();
 private slots:
     void on_pushButton__Close_clicked();
@@ -43,6 +44,8 @@ private:
     const QString parameterString = "Parameter";
     const QString attributeString = "Attribute";
     std::vector<std::unique_ptr<Codegenerator::AttributeElements>> vecElements;
+    void createDataset();
+
 };
 
 #endif // ATTRIBUTEWIDGET_H

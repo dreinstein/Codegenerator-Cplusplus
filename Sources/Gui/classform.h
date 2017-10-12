@@ -34,7 +34,6 @@ private:
     Ui::ClassForm *ui;
     FunctionWidged* functionFormWidged = nullptr;
     AttributeWidget* attributeFormWidged = nullptr;
-    void writeAttribute(Codegenerator::AttributeElements* element);
 };
 
 

@@ -2,6 +2,9 @@
 #define ATTRIBUTELOADANDFORMATE_H
 
 #include "baseLoadAndFormate.h"
+#include <QWidget>
+
+
 
 
 
@@ -13,6 +16,7 @@ public:
     virtual std::vector<std::unique_ptr<Codegenerator::AttributeElements>>  loadDataSet(QString path) override final;
 private:
     std::vector<std::unique_ptr<Codegenerator::AttributeElements>> elementVec;
+
 };
 
 
