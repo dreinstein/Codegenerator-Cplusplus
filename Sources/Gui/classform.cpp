@@ -1,6 +1,9 @@
 #include "classform.h"
 #include "ui_classform.h"
 #include "Codegen/Codegeneratorconstants.h"
+#include <stdio.h>
+#include <iostream>
+#include <QTextStream>
 
 
 
@@ -75,6 +78,9 @@ void ClassForm::saveAttributeFormWidget()
     for(uint i=0;i<attrElements.size();++i)
     {
         ui->classListWidget->addItem(attrElements[i].get()->getString());
+        QString str = attrElements[i].get()->getString();
+        QTextStream out(stdout);
+        out <<str;
     }
     closeAttributeFormWidget();
 }

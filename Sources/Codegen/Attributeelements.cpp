@@ -123,7 +123,7 @@ QString AttributeElements::getString()
             string += Codegenerator::CodegeneratorConstants::constant;
         }
     }
-    else if(modifiers.isRef)
+    if(modifiers.isRef)
     {
         string += Codegenerator::CodegeneratorConstants::reference;
     }
