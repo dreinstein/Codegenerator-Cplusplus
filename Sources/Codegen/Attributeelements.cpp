@@ -88,20 +88,23 @@ void AttributeElements::defineElements(QString listelement,QString elementLast)
 }
 
 
-QString AttributeElements::getString()
+QString AttributeElements::getString(bool isParameter)
 {
     QString string = "";
-    if(modifiers.modifier == Codegenerator::CodegeneratorConstants::modifierPrivate)
+    if(!isParameter)
     {
-        string += Codegenerator::CodegeneratorConstants::modifierPrivate;
-    }
-    else if(modifiers.modifier == Codegenerator::CodegeneratorConstants::modifierProtected)
-    {
-        string += Codegenerator::CodegeneratorConstants::modifierProtected;
-    }
-    else
-    {
-        string += Codegenerator::CodegeneratorConstants::modifierPublic;
+        if(modifiers.modifier == Codegenerator::CodegeneratorConstants::modifierPrivate)
+        {
+            string += Codegenerator::CodegeneratorConstants::modifierPrivate;
+        }
+        else if(modifiers.modifier == Codegenerator::CodegeneratorConstants::modifierProtected)
+        {
+            string += Codegenerator::CodegeneratorConstants::modifierProtected;
+        }
+        else
+        {
+            string += Codegenerator::CodegeneratorConstants::modifierPublic;
+        }
     }
     string += Codegenerator::CodegeneratorConstants::emptyChar;
 
@@ -121,6 +124,7 @@ QString AttributeElements::getString()
         {
             string += Codegenerator::CodegeneratorConstants::emptyChar;
             string += Codegenerator::CodegeneratorConstants::constant;
+            string += Codegenerator::CodegeneratorConstants::emptyChar;
         }
     }
     if(modifiers.isRef)

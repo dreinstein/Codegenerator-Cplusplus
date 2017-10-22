@@ -19,6 +19,9 @@ AttributeWidget::AttributeWidget(bool _parameterSetting, QWidget *parent) :
    if(parameterSetting)
    {
        this->setWindowTitle(parameterString);
+       ui->radioButton_Private->setVisible(false);
+       ui->radioButton_Protected->setVisible(false);
+       ui->radioButton_Public->setVisible(false);
    }
    else
    {
@@ -73,6 +76,8 @@ void AttributeWidget::on_checkBox_AttributePointer_clicked()
          ui->checkBox_MemoryPointerConst->setDisabled(true);
     }
 }
+
+
 
 
 void AttributeWidget::on_pushButton_Open_clicked()

@@ -2,9 +2,6 @@
 #define ATTRIBUTELOADANDFORMATE_H
 
 #include "baseLoadAndFormate.h"
-#include <QWidget>
-
-
 
 
 

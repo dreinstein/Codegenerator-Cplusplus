@@ -1,6 +1,9 @@
 #include "functionwidged.h"
 #include "ui_functionwidged.h"
 #include "ui_attributewidget.h"
+#include <iostream>
+#include <QTextStream>
+
 
 FunctionWidged::FunctionWidged(QWidget *parent) :
     QDialog(parent),
@@ -37,7 +40,15 @@ void FunctionWidged::closeParameterFormWidget()
 void FunctionWidged::saveParameterFormWidget()
 {
     std::vector<std::unique_ptr<Codegenerator::AttributeElements>>  attrElements = parameterFormWidged->getElements();
-    auto count = attrElements.size();
+
+    for(uint i=0;i<attrElements.size();++i)
+    {
+        ui->functionListWidget->addItem(attrElements[i].get()->getString(true));
+        QString str = attrElements[i].get()->getString();
+        QTextStream out(stdout);
+        out <<str;
+    }
+
     //ui->functionListWidget->addItem(listElement);
     parameterFormWidged->close();
 }
