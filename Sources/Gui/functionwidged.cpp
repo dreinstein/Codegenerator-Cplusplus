@@ -48,12 +48,8 @@ void FunctionWidged::saveParameterFormWidget()
         QTextStream out(stdout);
         out <<str;
     }
-
-    //ui->functionListWidget->addItem(listElement);
     parameterFormWidged->close();
 }
-
-
 
 void FunctionWidged::on_pushButton_Open_clicked()
 {

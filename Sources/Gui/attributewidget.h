@@ -21,6 +21,7 @@ public:
     explicit AttributeWidget(bool parameterSetting = false,QWidget *parent = 0);
     ~AttributeWidget();
     std::vector<std::unique_ptr<Codegenerator::AttributeElements>> getElements() {return std::move(vecElements);}
+    Ui::AttributeWidget* getUi(){return ui;}
 
 
 private:
@@ -43,8 +44,6 @@ private:
     const QString parameterString = "Parameter";
     const QString attributeString = "Attribute";
     std::vector<std::unique_ptr<Codegenerator::AttributeElements>> vecElements;
-    void createDataset();
-
 };
 
 #endif // ATTRIBUTEWIDGET_H

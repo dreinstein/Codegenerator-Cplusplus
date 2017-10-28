@@ -59,7 +59,8 @@ void AttributeWidget::on_pushButton_Save_clicked()
 {
     if(vecElements.size() == 0)
     {
-        createDataset();
+        std::unique_ptr<BaseLoadAndFormate> datas =  std::unique_ptr<BaseLoadAndFormate>(new AttributeLoad());
+        vecElements = datas->loadDatasFromGuiElements(ui);
     }
 
     emit saveAttributeWidget();
@@ -87,11 +88,10 @@ void AttributeWidget::on_pushButton_Open_clicked()
     if(fileName != "")
     {
         std::unique_ptr<BaseLoadAndFormate> datas =  std::unique_ptr<BaseLoadAndFormate>(new AttributeLoad());
-        vecElements = datas->loadDataSet(fileName);
+        vecElements = datas->loadDatasFromFile(fileName);
         fillGuiWithElements();
     }
 }
-
 
 void AttributeWidget::fillGuiWithElements()
 {
@@ -147,57 +147,7 @@ void AttributeWidget::fillGuiWithElements()
     }
 }
 
-void AttributeWidget::createDataset()
-{
-   std::unique_ptr<Codegenerator::AttributeElements> element;
-   vecElements.push_back(std::unique_ptr<Codegenerator::AttributeElements>(new Codegenerator::AttributeElements()));
-   vecElements[0].get()->setAttribute(ui->lineEdit_Name->text());
-   if(ui->radioButton_Private->isChecked())
-   {
-      vecElements[0].get()->setModifier(Codegenerator::CodegeneratorConstants::modifierPrivate);
-   }
-   else if(ui->radioButton_Protected->isChecked())
-   {
-      vecElements[0].get()->setModifier(Codegenerator::CodegeneratorConstants::modifierProtected);
-   }
-   else
-   {
-      vecElements[0].get()->setModifier(Codegenerator::CodegeneratorConstants::modifierPublic);
-   }
-   if(ui->checkBox_AttributeConst->isChecked())
-   {
-       vecElements[0].get()->setIsConstant(true);
-   }
-   else
-   {
-       vecElements[0].get()->setIsConstant(false);
-   }
-   if(ui->checkBox_AttributePointer->isChecked())
-   {
-       vecElements[0].get()->setIsPointer(true);
-   }
-   else
-   {
-       vecElements[0].get()->setIsPointer(false);
-   }
-   if(ui->checkBox_AttributeReference->isChecked())
-   {
-       vecElements[0].get()->setIsRef(true);
-   }
-   else
-   {
-       vecElements[0].get()->setIsRef(false);
-   }
-   if(ui->checkBox_MemoryPointerConst->isChecked())
-   {
-       vecElements[0].get()->setIsMemoryConstant(true);
-   }
-   else
-   {
-       vecElements[0].get()->setIsMemoryConstant(false);
-   }
 
-}
 
 
 
