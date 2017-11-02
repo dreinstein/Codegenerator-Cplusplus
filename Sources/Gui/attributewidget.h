@@ -2,14 +2,12 @@
 #define ATTRIBUTEWIDGET_H
 
 #include <QWidget>
-#include "baseLoadAndFormate.h"
 #include "attributeLoad.h"
 
 namespace Ui {
    class AttributeWidget;
 }
 
-class BaseLoadAndFormate;
 
 
 
@@ -41,6 +39,7 @@ private slots:
 
 private:
     void fillGuiWithElements();
+    void loadDatasFromGuiElements();
     const QString parameterString = "Parameter";
     const QString attributeString = "Attribute";
     std::vector<std::unique_ptr<Codegenerator::AttributeElements>> vecElements;

@@ -34,6 +34,8 @@ AttributeWidget::AttributeWidget(bool _parameterSetting, QWidget *parent) :
    QStringList itemList;
    itemList << Codegenerator::CodegeneratorConstants::typInt << Codegenerator::CodegeneratorConstants::typDouble << Codegenerator::CodegeneratorConstants::typLong << Codegenerator::CodegeneratorConstants::typQString << Codegenerator::CodegeneratorConstants::typVoid;
    ui->comboBox_Type->addItems(itemList);
+   std::unique_ptr<Codegenerator::AttributeElements> vecElements = std::unique_ptr<Codegenerator::AttributeElements> (new Codegenerator::AttributeElements());
+
 }
 
 AttributeWidget::~AttributeWidget()
@@ -59,8 +61,8 @@ void AttributeWidget::on_pushButton_Save_clicked()
 {
     if(vecElements.size() == 0)
     {
-        std::unique_ptr<BaseLoadAndFormate> datas =  std::unique_ptr<BaseLoadAndFormate>(new AttributeLoad());
-        vecElements = datas->loadDatasFromGuiElements(ui);
+        std::unique_ptr<AttributeLoad> datas =  std::unique_ptr<AttributeLoad>(new AttributeLoad());
+        loadDatasFromGuiElements();
     }
 
     emit saveAttributeWidget();
@@ -79,17 +81,65 @@ void AttributeWidget::on_checkBox_AttributePointer_clicked()
 }
 
 
-
-
 void AttributeWidget::on_pushButton_Open_clicked()
 {
     QString fileName = QFileDialog::getOpenFileName(this,
         tr("Open File"), "", tr("File (*.xml)"));
     if(fileName != "")
     {
-        std::unique_ptr<BaseLoadAndFormate> datas =  std::unique_ptr<BaseLoadAndFormate>(new AttributeLoad());
+        std::unique_ptr<AttributeLoad> datas =  std::unique_ptr<AttributeLoad>(new AttributeLoad());
         vecElements = datas->loadDatasFromFile(fileName);
         fillGuiWithElements();
+    }
+}
+
+void AttributeWidget::loadDatasFromGuiElements()
+{
+    vecElements.push_back(std::unique_ptr<Codegenerator::AttributeElements>(new Codegenerator::AttributeElements()));
+    vecElements[0].get()->setAttribute(ui->lineEdit_Name->text());
+    if(ui->radioButton_Private->isChecked())
+    {
+       vecElements[0].get()->setModifier(Codegenerator::CodegeneratorConstants::modifierPrivate);
+    }
+    else if(ui->radioButton_Protected->isChecked())
+    {
+       vecElements[0].get()->setModifier(Codegenerator::CodegeneratorConstants::modifierProtected);
+    }
+    else
+    {
+       vecElements[0].get()->setModifier(Codegenerator::CodegeneratorConstants::modifierPublic);
+    }
+    if(ui->checkBox_AttributeConst->isChecked())
+    {
+        vecElements[0].get()->setIsConstant(true);
+    }
+    else
+    {
+        vecElements[0].get()->setIsConstant(false);
+    }
+    if(ui->checkBox_AttributePointer->isChecked())
+    {
+        vecElements[0].get()->setIsPointer(true);
+    }
+    else
+    {
+        vecElements[0].get()->setIsPointer(false);
+    }
+    if(ui->checkBox_AttributeReference->isChecked())
+    {
+        vecElements[0].get()->setIsRef(true);
+    }
+    else
+    {
+        vecElements[0].get()->setIsRef(false);
+    }
+    if(ui->checkBox_MemoryPointerConst->isChecked())
+    {
+        vecElements[0].get()->setIsMemoryConstant(true);
+    }
+    else
+    {
+        vecElements[0].get()->setIsMemoryConstant(false);
     }
 }
 

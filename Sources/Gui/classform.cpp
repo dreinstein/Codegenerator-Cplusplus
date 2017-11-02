@@ -40,6 +40,9 @@ void ClassForm::on_CreateFunctionButton_clicked()
     connect(functionFormWidged, SIGNAL(closeFunctionWidget()),
                         this, SLOT(closeFunctionFormWidget()));
 
+    connect(functionFormWidged, SIGNAL(saveFunctionWidget()),
+                        this, SLOT(saveFunctionFormWidget()));
+
 }
 
 
@@ -50,6 +53,16 @@ void ClassForm::closeFunctionFormWidget()
     functionFormWidged = nullptr;
 }
 
+
+void ClassForm::saveFunctionFormWidget()
+{
+    functionFormWidged->close();
+    delete functionFormWidged;
+    functionFormWidged = nullptr;
+}
+
+
+
 void ClassForm::closeAttributeFormWidget()
 {
     attributeFormWidged->close();
@@ -57,7 +70,6 @@ void ClassForm::closeAttributeFormWidget()
     attributeFormWidged = nullptr;
 
 }
-
 
 
 void ClassForm::on_CreateAttributeButton_clicked()

@@ -20,11 +20,13 @@ public:
 
 signals:
     void closeFunctionWidget();
+    void saveFunctionWidget();
 private slots:
     void on_SaveButton_clicked();
     void on_CloseButton_clicked();
     void on_CreateFunctionButton_clicked();
     void closeFunctionFormWidget();
+    void saveFunctionFormWidget();
     void closeAttributeFormWidget();
     void on_CreateAttributeButton_clicked();
     void saveAttributeFormWidget();

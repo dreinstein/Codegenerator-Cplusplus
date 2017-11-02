@@ -1,8 +1,10 @@
 #ifndef ATTRIBUTELOADANDFORMATE_H
 #define ATTRIBUTELOADANDFORMATE_H
 
+#include "Codegen/Attributeelements.h"
 
-#include "baseLoadAndFormate.h"
+#include <memory>
+
 namespace Ui
 {
     class AttributeWidget;
@@ -12,13 +14,12 @@ class AttributeWidget;
 
 
 
-class AttributeLoad : public BaseLoadAndFormate
+class AttributeLoad
 {
 public:
     AttributeLoad(){;}
-    virtual ~AttributeLoad(){;}
-    virtual std::vector<std::unique_ptr<Codegenerator::AttributeElements>>  loadDatasFromFile(QString path) override final;
-    virtual std::vector<std::unique_ptr<Codegenerator::AttributeElements>> loadDatasFromGuiElements(Ui::AttributeWidget *ui ) override final;
+    ~AttributeLoad(){;}
+    std::vector<std::unique_ptr<Codegenerator::AttributeElements>> loadDatasFromFile(QString path);
 };
 
 

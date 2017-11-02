@@ -81,7 +81,6 @@ HEADERS  += mainwindow.h \
     Gui/classform.h \
     Gui/functionwidged.h \
     Gui/attributewidget.h \
-    Gui/baseLoadAndFormate.h \
     Gui/attributeload.h \
     Gui/attributewidget.h \
     mainwindow.h \

@@ -21,6 +21,8 @@ public:
 private:
     Ui::FunctionWidged *ui;
     AttributeWidget* parameterFormWidged = nullptr;
+    std::vector<std::vector<std::unique_ptr<Codegenerator::AttributeElements>>> getElements() {return std::move(funcElements);}
+    std::vector<std::vector<std::unique_ptr<Codegenerator::AttributeElements>>> funcElements;
 
 signals:
     void closeFunctionWidget();
@@ -34,7 +36,6 @@ private slots:
     void on_pushButton_Save_clicked();
     void on_pushButton__Close_clicked();
 };
-
 
 
 #endif // FUNCTIONWIDGED_H

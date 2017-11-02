@@ -54,7 +54,6 @@ SOURCES += Main.cpp \
     ../../Sources/Codegen/basecodegenerator.cpp \
     ../../Sources/Codegen/classgenerator.cpp \
     ../../Sources/Gui/attributeload.cpp \
-    ../../Sources/Gui/baseloadandformate.cpp \
 
 HEADERS += \
     ../../Sources/GeneratorCPlusPlus.h \
@@ -98,11 +97,11 @@ HEADERS += \
     ../../Sources/Codegen/Basecodegenerator.h \
     ../../Sources/Codegen/classgenerator.h \
     ../../Sources/Gui/attributeload.h \
-    ../../Sources/Gui/BaseLoadAndFormate.h \
     ../../Sources/Parsing/Parser.h \
     ../../Sources/Parsing/ParserimplementationText.h \
     ../../Sources/Parsing/RulesC++.h \
     ../../Sources/GeneratorCPlusPlus.h \
+    ../../Sources/ui_attributewidget.h
 
 SUBDIRS += \
     ../../Sources/Codegenerator.pro

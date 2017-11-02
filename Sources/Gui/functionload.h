@@ -1,7 +1,10 @@
 #ifndef FUNCTIONLOAD_H
 #define FUNCTIONLOAD_H
 
-#include "baseLoadAndFormate.h"
+
+#include "Codegen/Functionelements.h"
+#include <memory>
+
 
 namespace Ui
 {
@@ -11,13 +14,12 @@ namespace Ui
 class AttributeWidget;
 
 
-class FunctionLoad : public BaseLoadAndFormate
+class FunctionLoad
 {
 public:
     FunctionLoad(){;}
-    virtual ~FunctionLoad(){;}
-    virtual std::vector<std::unique_ptr<Codegenerator::AttributeElements>>  loadDatasFromFile(QString path) override final;
-    virtual std::vector<std::unique_ptr<Codegenerator::AttributeElements>> loadDatasFromGuiElements(Ui::AttributeWidget *ui ) override final;
+    ~FunctionLoad(){;}
+    std::vector<std::vector<std::unique_ptr<Codegenerator::AttributeElements>>> loadDatasFromFile(QString path);
 };
 
 #endif // FUNCTIONLOAD_H

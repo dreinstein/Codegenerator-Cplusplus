@@ -1,8 +1,10 @@
 #include "functionwidged.h"
 #include "ui_functionwidged.h"
 #include "ui_attributewidget.h"
+#include "FunctionLoad.h"
 #include <iostream>
 #include <QTextStream>
+#include <QFileDialog>
 
 
 FunctionWidged::FunctionWidged(QWidget *parent) :
@@ -53,6 +55,16 @@ void FunctionWidged::saveParameterFormWidget()
 
 void FunctionWidged::on_pushButton_Open_clicked()
 {
+
+    QString fileName = QFileDialog::getOpenFileName(this,
+        tr("Open File"), "", tr("File (*.xml)"));
+    if(fileName != "")
+    {
+
+        std::unique_ptr<FunctionLoad> datas =  std::unique_ptr<FunctionLoad>(new FunctionLoad());
+        funcElements = datas->loadDatasFromFile(fileName);
+      //  fillGuiWithElements();
+    }
 
 }
 
