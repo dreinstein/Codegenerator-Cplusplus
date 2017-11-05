@@ -7,9 +7,9 @@
 
 
 
- std::vector<std::vector<std::unique_ptr<Codegenerator::AttributeElements>>> FunctionLoad::loadDatasFromFile(QString path)
+std::vector<std::unique_ptr<Codegenerator::FunctionElements>> FunctionLoad::loadDatasFromFile(QString path)
 {
-    std::vector<std::vector<std::unique_ptr<Codegenerator::AttributeElements>>> funcElements;
+    std::vector<std::unique_ptr<Codegenerator::FunctionElements>>  funcElements;
     std::unique_ptr<BaseParserImpl> parser(new NParser::ParserImplXML());
     auto script = parser->doParseForVec(path);
     QString v="";
@@ -19,13 +19,13 @@
     for(auto iterator = script.begin();iterator != script.end();++iterator,++index)
     {
         v = General::ExtractString::extractFirst(script[index]);
-     /*   if(v == "attribute")
+        if(v == "function")
         {
-            elementVec.push_back(std::unique_ptr<Codegenerator::AttributeElements>(new Codegenerator::AttributeElements()));
-            elementVec[vecIndex].get()->resetData();
-            elementVec[vecIndex].get()->setElements(script[index]);
+            funcElements.push_back(std::unique_ptr<Codegenerator::FunctionElements>(new Codegenerator::FunctionElements()));
+            funcElements[vecIndex].get()->resetData();
+            funcElements[vecIndex].get()->setElements(script[index]);
             vecIndex++;
-        }*/
+        }
     }
     return std::move(funcElements);
 }

@@ -19,7 +19,7 @@ class FunctionLoad
 public:
     FunctionLoad(){;}
     ~FunctionLoad(){;}
-    std::vector<std::vector<std::unique_ptr<Codegenerator::AttributeElements>>> loadDatasFromFile(QString path);
+    std::vector<std::unique_ptr<Codegenerator::FunctionElements>> loadDatasFromFile(QString path);
 };
 
 #endif // FUNCTIONLOAD_H

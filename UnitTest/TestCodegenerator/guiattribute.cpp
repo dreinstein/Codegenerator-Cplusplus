@@ -3,6 +3,7 @@
 #include "../../gtest/gtest.h"
 #include <QString>
 #include "Gui/attributeload.h"
+#include "Gui/functionload.h"
 #include "testutilities.h"
 #include "Codegen/Attributeelements.h"
 #include <vector>
@@ -19,9 +20,9 @@ protected:
 
 // Testcases 1
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-TEST(GuiTest, loadParameter)
+TEST(GuiTest, loadAttributes)
 {
-  /* BaseLoadAndFormate *attributes = new AttributeLoad();
+   AttributeLoad *attributes = new AttributeLoad();
    QString scriptPath = "..\\Files\\Scripts\\XML\\GuiAttributes.xml";
    std::vector<std::unique_ptr<Codegenerator::AttributeElements>> datas = attributes->loadDatasFromFile(scriptPath);
    ASSERT_EQ(datas.size(),3);
@@ -56,6 +57,27 @@ TEST(GuiTest, loadParameter)
    ASSERT_EQ(datas[0].get()->getIsRef(),false);
    ASSERT_EQ(datas[1].get()->getIsRef(),false);
    ASSERT_EQ(datas[2].get()->getIsRef(),true);
-   delete attributes;*/
+   delete attributes;
+}
+
+TEST(GuiTest, loadFunctions)
+{
+    FunctionLoad* functions = new FunctionLoad();
+    QString scriptPath = "..\\Files\\Scripts\\XML\\GuiFunction.xml";
+    std::vector<std::unique_ptr<Codegenerator::FunctionElements>> datas = functions->loadDatasFromFile(scriptPath);
+    ASSERT_EQ(datas.size(),2);
+    ASSERT_EQ(datas[0].get()->getFunction(),"functionint");
+    ASSERT_EQ(datas[0].get()->getModifier(),Codegenerator::CodegeneratorConstants::modifierPrivate);
+    ASSERT_EQ(datas[0].get()->getTyp(),"int");
+    ASSERT_EQ(datas[0]->getFunctionParameters()[0]->getAttribute(),"myParameter");
+    ASSERT_EQ(datas[0]->getFunctionParameters()[0]->getTyp(),"double");
+    ASSERT_EQ(datas[0]->getFunctionParameters()[1]->getAttribute(),"doublePointerParameter");
+    ASSERT_EQ(datas[0]->getFunctionParameters()[1]->getTyp(),"double");
+    ASSERT_EQ(datas[0]->getFunctionParameters()[1]->getIsPointer(),true);
+    ASSERT_EQ(datas[1].get()->getFunction(),"functiondouble");
+    ASSERT_EQ(datas[1].get()->getModifier(),Codegenerator::CodegeneratorConstants::modifierPublic);
+    ASSERT_EQ(datas[1].get()->getTyp(),"double");
+    ASSERT_EQ(datas[1].get()->getIsConstant(),true);
+    delete functions;
 }
 

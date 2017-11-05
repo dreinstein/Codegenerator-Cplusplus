@@ -54,6 +54,7 @@ SOURCES += Main.cpp \
     ../../Sources/Codegen/basecodegenerator.cpp \
     ../../Sources/Codegen/classgenerator.cpp \
     ../../Sources/Gui/attributeload.cpp \
+    ../../Sources/Gui/functionload.cpp
 
 HEADERS += \
     ../../Sources/GeneratorCPlusPlus.h \
@@ -101,7 +102,8 @@ HEADERS += \
     ../../Sources/Parsing/ParserimplementationText.h \
     ../../Sources/Parsing/RulesC++.h \
     ../../Sources/GeneratorCPlusPlus.h \
-    ../../Sources/ui_attributewidget.h
+    ../../Sources/ui_attributewidget.h \
+    ../../Sources/Gui/functionload.h
 
 SUBDIRS += \
     ../../Sources/Codegenerator.pro

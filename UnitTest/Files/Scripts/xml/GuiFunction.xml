@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+<path name="..\\Files\\Generated\\myFirstGeneratedFile">
+</path>
+<function name="functionint">
+		<modifier>private</modifier>
+		<typ>int</typ>
+        <parameter>myParameter</parameter>
+        <typ>double</typ>
+        <parameter>doublePointerParameter</parameter>
+        <typ>double</typ>
+        <isPointer>true</isPointer>
+</function>
+<function name="functiondouble">
+		<modifier>public</modifier>
+		<typ>double</typ>
+        <isConstant>true</isConstant>
+</function>
+
