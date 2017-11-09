@@ -58,7 +58,6 @@ public:
     void defineElements(QString listelement,QString element);
     void resetData();
     QString getString(bool isParameter=false);
-
 private:
     AttributeModifiers modifiers;
 };

@@ -3,12 +3,14 @@
 #include "../../gtest/gtest.h"
 #include <QString>
 #include "Gui/attributeload.h"
-#include "Gui/functionload.h"
+#include "Gui/loadDatas.h"
 #include "testutilities.h"
 #include "Codegen/Attributeelements.h"
 #include <vector>
 #include <memory>
 #include "Codegen/Codegeneratorconstants.h"
+#include "../Sources/Gui/loadDatas.h"
+#include <QTextStream>
 
 
 
@@ -22,9 +24,14 @@ protected:
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 TEST(GuiTest, loadAttributes)
 {
-   AttributeLoad *attributes = new AttributeLoad();
+   DatasLoad<Codegenerator::AttributeElements> load;
    QString scriptPath = "..\\Files\\Scripts\\XML\\GuiAttributes.xml";
-   std::vector<std::unique_ptr<Codegenerator::AttributeElements>> datas = attributes->loadDatasFromFile(scriptPath);
+
+
+   QTextStream out(stdout);
+       out << "1223" << endl;
+
+   std::vector<std::unique_ptr<Codegenerator::AttributeElements>> datas = load.loadDatasFromFile(scriptPath);
    ASSERT_EQ(datas.size(),3);
    ASSERT_EQ(datas[0].get()->getAttribute(),"attributeint");
    ASSERT_EQ(datas[1].get()->getAttribute(),"attributedouble");
@@ -57,14 +64,13 @@ TEST(GuiTest, loadAttributes)
    ASSERT_EQ(datas[0].get()->getIsRef(),false);
    ASSERT_EQ(datas[1].get()->getIsRef(),false);
    ASSERT_EQ(datas[2].get()->getIsRef(),true);
-   delete attributes;
 }
 
 TEST(GuiTest, loadFunctions)
 {
-    FunctionLoad* functions = new FunctionLoad();
+    DatasLoad<Codegenerator::FunctionElements> load;
     QString scriptPath = "..\\Files\\Scripts\\XML\\GuiFunction.xml";
-    std::vector<std::unique_ptr<Codegenerator::FunctionElements>> datas = functions->loadDatasFromFile(scriptPath);
+    std::vector<std::unique_ptr<Codegenerator::FunctionElements>> datas = load.loadDatasFromFile(scriptPath);
     ASSERT_EQ(datas.size(),2);
     ASSERT_EQ(datas[0].get()->getFunction(),"functionint");
     ASSERT_EQ(datas[0].get()->getModifier(),Codegenerator::CodegeneratorConstants::modifierPrivate);
@@ -78,6 +84,5 @@ TEST(GuiTest, loadFunctions)
     ASSERT_EQ(datas[1].get()->getModifier(),Codegenerator::CodegeneratorConstants::modifierPublic);
     ASSERT_EQ(datas[1].get()->getTyp(),"double");
     ASSERT_EQ(datas[1].get()->getIsConstant(),true);
-    delete functions;
 }
 

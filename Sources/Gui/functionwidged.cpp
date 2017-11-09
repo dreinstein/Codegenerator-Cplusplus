@@ -1,7 +1,7 @@
 #include "functionwidged.h"
 #include "ui_functionwidged.h"
 #include "ui_attributewidget.h"
-#include "FunctionLoad.h"
+#include "loadDatas.h"
 #include <iostream>
 #include <QTextStream>
 #include <QFileDialog>
@@ -61,8 +61,8 @@ void FunctionWidged::on_pushButton_Open_clicked()
     if(fileName != "")
     {
 
-        std::unique_ptr<FunctionLoad> datas =  std::unique_ptr<FunctionLoad>(new FunctionLoad());
-        funcElements = datas->loadDatasFromFile(fileName);
+//        std::unique_ptr<FunctionLoad> datas =  std::unique_ptr<FunctionLoad>(new FunctionLoad());
+   //    funcElements = datas->loadDatasFromFile(fileName);
       //  fillGuiWithElements();
     }
 

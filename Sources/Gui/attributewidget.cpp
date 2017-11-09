@@ -4,6 +4,7 @@
 #include "Codegen/Attributeelements.h"
 #include "ui_functionwidged.h"
 #include "Utilities.h"
+#include "loadDatas.h"
 #include "memory"
 #include "../Codegen/Attributeelements.h"
 #include <QFileDialog>
@@ -87,8 +88,11 @@ void AttributeWidget::on_pushButton_Open_clicked()
         tr("Open File"), "", tr("File (*.xml)"));
     if(fileName != "")
     {
-        std::unique_ptr<AttributeLoad> datas =  std::unique_ptr<AttributeLoad>(new AttributeLoad());
-        vecElements = datas->loadDatasFromFile(fileName);
+     //   std::unique_ptr<AttributeLoad> datas =  std::unique_ptr<AttributeLoad>(new AttributeLoad());
+       // vecElements = datas->loadDatasFromFile(fileName);
+        DatasLoad<Codegenerator::AttributeElements> load;
+      //  std::vector<Codegenerator::AttributeElements> elements;
+        vecElements = load.loadDatasFromFile(fileName);
         fillGuiWithElements();
     }
 }

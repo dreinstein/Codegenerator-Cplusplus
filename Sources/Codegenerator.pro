@@ -43,8 +43,7 @@ SOURCES += main.cpp\
     Codegen/basecodegenerator.cpp \
     Gui/attributeload.cpp \
     Gui/attributewidget.cpp \
-    mainwindow.cpp \
-    Gui/functionload.cpp
+    mainwindow.cpp
 
 HEADERS  += mainwindow.h \
     Utilities.h\
@@ -84,7 +83,7 @@ HEADERS  += mainwindow.h \
     Gui/attributeload.h \
     Gui/attributewidget.h \
     mainwindow.h \
-    Gui/functionload.h
+    Gui/loadDatas.h
 
 FORMS    += mainwindow.ui \
     Gui/classform.ui \
