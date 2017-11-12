@@ -24,16 +24,7 @@ void AttributeElements::resetData()
 void AttributeElements::setElements(QString element)
 {
     QStringList stringList = General::ExtractString::extractStringList(element);
-    QString listelement = "";
-    QString elementLast = "";
-    QStringList::const_iterator constIterator;
-
-    for (constIterator = stringList.constBegin(); constIterator != stringList.constEnd();++constIterator)
-    {
-        listelement = *constIterator;
-        elementLast = General::ExtractString::extractLast(listelement);
-        defineElements(listelement,elementLast);
-    }
+    std::for_each(stringList.begin(),stringList.end(), [&](QString i){defineElements(i,General::ExtractString::extractLast(i));});
 }
 
 bool AttributeElements::getIsDefaultValue() const

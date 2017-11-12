@@ -3,7 +3,6 @@
 
 
 #include <vector>
-#include <list>
 #include <map>
 #include <list>
 #include <QString>
@@ -51,8 +50,11 @@ protected:
     std::list<QString>::iterator foundPositionToAppendToHeaderList(bool hasPublicModifier);
 private:
     void getNextElement(BaseCodegenerator* &nextGenerator,QString sIndex);
+    bool positionToAppendModifer(std::list<QString>::iterator iterator,bool hasPublicModifer);
+    bool positionToAppendModifer(std::list<QString>::iterator iterator);
     void generateHeader();
     void generateSource();
+    void positionToAppend();
 };
 
 }
