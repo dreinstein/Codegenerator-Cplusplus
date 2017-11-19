@@ -16,7 +16,6 @@
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QFormLayout>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -33,8 +32,9 @@ QT_BEGIN_NAMESPACE
 class Ui_FunctionWidged
 {
 public:
-    QGridLayout *gridLayout;
+    QVBoxLayout *verticalLayout_4;
     QGroupBox *groupBox;
+    QVBoxLayout *verticalLayout_5;
     QWidget *widget;
     QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_2;
@@ -56,6 +56,8 @@ public:
     QListWidget *functionListWidget;
     QWidget *verticalLayoutWidget_3;
     QVBoxLayout *verticalLayout_3;
+    QCheckBox *checkBox_FunctionPointer;
+    QCheckBox *checkBox_FunctionReference;
     QCheckBox *checkBox_FunctionConstant;
     QWidget *layoutWidget_2;
     QHBoxLayout *horizontalLayout_5;
@@ -68,14 +70,15 @@ public:
     {
         if (FunctionWidged->objectName().isEmpty())
             FunctionWidged->setObjectName(QStringLiteral("FunctionWidged"));
-        FunctionWidged->resize(320, 282);
-        gridLayout = new QGridLayout(FunctionWidged);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        FunctionWidged->resize(327, 357);
+        verticalLayout_4 = new QVBoxLayout(FunctionWidged);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
         groupBox = new QGroupBox(FunctionWidged);
         groupBox->setObjectName(QStringLiteral("groupBox"));
+        verticalLayout_5 = new QVBoxLayout(groupBox);
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
         widget = new QWidget(groupBox);
         widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(10, 20, 281, 191));
         layoutWidget = new QWidget(widget);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
         layoutWidget->setGeometry(QRect(10, 0, 51, 22));
@@ -142,7 +145,7 @@ public:
 
         formLayoutWidget = new QWidget(widget);
         formLayoutWidget->setObjectName(QStringLiteral("formLayoutWidget"));
-        formLayoutWidget->setGeometry(QRect(10, 90, 261, 101));
+        formLayoutWidget->setGeometry(QRect(10, 160, 261, 101));
         formLayout = new QFormLayout(formLayoutWidget);
         formLayout->setObjectName(QStringLiteral("formLayout"));
         formLayout->setContentsMargins(0, 0, 0, 0);
@@ -150,23 +153,35 @@ public:
         functionListWidget->setObjectName(QStringLiteral("functionListWidget"));
         functionListWidget->setEnabled(true);
 
-        formLayout->setWidget(0, QFormLayout::SpanningRole, functionListWidget);
+        formLayout->setWidget(0, QFormLayout::LabelRole, functionListWidget);
 
         verticalLayoutWidget_3 = new QWidget(widget);
         verticalLayoutWidget_3->setObjectName(QStringLiteral("verticalLayoutWidget_3"));
-        verticalLayoutWidget_3->setGeometry(QRect(190, 60, 81, 31));
+        verticalLayoutWidget_3->setGeometry(QRect(190, 60, 83, 91));
         verticalLayout_3 = new QVBoxLayout(verticalLayoutWidget_3);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
+        checkBox_FunctionPointer = new QCheckBox(verticalLayoutWidget_3);
+        checkBox_FunctionPointer->setObjectName(QStringLiteral("checkBox_FunctionPointer"));
+        checkBox_FunctionPointer->setFont(font);
+
+        verticalLayout_3->addWidget(checkBox_FunctionPointer);
+
+        checkBox_FunctionReference = new QCheckBox(verticalLayoutWidget_3);
+        checkBox_FunctionReference->setObjectName(QStringLiteral("checkBox_FunctionReference"));
+        checkBox_FunctionReference->setFont(font);
+
+        verticalLayout_3->addWidget(checkBox_FunctionReference);
+
         checkBox_FunctionConstant = new QCheckBox(verticalLayoutWidget_3);
         checkBox_FunctionConstant->setObjectName(QStringLiteral("checkBox_FunctionConstant"));
         checkBox_FunctionConstant->setFont(font);
 
         verticalLayout_3->addWidget(checkBox_FunctionConstant);
 
-        layoutWidget_2 = new QWidget(groupBox);
+        layoutWidget_2 = new QWidget(widget);
         layoutWidget_2->setObjectName(QStringLiteral("layoutWidget_2"));
-        layoutWidget_2->setGeometry(QRect(20, 220, 251, 25));
+        layoutWidget_2->setGeometry(QRect(10, 280, 261, 31));
         horizontalLayout_5 = new QHBoxLayout(layoutWidget_2);
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
         horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
@@ -190,12 +205,11 @@ public:
 
         horizontalLayout_5->addItem(horizontalSpacer);
 
-        widget->raise();
-        layoutWidget_2->raise();
-        edit_FunctionName->raise();
-        edit_FunctionName->raise();
 
-        gridLayout->addWidget(groupBox, 0, 0, 1, 1);
+        verticalLayout_5->addWidget(widget);
+
+
+        verticalLayout_4->addWidget(groupBox);
 
 
         retranslateUi(FunctionWidged);
@@ -209,13 +223,15 @@ public:
         groupBox->setTitle(QString());
         label->setText(QApplication::translate("FunctionWidged", "Name", Q_NULLPTR));
         label_3->setText(QApplication::translate("FunctionWidged", "Return Value", Q_NULLPTR));
-        pushButton_SetParameter->setText(QApplication::translate("FunctionWidged", "Parameter", Q_NULLPTR));
+        pushButton_SetParameter->setText(QApplication::translate("FunctionWidged", "Parameter new", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
         edit_FunctionName->setToolTip(QApplication::translate("FunctionWidged", "<html><head/><body><p>give in name</p></body></html>", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
         edit_FunctionReturnValue->setToolTip(QApplication::translate("FunctionWidged", "<html><head/><body><p>give in name</p></body></html>", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
+        checkBox_FunctionPointer->setText(QApplication::translate("FunctionWidged", "Pointer", Q_NULLPTR));
+        checkBox_FunctionReference->setText(QApplication::translate("FunctionWidged", "Reference", Q_NULLPTR));
         checkBox_FunctionConstant->setText(QApplication::translate("FunctionWidged", "constant", Q_NULLPTR));
         pushButton_Open->setText(QApplication::translate("FunctionWidged", "Open", Q_NULLPTR));
         pushButton_Save->setText(QApplication::translate("FunctionWidged", "Save", Q_NULLPTR));

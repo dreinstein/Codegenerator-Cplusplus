@@ -25,14 +25,14 @@ class DatasLoad
 public:
     DatasLoad(){;}
     ~DatasLoad(){;}
-    std::vector<std::unique_ptr<T>> loadDatasFromFile(QString path);
+    std::vector<std::shared_ptr<T>> loadDatasFromFile(QString path);
 };
 
 
 template<class T>
-std::vector<std::unique_ptr<T>> DatasLoad<T>::loadDatasFromFile(QString path)
+std::vector<std::shared_ptr<T>> DatasLoad<T>::loadDatasFromFile(QString path)
 {
-    std::vector<std::unique_ptr<T>> element;
+    std::vector<std::shared_ptr<T>> element;
    // std::vector<std::unique_ptr<Codegenerator::FunctionElements>>  funcElements;
     std::unique_ptr<BaseParserImpl> parser(new NParser::ParserImplXML());
     auto script = parser->doParseForVec(path);
@@ -52,6 +52,6 @@ std::vector<std::unique_ptr<T>> DatasLoad<T>::loadDatasFromFile(QString path)
             vecIndex++;
         }
     }
-    return std::move(element);
+    return element;
 }
 #endif

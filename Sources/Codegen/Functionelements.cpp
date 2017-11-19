@@ -48,7 +48,6 @@ void FunctionElements::setElements(QString element)
     QString elementLast = "";
     QStringList::const_iterator constIterator;
     AttributeElements *attriElement = nullptr;
-  //  bool foundParameters= false;
     for (constIterator = stringList.constBegin(); constIterator != stringList.constEnd();++constIterator)
     {
         listelement = *constIterator;

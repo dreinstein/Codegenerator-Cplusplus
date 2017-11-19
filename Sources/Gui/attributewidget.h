@@ -9,6 +9,8 @@ namespace Ui {
 }
 
 
+class AttributeElements;
+
 
 
 class AttributeWidget : public QWidget
@@ -18,8 +20,9 @@ class AttributeWidget : public QWidget
 public:
     explicit AttributeWidget(bool parameterSetting = false,QWidget *parent = 0);
     ~AttributeWidget();
-    std::vector<std::unique_ptr<Codegenerator::AttributeElements>> getElements() {return std::move(vecElements);}
+    std::vector<std::shared_ptr<Codegenerator::AttributeElements>> getElements() {return vecElements;}
     Ui::AttributeWidget* getUi(){return ui;}
+    void setGui(Codegenerator::AttributeElements* elements);
 
 
 private:
@@ -42,7 +45,7 @@ private:
     void loadDatasFromGuiElements();
     const QString parameterString = "Parameter";
     const QString attributeString = "Attribute";
-    std::vector<std::unique_ptr<Codegenerator::AttributeElements>> vecElements;
+    std::vector<std::shared_ptr<Codegenerator::AttributeElements>> vecElements;
 };
 
 #endif // ATTRIBUTEWIDGET_H

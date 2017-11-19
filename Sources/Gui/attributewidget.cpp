@@ -2,7 +2,6 @@
 #include "ui_attributewidget.h"
 #include "../Codegen/Codegeneratorconstants.h"
 #include "Codegen/Attributeelements.h"
-#include "ui_functionwidged.h"
 #include "Utilities.h"
 #include "loadDatas.h"
 #include "memory"
@@ -36,8 +35,8 @@ AttributeWidget::AttributeWidget(bool _parameterSetting, QWidget *parent) :
    itemList << Codegenerator::CodegeneratorConstants::typInt << Codegenerator::CodegeneratorConstants::typDouble << Codegenerator::CodegeneratorConstants::typLong << Codegenerator::CodegeneratorConstants::typQString << Codegenerator::CodegeneratorConstants::typVoid;
    ui->comboBox_Type->addItems(itemList);
    std::unique_ptr<Codegenerator::AttributeElements> vecElements = std::unique_ptr<Codegenerator::AttributeElements> (new Codegenerator::AttributeElements());
-
 }
+
 
 AttributeWidget::~AttributeWidget()
 {
@@ -88,19 +87,49 @@ void AttributeWidget::on_pushButton_Open_clicked()
         tr("Open File"), "", tr("File (*.xml)"));
     if(fileName != "")
     {
-     //   std::unique_ptr<AttributeLoad> datas =  std::unique_ptr<AttributeLoad>(new AttributeLoad());
-       // vecElements = datas->loadDatasFromFile(fileName);
         DatasLoad<Codegenerator::AttributeElements> load;
-      //  std::vector<Codegenerator::AttributeElements> elements;
         vecElements = load.loadDatasFromFile(fileName);
         fillGuiWithElements();
     }
 }
 
+void AttributeWidget::setGui(Codegenerator::AttributeElements* elements)
+{
+    ui->lineEdit_Name->setText(elements->getAttribute());
+    ui->comboBox_Type->setEditText(elements->getTyp());
+    if(elements->getIsConstant())
+    {
+        ui->checkBox_AttributeConst->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_AttributeConst->setChecked(false);
+    }
+    if(elements->getIsPointer())
+    {
+        ui->checkBox_AttributePointer->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_AttributePointer->setChecked(false);
+    }
+    if(elements->getIsRef())
+    {
+        ui->checkBox_AttributeReference->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_AttributeReference->setChecked(false);
+    }
+}
+
+
+
 void AttributeWidget::loadDatasFromGuiElements()
 {
     vecElements.push_back(std::unique_ptr<Codegenerator::AttributeElements>(new Codegenerator::AttributeElements()));
     vecElements[0].get()->setAttribute(ui->lineEdit_Name->text());
+    vecElements[0].get()->setTyp(ui->comboBox_Type->currentText());
     if(ui->radioButton_Private->isChecked())
     {
        vecElements[0].get()->setModifier(Codegenerator::CodegeneratorConstants::modifierPrivate);

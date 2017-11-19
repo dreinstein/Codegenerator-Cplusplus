@@ -1,4 +1,4 @@
-#include <list>
+
 #include "Codegeneratorconstants.h"
 #include "Basecodegenerator.h"
 #include "classgenerator.h"
@@ -47,44 +47,55 @@ void BaseCodegenerator::clone(const BaseCodegenerator *toClone)
 bool BaseCodegenerator::hasElementModifier(QString elementModifier)
 {
     bool foundModifier = false;
-    QString element;
-    list<QString>::iterator iterator = generatedCodeHeader.begin();
-    for(iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator)
-    {
-        element = *iterator;
-        if(element.contains(elementModifier))
-        {
-            foundModifier = true;
-        }
-    }
+    std::for_each(generatedCodeHeader.begin(),generatedCodeHeader.end(), [&](QString element){if (element.contains(elementModifier))foundModifier = true;});
     return foundModifier;
 }
 
-//@todo we do not need this function, if user aranges functions in proper way
-//@todo delete this function in later step
-//also we have not the possiblity to arrage function automtically in proper way in sourcecode
-//it should be the reposibility of the user
-list<QString>::iterator BaseCodegenerator::foundPositionToAppendToHeaderList(bool hasPublicModifier)
+
+
+list<QString>::iterator  BaseCodegenerator::foundPositionToAppendToHeaderList(bool hasPublicModifier)
 {
-    QString element;
     list<QString>::iterator iterator = generatedCodeHeader.begin();
     for(iterator = generatedCodeHeader.begin();iterator != generatedCodeHeader.end(); ++iterator)
     {
-        element = *iterator;
-        if(hasPublicModifier)
-        {
-            if((element.contains(CodegeneratorConstants::modifierPrivate)))
-            {
-                break;
-            }
-        }
-        if ((element.contains(CodegeneratorConstants::bracketClose)))
-        {
+
+        if(positionToAppendModifer(iterator,hasPublicModifier))
             break;
-        }
+        if(positionToAppendModifer(iterator))
+            break;
     }
     return iterator;
 }
+
+
+
+bool BaseCodegenerator::positionToAppendModifer(list<QString>::iterator iterator, bool hasPublicModifier)
+{
+    QString element = *iterator;
+    if(hasPublicModifier)
+    {
+        if(element.contains(CodegeneratorConstants::modifierPrivate))
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+bool BaseCodegenerator::positionToAppendModifer(list<QString>::iterator iterator)
+{
+    QString element = *iterator;
+   if (element.contains(CodegeneratorConstants::bracketClose))
+    {
+        return true;
+    }
+    return false;
+}
+
+
+
 
 void BaseCodegenerator::generate()
 {

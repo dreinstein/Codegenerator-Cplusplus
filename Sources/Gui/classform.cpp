@@ -86,7 +86,7 @@ void ClassForm::on_CreateAttributeButton_clicked()
 
 void ClassForm::saveAttributeFormWidget()
 {
-    std::vector<std::unique_ptr<Codegenerator::AttributeElements>>  attrElements = attributeFormWidged->getElements();
+    std::vector<std::shared_ptr<Codegenerator::AttributeElements>>  attrElements = attributeFormWidged->getElements();
     for(uint i=0;i<attrElements.size();++i)
     {
         ui->classListWidget->addItem(attrElements[i].get()->getString());

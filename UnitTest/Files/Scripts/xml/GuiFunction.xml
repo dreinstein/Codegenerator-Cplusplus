@@ -5,6 +5,7 @@
 <function name="functionint">
 		<modifier>private</modifier>
 		<typ>int</typ>
+		<isConstant>true</isConstant>
         <parameter>myParameter</parameter>
         <typ>double</typ>
         <parameter>doublePointerParameter</parameter>
