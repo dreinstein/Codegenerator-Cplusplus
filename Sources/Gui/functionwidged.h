@@ -26,6 +26,11 @@ private:
     std::vector<std::shared_ptr<Codegenerator::FunctionElements>> funcElements;
     void fillGuiWithElements();
     void createParameterFormWidged();
+    void saveParameterEdit();
+    void saveParameterNew();
+
+    int doubleClickedParameterIndex;
+
 
 signals:
     void closeFunctionWidget();

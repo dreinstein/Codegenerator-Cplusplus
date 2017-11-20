@@ -29,6 +29,7 @@ public:
     bool getIsDefaultValue() const;
     std::vector<AttributeElements*> getFunctionParameters(){return functionParameters;}
     void pushFunctionParameter(AttributeElements* param){functionParameters.push_back(param);}
+    void emptyFunctionParameters(){functionParameters.clear();}
 private:
     QString function;
     bool isReturnConstant;
