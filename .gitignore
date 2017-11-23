@@ -1,5 +1,7 @@
 build-Codegenerator-Desktop_Qt_5_7_0_MinGW_32bit-Debug/
 build-Codegenerator-Desktop_Qt_5_7_0_MinGW_32bit-Release/
+build-Codegenerator-Qt_5_7_0_mingw53_32-Debug
+build-Codegenerator-Qt_5_7_0_mingw53_32-Release
 googletest-master/
 Sources/Codegenerator.pro.user
 UniTtest/build-TestCodegenerator-Desktop_Qt_5_5_1_MinGW_32bit-Debug/
