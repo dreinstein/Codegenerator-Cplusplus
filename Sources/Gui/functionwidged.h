@@ -22,15 +22,14 @@ public:
 private:
     Ui::FunctionWidged *ui;
     AttributeWidget* parameterFormWidged = nullptr;
-    //std::vector<std::unique_ptr<Codegenerator::FunctionElements>> getElements() {return std::move(funcElements);}
     std::vector<std::shared_ptr<Codegenerator::FunctionElements>> funcElements;
     void fillGuiWithElements();
     void createParameterFormWidged();
     void saveParameterEdit();
     void saveParameterNew();
+    void refreshParamterList(std::vector<Codegenerator::AttributeElements*> attributes);
 
     int doubleClickedParameterIndex;
-
 
 signals:
     void closeFunctionWidget();
@@ -43,9 +42,15 @@ private slots:
     void on_pushButton_Open_clicked();
     void on_pushButton_Save_clicked();
     void on_pushButton__Close_clicked();
-    void on_checkBox_FunctionReference_clicked();
-    void on_checkBox_FunctionPointer_clicked();
     void on_functionListWidget_itemDoubleClicked(QListWidgetItem *item);
+    void on_pushButton_deleteParamter_clicked();
+    void on_functionListWidget_indexesMoved(const QModelIndexList &indexes);
+    void on_functionListWidget_itemSelectionChanged();
+    void on_functionListWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
+    void on_functionListWidget_itemChanged(QListWidgetItem *item);
+    void on_functionListWidget_itemPressed(QListWidgetItem *item);
+    void on_pushButtonParameterUp_clicked();
+    void on_pushButtonParameterDown_clicked();
 };
 
 

@@ -32,7 +32,7 @@ QT_BEGIN_NAMESPACE
 class Ui_FunctionWidged
 {
 public:
-    QVBoxLayout *verticalLayout_4;
+    QHBoxLayout *horizontalLayout;
     QGroupBox *groupBox;
     QVBoxLayout *verticalLayout_5;
     QWidget *widget;
@@ -43,8 +43,9 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_3;
     QWidget *layoutWidget2;
-    QHBoxLayout *horizontalLayout_4;
+    QVBoxLayout *verticalLayout_4;
     QPushButton *pushButton_SetParameter;
+    QPushButton *pushButton_deleteParamter;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
     QLineEdit *edit_FunctionName;
@@ -65,14 +66,16 @@ public:
     QPushButton *pushButton_Save;
     QPushButton *pushButton__Close;
     QSpacerItem *horizontalSpacer;
+    QPushButton *pushButtonParameterUp;
+    QPushButton *pushButtonParameterDown;
 
     void setupUi(QDialog *FunctionWidged)
     {
         if (FunctionWidged->objectName().isEmpty())
             FunctionWidged->setObjectName(QStringLiteral("FunctionWidged"));
-        FunctionWidged->resize(327, 357);
-        verticalLayout_4 = new QVBoxLayout(FunctionWidged);
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        FunctionWidged->resize(320, 354);
+        horizontalLayout = new QHBoxLayout(FunctionWidged);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         groupBox = new QGroupBox(FunctionWidged);
         groupBox->setObjectName(QStringLiteral("groupBox"));
         verticalLayout_5 = new QVBoxLayout(groupBox);
@@ -107,15 +110,21 @@ public:
 
         layoutWidget2 = new QWidget(widget);
         layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(10, 60, 101, 31));
-        horizontalLayout_4 = new QHBoxLayout(layoutWidget2);
-        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
+        layoutWidget2->setGeometry(QRect(10, 60, 93, 54));
+        verticalLayout_4 = new QVBoxLayout(layoutWidget2);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
         pushButton_SetParameter = new QPushButton(layoutWidget2);
         pushButton_SetParameter->setObjectName(QStringLiteral("pushButton_SetParameter"));
         pushButton_SetParameter->setCursor(QCursor(Qt::ArrowCursor));
 
-        horizontalLayout_4->addWidget(pushButton_SetParameter);
+        verticalLayout_4->addWidget(pushButton_SetParameter);
+
+        pushButton_deleteParamter = new QPushButton(layoutWidget2);
+        pushButton_deleteParamter->setObjectName(QStringLiteral("pushButton_deleteParamter"));
+        pushButton_deleteParamter->setCursor(QCursor(Qt::ArrowCursor));
+
+        verticalLayout_4->addWidget(pushButton_deleteParamter);
 
         verticalLayoutWidget = new QWidget(widget);
         verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
@@ -152,6 +161,9 @@ public:
         functionListWidget = new QListWidget(formLayoutWidget);
         functionListWidget->setObjectName(QStringLiteral("functionListWidget"));
         functionListWidget->setEnabled(true);
+        functionListWidget->setDragEnabled(true);
+        functionListWidget->setDragDropOverwriteMode(true);
+        functionListWidget->setDragDropMode(QAbstractItemView::InternalMove);
 
         formLayout->setWidget(0, QFormLayout::LabelRole, functionListWidget);
 
@@ -205,11 +217,17 @@ public:
 
         horizontalLayout_5->addItem(horizontalSpacer);
 
+        pushButtonParameterUp = new QPushButton(widget);
+        pushButtonParameterUp->setObjectName(QStringLiteral("pushButtonParameterUp"));
+        pushButtonParameterUp->setGeometry(QRect(10, 130, 41, 23));
+        pushButtonParameterDown = new QPushButton(widget);
+        pushButtonParameterDown->setObjectName(QStringLiteral("pushButtonParameterDown"));
+        pushButtonParameterDown->setGeometry(QRect(60, 130, 41, 23));
 
         verticalLayout_5->addWidget(widget);
 
 
-        verticalLayout_4->addWidget(groupBox);
+        horizontalLayout->addWidget(groupBox);
 
 
         retranslateUi(FunctionWidged);
@@ -224,6 +242,7 @@ public:
         label->setText(QApplication::translate("FunctionWidged", "Name", Q_NULLPTR));
         label_3->setText(QApplication::translate("FunctionWidged", "Return Value", Q_NULLPTR));
         pushButton_SetParameter->setText(QApplication::translate("FunctionWidged", "Parameter new", Q_NULLPTR));
+        pushButton_deleteParamter->setText(QApplication::translate("FunctionWidged", "Parameter delete", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
         edit_FunctionName->setToolTip(QApplication::translate("FunctionWidged", "<html><head/><body><p>give in name</p></body></html>", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
@@ -236,6 +255,8 @@ public:
         pushButton_Open->setText(QApplication::translate("FunctionWidged", "Open", Q_NULLPTR));
         pushButton_Save->setText(QApplication::translate("FunctionWidged", "Save", Q_NULLPTR));
         pushButton__Close->setText(QApplication::translate("FunctionWidged", "Close", Q_NULLPTR));
+        pushButtonParameterUp->setText(QApplication::translate("FunctionWidged", "Up", Q_NULLPTR));
+        pushButtonParameterDown->setText(QApplication::translate("FunctionWidged", "Down", Q_NULLPTR));
     } // retranslateUi
 
 };

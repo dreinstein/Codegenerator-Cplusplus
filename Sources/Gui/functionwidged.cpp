@@ -105,15 +105,6 @@ void FunctionWidged::fillGuiWithElements()
 }
 
 
-void FunctionWidged::on_checkBox_FunctionReference_clicked()
-{
-
-}
-
-void FunctionWidged::on_checkBox_FunctionPointer_clicked()
-{
-
-}
 
 void FunctionWidged::on_functionListWidget_itemDoubleClicked(QListWidgetItem *item)
 {
@@ -142,10 +133,36 @@ void FunctionWidged::saveParameterEdit()
     std::vector<Codegenerator::AttributeElements*> attributes = funcElements[0]->getFunctionParameters();
     std::vector<Codegenerator::AttributeElements*>::iterator it = attributes.begin() + doubleClickedParameterIndex;
     attributes.insert(it,attrElements[0].get());
-    funcElements[0]->emptyFunctionParameters();
     it = attributes.begin() + doubleClickedParameterIndex+1;
     attributes.erase(it);
     doubleClickedParameterIndex = -1;
+    refreshParamterList(attributes);
+}
+
+void FunctionWidged::saveParameterNew()
+{
+    std::vector<std::shared_ptr<Codegenerator::AttributeElements>>  attrElements = parameterFormWidged->getElements();
+    funcElements[0]->pushFunctionParameter(attrElements[0].get());
+    ui->functionListWidget->addItem(attrElements[0].get()->getString(true));
+}
+
+
+
+void FunctionWidged::on_pushButton_deleteParamter_clicked()
+{
+     int index = ui->functionListWidget->currentRow();
+     if(index <=0)
+     {
+        std::vector<Codegenerator::AttributeElements*> attributes = funcElements[0]->getFunctionParameters();
+        std::vector<Codegenerator::AttributeElements*>::iterator it = attributes.begin() + index;
+        attributes.erase(it);
+        refreshParamterList(attributes);
+     }
+}
+
+void FunctionWidged::refreshParamterList(std::vector<Codegenerator::AttributeElements*> attributes )
+{
+    funcElements[0]->emptyFunctionParameters();
     ui->functionListWidget->clear();
     for(auto element:attributes)
     {
@@ -154,9 +171,33 @@ void FunctionWidged::saveParameterEdit()
     }
 }
 
-void FunctionWidged::saveParameterNew()
+
+void FunctionWidged::on_pushButtonParameterUp_clicked()
 {
-    std::vector<std::shared_ptr<Codegenerator::AttributeElements>>  attrElements = parameterFormWidged->getElements();
-    funcElements[0]->pushFunctionParameter(attrElements[0].get());
-    ui->functionListWidget->addItem(attrElements[0].get()->getString(true));
+    int index = ui->functionListWidget->currentRow();
+    if(index > 0)
+    {
+        std::vector<Codegenerator::AttributeElements*> attributes = funcElements[0]->getFunctionParameters();
+        Codegenerator::AttributeElements *element = attributes.at(index);
+        std::vector<Codegenerator::AttributeElements*>::iterator it = attributes.begin() + index -1;
+        attributes.insert(it,element);
+        it = attributes.begin() + index+1;
+        attributes.erase(it);
+        refreshParamterList(attributes);
+    }
+}
+
+void FunctionWidged::on_pushButtonParameterDown_clicked()
+{
+    int index = ui->functionListWidget->currentRow();
+    if((index >= 0) && (index < ui->functionListWidget->count()-1))
+    {
+        std::vector<Codegenerator::AttributeElements*> attributes = funcElements[0]->getFunctionParameters();
+        Codegenerator::AttributeElements *element = attributes.at(index);
+        std::vector<Codegenerator::AttributeElements*>::iterator it = attributes.begin() + index + 2;
+        attributes.insert(it,element);
+        it = attributes.begin() + index;
+        attributes.erase(it);
+        refreshParamterList(attributes);
+    }
 }
