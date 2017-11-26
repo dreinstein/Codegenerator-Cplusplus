@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "attributeLoad.h"
+#include "ui_attributewidget.h"
 
 namespace Ui {
    class AttributeWidget;
@@ -39,6 +40,7 @@ private slots:
     void on_checkBox_AttributePointer_clicked();
     void on_pushButton_Open_clicked();
 
+    void on_checkBox_DefaultValue_clicked();
 
 private:
     void fillGuiWithElements();

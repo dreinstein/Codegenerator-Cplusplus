@@ -45,7 +45,6 @@ void FunctionWidged::saveParameterFormWidget()
     {
         saveParameterEdit();
 
-
     }
     parameterFormWidged->close();
 }

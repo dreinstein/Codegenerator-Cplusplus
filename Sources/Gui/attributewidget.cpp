@@ -19,18 +19,20 @@ AttributeWidget::AttributeWidget(bool _parameterSetting, QWidget *parent) :
    if(parameterSetting)
    {
        this->setWindowTitle(parameterString);
-       ui->radioButton_Private->setVisible(false);
-       ui->radioButton_Protected->setVisible(false);
-       ui->radioButton_Public->setVisible(false);
+       ui->radioButton_Private->setDisabled(true);
+       ui->radioButton_Protected->setDisabled(true);
+       ui->radioButton_Public->setDisabled(true);
    }
    else
    {
        this->setWindowTitle(attributeString);
+       ui->checkBox_DefaultValue->setDisabled(false);
    }
    ui->radioButton_Private->setChecked(true);
    ui->radioButton_Protected->setChecked(false);
    ui->radioButton_Public->setChecked(false);
    ui->checkBox_MemoryPointerConst->setDisabled(true);
+   ui->lineEdit_DefaultValue->setDisabled(true);
    QStringList itemList;
    itemList << Codegenerator::CodegeneratorConstants::typInt << Codegenerator::CodegeneratorConstants::typDouble << Codegenerator::CodegeneratorConstants::typLong << Codegenerator::CodegeneratorConstants::typQString << Codegenerator::CodegeneratorConstants::typVoid;
    ui->comboBox_Type->addItems(itemList);
@@ -93,6 +95,20 @@ void AttributeWidget::on_pushButton_Open_clicked()
     }
 }
 
+
+void AttributeWidget::on_checkBox_DefaultValue_clicked()
+{
+    if(ui->checkBox_DefaultValue->isChecked())
+    {
+        ui->lineEdit_DefaultValue->setDisabled(false);
+    }
+    else
+    {
+        ui->lineEdit_DefaultValue->setDisabled(true);
+    }
+}
+
+
 void AttributeWidget::setGui(Codegenerator::AttributeElements* elements)
 {
     ui->lineEdit_Name->setText(elements->getAttribute());
@@ -120,6 +136,21 @@ void AttributeWidget::setGui(Codegenerator::AttributeElements* elements)
     else
     {
         ui->checkBox_AttributeReference->setChecked(false);
+    }
+    if(elements->getIsMemoryConstant())
+    {
+        ui->checkBox_MemoryPointerConst->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_MemoryPointerConst->setChecked(false);
+    }
+    if(elements->getIsDefaultValue())
+    {
+        ui->checkBox_DefaultValue->setDisabled(false);
+        ui->checkBox_DefaultValue->setChecked(true);
+        ui->lineEdit_DefaultValue->setDisabled(false);
+        ui->lineEdit_DefaultValue->setText(vecElements[0].get()->getDefaultValue());
     }
 }
 
@@ -174,7 +205,12 @@ void AttributeWidget::loadDatasFromGuiElements()
     {
         vecElements[0].get()->setIsMemoryConstant(false);
     }
+    if(ui->checkBox_DefaultValue->isChecked())
+    {
+        vecElements[0].get()->setDefaultValue(ui->lineEdit_DefaultValue->text());
+    }
 }
+
 
 void AttributeWidget::fillGuiWithElements()
 {
@@ -228,13 +264,13 @@ void AttributeWidget::fillGuiWithElements()
     {
         ui->checkBox_MemoryPointerConst->setChecked(false);
     }
+    if(vecElements[0].get()->getIsDefaultValue())
+    {
+        ui->checkBox_DefaultValue->setDisabled(false);
+        ui->checkBox_DefaultValue->setChecked(true);
+        ui->lineEdit_DefaultValue->setDisabled(false);
+        ui->lineEdit_DefaultValue->setText(vecElements[0].get()->getDefaultValue());
+    }
 }
-
-
-
-
-
-
-
 
 

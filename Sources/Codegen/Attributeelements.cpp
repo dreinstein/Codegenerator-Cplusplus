@@ -124,6 +124,14 @@ QString AttributeElements::getString(bool isParameter)
     }
     string += Codegenerator::CodegeneratorConstants::emptyChar;
     string += modifiers.attribute;
+
+    if(modifiers.defaultValue != "")
+    {
+        string += " ";
+        string += "=";
+        string += " ";
+        string += modifiers.defaultValue;
+    }
     return string;
 }
 

@@ -5,6 +5,7 @@
 #include "Gui/attributewidget.h"
 #include "Codegen/Functionelements.h"
 #include "ui_functionwidged.h"
+#include "ui_attributewidget.h"
 
 namespace Ui {
     class FunctionWidged;

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'attributewidget.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.9.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -44,6 +44,9 @@ public:
     QHBoxLayout *horizontalLayout;
     QLabel *labelTyp;
     QComboBox *comboBox_Type;
+    QHBoxLayout *horizontalLayout_8;
+    QCheckBox *checkBox_DefaultValue;
+    QLineEdit *lineEdit_DefaultValue;
     QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
     QCheckBox *checkBox_AttributeConst;
@@ -56,6 +59,7 @@ public:
     QRadioButton *radioButton_Private;
     QRadioButton *radioButton_Protected;
     QRadioButton *radioButton_Public;
+    QWidget *widget;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton_Open;
     QPushButton *pushButton_Save;
@@ -66,7 +70,7 @@ public:
     {
         if (AttributeWidget->objectName().isEmpty())
             AttributeWidget->setObjectName(QStringLiteral("AttributeWidget"));
-        AttributeWidget->resize(276, 261);
+        AttributeWidget->resize(276, 328);
         layoutWidget = new QWidget(AttributeWidget);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
         layoutWidget->setGeometry(QRect(0, 0, 2, 2));
@@ -79,7 +83,7 @@ public:
         splitter->setOrientation(Qt::Horizontal);
         layoutWidget1 = new QWidget(AttributeWidget);
         layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(10, 40, 247, 199));
+        layoutWidget1->setGeometry(QRect(10, 20, 251, 211));
         verticalLayout_4 = new QVBoxLayout(layoutWidget1);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(0, 0, 0, 0);
@@ -129,6 +133,21 @@ public:
 
 
         verticalLayout_4->addLayout(gridLayout_4);
+
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        checkBox_DefaultValue = new QCheckBox(layoutWidget1);
+        checkBox_DefaultValue->setObjectName(QStringLiteral("checkBox_DefaultValue"));
+
+        horizontalLayout_8->addWidget(checkBox_DefaultValue);
+
+        lineEdit_DefaultValue = new QLineEdit(layoutWidget1);
+        lineEdit_DefaultValue->setObjectName(QStringLiteral("lineEdit_DefaultValue"));
+
+        horizontalLayout_8->addWidget(lineEdit_DefaultValue);
+
+
+        verticalLayout_4->addLayout(horizontalLayout_8);
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
@@ -208,20 +227,24 @@ public:
 
         verticalLayout_4->addLayout(verticalLayout_2);
 
-        horizontalLayout_2 = new QHBoxLayout();
+        widget = new QWidget(AttributeWidget);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(10, 240, 249, 67));
+        horizontalLayout_2 = new QHBoxLayout(widget);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        pushButton_Open = new QPushButton(layoutWidget1);
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        pushButton_Open = new QPushButton(widget);
         pushButton_Open->setObjectName(QStringLiteral("pushButton_Open"));
         pushButton_Open->setContextMenuPolicy(Qt::NoContextMenu);
 
         horizontalLayout_2->addWidget(pushButton_Open);
 
-        pushButton_Save = new QPushButton(layoutWidget1);
+        pushButton_Save = new QPushButton(widget);
         pushButton_Save->setObjectName(QStringLiteral("pushButton_Save"));
 
         horizontalLayout_2->addWidget(pushButton_Save);
 
-        pushButton__Close = new QPushButton(layoutWidget1);
+        pushButton__Close = new QPushButton(widget);
         pushButton__Close->setObjectName(QStringLiteral("pushButton__Close"));
 
         horizontalLayout_2->addWidget(pushButton__Close);
@@ -229,9 +252,6 @@ public:
         horizontalSpacer = new QSpacerItem(0, 0, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer);
-
-
-        verticalLayout_4->addLayout(horizontalLayout_2);
 
         splitter->raise();
         layoutWidget->raise();
@@ -244,19 +264,20 @@ public:
 
     void retranslateUi(QWidget *AttributeWidget)
     {
-        AttributeWidget->setWindowTitle(QApplication::translate("AttributeWidget", "Form", 0));
-        nameLabel->setText(QApplication::translate("AttributeWidget", "Name", 0));
-        labelTyp->setText(QApplication::translate("AttributeWidget", "Typ", 0));
-        checkBox_AttributeConst->setText(QApplication::translate("AttributeWidget", "const", 0));
-        checkBox_AttributePointer->setText(QApplication::translate("AttributeWidget", "Is Pointer", 0));
-        checkBox_MemoryPointerConst->setText(QApplication::translate("AttributeWidget", "const", 0));
-        checkBox_AttributeReference->setText(QApplication::translate("AttributeWidget", "Is Reference", 0));
-        radioButton_Private->setText(QApplication::translate("AttributeWidget", "private", 0));
-        radioButton_Protected->setText(QApplication::translate("AttributeWidget", "Protected", 0));
-        radioButton_Public->setText(QApplication::translate("AttributeWidget", "Public", 0));
-        pushButton_Open->setText(QApplication::translate("AttributeWidget", "Open", 0));
-        pushButton_Save->setText(QApplication::translate("AttributeWidget", "Save", 0));
-        pushButton__Close->setText(QApplication::translate("AttributeWidget", "Close", 0));
+        AttributeWidget->setWindowTitle(QApplication::translate("AttributeWidget", "Form", Q_NULLPTR));
+        nameLabel->setText(QApplication::translate("AttributeWidget", "Name", Q_NULLPTR));
+        labelTyp->setText(QApplication::translate("AttributeWidget", "Typ", Q_NULLPTR));
+        checkBox_DefaultValue->setText(QApplication::translate("AttributeWidget", "defaultValue", Q_NULLPTR));
+        checkBox_AttributeConst->setText(QApplication::translate("AttributeWidget", "const", Q_NULLPTR));
+        checkBox_AttributePointer->setText(QApplication::translate("AttributeWidget", "Is Pointer", Q_NULLPTR));
+        checkBox_MemoryPointerConst->setText(QApplication::translate("AttributeWidget", "const", Q_NULLPTR));
+        checkBox_AttributeReference->setText(QApplication::translate("AttributeWidget", "Is Reference", Q_NULLPTR));
+        radioButton_Private->setText(QApplication::translate("AttributeWidget", "private", Q_NULLPTR));
+        radioButton_Protected->setText(QApplication::translate("AttributeWidget", "Protected", Q_NULLPTR));
+        radioButton_Public->setText(QApplication::translate("AttributeWidget", "Public", Q_NULLPTR));
+        pushButton_Open->setText(QApplication::translate("AttributeWidget", "Open", Q_NULLPTR));
+        pushButton_Save->setText(QApplication::translate("AttributeWidget", "Save", Q_NULLPTR));
+        pushButton__Close->setText(QApplication::translate("AttributeWidget", "Close", Q_NULLPTR));
     } // retranslateUi
 
 };

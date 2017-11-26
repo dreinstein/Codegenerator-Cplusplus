@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'classform.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.9.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -145,13 +145,13 @@ public:
 
     void retranslateUi(QWidget *ClassForm)
     {
-        ClassForm->setWindowTitle(QApplication::translate("ClassForm", "Form", 0));
-        CloseButton->setText(QApplication::translate("ClassForm", "Close", 0));
-        SaveButton->setText(QApplication::translate("ClassForm", "Save", 0));
+        ClassForm->setWindowTitle(QApplication::translate("ClassForm", "Form", Q_NULLPTR));
+        CloseButton->setText(QApplication::translate("ClassForm", "Close", Q_NULLPTR));
+        SaveButton->setText(QApplication::translate("ClassForm", "Save", Q_NULLPTR));
         groupBox->setTitle(QString());
-        NameLabel->setText(QApplication::translate("ClassForm", "ClassName", 0));
-        CreateAttributeButton->setText(QApplication::translate("ClassForm", "Create Attributte", 0));
-        CreateFunctionButton->setText(QApplication::translate("ClassForm", "Create Function", 0));
+        NameLabel->setText(QApplication::translate("ClassForm", "ClassName", Q_NULLPTR));
+        CreateAttributeButton->setText(QApplication::translate("ClassForm", "Create Attributte", Q_NULLPTR));
+        CreateFunctionButton->setText(QApplication::translate("ClassForm", "Create Function", Q_NULLPTR));
     } // retranslateUi
 
 };
