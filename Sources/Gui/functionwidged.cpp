@@ -14,6 +14,7 @@ FunctionWidged::FunctionWidged(QWidget *parent) :
     ui->setupUi(this);
     doubleClickedParameterIndex = -1;
     funcElements.push_back(std::unique_ptr<Codegenerator::FunctionElements>(new Codegenerator::FunctionElements));
+    ui->radioButton_Private->setChecked(true);
 }
 
 FunctionWidged::~FunctionWidged()
@@ -66,6 +67,13 @@ void FunctionWidged::on_pushButton_Open_clicked()
 
 void FunctionWidged::on_pushButton_Save_clicked()
 {
+    funcElements[0]->setFunction(ui->edit_FunctionName->text());
+    funcElements[0]->setTyp(ui->edit_FunctionReturnValue->text());
+    funcElements[0]->setIsReturnConstant(ui->checkBox_ReturnConst->isChecked());
+    funcElements[0]->setIsMemoryConstant(ui->checkBox_MemoryConst->isChecked());
+    funcElements[0]->setIsPointer(ui->checkBox_FunctionPointer->isChecked());
+    funcElements[0]->setIsRef(ui->checkBox_FunctionReference->isChecked());
+    funcElements[0]->setIsConstant(ui->checkBox_FunctionConst->isChecked());
     emit saveFunctionWidget();
 }
 
@@ -80,19 +88,19 @@ void FunctionWidged::fillGuiWithElements()
     ui->edit_FunctionReturnValue->setText(funcElements[0].get()->getTyp());
     if(funcElements[0].get()->getIsConstant())
     {
-        ui->checkBox_FunctionConstant->setChecked(true);
+        ui->checkBox_FunctionConst->setChecked(true);
     }
     else
     {
-        ui->checkBox_FunctionConstant->setChecked(false);
+        ui->checkBox_FunctionConst->setChecked(false);
     }
     if(funcElements[0].get()->getIsPointer())
     {
-    //   ui->checkBox_FunctionPointer->setChecked(true);
+       ui->checkBox_FunctionPointer->setChecked(true);
     }
     else
     {
-    //    ui->checkBox_FunctionPointer->setChecked(false);
+        ui->checkBox_FunctionPointer->setChecked(false);
     }
 
     std::vector<Codegenerator::AttributeElements*> parameters = funcElements[0].get()->getFunctionParameters();

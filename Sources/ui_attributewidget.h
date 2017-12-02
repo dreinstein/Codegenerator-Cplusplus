@@ -59,7 +59,7 @@ public:
     QRadioButton *radioButton_Private;
     QRadioButton *radioButton_Protected;
     QRadioButton *radioButton_Public;
-    QWidget *widget;
+    QWidget *layoutWidget2;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton_Open;
     QPushButton *pushButton_Save;
@@ -227,24 +227,24 @@ public:
 
         verticalLayout_4->addLayout(verticalLayout_2);
 
-        widget = new QWidget(AttributeWidget);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(10, 240, 249, 67));
-        horizontalLayout_2 = new QHBoxLayout(widget);
+        layoutWidget2 = new QWidget(AttributeWidget);
+        layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(10, 240, 249, 67));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget2);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        pushButton_Open = new QPushButton(widget);
+        pushButton_Open = new QPushButton(layoutWidget2);
         pushButton_Open->setObjectName(QStringLiteral("pushButton_Open"));
         pushButton_Open->setContextMenuPolicy(Qt::NoContextMenu);
 
         horizontalLayout_2->addWidget(pushButton_Open);
 
-        pushButton_Save = new QPushButton(widget);
+        pushButton_Save = new QPushButton(layoutWidget2);
         pushButton_Save->setObjectName(QStringLiteral("pushButton_Save"));
 
         horizontalLayout_2->addWidget(pushButton_Save);
 
-        pushButton__Close = new QPushButton(widget);
+        pushButton__Close = new QPushButton(layoutWidget2);
         pushButton__Close->setObjectName(QStringLiteral("pushButton__Close"));
 
         horizontalLayout_2->addWidget(pushButton__Close);
@@ -254,6 +254,7 @@ public:
         horizontalLayout_2->addItem(horizontalSpacer);
 
         splitter->raise();
+        layoutWidget->raise();
         layoutWidget->raise();
         layoutWidget->raise();
 

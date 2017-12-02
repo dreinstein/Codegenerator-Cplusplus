@@ -1,6 +1,7 @@
 #include <memory>
 #include "Functionelements.h"
 #include "Utilities.h"
+#include "Codegen/Codegeneratorconstants.h"
 
 namespace Codegenerator
 {
@@ -136,5 +137,93 @@ bool FunctionElements::getIsDefaultValue() const
     return false;
 }
 
+QString FunctionElements::getString()
+{
+    QString s = getModifier();
+    s += Codegenerator::CodegeneratorConstants::emptyChar;
+    if(getIsReturnConstant())
+    {
+        s += Codegenerator::CodegeneratorConstants::constant;
+        s += Codegenerator::CodegeneratorConstants::emptyChar;
+    }
+
+    s += getTyp();
+    s += Codegenerator::CodegeneratorConstants::emptyChar;
+
+    if(getIsPointer())
+    {
+        s += Codegenerator::CodegeneratorConstants::pointer;
+        s += Codegenerator::CodegeneratorConstants::emptyChar;
+    }
+    if(getIsRef())
+    {
+        s += Codegenerator::CodegeneratorConstants::reference;
+        s += Codegenerator::CodegeneratorConstants::emptyChar;
+    }
+
+    if(getIsMemoryConstant())
+    {
+        s += Codegenerator::CodegeneratorConstants::constant;
+        s += Codegenerator::CodegeneratorConstants::emptyChar;
+    }
+
+    s += getFunction();
+    s += Codegenerator::CodegeneratorConstants::emptyChar;
+    s+= Codegenerator::CodegeneratorConstants::parameterBracketOpen;
+    bool firstParameterElement = true;
+
+    for(auto param:functionParameters)
+    {
+        if(!firstParameterElement)
+        {
+            s += Codegenerator::CodegeneratorConstants::comma;
+            s+= Codegenerator::CodegeneratorConstants::emptyChar;
+        }
+        else
+        {
+            firstParameterElement = false;
+        }
+
+        if(param->getIsConstant())
+        {
+            s += Codegenerator::CodegeneratorConstants::constant;
+            s += Codegenerator::CodegeneratorConstants::emptyChar;
+        }
+        s +=  param->getTyp();
+        s += Codegenerator::CodegeneratorConstants::emptyChar;
+
+        if(param->getIsPointer())
+        {
+            s += Codegenerator::CodegeneratorConstants::pointer;
+            s += Codegenerator::CodegeneratorConstants::emptyChar;
+        }
+        if (param->getIsRef())
+        {
+            s += Codegenerator::CodegeneratorConstants::reference;
+            s += Codegenerator::CodegeneratorConstants::emptyChar;
+        }
+        if(param->getIsMemoryConstant())
+        {
+            s += Codegenerator::CodegeneratorConstants::constant;
+            s += Codegenerator::CodegeneratorConstants::emptyChar;
+        }
+        s += param->getAttribute();
+        s+= Codegenerator::CodegeneratorConstants::emptyChar;
+        if(param->getIsDefaultValue())
+        {
+            s += Codegenerator::CodegeneratorConstants::equal;
+            s+= Codegenerator::CodegeneratorConstants::emptyChar;
+            s+= param->getDefaultValue();
+            s+= Codegenerator::CodegeneratorConstants::emptyChar;
+        }
+    }
+     s+= Codegenerator::CodegeneratorConstants::parameterBracketClose;
+    if(getIsConstant())
+    {
+        s+= Codegenerator::CodegeneratorConstants::emptyChar;
+        s+= Codegenerator::CodegeneratorConstants::constant;
+    }
+    return s;
+}
 
 }

@@ -19,6 +19,7 @@ class FunctionWidged : public QDialog
 public:
     explicit FunctionWidged(QWidget *parent = 0);
     ~FunctionWidged();
+    std::shared_ptr<Codegenerator::FunctionElements> getElement() {return funcElements[0];}
 
 private:
     Ui::FunctionWidged *ui;
@@ -45,11 +46,6 @@ private slots:
     void on_pushButton__Close_clicked();
     void on_functionListWidget_itemDoubleClicked(QListWidgetItem *item);
     void on_pushButton_deleteParamter_clicked();
-    void on_functionListWidget_indexesMoved(const QModelIndexList &indexes);
-    void on_functionListWidget_itemSelectionChanged();
-    void on_functionListWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
-    void on_functionListWidget_itemChanged(QListWidgetItem *item);
-    void on_functionListWidget_itemPressed(QListWidgetItem *item);
     void on_pushButtonParameterUp_clicked();
     void on_pushButtonParameterDown_clicked();
 };

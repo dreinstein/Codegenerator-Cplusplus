@@ -55,9 +55,9 @@ public:
     void setDefaultValue(QString defaultValue){modifiers.defaultValue = defaultValue;}
     bool getIsDefaultValue() const;
 
-    void defineElements(QString listelement,QString element);
+    void defineElements(QString const listelement,QString const element);
     void resetData();
-    QString getString(bool isParameter=false);
+    QString getString(bool const  isParameter=false);
 private:
     AttributeModifiers modifiers;
 };

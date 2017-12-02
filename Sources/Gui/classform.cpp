@@ -56,6 +56,9 @@ void ClassForm::closeFunctionFormWidget()
 
 void ClassForm::saveFunctionFormWidget()
 {
+
+    std::shared_ptr<Codegenerator::FunctionElements>  funcElement = functionFormWidged->getElement();
+    ui->classListWidget->addItem(funcElement.get()->getString());
     functionFormWidged->close();
     delete functionFormWidged;
     functionFormWidged = nullptr;

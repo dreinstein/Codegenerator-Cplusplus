@@ -36,7 +36,7 @@ bool AttributeElements::getIsDefaultValue() const
     return false;
 }
 
-void AttributeElements::defineElements(QString listelement,QString elementLast)
+void AttributeElements::defineElements(QString const listelement,QString const elementLast)
 {
     if(listelement.contains(General::ElementStrings::ATTRIBUEELEMENT))
     {
@@ -79,7 +79,7 @@ void AttributeElements::defineElements(QString listelement,QString elementLast)
 }
 
 
-QString AttributeElements::getString(bool isParameter)
+QString AttributeElements::getString(bool const isParameter)
 {
     QString string = "";
     if(!isParameter)
