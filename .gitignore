@@ -12,6 +12,7 @@ UnitTest/build-TestCodegenerator-Desktop_Qt_5_5_1_MinGW_32bit-Debug/
 UnitTest/build-TestCodegenerator-Desktop_Qt_5_7_0_MinGW_32bit2-Debug/
 UnitTest/build-TestCodegenerator-Desktop_Qt_5_7_0_MinGW_32bit-Release/
 UnitTest/build-TestCodegenerator-Qt_5_7_0_mingw53_32-Debug/
+UnitTest/build-TestCodegenerator-Qt_5_7_0_mingw53_32-Release/
 Sources/Codegenerator.pro.user*
 UnitTest/TestCodegenerator.pro.user*
 UnitTest/TestCodegenerator/TestCodegenerator.pro*
