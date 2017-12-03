@@ -31,7 +31,7 @@ TEST(GuiTest, loadAttributes)
    QTextStream out(stdout);
        out << "1223" << endl;
 
-   std::vector<std::unique_ptr<Codegenerator::AttributeElements>> datas = load.loadDatasFromFile(scriptPath);
+   std::vector<std::shared_ptr<Codegenerator::AttributeElements>> datas = load.loadDatasFromFile(scriptPath);
    ASSERT_EQ(datas.size(),3);
    ASSERT_EQ(datas[0].get()->getAttribute(),"attributeint");
    ASSERT_EQ(datas[1].get()->getAttribute(),"attributedouble");
@@ -70,7 +70,7 @@ TEST(GuiTest, loadFunctions)
 {
     DatasLoad<Codegenerator::FunctionElements> load;
     QString scriptPath = "..\\Files\\Scripts\\XML\\GuiFunction.xml";
-    std::vector<std::unique_ptr<Codegenerator::FunctionElements>> datas = load.loadDatasFromFile(scriptPath);
+    std::vector<std::shared_ptr<Codegenerator::FunctionElements>> datas = load.loadDatasFromFile(scriptPath);
     ASSERT_EQ(datas.size(),2);
     ASSERT_EQ(datas[0].get()->getFunction(),"functionint");
     ASSERT_EQ(datas[0].get()->getModifier(),Codegenerator::CodegeneratorConstants::modifierPrivate);

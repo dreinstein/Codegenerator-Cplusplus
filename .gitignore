@@ -11,10 +11,10 @@ UnitTest/build-TestCodegenerator-Desktop_Qt_5_4_2_MinGW_32bit2-Release/
 UnitTest/build-TestCodegenerator-Desktop_Qt_5_5_1_MinGW_32bit-Debug/
 UnitTest/build-TestCodegenerator-Desktop_Qt_5_7_0_MinGW_32bit2-Debug/
 UnitTest/build-TestCodegenerator-Desktop_Qt_5_7_0_MinGW_32bit-Release/
-
-
-
-UnitTest/TestCodegenerator/TestCodegenerator.pro.user
+Sources/Codegenerator.pro.user*
+UnitTest/TestCodegenerator.pro.user*
+Sources/object_script.Codegenerator.*
+UnitTest/build-Testgenerator-Qt_*
 *.Debug
 *.Release
 UnitTest/build-TestCodegenerator-Desktop_Qt_5_7_0_MinGW_32bit-Debug/Makefile
@@ -26,3 +26,7 @@ UnitTest/Files/Scripts/xml/MixedFunctionsAndAttributes.xml.txt~
 UnitTest/Files/Scripts/xml/MixedFunctionsAndAttributes1.xml.txt
 UnitTest/Files/Scripts/xml/MixedFunctionsAndAttributes.xml~
 UnitTest/Files/Scripts/xml/test.xml
+Sources/debug/Codgenerator.exe
+Sources/release/Codegenerator.exe
+UnitTest/TestCodegenerator/debug/*
+UnitTest/TestCodegenerator/release/*
