@@ -26,8 +26,8 @@ UnitTest/Files/Scripts/xml/MixedFunctionsAndAttributes.xml.txt~
 UnitTest/Files/Scripts/xml/MixedFunctionsAndAttributes1.xml.txt
 UnitTest/Files/Scripts/xml/MixedFunctionsAndAttributes.xml~
 UnitTest/Files/Scripts/xml/test.xml
-Sources/debug/Codgenerator.exe
-Sources/release/Codegenerator.exe
+Sources/debug/*
+Sources/release/*
 UnitTest/TestCodegenerator/debug/*
 UnitTest/TestCodegenerator/release/*
 Sources/.qmake.stash
