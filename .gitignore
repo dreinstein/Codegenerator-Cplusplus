@@ -32,4 +32,9 @@ UnitTest/TestCodegenerator/debug/*
 UnitTest/TestCodegenerator/release/*
 Sources/.qmake.stash
 UnitTest/TestCodegenerator/.qmake.stash
+Souces/Makefile
+Sources/Makefile*
+UnitTest/TestCodegenerator/Makefile
+UnitTest/TestCodegenerator/Makefile*
+
 
