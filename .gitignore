@@ -30,5 +30,5 @@ Sources/debug/Codgenerator.exe
 Sources/release/Codegenerator.exe
 UnitTest/TestCodegenerator/debug/*
 UnitTest/TestCodegenerator/release/*
-Sources/.gmake.stash
+Sources/.qmake.stash
 
