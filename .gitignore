@@ -31,4 +31,5 @@ Sources/release/*
 UnitTest/TestCodegenerator/debug/*
 UnitTest/TestCodegenerator/release/*
 Sources/.qmake.stash
+UnitTest/TestCodegenerator/.qmake.stash
 
