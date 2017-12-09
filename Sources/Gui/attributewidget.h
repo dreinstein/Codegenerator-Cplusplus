@@ -22,6 +22,7 @@ public:
     explicit AttributeWidget(bool parameterSetting = false,QWidget *parent = 0);
     ~AttributeWidget();
     std::vector<std::shared_ptr<Codegenerator::AttributeElements>> getElements() {return vecElements;}
+    //std::shared_ptr<Codegenerator::AttributeElements*> getElementPointer() {return &(vecElements[0]);}
    // Ui::AttributeWidget* getUi(){return ui;}
     void setGui(Codegenerator::AttributeElements* elements);
 

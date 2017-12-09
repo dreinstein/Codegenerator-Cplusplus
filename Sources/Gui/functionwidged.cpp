@@ -84,9 +84,15 @@ void FunctionWidged::on_pushButton__Close_clicked()
 
 void FunctionWidged::fillGuiWithElements()
 {
-    ui->edit_FunctionName->setText(funcElements[0].get()->getFunction());
-    ui->edit_FunctionReturnValue->setText(funcElements[0].get()->getTyp());
-    if(funcElements[0].get()->getIsConstant())
+    setGui(funcElements[0].get());
+}
+
+
+void FunctionWidged::setGui(Codegenerator::FunctionElements* elements)
+{
+    ui->edit_FunctionName->setText(elements->getFunction());
+    ui->edit_FunctionReturnValue->setText(elements->getTyp());
+    if(elements->getIsConstant())
     {
         ui->checkBox_FunctionConst->setChecked(true);
     }
@@ -94,7 +100,7 @@ void FunctionWidged::fillGuiWithElements()
     {
         ui->checkBox_FunctionConst->setChecked(false);
     }
-    if(funcElements[0].get()->getIsPointer())
+    if(elements->getIsPointer())
     {
        ui->checkBox_FunctionPointer->setChecked(true);
     }
@@ -103,13 +109,14 @@ void FunctionWidged::fillGuiWithElements()
         ui->checkBox_FunctionPointer->setChecked(false);
     }
 
-    std::vector<Codegenerator::AttributeElements*> parameters = funcElements[0].get()->getFunctionParameters();
+    std::vector<Codegenerator::AttributeElements*> parameters = elements->getFunctionParameters();
     for(Codegenerator::AttributeElements* att : parameters )
     {
         ui->functionListWidget->addItem(att->getString());
     }
 
 }
+
 
 
 

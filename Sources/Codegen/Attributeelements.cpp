@@ -4,10 +4,10 @@
 namespace Codegenerator
 {
 
-AttributeElements::AttributeElements()
+/*AttributeElements::AttributeElements()
 {
 
-}
+}*/
 
 void AttributeElements::resetData()
 {

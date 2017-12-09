@@ -19,7 +19,8 @@ class FunctionWidged : public QDialog
 public:
     explicit FunctionWidged(QWidget *parent = 0);
     ~FunctionWidged();
-    std::shared_ptr<Codegenerator::FunctionElements> getElement() {return funcElements[0];}
+    std::vector<std::shared_ptr<Codegenerator::FunctionElements>> getElements() {return funcElements;}
+    void setGui(Codegenerator::FunctionElements* elements);
 
 private:
     Ui::FunctionWidged *ui;
@@ -30,7 +31,6 @@ private:
     void saveParameterEdit();
     void saveParameterNew();
     void refreshParamterList(std::vector<Codegenerator::AttributeElements*> attributes);
-
     int doubleClickedParameterIndex;
 
 signals:

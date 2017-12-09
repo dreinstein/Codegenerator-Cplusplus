@@ -5,18 +5,19 @@
 
 #include "Attributeelements.h"
 #include "QString"
+#include "baseelements.h"
 
 
 namespace Codegenerator
 {
-class FunctionElements
+class FunctionElements:public BaseElements
 {   
 public:
-    FunctionElements();
-    ~FunctionElements();
-    void setElements(QString element);
+    FunctionElements(){;}
+    virtual ~FunctionElements();
+    void setElements(QString element) override final;
     void setElements(FunctionElements* funcElements,QString element);
-    void resetData();
+    void resetData() override final;
     QString getFunction() const {return function;}
     void setFunction(QString _function){function = _function;}
     QString getModifier() const {return modifier;}
@@ -39,7 +40,12 @@ public:
     std::vector<AttributeElements*> getFunctionParameters(){return functionParameters;}
     void pushFunctionParameter(AttributeElements* param){functionParameters.push_back(param);}
     void emptyFunctionParameters(){functionParameters.clear();}
-    QString getString();
+    QString getString(bool const  isParameter=false) override final;
+
+
+    FunctionElements& operator= (const FunctionElements &ele);
+
+
 private:
     QString function;
     bool isReturnConstant;
@@ -52,7 +58,7 @@ private:
     bool isMemoryConstant;
     std::vector<AttributeElements*> functionParameters;
 
-    void defineElements(QString listelement, QString elementLast);
+    void defineElements(QString listelement, QString elementLast) override final;
     void deleteParameters();
 };
 }

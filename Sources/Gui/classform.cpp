@@ -6,9 +6,6 @@
 #include <QTextStream>
 
 
-
-
-
 ClassForm::ClassForm(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ClassForm)
@@ -16,21 +13,24 @@ ClassForm::ClassForm(QWidget *parent) :
     ui->setupUi(this);
 }
 
+
 ClassForm::~ClassForm()
 {
     delete ui;
 }
 
+
 void ClassForm::on_SaveButton_clicked()
 {
-    // save class informations
     this->close();
 }
+
 
 void ClassForm::on_CloseButton_clicked()
 {
     this->close();
 }
+
 
 void ClassForm::on_CreateFunctionButton_clicked()
 {
@@ -45,7 +45,6 @@ void ClassForm::on_CreateFunctionButton_clicked()
 
 }
 
-
 void ClassForm::closeFunctionFormWidget()
 {
     functionFormWidged->close();
@@ -56,14 +55,11 @@ void ClassForm::closeFunctionFormWidget()
 
 void ClassForm::saveFunctionFormWidget()
 {
-
-    std::shared_ptr<Codegenerator::FunctionElements>  funcElement = functionFormWidged->getElement();
-    ui->classListWidget->addItem(funcElement.get()->getString());
-    functionFormWidged->close();
-    delete functionFormWidged;
-    functionFormWidged = nullptr;
+    funcElements.push_back(functionFormWidged->getElements().at(0));
+    ui->classListWidget->addItem( funcElements[0].get()->getString());
+    elements.push_back(funcElements.back().get());
+    closeFunctionFormWidget();
 }
-
 
 
 void ClassForm::closeAttributeFormWidget()
@@ -71,7 +67,6 @@ void ClassForm::closeAttributeFormWidget()
     attributeFormWidged->close();
     delete attributeFormWidged;
     attributeFormWidged = nullptr;
-
 }
 
 
@@ -87,25 +82,32 @@ void ClassForm::on_CreateAttributeButton_clicked()
 
 }
 
+
 void ClassForm::saveAttributeFormWidget()
 {
-    std::vector<std::shared_ptr<Codegenerator::AttributeElements>>  attrElements = attributeFormWidged->getElements();
-    for(uint i=0;i<attrElements.size();++i)
-    {
-        ui->classListWidget->addItem(attrElements[i].get()->getString());
-        QString str = attrElements[i].get()->getString();
-        QTextStream out(stdout);
-        out <<str;
-    }
+    attrElements.push_back(attributeFormWidged->getElements().at(0));
+    ui->classListWidget->addItem( attrElements[0].get()->getString());
+    elements.push_back(attrElements.back().get());
     closeAttributeFormWidget();
 }
 
 
 
+void ClassForm::on_classListWidget_itemDoubleClicked(QListWidgetItem *item)
+{
+    doubleClickedParameterIndex = item->listWidget()->currentRow();
+    if(dynamic_cast<Codegenerator::AttributeElements*>(elements[doubleClickedParameterIndex]))
+    {
+        Codegenerator::AttributeElements* ele = dynamic_cast<Codegenerator::AttributeElements*>(elements[doubleClickedParameterIndex]);
+        on_CreateAttributeButton_clicked();
+        attributeFormWidged->setGui(ele);
 
-
-
-
-
-
+    }
+    if(dynamic_cast<Codegenerator::FunctionElements*>(elements[doubleClickedParameterIndex]))
+    {
+        Codegenerator::FunctionElements* ele = dynamic_cast<Codegenerator::FunctionElements*>(elements[doubleClickedParameterIndex]);
+        on_CreateFunctionButton_clicked();
+        functionFormWidged->setGui(ele);
+    }
+}
 

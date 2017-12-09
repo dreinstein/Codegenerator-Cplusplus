@@ -4,6 +4,9 @@
 #include <QWidget>
 #include "Gui/functionwidged.h"
 #include "Gui/attributewidget.h"
+#include "Codegen/baseelements.h"
+#include <memory>
+#include <vector>
 
 namespace Ui {
     class ClassForm;
@@ -32,10 +35,17 @@ private slots:
     void saveAttributeFormWidget();
 
 
+    void on_classListWidget_itemDoubleClicked(QListWidgetItem *item);
+
 private:
     Ui::ClassForm *ui;
     FunctionWidged* functionFormWidged = nullptr;
     AttributeWidget* attributeFormWidged = nullptr;
+    std::vector<Codegenerator::BaseElements*> elements;
+    int doubleClickedParameterIndex;
+    Codegenerator::FunctionElements *pEle=nullptr;
+    std::vector<std::shared_ptr<Codegenerator::FunctionElements>>  funcElements;
+    std::vector<std::shared_ptr<Codegenerator::AttributeElements>> attrElements;
 };
 
 

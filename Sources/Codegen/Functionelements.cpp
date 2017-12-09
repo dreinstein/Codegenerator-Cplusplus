@@ -6,15 +6,35 @@
 namespace Codegenerator
 {
 
-FunctionElements::FunctionElements()
-{
-}
 
 FunctionElements::~FunctionElements()
 {
     deleteParameters();
 }
 
+
+FunctionElements& FunctionElements::operator= (const FunctionElements &ele)
+{
+
+    if (this == &ele)
+        return *this;
+
+    this->function = ele.function;
+    this->isConstant = ele.isConstant;
+    this->isMemoryConstant = ele.isMemoryConstant;
+    this->isPointer = ele.isPointer;
+    this->isRef = ele.isRef;
+    this->isReturnConstant = ele.isReturnConstant;
+    this->modifier = ele.modifier;
+    this->typ = ele.typ;
+    AttributeElements* attEle;
+    foreach(attEle,ele.functionParameters)
+    {
+        this->getFunctionParameters().push_back(attEle);
+    }
+    // return the existing object so we can chain this operator
+    return *this;
+}
 
 void FunctionElements::deleteParameters()
 {
@@ -137,7 +157,7 @@ bool FunctionElements::getIsDefaultValue() const
     return false;
 }
 
-QString FunctionElements::getString()
+QString FunctionElements::getString(bool const)
 {
     QString s = getModifier();
     s += Codegenerator::CodegeneratorConstants::emptyChar;

@@ -3,6 +3,7 @@
 
 #include <QString>
 #include "Utilities.h"
+#include "baseelements.h"
 
 namespace Codegenerator
 {
@@ -21,11 +22,12 @@ struct AttributeModifiers
 };
 
 
-class AttributeElements
+class AttributeElements:public BaseElements
 {
 public:
-    AttributeElements();
-    void setElements(QString element);
+    AttributeElements(){;}
+    virtual ~AttributeElements(){;}
+    void setElements(QString element) override final;
     // tpy e.g int, double
     QString getTyp(){return modifiers.typ;}
     void setTyp(QString typ){modifiers.typ = typ;}
@@ -55,9 +57,9 @@ public:
     void setDefaultValue(QString defaultValue){modifiers.defaultValue = defaultValue;}
     bool getIsDefaultValue() const;
 
-    void defineElements(QString const listelement,QString const element);
-    void resetData();
-    QString getString(bool const  isParameter=false);
+    void defineElements(QString const listelement,QString const element) override final;
+    void resetData() override final;
+    QString getString(bool const  isParameter=false) override final;
 private:
     AttributeModifiers modifiers;
 };

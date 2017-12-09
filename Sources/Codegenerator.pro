@@ -83,7 +83,8 @@ HEADERS  += mainwindow.h \
     Gui/attributeload.h \
     Gui/attributewidget.h \
     mainwindow.h \
-    Gui/loadDatas.h
+    Gui/loadDatas.h \
+    Codegen/Baseelements.h
 
 FORMS    += mainwindow.ui \
     Gui/classform.ui \
