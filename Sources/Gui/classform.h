@@ -37,6 +37,8 @@ private slots:
 
     void on_classListWidget_itemDoubleClicked(QListWidgetItem *item);
 
+    void on_PushButton_delete_clicked();
+
 private:
     Ui::ClassForm *ui;
     FunctionWidged* functionFormWidged = nullptr;
@@ -46,6 +48,7 @@ private:
     Codegenerator::FunctionElements *pEle=nullptr;
     std::vector<std::shared_ptr<Codegenerator::FunctionElements>>  funcElements;
     std::vector<std::shared_ptr<Codegenerator::AttributeElements>> attrElements;
+    void refreshParamterList();
 };
 
 

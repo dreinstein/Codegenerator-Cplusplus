@@ -56,7 +56,7 @@ void ClassForm::closeFunctionFormWidget()
 void ClassForm::saveFunctionFormWidget()
 {
     funcElements.push_back(functionFormWidged->getElements().at(0));
-    ui->classListWidget->addItem( funcElements[0].get()->getString());
+    ui->classListWidget->addItem( funcElements.back().get()->getString());
     elements.push_back(funcElements.back().get());
     closeFunctionFormWidget();
 }
@@ -86,7 +86,7 @@ void ClassForm::on_CreateAttributeButton_clicked()
 void ClassForm::saveAttributeFormWidget()
 {
     attrElements.push_back(attributeFormWidged->getElements().at(0));
-    ui->classListWidget->addItem( attrElements[0].get()->getString());
+    ui->classListWidget->addItem( attrElements.back().get()->getString());
     elements.push_back(attrElements.back().get());
     closeAttributeFormWidget();
 }
@@ -111,3 +111,24 @@ void ClassForm::on_classListWidget_itemDoubleClicked(QListWidgetItem *item)
     }
 }
 
+
+void ClassForm::refreshParamterList()
+{
+    ui->classListWidget->clear();
+    for(auto ele:elements)
+    {
+         ui->classListWidget->addItem(ele->getString(true));
+    }
+}
+
+
+
+void ClassForm::on_PushButton_delete_clicked()
+{
+     int index = ui->classListWidget->currentRow();
+     {
+        std::vector<Codegenerator::BaseElements*>::iterator it = elements.begin() + index;
+        elements.erase(it);
+        refreshParamterList();
+     }
+}
