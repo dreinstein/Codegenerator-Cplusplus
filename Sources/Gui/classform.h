@@ -39,6 +39,10 @@ private slots:
 
     void on_PushButton_delete_clicked();
 
+    void on_pushButton_Down_clicked();
+
+    void on_pushButton_Up_clicked();
+
 private:
     Ui::ClassForm *ui;
     FunctionWidged* functionFormWidged = nullptr;

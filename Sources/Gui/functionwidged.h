@@ -30,6 +30,7 @@ private:
     void createParameterFormWidged();
     void saveParameterEdit();
     void saveParameterNew();
+    void loadDatasFromGuiElements();
     void refreshParamterList(std::vector<Codegenerator::AttributeElements*> attributes);
     int doubleClickedParameterIndex;
 

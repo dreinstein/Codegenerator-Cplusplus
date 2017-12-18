@@ -160,6 +160,7 @@ bool FunctionElements::getIsDefaultValue() const
 QString FunctionElements::getString(bool const)
 {
     QString s = getModifier();
+
     s += Codegenerator::CodegeneratorConstants::emptyChar;
     if(getIsReturnConstant())
     {

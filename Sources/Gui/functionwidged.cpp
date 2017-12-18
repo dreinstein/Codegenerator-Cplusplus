@@ -67,6 +67,24 @@ void FunctionWidged::on_pushButton_Open_clicked()
 
 void FunctionWidged::on_pushButton_Save_clicked()
 {
+    loadDatasFromGuiElements();
+    emit saveFunctionWidget();
+}
+
+void FunctionWidged::loadDatasFromGuiElements()
+{
+    if(ui->radioButton_Private->isChecked())
+    {
+        funcElements[0]->setModifier(Codegenerator::CodegeneratorConstants::modifierPrivate);
+    }
+    else if (ui->radioButton_Protected->isChecked())
+    {
+        funcElements[0]->setModifier(Codegenerator::CodegeneratorConstants::modifierProtected);
+    }
+    else
+    {
+        funcElements[0]->setModifier(Codegenerator::CodegeneratorConstants::modifierPublic);
+    }
     funcElements[0]->setFunction(ui->edit_FunctionName->text());
     funcElements[0]->setTyp(ui->edit_FunctionReturnValue->text());
     funcElements[0]->setIsReturnConstant(ui->checkBox_ReturnConst->isChecked());
@@ -74,7 +92,6 @@ void FunctionWidged::on_pushButton_Save_clicked()
     funcElements[0]->setIsPointer(ui->checkBox_FunctionPointer->isChecked());
     funcElements[0]->setIsRef(ui->checkBox_FunctionReference->isChecked());
     funcElements[0]->setIsConstant(ui->checkBox_FunctionConst->isChecked());
-    emit saveFunctionWidget();
 }
 
 void FunctionWidged::on_pushButton__Close_clicked()
@@ -90,6 +107,9 @@ void FunctionWidged::fillGuiWithElements()
 
 void FunctionWidged::setGui(Codegenerator::FunctionElements* elements)
 {
+    std::shared_ptr<Codegenerator::FunctionElements> sharedElement = std::make_shared<Codegenerator::FunctionElements>(*elements);
+    funcElements.clear();
+    funcElements.push_back(sharedElement);
     ui->edit_FunctionName->setText(elements->getFunction());
     ui->edit_FunctionReturnValue->setText(elements->getTyp());
     if(elements->getIsConstant())
@@ -114,11 +134,7 @@ void FunctionWidged::setGui(Codegenerator::FunctionElements* elements)
     {
         ui->functionListWidget->addItem(att->getString());
     }
-
 }
-
-
-
 
 void FunctionWidged::on_functionListWidget_itemDoubleClicked(QListWidgetItem *item)
 {
@@ -160,12 +176,10 @@ void FunctionWidged::saveParameterNew()
     ui->functionListWidget->addItem(attrElements[0].get()->getString(true));
 }
 
-
-
 void FunctionWidged::on_pushButton_deleteParamter_clicked()
 {
      int index = ui->functionListWidget->currentRow();
-     if(index <=0)
+     if(index >=0)
      {
         std::vector<Codegenerator::AttributeElements*> attributes = funcElements[0]->getFunctionParameters();
         std::vector<Codegenerator::AttributeElements*>::iterator it = attributes.begin() + index;
@@ -184,7 +198,6 @@ void FunctionWidged::refreshParamterList(std::vector<Codegenerator::AttributeEle
          ui->functionListWidget->addItem(element->getString(true));
     }
 }
-
 
 void FunctionWidged::on_pushButtonParameterUp_clicked()
 {
