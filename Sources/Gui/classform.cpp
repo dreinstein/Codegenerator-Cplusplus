@@ -4,11 +4,12 @@
 #include <stdio.h>
 #include <iostream>
 #include <QTextStream>
+#include "guidatamanager.h"
 
 
-ClassForm::ClassForm(QWidget *parent) :
+ClassForm::ClassForm(GuiDataManager* gDataManager, QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::ClassForm)
+    ui(new Ui::ClassForm), guiDataManager(gDataManager)
 {
     doubleClickedParameterIndex = -1;
     ui->setupUi(this);
@@ -77,20 +78,15 @@ void ClassForm::closeAttributeFormWidget()
 
 void ClassForm::saveFunctionFormWidget()
 {
+     std::shared_ptr<Codegenerator::FunctionElements> fElement = functionFormWidged->getElements().at(0);
     if(doubleClickedParameterIndex == -1)
     {
-        funcElements.push_back(functionFormWidged->getElements().at(0));
-        ui->classListWidget->addItem( funcElements.back().get()->getString());
-        elements.push_back(funcElements.back().get());
+        guiDataManager->push(fElement);
+        ui->classListWidget->addItem( fElement.get()->getString());
     }
     else
     {
-        std::vector<std::shared_ptr<Codegenerator::FunctionElements>>  felements = functionFormWidged->getElements();
-        funcElements.push_back(felements[0]);
-        std::vector<Codegenerator::BaseElements*>::iterator it = elements.begin() + doubleClickedParameterIndex;
-        elements.insert(it,felements[0].get());
-        it = elements.begin() + doubleClickedParameterIndex+1;
-        elements.erase(it);
+        guiDataManager->change(fElement,doubleClickedParameterIndex);
     }
     refreshParamterList();
     closeFunctionFormWidget();
@@ -99,20 +95,15 @@ void ClassForm::saveFunctionFormWidget()
 
 void ClassForm::saveAttributeFormWidget()
 {
+     std::shared_ptr<Codegenerator::AttributeElements> aElement = attributeFormWidged->getElements().at(0);
     if(doubleClickedParameterIndex == -1)
     {
-        attrElements.push_back(attributeFormWidged->getElements().at(0));
-        ui->classListWidget->addItem( attrElements.back().get()->getString());
-        elements.push_back(attrElements.back().get());
+        guiDataManager->push(aElement);
+        ui->classListWidget->addItem(aElement.get()->getString());
     }
     else
     {
-        std::vector<std::shared_ptr<Codegenerator::AttributeElements>>  aelements = attributeFormWidged->getElements();
-        attrElements.push_back(aelements[0]);
-        std::vector<Codegenerator::BaseElements*>::iterator it = elements.begin() + doubleClickedParameterIndex;
-        elements.insert(it,aelements[0].get());
-        it = elements.begin() + doubleClickedParameterIndex+1;
-        elements.erase(it);
+         guiDataManager->change(aElement,doubleClickedParameterIndex);
     }
     refreshParamterList();
     closeAttributeFormWidget();
@@ -122,25 +113,31 @@ void ClassForm::saveAttributeFormWidget()
 void ClassForm::on_classListWidget_itemDoubleClicked(QListWidgetItem *item)
 {
     doubleClickedParameterIndex = item->listWidget()->currentRow();
-    if(dynamic_cast<Codegenerator::AttributeElements*>(elements[doubleClickedParameterIndex]))
+    GuiDataManager::WidgetTypes widgedType = guiDataManager->getWidgetTyp(doubleClickedParameterIndex);
+    if(GuiDataManager::WidgetTypes::ATTRIBUTTETYPE == widgedType)
     {
-        Codegenerator::AttributeElements* ele = dynamic_cast<Codegenerator::AttributeElements*>(elements[doubleClickedParameterIndex]);
+        Codegenerator::AttributeElements* ele = guiDataManager->getAttributeElement(doubleClickedParameterIndex);
         on_CreateAttributeButton_clicked();
         attributeFormWidged->setGui(ele);
 
     }
-    if(dynamic_cast<Codegenerator::FunctionElements*>(elements[doubleClickedParameterIndex]))
+    else if (GuiDataManager::WidgetTypes::FUNCTIONTYPE == widgedType)
     {
-        Codegenerator::FunctionElements* ele = dynamic_cast<Codegenerator::FunctionElements*>(elements[doubleClickedParameterIndex]);
+        Codegenerator::FunctionElements* ele = guiDataManager->getFunctionElement(doubleClickedParameterIndex);
         on_CreateFunctionButton_clicked();
         functionFormWidged->setGui(ele);
+    }
+    else
+    {
+        Q_ASSERT(false);
     }
 }
 
 void ClassForm::refreshParamterList()
 {
     ui->classListWidget->clear();
-    for(auto ele:elements)
+    std::vector<Codegenerator::BaseElements*> bElements = guiDataManager->getElements();
+    for(auto ele:bElements)
     {
          ui->classListWidget->addItem(ele->getString(true));
     }
@@ -153,21 +150,18 @@ void ClassForm::on_PushButton_delete_clicked()
      int index = ui->classListWidget->currentRow();
      if(index >=0)
      {
-        std::vector<Codegenerator::BaseElements*>::iterator it = elements.begin() + index;
-        elements.erase(it);
+        guiDataManager->deleteItem(index);
         refreshParamterList();
      }
 }
+
 
 void ClassForm::on_pushButton_Down_clicked()
 {
     int index = ui->classListWidget->currentRow();
     if((index >= 0) && (index < ui->classListWidget->count()-1))
     {
-        std::vector<Codegenerator::BaseElements*>::iterator it = elements.begin() + index;
-        Codegenerator::BaseElements *tempElement = elements.at(index);
-        elements.erase(it);
-        elements.insert(it+1,tempElement);
+        guiDataManager->down(index);
         refreshParamterList();
     }
 }
@@ -178,10 +172,12 @@ void ClassForm::on_pushButton_Up_clicked()
     int index = ui->classListWidget->currentRow();
     if(index > 0)
     {
-        std::vector<Codegenerator::BaseElements*>::iterator it = elements.begin() + index;
-        Codegenerator::BaseElements *tempElement = elements.at(index);
-        elements.erase(it);
-        elements.insert(it-1,tempElement);
+        guiDataManager->up(index);
         refreshParamterList();
     }
+}
+
+void ClassForm::on_CreateSourceButton_clicked()
+{
+
 }

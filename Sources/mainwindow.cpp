@@ -4,6 +4,7 @@
 #include "ui_mainwindow.h"
 
 #include "Gui/classform.h"
+#include "Gui/guidatamanager.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -37,7 +38,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::newFile()
 {
-    classFormWidget = new ClassForm();
+    guiDataManager = new GuiDataManager();
+    classFormWidget = new ClassForm(guiDataManager);
     classFormWidget->show();
 
     connect(classFormWidget, SIGNAL(closeWidget()),
@@ -53,6 +55,7 @@ void MainWindow::closeApp()
 void MainWindow::closeClassFormWidget()
 {
     classFormWidget->close();
+    delete guiDataManager;
     delete classFormWidget;
     classFormWidget = nullptr;
 }

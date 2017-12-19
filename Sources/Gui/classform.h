@@ -12,13 +12,14 @@ namespace Ui {
     class ClassForm;
 }
 
+class GuiDataManager;
 
 class ClassForm : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit ClassForm(QWidget *parent = 0);
+    explicit ClassForm(GuiDataManager *gDataManager, QWidget *parent = 0);
     ~ClassForm();
 
 signals:
@@ -33,25 +34,18 @@ private slots:
     void closeAttributeFormWidget();
     void on_CreateAttributeButton_clicked();
     void saveAttributeFormWidget();
-
-
     void on_classListWidget_itemDoubleClicked(QListWidgetItem *item);
-
     void on_PushButton_delete_clicked();
-
     void on_pushButton_Down_clicked();
-
     void on_pushButton_Up_clicked();
+    void on_CreateSourceButton_clicked();
 
 private:
     Ui::ClassForm *ui;
+    GuiDataManager* guiDataManager;
     FunctionWidged* functionFormWidged = nullptr;
     AttributeWidget* attributeFormWidged = nullptr;
-    std::vector<Codegenerator::BaseElements*> elements;
     int doubleClickedParameterIndex;
-    Codegenerator::FunctionElements *pEle=nullptr;
-    std::vector<std::shared_ptr<Codegenerator::FunctionElements>>  funcElements;
-    std::vector<std::shared_ptr<Codegenerator::AttributeElements>> attrElements;
     void refreshParamterList();
 };
 

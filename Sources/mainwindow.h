@@ -3,10 +3,10 @@
 
 #include <QtWidgets>
 #include <QMainWindow>
-
 //#include "Gui/classform.h"
 
 class ClassForm;
+class GuiDataManager;
 
 
 class MainWindow : public QMainWindow
@@ -22,6 +22,7 @@ private slots:
     void closeClassFormWidget();
 private:
     ClassForm* classFormWidget = nullptr;
+    GuiDataManager *guiDataManager = nullptr;
 };
 
 

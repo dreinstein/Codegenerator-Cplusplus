@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>302</width>
-    <height>403</height>
+    <height>478</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -200,6 +200,18 @@
              </property>
              <property name="text">
               <string>Save</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="CreateSourceButton">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Create</string>
              </property>
             </widget>
            </item>
