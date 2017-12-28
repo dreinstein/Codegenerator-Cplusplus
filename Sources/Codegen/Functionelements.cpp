@@ -6,6 +6,10 @@
 namespace Codegenerator
 {
 
+FunctionElements::FunctionElements()
+{
+    resetData();
+}
 
 FunctionElements::~FunctionElements()
 {

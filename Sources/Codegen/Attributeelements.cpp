@@ -4,10 +4,10 @@
 namespace Codegenerator
 {
 
-/*AttributeElements::AttributeElements()
+AttributeElements::AttributeElements()
 {
-
-}*/
+    resetData();
+}
 
 void AttributeElements::resetData()
 {
@@ -96,14 +96,16 @@ QString AttributeElements::getString(bool const isParameter)
         {
             string += Codegenerator::CodegeneratorConstants::modifierPublic;
         }
+         string += Codegenerator::CodegeneratorConstants::emptyChar;
     }
-    string += Codegenerator::CodegeneratorConstants::emptyChar;
+
 
     if(modifiers.isConstant)
     {
         string += Codegenerator::CodegeneratorConstants::constant;
+        string += Codegenerator::CodegeneratorConstants::emptyChar;
     }
-    string += Codegenerator::CodegeneratorConstants::emptyChar;
+
 
     string += modifiers.typ;
     string += Codegenerator::CodegeneratorConstants::emptyChar;
@@ -111,6 +113,7 @@ QString AttributeElements::getString(bool const isParameter)
     if(modifiers.isPointer)
     {
         string += Codegenerator::CodegeneratorConstants::pointer;
+        string += Codegenerator::CodegeneratorConstants::emptyChar;
         if(modifiers.isMemoryConstant)
         {
             string += Codegenerator::CodegeneratorConstants::emptyChar;
@@ -121,8 +124,9 @@ QString AttributeElements::getString(bool const isParameter)
     if(modifiers.isRef)
     {
         string += Codegenerator::CodegeneratorConstants::reference;
+        string += Codegenerator::CodegeneratorConstants::emptyChar;
     }
-    string += Codegenerator::CodegeneratorConstants::emptyChar;
+
     string += modifiers.attribute;
 
     if(modifiers.defaultValue != "")

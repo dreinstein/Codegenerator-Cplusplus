@@ -13,7 +13,7 @@ namespace Codegenerator
 class FunctionElements:public BaseElements
 {   
 public:
-    FunctionElements(){;}
+    FunctionElements();
     virtual ~FunctionElements();
     void setElements(QString element) override final;
     void setElements(FunctionElements* funcElements,QString element);

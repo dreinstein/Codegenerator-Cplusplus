@@ -25,7 +25,7 @@ struct AttributeModifiers
 class AttributeElements:public BaseElements
 {
 public:
-    AttributeElements(){;}
+    AttributeElements();
     virtual ~AttributeElements(){;}
     void setElements(QString element) override final;
     // tpy e.g int, double

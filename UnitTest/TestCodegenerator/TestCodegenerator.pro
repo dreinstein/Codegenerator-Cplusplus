@@ -53,7 +53,9 @@ SOURCES += Main.cpp \
     ../../Sources/Codegen/Attributegenerator.cpp \
     ../../Sources/Codegen/basecodegenerator.cpp \
     ../../Sources/Codegen/classgenerator.cpp \
-    ../../Sources/Gui/attributeload.cpp
+    ../../Sources/Gui/attributeload.cpp \
+    guidatamanagertest.cpp \
+    ../../Sources/Gui/guidatamanager.cpp
 
 HEADERS += \
     ../../Sources/GeneratorCPlusPlus.h \
@@ -102,7 +104,8 @@ HEADERS += \
     ../../Sources/Parsing/RulesC++.h \
     ../../Sources/GeneratorCPlusPlus.h \
     ../../Sources/ui_attributewidget.h \
-    ../../Sources/Gui/loadDatas.h
+    ../../Sources/Gui/loadDatas.h \
+    ../../Sources/Gui/guidatamanager.h
 
 SUBDIRS += \
     ../../Sources/Codegenerator.pro
