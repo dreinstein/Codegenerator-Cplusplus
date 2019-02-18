@@ -2,7 +2,7 @@
 #define EXCETIONHANDLING_H
 
 #include <string>
-#include <exception>
+
 
 using namespace std;
 
@@ -11,9 +11,9 @@ using namespace std;
 namespace Errorhandling
 {
 
-class Exceptionhandling:public exception
+class Exceptionhandling//:public std::exception
 {
-protected:
+public:
     enum class ExceptionCodes
     {
         OpenFileException       = 1,
@@ -24,10 +24,10 @@ protected:
 
 
 public:
-   // Excetionhandling();
+    Exceptionhandling(){;}
     virtual ~Exceptionhandling(){;}
-    virtual ExceptionCodes whatCode() const throw ()=0;
-    virtual std::string whatDescription() const throw () = 0;
+    virtual ExceptionCodes whatCode() const = 0;
+    virtual std::string whatDescription() const  = 0;
 };
 
 }

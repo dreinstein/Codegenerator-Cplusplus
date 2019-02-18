@@ -10,10 +10,10 @@ class ScriptException : public Exceptionhandling
 {
 
 public:
-    ScriptException();
-    virtual ~ScriptException();
-    Exceptionhandling::ExceptionCodes whatCode() const throw () override final;
-    virtual std::string whatDescription() const throw () override ;
+    ScriptException() ;
+    virtual ~ScriptException();// override;
+    Exceptionhandling::ExceptionCodes whatCode() const override final;
+    virtual std::string whatDescription() const override ;
 private:
     const std::string error = "script Error";
 };

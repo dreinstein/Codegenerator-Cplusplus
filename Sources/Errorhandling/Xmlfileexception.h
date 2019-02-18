@@ -11,9 +11,9 @@ class XMLFileException : public Exceptionhandling
 {
 public:
     XMLFileException();
-    virtual ~XMLFileException();
-    Exceptionhandling::ExceptionCodes whatCode() const throw ();
-    virtual std::string whatDescription() const throw ();
+    virtual ~XMLFileException() override;
+    Exceptionhandling::ExceptionCodes whatCode() const override final;
+    virtual std::string whatDescription() const override final;
 private:
     const std::string error = "xml format not valid";
 };

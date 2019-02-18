@@ -3,18 +3,10 @@
 namespace Errorhandling
 {
 
-AttributeScriptException::AttributeScriptException()
-{
-
-}
-
-AttributeScriptException::~AttributeScriptException()
-{
-
-}
 
 
-std::string AttributeScriptException::whatDescription() const throw ()
+
+std::string AttributeScriptException::whatDescription() const
 {
     return error;
 }
