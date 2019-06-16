@@ -1,0 +1,8 @@
+C:/codegenerator/Codegenerator-Cplusplus/googlemock/Build/CMakeFiles/edit_cache.dir
+C:/codegenerator/Codegenerator-Cplusplus/googlemock/Build/CMakeFiles/gmock_main.dir
+C:/codegenerator/Codegenerator-Cplusplus/googlemock/Build/CMakeFiles/gmock.dir
+C:/codegenerator/Codegenerator-Cplusplus/googlemock/Build/CMakeFiles/rebuild_cache.dir
+C:/codegenerator/Codegenerator-Cplusplus/googlemock/Build/gtest/CMakeFiles/gtest.dir
+C:/codegenerator/Codegenerator-Cplusplus/googlemock/Build/gtest/CMakeFiles/gtest_main.dir
+C:/codegenerator/Codegenerator-Cplusplus/googlemock/Build/gtest/CMakeFiles/edit_cache.dir
+C:/codegenerator/Codegenerator-Cplusplus/googlemock/Build/gtest/CMakeFiles/rebuild_cache.dir

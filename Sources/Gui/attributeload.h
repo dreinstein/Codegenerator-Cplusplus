@@ -4,6 +4,7 @@
 #include "Codegen/Attributeelements.h"
 
 #include <memory>
+#include <vector>
 
 namespace Ui
 {
@@ -12,14 +13,14 @@ namespace Ui
 
 class AttributeWidget;
 
-
+using namespace std;
 
 class AttributeLoad
 {
 public:
     AttributeLoad(){;}
     ~AttributeLoad(){;}
-    std::vector<std::unique_ptr<Codegenerator::AttributeElements>> loadDatasFromFile(QString path);
+    vector<std::unique_ptr<Codegenerator::AttributeElements>> loadDatasFromFile(QString path);
 };
 
 

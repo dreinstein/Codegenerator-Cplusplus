@@ -1,0 +1,5 @@
+#ifndef BASEEVALUATOR
+#define BASEEVALUATOR
+
+#endif // BASEEVALUATOR
+

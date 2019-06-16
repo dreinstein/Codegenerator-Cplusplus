@@ -50,14 +50,14 @@ std::map<QString, QString> ParserImplText::doParseForMap(const QString val) cons
     str += "\\";
     QString wcharp= str;
     wcharp += "*";
-    auto wstr = wcharp.toStdWString();
-    std::wstring fileWString;
+    auto mstr = wcharp.toStdString();
+    std::string fileNString;
     QString valueString = str;
-    fHandle=FindFirstFile(wstr.c_str(),&wfd);
+    fHandle=FindFirstFile(mstr.c_str(),&wfd);
     do
     {
-        fileWString = wfd.cFileName;
-        std::string fileString( fileWString.begin(), fileWString.end() );
+        fileNString = wfd.cFileName;
+        std::string fileString( fileNString.begin(), fileNString.end() );
         if((fileString != ".") && (fileString != ".."))
         {
             valueString = str;

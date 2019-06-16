@@ -5,7 +5,7 @@
 #include "Parsing/Parser.h"
 #include "Base/BaseGenerator.h"
 #include "Base/BaseEvaluator.h"
-#include "Evaluator.h"
+#include "evaluator.h"
 #include "GeneratorCPlusPlus.h"
 #include "Codegen/CPluspluscodegenerator.h"
 #include "ParserFassade.h"

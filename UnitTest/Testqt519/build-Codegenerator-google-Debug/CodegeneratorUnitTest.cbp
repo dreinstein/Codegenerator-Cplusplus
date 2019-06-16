@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="CodegeneratorUnitTest"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\Qt\;CMake Files\..\..\..\..\..\Qt\5.12.3\;CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\;CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\;CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\;CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Core\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/build-Codegenerator-google-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 all"/>
+					<CompileFile command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CodegeneratorUnitTest">
+				<Option output="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/build-Codegenerator-google-Debug/CodegeneratorUnitTest.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/build-Codegenerator-google-Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DGTEST_LANGUAGE_CXX11"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/build-Codegenerator-google-Debug/CodegeneratorUnitTest_autogen/include"/>
+					<Add directory="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/../../../Sources"/>
+					<Add directory="C:/codegenerator/Codegenerator-Cplusplus/googletest_forqt519/googletest-master/googletest"/>
+					<Add directory="C:/codegenerator/Codegenerator-Cplusplus/googletest_forqt519/googletest-master/googletest/include"/>
+					<Add directory="C:/codegenerator/Codegenerator-Cplusplus/googletest_forqt519/googletest-master/googlemock"/>
+					<Add directory="C:/codegenerator/Codegenerator-Cplusplus/googletest_forqt519/googletest-master/googlemock/include"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/include"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/include/QtCore"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/./mkspecs/win32-g++"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 CodegeneratorUnitTest"/>
+					<CompileFile command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CodegeneratorUnitTest/fast">
+				<Option output="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/build-Codegenerator-google-Debug/CodegeneratorUnitTest.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/build-Codegenerator-google-Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DGTEST_LANGUAGE_CXX11"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/build-Codegenerator-google-Debug/CodegeneratorUnitTest_autogen/include"/>
+					<Add directory="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/../../../Sources"/>
+					<Add directory="C:/codegenerator/Codegenerator-Cplusplus/googletest_forqt519/googletest-master/googletest"/>
+					<Add directory="C:/codegenerator/Codegenerator-Cplusplus/googletest_forqt519/googletest-master/googletest/include"/>
+					<Add directory="C:/codegenerator/Codegenerator-Cplusplus/googletest_forqt519/googletest-master/googlemock"/>
+					<Add directory="C:/codegenerator/Codegenerator-Cplusplus/googletest_forqt519/googletest-master/googlemock/include"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/include"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/include/QtCore"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/./mkspecs/win32-g++"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 CodegeneratorUnitTest/fast"/>
+					<CompileFile command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/build-Codegenerator-google-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/build-Codegenerator-google-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CodegeneratorUnitTest_autogen">
+				<Option working_dir="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/build-Codegenerator-google-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 CodegeneratorUnitTest_autogen"/>
+					<CompileFile command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="jom /NOLOGO /f C:\codegenerator\Codegenerator-Cplusplus\UnitTest\Testqt519\build-Codegenerator-google-Debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Base/BaseGenerator.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegen/Attributeelements.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegen/Attributeelements.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegen/Attributegenerator.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegen/Attributegenerator.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegen/Basecodegenerator.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegen/CPluspluscodegenerator.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegen/CPluspluscodegenerator.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegen/Fuctioncodegenerator.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegen/Fuctioncodegenerator.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegen/Functionelements.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegen/Functionelements.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegen/basecodegenerator.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegen/basecodegenerator.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegen/classgenerator.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegen/classgenerator.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegen/codegeneratorconstants.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegen/codegeneratorconstants.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegeneratorfassade.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Codegeneratorfassade.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Errorhandling/OpenfileException.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Errorhandling/Xmlfileexception.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Errorhandling/Xmlfileexception.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Errorhandling/openfileexception.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Errorhandling/openfileexception.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/GeneratorCPlusPlus.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/GeneratorCPusPlus.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Gui/guidatamanager.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Gui/guidatamanager.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/ParserFassade.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/ParserFassade.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Parsing/KeywordsCPlusPlus.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Parsing/KeywordsCPlusPlus.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Parsing/Keywordscplusplus.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Parsing/Parser.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Parsing/ParserimplementationText.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Parsing/Rulescplusplus.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Parsing/Rulescplusplus.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Parsing/Script.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Parsing/Script.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Parsing/parserimplementationText.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Parsing/parserimplementationText.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Parsing/parserimplementationxml.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Parsing/parserimplementationxml.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/Utilities.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/evaluator.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/evaluator.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/utilities.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/Sources/utilities.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/ReceiveDataTest.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/baseevaluator.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/classtest.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/evaluatetest.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/evaluatetest.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/extractstringstest.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/functiontest.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/guiattribute.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/guiattribute.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/guidatamanagertest.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/mockcpluspluscodegenerator.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/mockcpluspluscodegenerator.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/mockparser.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/parsertest.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/systemtest.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/testdatagenerator.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/testdatagenerator.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/testutilities.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/Source/testutilities.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/main.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/tst_testcodegenerator.h">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/build-Codegenerator-google-Debug/CodegeneratorUnitTest_autogen/mocs_compilation.cpp">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/googletest_forqt519/googletest-master/googlemock/src/gmock-all.cc">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/googletest_forqt519/googletest-master/googletest/src/gtest-all.cc">
+			<Option target="CodegeneratorUnitTest"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Core/Qt5CoreConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/Codegenerator/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Core/Qt5CoreMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,4 @@
+C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/build-CodegeneratorTest-google-Vorgabe/CMakeFiles/TestCodegenerator.dir
+C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/build-CodegeneratorTest-google-Vorgabe/CMakeFiles/edit_cache.dir
+C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/build-CodegeneratorTest-google-Vorgabe/CMakeFiles/rebuild_cache.dir
+C:/codegenerator/Codegenerator-Cplusplus/UnitTest/Testqt519/build-CodegeneratorTest-google-Vorgabe/CMakeFiles/TestCodegenerator_autogen.dir

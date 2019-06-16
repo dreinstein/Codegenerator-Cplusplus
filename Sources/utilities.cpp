@@ -3,10 +3,10 @@
 
 using namespace General;
 
-QString General::FilePath::RulesCPlusPlus = "..\\Files\\Rules";
-QString General::FilePath::KeywordsCPlusPlus = "..\\Files\\Keywords\\myFirstKeywords.txt";
-QString General::FilePath::SourceFileName = "..\\Files\\Generated\\SourceFile.cpp";
-QString General::FilePath::HeaderFileName = "..\\Files\\Generated\\HeaderFile.cpp";
+QString General::FilePath::RulesCPlusPlus = "..\\..\\Files\\Rules";
+QString General::FilePath::KeywordsCPlusPlus = "..\\..\\Files\\Keywords\\myFirstKeywords.txt";
+QString General::FilePath::SourceFileName = "..\\..\\Files\\Generated\\SourceFile.cpp";
+QString General::FilePath::HeaderFileName = "..\\..\\Files\\Generated\\HeaderFile.cpp";
 QString General::ExtractString::STRINGSEPERATOR = "@";
 QString General::ExtractString::SUBSTRINGSEPERATOR = "::";
 QString General::ExtractString::PARAMETERSEPERATOR = "@parameter";

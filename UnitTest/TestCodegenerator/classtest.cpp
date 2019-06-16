@@ -1,6 +1,4 @@
 
-#include "../../gtest/gtest.h"
-#include "../../gmock/gmock.h"
 #include "mockparser.h"
 #include "Parsing/ParserimplementationText.h"
 #include "Codegen/Basecodegenerator.h"
