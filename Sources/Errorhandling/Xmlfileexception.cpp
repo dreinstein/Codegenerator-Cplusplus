@@ -16,12 +16,12 @@ XMLFileException::~XMLFileException()
 
 }
 
-std::string XMLFileException::whatDescription() const throw ()
+std::string XMLFileException::whatDescription() const
 {
     return error;
 }
 
-Exceptionhandling::ExceptionCodes XMLFileException::whatCode() const throw ()
+Exceptionhandling::ExceptionCodes XMLFileException::whatCode() const
 {
     return ExceptionCodes::XMLNotValidException;
 }

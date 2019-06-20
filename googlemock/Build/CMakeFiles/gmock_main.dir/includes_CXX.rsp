@@ -1,0 +1,1 @@
+-isystem C:/codegenerator/Codegenerator-Cplusplus/googlemock/include -isystem C:/codegenerator/Codegenerator-Cplusplus/googlemock -isystem C:/codegenerator/Codegenerator-Cplusplus/googletest/include -isystem C:/codegenerator/Codegenerator-Cplusplus/googletest 

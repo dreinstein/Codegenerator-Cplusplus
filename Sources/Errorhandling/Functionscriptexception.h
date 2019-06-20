@@ -12,8 +12,8 @@ class FunctionScriptException : public ScriptException
 {
 public:
     FunctionScriptException();
-    virtual ~FunctionScriptException();
-    virtual std::string whatDescription() const throw () override final;
+    virtual ~FunctionScriptException();// override final;
+    virtual std::string whatDescription() const override final;
 private:
     const std::string error = "Script error, error in defining Functions";
 };

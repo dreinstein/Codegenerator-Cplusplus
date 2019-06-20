@@ -41,33 +41,33 @@ std::vector<QString> ParserImplText::doParseForVec(const QString path)
 
 
 // get hash fileName(Keyword,path)
-std::map<QString, QString> ParserImplText::doParseForMap(const QString val) const
+std::map<QString, QString> ParserImplText::doParseForMap(QString val) const
 {
     HANDLE fHandle;
-    WIN32_FIND_DATA wfd;
+    WIN32_FIND_DATAA wfd;
     std::map<QString, QString> map;
     QString str = val;
-    str += "\\";
-    QString wcharp= str;
+    val += "\\";
+    QString wcharp= val;
     wcharp += "*";
-    auto wstr = wcharp.toStdWString();
-    std::wstring fileWString;
+ //   auto mstr = wcharp.toStdString();
+    std::string fileNString;
     QString valueString = str;
-    fHandle=FindFirstFile(wstr.c_str(),&wfd);
+    fHandle=FindFirstFileA(wcharp.toStdString().c_str(),&wfd);
     do
     {
-        fileWString = wfd.cFileName;
-        std::string fileString( fileWString.begin(), fileWString.end() );
+        fileNString = wfd.cFileName;
+        std::string fileString( fileNString.begin(), fileNString.end() );
         if((fileString != ".") && (fileString != ".."))
         {
-            valueString = str;
+            valueString = val;
             valueString.append(fileString.c_str());
             fileString.erase(fileString.end()-4,fileString.end());
             QString mapString(fileString.c_str());
             map[mapString] = valueString;
         }
     }
-    while (FindNextFile(fHandle,&wfd));
+    while (FindNextFileA(fHandle,&wfd));
     FindClose(fHandle);
     return map;
 }

@@ -3,22 +3,14 @@
 namespace Errorhandling
 {
 
-FileNotValidException::FileNotValidException()
-{
 
-}
 
-FileNotValidException::~FileNotValidException()
-{
-
-}
-
-Exceptionhandling::ExceptionCodes FileNotValidException::whatCode() const throw ()
+Exceptionhandling::ExceptionCodes FileNotValidException::whatCode() const
 {
     return ExceptionCodes::FileNotValidException;
 }
 
-std::string FileNotValidException::whatDescription() const throw ()
+std::string FileNotValidException::whatDescription() const
 {
     return error;
 }

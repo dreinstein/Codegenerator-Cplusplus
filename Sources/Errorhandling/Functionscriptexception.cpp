@@ -2,17 +2,9 @@
 namespace Errorhandling
 {
 
-FunctionScriptException::FunctionScriptException()
-{
 
-}
 
-FunctionScriptException::~FunctionScriptException()
-{
-
-}
-
-std::string FunctionScriptException::whatDescription() const throw ()
+std::string FunctionScriptException::whatDescription() const
 {
     return error;
 }

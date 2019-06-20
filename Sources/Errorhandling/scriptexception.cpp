@@ -4,22 +4,14 @@
 namespace Errorhandling
 {
 
-ScriptException::ScriptException()
-{
 
-}
 
-ScriptException::~ScriptException()
-{
-
-}
-
-Exceptionhandling::ExceptionCodes ScriptException::whatCode() const throw ()
+Exceptionhandling::ExceptionCodes ScriptException::whatCode() const
 {
     return ExceptionCodes::ScriptException;
 }
 
-std::string ScriptException::whatDescription() const throw ()
+std::string ScriptException::whatDescription() const
 {
     return error;
 }

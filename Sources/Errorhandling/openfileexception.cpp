@@ -3,6 +3,8 @@
 namespace Errorhandling
 {
 
+
+
 OpenFileException::OpenFileException()
 {
 
@@ -13,12 +15,12 @@ OpenFileException::~OpenFileException()
 
 }
 
-Exceptionhandling::ExceptionCodes OpenFileException::whatCode() const throw ()
+Exceptionhandling::ExceptionCodes OpenFileException::whatCode() const
 {
-    return ExceptionCodes::OpenFileException;
+    return Exceptionhandling::ExceptionCodes::OpenFileException;
 }
 
-std::string OpenFileException::whatDescription() const throw ()
+std::string OpenFileException::whatDescription() const
 {
     return error;
 }

@@ -3,21 +3,21 @@
 
 #include "Exceptionhandling.h"
 #include <string>
+#include <exception>
 
 
 namespace Errorhandling
 {
 
-class OpenFileException: public Exceptionhandling
+class OpenFileException:public Exceptionhandling
 {
-private:
 public:
-    OpenFileException();
-    virtual ~OpenFileException();
-    Exceptionhandling::ExceptionCodes whatCode() const throw () override final;
-    std::string whatDescription() const throw () override final;
+    OpenFileException(); //noexcept ;
+    virtual ~OpenFileException() override;
+    virtual ExceptionCodes whatCode() const override;
+    virtual std::string whatDescription() const override;
 private:
-    const std::string error = "annot read File";
+    const std::string error = "cannot read File";
 };
 
 }
